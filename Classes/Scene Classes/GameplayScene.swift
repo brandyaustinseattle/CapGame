@@ -19,6 +19,7 @@ class GameplayScene: SKScene {
     func initialize() {
         createPlayer();
         createBackground();
+        createTrees();
         createPath();
     }
     
@@ -30,6 +31,18 @@ class GameplayScene: SKScene {
             mountains.position = CGPoint(x: CGFloat(i) * mountains.size.width, y:0);
             mountains.zPosition = 0;
             self.addChild(mountains);
+        }
+    }
+    
+    func createTrees() {
+        for i in 0...2 {
+            let trees = SKSpriteNode(imageNamed: "trees");
+            trees.name = "trees";
+            trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            trees.position = CGPoint(x: CGFloat(i) * trees.size.width, y:0);
+            trees.zPosition = 1;
+            trees.setScale(0.70);
+            self.addChild(trees);
         }
     }
     
@@ -51,6 +64,5 @@ class GameplayScene: SKScene {
         player.position = CGPoint(x: -650, y: -200);
         self.addChild(player);
     }
-    
     
 }
