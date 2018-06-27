@@ -18,6 +18,31 @@ class GameplayScene: SKScene {
     
     func initialize() {
         createPlayer();
+        createBackground();
+        createPath();
+    }
+    
+    func createBackground() {
+        for i in 0...2 {
+            let mountains = SKSpriteNode(imageNamed: "mountains");
+            mountains.name = "mountains";
+            mountains.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            mountains.position = CGPoint(x: CGFloat(i) * mountains.size.width, y:0);
+            mountains.zPosition = 0;
+            self.addChild(mountains);
+        }
+    }
+    
+    func createPath() {
+        for i in 0...2 {
+            let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
+            lowAddOn.name = "lowAddOn";
+            lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            lowAddOn.position = CGPoint(x: CGFloat(i) * (lowAddOn.size.width * 0.55) + -595, y: -305);
+            lowAddOn.zPosition = 3;
+            lowAddOn.setScale(0.55);
+            self.addChild(lowAddOn);
+        }
     }
     
     func createPlayer() {
