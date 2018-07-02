@@ -66,7 +66,7 @@ class GameplayScene: SKScene {
     
     
     func createPath() {
-        for i in 0...2 {
+        for i in 0...4 {
             let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
             lowAddOn.name = "lowAddOn";
             lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -86,7 +86,7 @@ class GameplayScene: SKScene {
     func createPlayer() {
         player = Player(imageNamed: "testPlayer");
         player.initialize();
-        player.position = CGPoint(x: -650, y: 200);
+        player.position = CGPoint(x: -580, y: 200);
         self.addChild(player);
     }
     

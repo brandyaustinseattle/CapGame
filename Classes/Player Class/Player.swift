@@ -19,10 +19,11 @@ class Player: SKSpriteNode {
     func initialize() {
         self.name = "Player";
         self.zPosition = 2;
-        self.anchorPoint = CGPoint(x: 0, y: 0);
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         self.setScale(0.25);
         
         self.physicsBody = SKPhysicsBody(rectangleOf: self.size);
+        
         self.physicsBody?.categoryBitMask = PhysicsCategory.player;
         self.physicsBody?.affectedByGravity = true;
         self.physicsBody?.allowsRotation = false;
