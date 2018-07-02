@@ -15,7 +15,6 @@
 		D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30738E120E2B5CB0054DEE6 /* LaunchScreen.storyboard */; };
 		D30738F020E2B68A0054DEE6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30738EF20E2B68A0054DEE6 /* Player.swift */; };
 		D30738F220E2B6AE0054DEE6 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30738F120E2B6AE0054DEE6 /* GameplayScene.swift */; };
-		D30738F420E2B6D20054DEE6 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30738F320E2B6D20054DEE6 /* GameplayScene.sks */; };
 		D307392020E2B79F0054DEE6 /* running4.png in Resources */ = {isa = PBXBuildFile; fileRef = D30738F820E2B79F0054DEE6 /* running4.png */; };
 		D307392120E2B79F0054DEE6 /* running1.png in Resources */ = {isa = PBXBuildFile; fileRef = D30738F920E2B79F0054DEE6 /* running1.png */; };
 		D307392220E2B79F0054DEE6 /* running2.png in Resources */ = {isa = PBXBuildFile; fileRef = D30738FA20E2B79F0054DEE6 /* running2.png */; };
@@ -49,6 +48,7 @@
 		D307393E20E2B79F0054DEE6 /* slideA2.png in Resources */ = {isa = PBXBuildFile; fileRef = D307391E20E2B79F0054DEE6 /* slideA2.png */; };
 		D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */ = {isa = PBXBuildFile; fileRef = D307391F20E2B79F0054DEE6 /* slideA1.png */; };
 		D307394120E2BB480054DEE6 /* testPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = D307394020E2BB470054DEE6 /* testPlayer.png */; };
+		D35E5ECA20E97570008763DC /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D35E5EC920E97570008763DC /* GameplayScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +62,6 @@
 		D30738E420E2B5CB0054DEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D30738EF20E2B68A0054DEE6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D30738F120E2B6AE0054DEE6 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
-		D30738F320E2B6D20054DEE6 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		D30738F820E2B79F0054DEE6 /* running4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running4.png; sourceTree = "<group>"; };
 		D30738F920E2B79F0054DEE6 /* running1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running1.png; sourceTree = "<group>"; };
 		D30738FA20E2B79F0054DEE6 /* running2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running2.png; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		D307391E20E2B79F0054DEE6 /* slideA2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideA2.png; sourceTree = "<group>"; };
 		D307391F20E2B79F0054DEE6 /* slideA1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideA1.png; sourceTree = "<group>"; };
 		D307394020E2BB470054DEE6 /* testPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPlayer.png; sourceTree = "<group>"; };
+		D35E5EC920E97570008763DC /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 		D30738EB20E2B6460054DEE6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				D30738F320E2B6D20054DEE6 /* GameplayScene.sks */,
+				D35E5EC920E97570008763DC /* GameplayScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -354,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D307393420E2B79F0054DEE6 /* slideB1.png in Resources */,
-				D30738F420E2B6D20054DEE6 /* GameplayScene.sks in Resources */,
 				D307392320E2B79F0054DEE6 /* running3.png in Resources */,
 				D307392B20E2B79F0054DEE6 /* gameover5.png in Resources */,
 				D307392420E2B79F0054DEE6 /* dizzy1.png in Resources */,
@@ -375,6 +374,7 @@
 				D307393820E2B79F0054DEE6 /* standing5.png in Resources */,
 				D307392820E2B79F0054DEE6 /* gameover3.png in Resources */,
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
+				D35E5ECA20E97570008763DC /* GameplayScene.sks in Resources */,
 				D307393320E2B79F0054DEE6 /* jumpup2.png in Resources */,
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,

@@ -16,6 +16,10 @@ class GameplayScene: SKScene {
         initialize();
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        moveMountains();
+    }
+    
     func initialize() {
         createPlayer();
         createBackground();
@@ -44,6 +48,15 @@ class GameplayScene: SKScene {
             trees.setScale(0.70);
             self.addChild(trees);
         }
+    }
+    
+    func moveMountains() {
+        
+        enumerateChildNodes(withName: "mountains") {
+            node, _ in
+            
+            node.position.x -= 3.5;
+        };
     }
     
     func createPath() {
