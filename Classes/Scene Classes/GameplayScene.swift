@@ -22,13 +22,13 @@ class GameplayScene: SKScene {
     
     func initialize() {
         createPlayer();
-        createBackground();
+        createMountains();
         createTrees();
         createPath();
     }
-    
-    func createBackground() {
-        for i in 0...2 {
+
+    func createMountains() {
+        for i in 0...1 {
             let mountains = SKSpriteNode(imageNamed: "mountains");
             mountains.name = "mountains";
             mountains.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -38,26 +38,32 @@ class GameplayScene: SKScene {
         }
     }
     
-    func createTrees() {
-        for i in 0...2 {
-            let trees = SKSpriteNode(imageNamed: "trees");
-            trees.name = "trees";
-            trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-            trees.position = CGPoint(x: CGFloat(i) * trees.size.width, y:0);
-            trees.zPosition = 1;
-            trees.setScale(0.70);
-            self.addChild(trees);
-        }
-    }
-    
     func moveMountains() {
         
         enumerateChildNodes(withName: "mountains") {
             node, _ in
             
-            node.position.x -= 3.5;
+            let mountainsNode = node as! SKSpriteNode;
+            
+            mountainsNode.position.x -= 5;
+            
+            // less than because mountains are scrolling left
+            if mountainsNode.position.x < -(mountainsNode.size.width) {
+                mountainsNode.position.x += mountainsNode.size.width * 2;
+            }
         };
     }
+    
+    func createTrees() {
+            let trees = SKSpriteNode(imageNamed: "trees");
+            trees.name = "trees";
+            trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            trees.position = CGPoint(x: 0, y:0);
+            trees.zPosition = 1;
+            trees.setScale(0.70);
+            self.addChild(trees);
+    }
+    
     
     func createPath() {
         for i in 0...2 {
