@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
             
             view.ignoresSiblingOrder = true
             
-            // here
+            // shows Physics makes the physicsBodies appear
             view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true

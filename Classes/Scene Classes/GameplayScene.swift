@@ -55,18 +55,18 @@ class GameplayScene: SKScene {
     }
     
     func createTrees() {
-            let trees = SKSpriteNode(imageNamed: "trees");
-            trees.name = "trees";
-            trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-            trees.position = CGPoint(x: 0, y:0);
-            trees.zPosition = 1;
-            trees.setScale(0.70);
-            self.addChild(trees);
+        let trees = SKSpriteNode(imageNamed: "trees");
+        trees.name = "trees";
+        trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        trees.position = CGPoint(x: 0, y:0);
+        trees.zPosition = 1;
+        trees.setScale(0.70);
+        self.addChild(trees);
     }
     
     
     func createPath() {
-        for i in 0...4 {
+        for i in 0...2 {
             let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
             lowAddOn.name = "lowAddOn";
             lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -87,7 +87,8 @@ class GameplayScene: SKScene {
         player = Player(imageNamed: "testPlayer");
         player.initialize();
         player.position = CGPoint(x: -580, y: 200);
+
         self.addChild(player);
     }
-    
+
 }
