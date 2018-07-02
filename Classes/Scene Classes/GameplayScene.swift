@@ -12,12 +12,12 @@ class GameplayScene: SKScene {
     
     var player = Player();
     
-    override func didMove(to view: SKView) {
-        initialize();
-    }
-    
     override func update(_ currentTime: TimeInterval) {
         moveMountains();
+    }
+    
+    override func didMove(to view: SKView) {
+        initialize();
     }
     
     func initialize() {
@@ -45,7 +45,7 @@ class GameplayScene: SKScene {
             
             let mountainsNode = node as! SKSpriteNode;
             
-            mountainsNode.position.x -= 5;
+            mountainsNode.position.x -= 8;
             
             // less than because mountains are scrolling left
             if mountainsNode.position.x < -(mountainsNode.size.width) {
@@ -73,6 +73,12 @@ class GameplayScene: SKScene {
             lowAddOn.position = CGPoint(x: CGFloat(i) * (lowAddOn.size.width * 0.55) + -595, y: -305);
             lowAddOn.zPosition = 3;
             lowAddOn.setScale(0.55);
+            
+            lowAddOn.physicsBody = SKPhysicsBody(rectangleOf: lowAddOn.size);
+            lowAddOn.physicsBody?.affectedByGravity = false;
+            lowAddOn.physicsBody?.isDynamic = false;
+            lowAddOn.physicsBody?.categoryBitMask = PhysicsCategory.ground;
+            
             self.addChild(lowAddOn);
         }
     }
@@ -80,7 +86,7 @@ class GameplayScene: SKScene {
     func createPlayer() {
         player = Player(imageNamed: "testPlayer");
         player.initialize();
-        player.position = CGPoint(x: -650, y: -200);
+        player.position = CGPoint(x: -650, y: 200);
         self.addChild(player);
     }
     
