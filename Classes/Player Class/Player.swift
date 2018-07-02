@@ -34,6 +34,13 @@ class Player: SKSpriteNode {
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
+        self.setPhysics()
+        
+        self.run(SKAction.repeatForever(standing));
+    }
+    
+    
+    func setPhysics() {
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
         self.setScale(0.25);
         
@@ -41,11 +48,11 @@ class Player: SKSpriteNode {
         self.physicsBody?.categoryBitMask = PhysicsCategory.player;
         self.physicsBody?.affectedByGravity = true;
         self.physicsBody?.allowsRotation = false;
+        self.physicsBody?.isDynamic = true;
         
         self.physicsBody?.collisionBitMask = PhysicsCategory.ground;
         self.physicsBody?.contactTestBitMask = PhysicsCategory.ground;
-        
-        self.run(SKAction.repeatForever(standing));
     }
+    
     
 }
