@@ -27,13 +27,11 @@ class Player: SKSpriteNode {
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
-    func jump() {
-        print("in jump function");
-        
+    func jump() {        
         let jumping = jumpPrep();
         self.run(jumping, withKey: "jumpKey");
         
-        self.physicsBody?.velocity = CGVector(dx: 0, dy: 700);
+        self.physicsBody?.velocity = CGVector(dx: 0, dy: 800);
         self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 0));
     }
     

@@ -25,12 +25,7 @@ class GameplayScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("in touchesBegan");
         player.jump();
-    }
-   
-    @objc func tap() {
-        
     }
     
     func initialize() {
@@ -111,7 +106,7 @@ class GameplayScene: SKScene {
     func createPlayer() {
         player = Player(imageNamed: "testPlayer");
         player.initialize();
-        player.position = CGPoint(x: -580, y: 200);
+        player.position = CGPoint(x: -550, y: 200);
         
         self.addChild(player);
     }
