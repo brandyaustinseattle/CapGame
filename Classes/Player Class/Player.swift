@@ -23,8 +23,8 @@ class Player: SKSpriteNode {
         
         self.setPhysics()
 
-//        let running = self.runningPrep()
-//        self.run(SKAction.repeatForever(running));
+        let jump = self.jumpPrep()
+        self.run(SKAction.repeatForever(jump));
 
     }
     
@@ -72,30 +72,22 @@ class Player: SKSpriteNode {
         return running;
     }
     
-    func jumpUpPrep() -> SKAction {
-        var jumpUpSequence = [SKTexture]();
+    func jumpPrep() -> SKAction {
+        var jumpSequence = [SKTexture]();
         
         for i in 1...2 {
             let imageName = "jumpup\(i)";
-            jumpUpSequence.append(SKTexture(imageNamed: imageName));
+            jumpSequence.append(SKTexture(imageNamed: imageName));
         }
-        
-        let jumpUp = SKAction.animate(with: jumpUpSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
-        
-        return jumpUp;
-    }
-    
-    func jumpFallPrep() -> SKAction {
-        var jumpFallSequence = [SKTexture]();
         
         for i in 1...2 {
             let imageName = "jumpfall\(i)";
-            jumpFallSequence.append(SKTexture(imageNamed: imageName));
+            jumpSequence.append(SKTexture(imageNamed: imageName));
         }
         
-        let jumpFall = SKAction.animate(with: jumpFallSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        let jump = SKAction.animate(with: jumpSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
         
-        return jumpUp;
+        return jump;
     }
     // end animations prep
     
