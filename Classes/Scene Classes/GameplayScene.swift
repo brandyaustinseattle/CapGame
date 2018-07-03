@@ -28,6 +28,10 @@ class GameplayScene: SKScene {
         print("in touchesBegan");
         player.jump();
     }
+   
+    @objc func tap() {
+        
+    }
     
     func initialize() {
         createPlayer();
