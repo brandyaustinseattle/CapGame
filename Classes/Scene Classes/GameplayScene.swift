@@ -12,12 +12,21 @@ class GameplayScene: SKScene {
     
     var player = Player();
     
+    let worldNode:SKNode = SKNode();
+    let tapRec = UITapGestureRecognizer();
+    
     override func update(_ currentTime: TimeInterval) {
         moveMountains();
+        movePath();
     }
     
     override func didMove(to view: SKView) {
         initialize();
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("in touchesBegan");
+        player.jump();
     }
     
     func initialize() {
@@ -54,6 +63,18 @@ class GameplayScene: SKScene {
         };
     }
     
+    func movePath() {
+        
+        enumerateChildNodes(withName: "lowAddOn") {
+            node, _ in
+            
+            let lowAddOnNode = node as! SKSpriteNode;
+            
+            lowAddOnNode.position.x -= 15;
+            
+        };
+    }
+    
     func createTrees() {
         let trees = SKSpriteNode(imageNamed: "trees");
         trees.name = "trees";
@@ -66,7 +87,7 @@ class GameplayScene: SKScene {
     
     
     func createPath() {
-        for i in 0...2 {
+        for i in 0...8 {
             let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
             lowAddOn.name = "lowAddOn";
             lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -77,7 +98,7 @@ class GameplayScene: SKScene {
             lowAddOn.physicsBody = SKPhysicsBody(rectangleOf: lowAddOn.size);
             lowAddOn.physicsBody?.affectedByGravity = false;
             lowAddOn.physicsBody?.isDynamic = false;
-            lowAddOn.physicsBody?.categoryBitMask = PhysicsCategory.ground;
+            lowAddOn.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
             
             self.addChild(lowAddOn);
         }
@@ -87,7 +108,7 @@ class GameplayScene: SKScene {
         player = Player(imageNamed: "testPlayer");
         player.initialize();
         player.position = CGPoint(x: -580, y: 200);
-
+        
         self.addChild(player);
     }
 

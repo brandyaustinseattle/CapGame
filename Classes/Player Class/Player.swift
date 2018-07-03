@@ -9,8 +9,8 @@
 import SpriteKit
 
 struct PhysicsCategory {
-    static let player: UInt32 = 0x1 << 1;
-    static let ground: UInt32 = 0x1 << 2;
+    static let Player: UInt32 = 0x1 << 1;
+    static let Ground: UInt32 = 0x1 << 2;
 }
     
 class Player: SKSpriteNode {
@@ -21,28 +21,39 @@ class Player: SKSpriteNode {
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
-        self.setPhysics()
-
-        let jump = self.jumpPrep()
-        self.run(SKAction.repeatForever(jump));
+        self.setPhysics();
+        
+//        let running = self.runningPrep();
+//        self.run(SKAction.repeatForever(running), withKey: "runKey");
+    }
+    
+    func jump() {
+        print("in jump function");
+        
+        let jumping = jumpPrep();
+        self.run(jumping, withKey: "jumpKey");
+        
+        self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 200));
 
     }
+    
     
     // start set physics body
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
         self.setScale(0.25);
-        
+
         self.physicsBody?.usesPreciseCollisionDetection = true;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.player;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Player;
         self.physicsBody?.affectedByGravity = true;
         self.physicsBody?.allowsRotation = false;
-        self.physicsBody?.isDynamic = true;
-        
-        self.physicsBody?.collisionBitMask = PhysicsCategory.ground;
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.ground;
+
+        self.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
     }
     // end set physics body
+    
     
     
     // start animations prep
@@ -67,7 +78,7 @@ class Player: SKSpriteNode {
             runningSequence.append(SKTexture(imageNamed: imageName));
         }
         
-        let running = SKAction.animate(with: runningSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        let running = SKAction.animate(with: runningSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
         
         return running;
     }
