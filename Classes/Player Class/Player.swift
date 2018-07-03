@@ -9,7 +9,6 @@
 import SpriteKit
 
 struct PhysicsCategory {
-    // set data type of constants to UInt32 then assign values to the constants; could probably use enum instead of struct
     static let player: UInt32 = 0x1 << 1;
     static let ground: UInt32 = 0x1 << 2;
 }
@@ -17,29 +16,19 @@ struct PhysicsCategory {
 class Player: SKSpriteNode {
     
     func initialize() {
-        
-        // start code: standing
-        var standSequence = [SKTexture]();
-        
-        for i in 1...6 {
-            let imageName = "standing\(i)";
-            standSequence.append(SKTexture(imageNamed: imageName));
-        }
-        
-        let standing = SKAction.animate(with: standSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
-        // end code: standing
 
-        
         self.name = "Player";
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics()
-        
-        self.run(SKAction.repeatForever(standing));
+
+//        let running = self.runningPrep()
+//        self.run(SKAction.repeatForever(running));
+
     }
     
-    
+    // start set physics body
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
         self.setScale(0.25);
@@ -53,6 +42,61 @@ class Player: SKSpriteNode {
         self.physicsBody?.collisionBitMask = PhysicsCategory.ground;
         self.physicsBody?.contactTestBitMask = PhysicsCategory.ground;
     }
+    // end set physics body
     
+    
+    // start animations prep
+    func standingPrep() -> SKAction {
+        var standSequence = [SKTexture]();
+    
+        for i in 1...6 {
+            let imageName = "standing\(i)";
+            standSequence.append(SKTexture(imageNamed: imageName));
+        }
+    
+        let standing = SKAction.animate(with: standSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        
+        return standing;
+    }
+    
+    func runningPrep() -> SKAction {
+        var runningSequence = [SKTexture]();
+        
+        for i in 1...4 {
+            let imageName = "running\(i)";
+            runningSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let running = SKAction.animate(with: runningSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        
+        return running;
+    }
+    
+    func jumpUpPrep() -> SKAction {
+        var jumpUpSequence = [SKTexture]();
+        
+        for i in 1...2 {
+            let imageName = "jumpup\(i)";
+            jumpUpSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let jumpUp = SKAction.animate(with: jumpUpSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        
+        return jumpUp;
+    }
+    
+    func jumpFallPrep() -> SKAction {
+        var jumpFallSequence = [SKTexture]();
+        
+        for i in 1...2 {
+            let imageName = "jumpfall\(i)";
+            jumpFallSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let jumpFall = SKAction.animate(with: jumpFallSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
+        
+        return jumpUp;
+    }
+    // end animations prep
     
 }
