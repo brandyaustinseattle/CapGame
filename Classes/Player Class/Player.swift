@@ -14,7 +14,7 @@ struct PhysicsCategory {
 }
     
 class Player: SKSpriteNode {
-    
+        
     func initialize() {
 
         self.name = "Player";
@@ -27,13 +27,13 @@ class Player: SKSpriteNode {
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
-    func jump() {        
+    func jump() {
+
         let jumping = jumpPrep();
-        self.run(jumping, withKey: "jumpKey");
-        
+        self.run(jumping);
+
         self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
-        // is .applyImpulse() needed
-        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 8000));
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 7500));
     }
     
     
