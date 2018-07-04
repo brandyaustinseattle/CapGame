@@ -31,9 +31,9 @@ class Player: SKSpriteNode {
         let jumping = jumpPrep();
         self.run(jumping, withKey: "jumpKey");
         
-        self.physicsBody?.velocity = CGVector(dx: 800, dy: 800);
+        self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
         // is .applyImpulse() needed
-        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 0));
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 8000));
     }
     
     

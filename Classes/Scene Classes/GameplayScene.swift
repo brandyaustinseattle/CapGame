@@ -11,7 +11,8 @@ import SpriteKit
 class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player();
-    var permitJump = false;
+    var jumpCount = 0;
+    var groundTouch = false;
     
     let worldNode:SKNode = SKNode();
     let tapRec = UITapGestureRecognizer();
@@ -26,13 +27,64 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if permitJump {
-            permitJump = false;
-            player.jump();
-        }
+//        if permitJump {
+//            permitJump = false;
+//            player.jump();
+//        }
+        
+        print("before");
+        print(groundTouch);
+        
+        player.jump();
+        
+        print("after");
+        print(groundTouch);
+
+//        print("before");
+//        print(jumpCount);
+//        print(groundTouch);
+//        print("BREAK");
+//
+//        if jumpCount < 2  {
+//            player.jump();
+//            jumpCount += 1;
+//        }
+//
+//        print("after");
+//        print(jumpCount);
+//        print(groundTouch);
+//        print("BREAK");
+//
+//        if jumpCount == 2 {
+//            jumpCount = 0;
+//            print("inside")
+//            print(jumpCount);
+//            print(groundTouch);
+//            print(groundTouch);
+//            print("BREAK");
+//        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+
+        var firstBody = SKPhysicsBody();
+        var secondBody = SKPhysicsBody();
+
+        // maker sure first body is player if player is present
+        if contact.bodyA.node?.name == "Player" {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "lowAddOn" {
+            groundTouch = true;
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
         
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
@@ -47,11 +99,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "lowAddOn" {
-            permitJump = true;
+            groundTouch = false;
         }
-        
     }
+
     
+//    func collisionBetween(objectOne: SKNode, objectTwo: SKNode) {
+//        if objectOne.name == "Player" {
+//            destroy(ball: ball)
+//        } else if objectTwo.name == "Player" {
+//            destroy(ball: ball)
+//        }
+//    }
     
     func initialize() {
         physicsWorld.contactDelegate = self;
@@ -113,7 +172,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     
     func createPath() {
-        for i in 0...18 {
+        for i in 0...1800 {
             let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
             lowAddOn.name = "lowAddOn";
             lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
