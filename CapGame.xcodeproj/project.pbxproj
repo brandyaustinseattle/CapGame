@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30621B320ED45D400E2127D /* drink.png in Resources */ = {isa = PBXBuildFile; fileRef = D30621B220ED45D300E2127D /* drink.png */; };
+		D30621B520ED468B00E2127D /* stand.png in Resources */ = {isa = PBXBuildFile; fileRef = D30621B420ED468B00E2127D /* stand.png */; };
 		D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30738D220E2B5CA0054DEE6 /* AppDelegate.swift */; };
 		D30738D720E2B5CA0054DEE6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30738D620E2B5CA0054DEE6 /* Actions.sks */; };
 		D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30738DA20E2B5CA0054DEE6 /* GameViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30621B220ED45D300E2127D /* drink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drink.png; sourceTree = "<group>"; };
+		D30621B420ED468B00E2127D /* stand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stand.png; sourceTree = "<group>"; };
 		D30738CF20E2B5CA0054DEE6 /* CapGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30738D220E2B5CA0054DEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D30738D620E2B5CA0054DEE6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		D30738F520E2B7040054DEE6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D38C399320ED3A3500E60032 /* Lemonade */,
 				D30738F620E2B7720054DEE6 /* Player */,
 			);
 			path = Assets;
@@ -295,6 +300,15 @@
 			path = "sliding A";
 			sourceTree = "<group>";
 		};
+		D38C399320ED3A3500E60032 /* Lemonade */ = {
+			isa = PBXGroup;
+			children = (
+				D30621B220ED45D300E2127D /* drink.png */,
+				D30621B420ED468B00E2127D /* stand.png */,
+			);
+			path = Lemonade;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +386,7 @@
 				D307392F20E2B79F0054DEE6 /* flying1.png in Resources */,
 				D307392920E2B79F0054DEE6 /* gameover6.png in Resources */,
 				D307393820E2B79F0054DEE6 /* standing5.png in Resources */,
+				D30621B520ED468B00E2127D /* stand.png in Resources */,
 				D307392820E2B79F0054DEE6 /* gameover3.png in Resources */,
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
 				D35E5ECA20E97570008763DC /* GameplayScene.sks in Resources */,
@@ -380,6 +395,7 @@
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
+				D30621B320ED45D400E2127D /* drink.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
@@ -465,6 +481,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Team;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -525,6 +542,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Team;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
