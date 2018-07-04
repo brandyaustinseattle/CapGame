@@ -8,9 +8,10 @@
 
 import SpriteKit
 
-class GameplayScene: SKScene {
+class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player();
+    var permitJump = false;
     
     let worldNode:SKNode = SKNode();
     let tapRec = UITapGestureRecognizer();
@@ -25,10 +26,36 @@ class GameplayScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        player.jump();
+        if permitJump {
+            permitJump = false;
+            player.jump();
+        }
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var firstBody = SKPhysicsBody();
+        var secondBody = SKPhysicsBody();
+        
+        // maker sure first body is player if player is present
+        if contact.bodyA.node?.name == "Player" {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "lowAddOn" {
+            permitJump = true;
+        }
+        
+    }
+    
+    
     func initialize() {
+        physicsWorld.contactDelegate = self;
+        
         createPlayer();
         createMountains();
         createTrees();
@@ -86,7 +113,7 @@ class GameplayScene: SKScene {
     
     
     func createPath() {
-        for i in 0...8 {
+        for i in 0...18 {
             let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
             lowAddOn.name = "lowAddOn";
             lowAddOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
