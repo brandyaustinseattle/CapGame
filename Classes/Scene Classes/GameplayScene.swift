@@ -54,6 +54,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
     func initialize() {
         physicsWorld.contactDelegate = self;
         
@@ -61,7 +62,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         createMountains();
         createTrees();
         createPath();
+        addConstraints();
     }
+    
+    func addConstraints() {
+        let yRange = SKRange(lowerLimit: -(size.width/2), upperLimit: size.height/2 - 100);
+        player.constraints = [SKConstraint.positionY(yRange)];
+    }
+    
 
     func createMountains() {
         for i in 0...1 {

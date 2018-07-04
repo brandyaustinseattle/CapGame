@@ -14,7 +14,7 @@ struct PhysicsCategory {
 }
     
 class Player: SKSpriteNode {
-        
+    
     func initialize() {
 
         self.name = "Player";
