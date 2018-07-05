@@ -40,18 +40,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let tallAddOn = SKSpriteNode(imageNamed: "tall-add-on");
     let tallRightEdge = SKSpriteNode(imageNamed: "tall-right");
     
-    
+    var pathOptions = [SKSpriteNode]();
+    var i = CGFloat(-675.0);
+
     
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
-    var pathOptions = [SKSpriteNode]();
-
     
     override func update(_ currentTime: TimeInterval) {
         moveMountains();
-//        movePath();
     }
     
     override func didMove(to view: SKView) {
@@ -133,7 +132,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         };
     }
     
-    
     func createTrees() {
         let trees = SKSpriteNode(imageNamed: "trees");
         trees.name = "trees";
@@ -143,11 +141,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         trees.setScale(0.70);
         self.addChild(trees);
     }
-    
-    
-    
-    
-    
     
     func createPlayer() {
         player = Player(imageNamed: "testPlayer");
@@ -162,11 +155,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
+
     
-    
-    
-    
-    var i = CGFloat(-675.0);
     
     
     @objc func createPath() {
@@ -205,102 +195,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(pathItem);
     }
-    
-//    func movePath() {
-//
-//        enumerateChildNodes(withName: "lowAddOn") {
-//            node, _ in
-//
-//            let lowAddOnNode = node as! SKSpriteNode;
-//
-//            lowAddOnNode.position.x -= 15;
-//
-//        };
-//    }
-
-    
-    
-//    func createPath() {
-//
-//        let lowLeftEdge = SKSpriteNode(imageNamed: "left-edge-pink");
-//        let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
-//        let lowRightEdge = SKSpriteNode(imageNamed: "right-edge-pink");
-//
-//        let stepLeftEdge = SKSpriteNode(imageNamed: "step-edge");
-//
-//        let midAlone = SKSpriteNode(imageNamed: "mid-edge-pink");
-//        let tallAlone = SKSpriteNode(imageNamed: "tall-edge");
-//
-//        let tallLeftEdge = SKSpriteNode(imageNamed: "tall-left");
-//
-//        let tallAddOn = SKSpriteNode(imageNamed: "tall-add-on");
-//        let tallRightEdge = SKSpriteNode(imageNamed: "tall-right");
-//
-//
-//        pathOptions.append(contentsOf: [lowLeftEdge, lowAddOn, lowRightEdge, stepLeftEdge, midAlone, tallAlone, tallLeftEdge, tallAddOn, tallRightEdge]);
-
-
-////        var xValue = CGFloat(lowAddOn.size.width * 0);
-//
-//
-//        for pathItem in pathOptions {
-//
-//            pathItem.name = "\(pathItem)";
-//            pathItem.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-//
-////            pathItem.position = CGPoint(x: -(frame.size.width/2) + (pathItem.size.width * 0.55/2) + 500, y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
-//
-//            pathItem.zPosition = 3;
-//            pathItem.setScale(0.55);
-//
-//            pathItem.physicsBody = SKPhysicsBody(rectangleOf: pathItem.size);
-//            pathItem.physicsBody?.affectedByGravity = false;
-//            pathItem.physicsBody?.isDynamic = false;
-//            pathItem.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
-//
-////            self.addChild(pathItem);
-////
-////            xValue += CGFloat(pathItem.size.width * 1.5);
-
-//        };
-//    }
-    
-    
-    
-//    @objc func movePath() {
-//
-//        let xValue = Int.random(min: -100, max: 600);
-//
-//
-//        let index = Int.random(min: 0, max: pathOptions.count - 1);
-//        let pathItem = pathOptions[index].copy() as! SKSpriteNode;
-//
-//
-//        pathItem.name = "\(pathItem)";
-//        pathItem.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-//
-//        pathItem.position = CGPoint(x: CGFloat(xValue), y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
-//
-//
-//        pathItem.zPosition = 3;
-//        pathItem.setScale(0.55);
-//
-//        pathItem.physicsBody = SKPhysicsBody(rectangleOf: pathItem.size);
-//        pathItem.physicsBody?.affectedByGravity = false;
-//        pathItem.physicsBody?.isDynamic = false;
-//        pathItem.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
-//
-//
-//
-//        let move = SKAction.moveTo(x: -(self.frame.size.width * 2), duration: TimeInterval(55));
-//        let remove = SKAction.removeFromParent();
-//
-//        let sequence = SKAction.sequence([move, remove]);
-//
-//        pathItem.run(sequence);
-//
-//        self.addChild(pathItem);
-//
-//    }
     
 }
