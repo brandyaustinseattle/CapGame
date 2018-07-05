@@ -1,5 +1,5 @@
 //
-//  GameplayScene.swift
+//  GameScene.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 6/26/18.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameplayScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player();
     var playerOnPath = false;
@@ -24,7 +24,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
         if playerRepeatJumps >= 2 {
             return
         } else {
@@ -35,10 +35,10 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-
+        
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
-
+        
         // maker sure first body is player if player is present
         if contact.bodyA.node?.name == "Player" {
             firstBody = contact.bodyA;
@@ -47,7 +47,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB;
             secondBody = contact.bodyA;
         }
-
+        
         if firstBody.node?.name == "Player" && secondBody.node?.name == "lowAddOn" {
             playerOnPath = true;
             playerRepeatJumps = 0;
@@ -64,7 +64,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         createPath();
         setConstraints();
     }
-
+    
     func createMountains() {
         for i in 0...1 {
             let mountains = SKSpriteNode(imageNamed: "mountains");
@@ -145,5 +145,5 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         let yRange = SKRange(lowerLimit: -(size.width/2), upperLimit: size.height/2 - 100);
         player.constraints = [SKConstraint.positionY(yRange)];
     }
-
+    
 }

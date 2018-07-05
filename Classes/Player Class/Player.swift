@@ -27,6 +27,22 @@ class Player: SKSpriteNode {
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
+    // start set physics body
+    func setPhysics() {
+        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
+        self.setScale(0.25);
+        
+        self.physicsBody?.usesPreciseCollisionDetection = true;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Player;
+        self.physicsBody?.affectedByGravity = true;
+        self.physicsBody?.allowsRotation = false;
+        
+        self.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
+    }
+    // end set physics body
+    
+    
     func jump() {
 
         let jumping = jumpPrep();
@@ -35,23 +51,6 @@ class Player: SKSpriteNode {
         self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
         self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 7500));
     }
-    
-    
-    // start set physics body
-    func setPhysics() {
-        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
-        self.setScale(0.25);
-
-        self.physicsBody?.usesPreciseCollisionDetection = true;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Player;
-        self.physicsBody?.affectedByGravity = true;
-        self.physicsBody?.allowsRotation = false;
-
-        self.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
-    }
-    // end set physics body
-    
     
     
     // start animations prep
