@@ -23,31 +23,12 @@ extension Int {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    
-    
-    
-    let lowLeftEdge = SKSpriteNode(imageNamed: "left-edge-pink");
-    let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
-    let lowRightEdge = SKSpriteNode(imageNamed: "right-edge-pink");
-    
-    let stepLeftEdge = SKSpriteNode(imageNamed: "step-edge");
-    
-    let midAlone = SKSpriteNode(imageNamed: "mid-edge-pink");
-    let tallAlone = SKSpriteNode(imageNamed: "tall-edge");
-    
-    let tallLeftEdge = SKSpriteNode(imageNamed: "tall-left");
-    
-    let tallAddOn = SKSpriteNode(imageNamed: "tall-add-on");
-    let tallRightEdge = SKSpriteNode(imageNamed: "tall-right");
-    
-    var pathOptions = [SKSpriteNode]();
-    var i = CGFloat(-675.0);
-
-    
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
+    var pathOptions = [SKSpriteNode]();
+    var xValue = CGFloat(-675.0);
     
     override func update(_ currentTime: TimeInterval) {
         moveMountains();
@@ -66,6 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerRepeatJumps += 1;
             player.jump();
         }
+        player.jump();
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -99,10 +81,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         createMountains();
         createTrees();
-        createPath();
         
+        createPath();
 
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createPath), userInfo: nil, repeats: true);
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(addPath), userInfo: nil, repeats: true);
     }
     
     func createMountains() {
@@ -156,13 +138,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
 
-    
-    
-    
-    @objc func createPath() {
+    func createPathOptions() {
+
+        let lowLeftEdge = SKSpriteNode(imageNamed: "left-edge-pink");
+        let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
+        let lowRightEdge = SKSpriteNode(imageNamed: "right-edge-pink");
+        
+        let stepLeftEdge = SKSpriteNode(imageNamed: "step-edge");
+        
+        let midAlone = SKSpriteNode(imageNamed: "mid-edge-pink");
+        let tallAlone = SKSpriteNode(imageNamed: "tall-edge");
+        
+        let tallLeftEdge = SKSpriteNode(imageNamed: "tall-left");
+        
+        let tallAddOn = SKSpriteNode(imageNamed: "tall-add-on");
+        let tallRightEdge = SKSpriteNode(imageNamed: "tall-right");
         
         pathOptions.append(contentsOf: [lowLeftEdge, lowAddOn, lowRightEdge, stepLeftEdge, midAlone, tallAlone, tallLeftEdge, tallAddOn, tallRightEdge]);
-
+    }
+    
+    func createpathItem() {
+        
+    }
+    
+    func addRunway() {
+        
+    }
+    
+    func addMainPath() {
+    
+    }
+    
+    @objc func addPath() {
+        
+        createPathOptions();
+        addRunway();
+        addMainPath();
+        
         let index = Int.random(min: 0, max: pathOptions.count - 1);
         let pathItem = pathOptions[index].copy() as! SKSpriteNode;
         
@@ -177,14 +189,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pathItem.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
         
         pathItem.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        pathItem.position = CGPoint(x: CGFloat(i), y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
-        pathItem.zPosition = 3;
+        pathItem.position = CGPoint(x: CGFloat(xValue), y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
+        pathItem.zPosition = 2;
 
-        
-        let increment = CGFloat(pathItem.size.width);
+        let incrementAmt = CGFloat(pathItem.size.width);
 
-
-        i += increment;
+        xValue += incrementAmt;
         
         let move = SKAction.moveTo(x: -(self.frame.size.width * 2), duration: TimeInterval(40));
         let remove = SKAction.removeFromParent();

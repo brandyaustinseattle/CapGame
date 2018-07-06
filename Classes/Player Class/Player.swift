@@ -18,7 +18,7 @@ class Player: SKSpriteNode {
     func initialize() {
 
         self.name = "Player";
-        self.zPosition = 2;
+        self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
@@ -29,7 +29,14 @@ class Player: SKSpriteNode {
     
     // start set physics body
     func setPhysics() {
-        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
+//        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
+
+        let playerHead = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
+        let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490),
+                                                           height: self.size.height));
+
+        self.physicsBody = SKPhysicsBody(bodies: [playerHead, playerBody]);
+        
         self.setScale(0.25);
         
         self.physicsBody?.usesPreciseCollisionDetection = true;
@@ -49,7 +56,7 @@ class Player: SKSpriteNode {
         self.run(jumping);
 
         self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
-        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 7500));
+        self.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 8500));
     }
     
     
