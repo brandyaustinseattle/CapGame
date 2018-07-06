@@ -84,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         createPath();
 
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(addPath), userInfo: nil, repeats: true);
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createPath), userInfo: nil, repeats: true);
     }
     
     func createMountains() {
@@ -169,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     }
     
-    @objc func addPath() {
+    @objc func createPath() {
         
         createPathOptions();
         addRunway();
