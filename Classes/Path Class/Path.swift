@@ -28,7 +28,7 @@ class Path {
 
     func initialize() {
         
-        pathImages.append(contentsOf: ["left-edge-pink", "low-add-on", "mid-edge-pink", "right-edge-pink", "step-edge", "tall-add-on", "tall-edge", "tall-left", "tall-right"]);
+        pathImages.append(contentsOf: ["startLow", "startStep", "middleLow", "endLow", "aloneLow", "startHigh", "middleHigh", "endHigh", "aloneHigh"]);
         
         createPathOptions();
     }
@@ -37,7 +37,7 @@ class Path {
     
         for imageName in pathImages {
             
-            let pathItem = SKSpriteNode(imageNamed: imageName);
+            var pathItem = SKSpriteNode(imageNamed: imageName);
             
             pathItem.name = "\(imageName)";
             pathItem.zPosition = 2;

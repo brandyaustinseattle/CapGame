@@ -154,21 +154,100 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         path.initialize();
         
         for _ in 0...2 {
-            let index = path.pathOptions.index(where: {$0.name == "low-add-on"})!;
+            let index = path.pathOptions.index(where: {$0.name == "middleLow"})!;
             let item = path.pathOptions[index].copy() as! SKSpriteNode;
             addPathItem(pathItem: item);
         };
         
-        let index = path.pathOptions.index(where: {$0.name == "right-edge-pink"})!;
+        let index = path.pathOptions.index(where: {$0.name == "endLow"})!;
         let item = path.pathOptions[index].copy() as! SKSpriteNode;
         addPathItem(pathItem: item);
     }
     
     @objc func createMainPath() {
         
-        let index = Int.random(min: 0, max: path.pathOptions.count - 1);
+//        let startAloneFactor = 4;
+//        let lowMiddleEndFactor = 6;
+//        let highMiddleEndFactor = 3;
+//        let lowHighFactor = 6;
+//
+//
+//        let randomOne = Int.random(min: 0, max: 10);
+//        let randomTwo = Int.random(min: 0, max: 10);
+//
+//
+//        if lastItem == "end" || lastItem == "alone" {
+//
+//            if (1...startAloneFactor).contains(randomOne) {
+//                let type = "start";
+//
+//                if (1...XXX).contains(randomTwo) {
+//                    let height = "low";
+//
+//                } else if (1...XXX).contains(randomTwo) {
+//                    let height = "high";
+//
+//                } else {
+//                    let height = "step";
+//
+//                }
+//
+//            } else {
+//                let type = "alone";
+//
+//                if (1...lowMiddleEndFactor).contains(randomTwo) {
+//                    let height = "low";
+//
+//                } else {
+//                    let height = "high";
+//
+//                };
+//
+//            };
+//
+//
+//
+//
+//        } else if lastItem == "low" || lastItem == "step" || lastItem == "high" {
+//
+//            if lastItem == "low" || lastItem == "step" {
+//
+//                if (1...lowMiddleEndFactor).contains(randomTwo) {
+//                    let type = "middle";
+//
+//                } else {
+//                    let type = "end";
+//
+//                };
+//
+//            } else if lastItem = "high" {
+//
+//                if (1...highMiddleEndFactor).contains(randomTwo) {
+//                    let type = "middle";
+//
+//                } else {
+//                    let type = "end";
+//
+//                };
+//
+//            }
+//
+//        };
+        
+    
+        
+        path.pathOptions.shuffle();
+
+        print("here")
+        print(path.pathOptions);
+        
+        
+        let index = path.pathOptions.index(where: {$0.name == "aloneHigh" })!;
+
         let item = path.pathOptions[index].copy() as! SKSpriteNode;
         addPathItem(pathItem: item);
+        
+        var lastItem = item;
     }
     
 }
