@@ -10,24 +10,14 @@ import SpriteKit
 import GameplayKit
 
 
-extension Int {
-    static func random(min: Int, max: Int) -> Int {
-        precondition(min <= max);
-        let randomizer = GKRandomSource.sharedRandom();
-        return min + randomizer.nextInt(upperBound: max - min + 1);
-    }
-}
-
-
-
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
+
+    var path = Path();
     
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
-    
-    var pathOptions = [SKSpriteNode]();
+   
     var xValue = CGFloat(-675.0);
     
     override func update(_ currentTime: TimeInterval) {
@@ -40,22 +30,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-//        if playerRepeatJumps >= 2 {
-//            return
-//        } else {
-//            playerOnPath = false;
-//            playerRepeatJumps += 1;
-//            player.jump();
-//        }
+        if playerRepeatJumps >= 2 {
+            return
+        } else {
+            playerOnPath = false;
+            playerRepeatJumps += 1;
+            player.jump();
+        }
         player.jump();
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
-        
-        // maker sure first body is player if player is present
+
         if contact.bodyA.node?.name == "Player" {
             firstBody = contact.bodyA;
             secondBody = contact.bodyB;
@@ -63,8 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB;
             secondBody = contact.bodyA;
         }
-        
-        for pathItem in pathOptions {
+
+        for pathItem in path.pathOptions {
             if firstBody.node?.name == "Player" && secondBody.node?.name == pathItem.name {
                 playerOnPath = true;
                 playerRepeatJumps = 0;
@@ -77,16 +65,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self;
         
         createPlayer();
-        setConstraints();
+        playerConstraints();
 
         createMountains();
         createTrees();
-
-        createPathOptions();
         
         createRunway();
-
+        
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createMainPath), userInfo: nil, repeats: true);
+    
     }
     
     func createMountains() {
@@ -134,67 +121,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player);
     }
     
-    func setConstraints() {
+    func playerConstraints() {
         let yRange = SKRange(lowerLimit: -(size.width/2), upperLimit: size.height/2 - 100);
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
-
-    func createPathOptions() {
-        
-        let lowLeftEdge = SKSpriteNode(imageNamed: "left-edge-pink");
-        lowLeftEdge.name = "lowLeftEdge";
-
-        let lowAddOn = SKSpriteNode(imageNamed: "low-add-on");
-        lowAddOn.name = "lowAddOn";
-        
-        let lowRightEdge = SKSpriteNode(imageNamed: "right-edge-pink");
-        lowRightEdge.name = "lowRightEdge";
-        
-        let stepLeftEdge = SKSpriteNode(imageNamed: "step-edge");
-        stepLeftEdge.name = "stepLeftEdge";
-        
-        let midAlone = SKSpriteNode(imageNamed: "mid-edge-pink");
-        midAlone.name = "midAlone";
-        
-        let tallAlone = SKSpriteNode(imageNamed: "tall-edge");
-        tallAlone.name = "tallAlone";
-        
-        let tallLeftEdge = SKSpriteNode(imageNamed: "tall-left");
-        tallLeftEdge.name = "tallLeftEdge";
-        
-        let tallAddOn = SKSpriteNode(imageNamed: "tall-add-on");
-        tallAddOn.name = "tallAddOn";
-        
-        let tallRightEdge = SKSpriteNode(imageNamed: "tall-right");
-        tallRightEdge.name = "tallRightEdge";
-        
-        pathOptions.append(contentsOf: [lowLeftEdge, lowAddOn, lowRightEdge, stepLeftEdge, midAlone, tallAlone, tallLeftEdge, tallAddOn, tallRightEdge]);
     
-        setPathPhysics();
-    }
     
-    func setPathPhysics() {
-        for pathItem in pathOptions {
-
-            pathItem.physicsBody = SKPhysicsBody(texture: pathItem.texture!, size: pathItem.texture!.size());
-            pathItem.physicsBody?.affectedByGravity = false;
-            pathItem.physicsBody?.isDynamic = false;
-            pathItem.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
-        }
-    }
+    
     
     func addPathItem(pathItem: SKSpriteNode) {
         
-        pathItem.setScale(0.55);
-        pathItem.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         pathItem.position = CGPoint(x: CGFloat(xValue), y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
-        pathItem.zPosition = 2;
+        pathItem.setScale(0.55);
         
         let incrementAmt = CGFloat(pathItem.size.width);
         
         xValue += incrementAmt;
-        
+
+        //        let move = SKAction.follow(_ path: CGPath(), speed: CGFloat());
         let move = SKAction.moveTo(x: -(self.frame.size.width * 2), duration: TimeInterval(40));
         let remove = SKAction.removeFromParent();
         
@@ -206,20 +151,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createRunway() {
+        path.initialize();
+        
         for _ in 0...2 {
-            let index = pathOptions.index(where: {$0.name == "lowAddOn"})!;
-            let item = pathOptions[index].copy() as! SKSpriteNode;
+            let index = path.pathOptions.index(where: {$0.name == "low-add-on"})!;
+            let item = path.pathOptions[index].copy() as! SKSpriteNode;
             addPathItem(pathItem: item);
         };
         
-        let index = pathOptions.index(where: {$0.name == "lowRightEdge"})!;
-        let item = pathOptions[index].copy() as! SKSpriteNode;
+        let index = path.pathOptions.index(where: {$0.name == "right-edge-pink"})!;
+        let item = path.pathOptions[index].copy() as! SKSpriteNode;
         addPathItem(pathItem: item);
     }
     
     @objc func createMainPath() {
-        let index = Int.random(min: 0, max: pathOptions.count - 1);
-        let item = pathOptions[index].copy() as! SKSpriteNode;
+        
+        let index = Int.random(min: 0, max: path.pathOptions.count - 1);
+        let item = path.pathOptions[index].copy() as! SKSpriteNode;
         addPathItem(pathItem: item);
     }
     

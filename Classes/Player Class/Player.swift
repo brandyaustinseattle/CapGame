@@ -12,11 +12,13 @@ struct PhysicsCategory {
     static let Player: UInt32 = 0x1 << 1;
     static let Ground: UInt32 = 0x1 << 2;
 }
-    
+
 class Player: SKSpriteNode {
     
+    let playerHead = SKSpriteNode();
+    
     func initialize() {
-
+                
         self.name = "Player";
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -35,8 +37,7 @@ class Player: SKSpriteNode {
         let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490),
                                                            height: self.size.height));
 
-        self.physicsBody = SKPhysicsBody(bodies: [playerHead, playerBody]);
-        
+        self.physicsBody = SKPhysicsBody(bodies: [playerHead, playerBody]);    
         self.setScale(0.25);
         
         self.physicsBody?.usesPreciseCollisionDetection = true;
