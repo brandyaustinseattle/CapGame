@@ -19,8 +19,6 @@ extension Int {
 }
 
 
-
-
 class Path {
 
     var pathImages = [String]();
