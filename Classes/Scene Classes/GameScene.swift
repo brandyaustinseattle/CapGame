@@ -11,20 +11,12 @@ import GameplayKit
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-
-    var xValue = CGFloat(0);
-    
-    var path = Path();
+        
+    var pathEngine = PathEngine();
     
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
-    
-    var type = String();
-    var height = String();
-    var lastType = String();
-    var lastHeight = String();
-    
     
     override func update(_ currentTime: TimeInterval) {
         moveMountains();
@@ -58,11 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        for pathItem in path.pathOptions {
-            if firstBody.node?.name == "Player" && secondBody.node?.name == pathItem.name {
-                playerOnPath = true;
-                playerRepeatJumps = 0;
-            }
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" {
+            playerOnPath = true;
+            playerRepeatJumps = 0;
         }
     }
     
@@ -70,17 +60,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         physicsWorld.contactDelegate = self;
         
-        xValue += CGFloat(-(self.frame.size.width/2));
-        
         createPlayer();
         playerConstraints();
 
         createMountains();
         createTrees();
         
-        createRunway();
-        
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createMainPath), userInfo: nil, repeats: true);
+        startPathEngine();
     }
     
     func createMountains() {
@@ -133,147 +119,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
-    
-    
-    
-    
-    func addPathItem(pathItem: SKSpriteNode) {
-        
-        print("PLACING PIECE AT")
-        print(xValue)
-
-        pathItem.position = CGPoint(x: CGFloat(xValue), y: -(frame.size.height/2) + (pathItem.size.height * 0.55/2));
-        
-        xValue += CGFloat(pathItem.size.width * 0.55 / 2);
-        
-        pathItem.setScale(0.55);
-        
-//        let endpoint = CGPoint(x: -800, y: pathItem.position.y);
-//
-//        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: pathItem.position, pointB: endpoint, speed:150.0))
-//
-//        let remove = SKAction.removeFromParent();
-//        let sequence = SKAction.sequence([move, remove]);
-//
-//        pathItem.run(sequence);
-        
-        self.addChild(pathItem);
-    }
-    
-    func getDuration(pointA:CGPoint,pointB:CGPoint,speed:CGFloat)->TimeInterval {
-        let xDist = (pointB.x - pointA.x)
-        let yDist = (pointB.y - pointA.y)
-        let distance = sqrt((xDist * xDist) + (yDist * yDist));
-        let duration : TimeInterval = TimeInterval(distance/speed)
-        return duration
-    }
-    
-    func createRunway() {
-        path.initialize();
-        
-        for _ in 0...2 {
-            
-            let index = path.pathOptions.index(where: {$0.name == "middleLow"})!;
-            let item = path.pathOptions[index].copy() as! SKSpriteNode;
-            
-            xValue += CGFloat(item.size.width * 0.55 / 2);
-
-            addPathItem(pathItem: item);
-        };
-
-        let index = path.pathOptions.index(where: {$0.name == "endLow"})!;
-        let item = path.pathOptions[index].copy() as! SKSpriteNode;
-        
-         xValue += CGFloat(item.size.width * 0.55 / 2);
-        
-        addPathItem(pathItem: item);
-        
-        lastType = "end";
-        lastHeight = "Low";
-    }
-    
-    @objc func createMainPath() {
-        
-        let startAloneFactor = 4;
-        let lowMiddleEndFactor = 6;
-        let highMiddleEndFactor = 5;
-        let lowHighFactor = 6;
-
-
-        let randomOne = Int.random(min: 1, max: 10);
-        let randomTwo = Int.random(min: 1, max: 10);
-
-
-        if lastType == "end" || lastType == "alone" {
-
-            if (randomOne <= startAloneFactor) {
-                type = "start";
-
-                if (randomTwo <= 2) {
-                    height = "Low";
-
-                } else if ((3...4).contains(randomTwo)) {
-                    height = "High";
-
-                } else {
-                    height = "Step";
-
-                };
-
-            } else {
-                type = "alone";
-
-                if (randomTwo <= lowHighFactor) {
-                    height = "Low";
-
-                } else {
-                    height = "High";
-
-                };
-
-            }
-
-
-        } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
-
-            if lastHeight == "Low" || lastHeight == "Step" {
-                
-                height = "Low";
-
-                if (1...lowMiddleEndFactor).contains(randomTwo) {
-                    type = "middle";
-
-                } else {
-                    type = "end";
-
-                };
-
-            } else if lastHeight == "High" {
-                
-                height = "High";
-
-                if (1...highMiddleEndFactor).contains(randomTwo) {
-                    type = "middle";
-
-                } else {
-                    type = "end";
-
-                };
-
-            }
-
-        };
-        
-        let index = path.pathOptions.index(where: {$0.name == "\(type)\(height)" })!;
-
-        let item = path.pathOptions[index].copy() as! SKSpriteNode;
-        
-        xValue += CGFloat(item.size.width * 0.55 / 2);
-        
-        addPathItem(pathItem: item);
-        
-        lastType = type;
-        lastHeight = height;
+    func startPathEngine() {
+        pathEngine.initialize(gameScene: self);
     }
     
 }
