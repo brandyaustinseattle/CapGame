@@ -23,6 +23,8 @@ class PathEngine {
     let pathImages = ["startLow", "startStep", "middleLow", "endLow", "aloneLow", "startHigh", "middleHigh", "endHigh", "aloneHigh"];
     var pathItem = PathItem();
     
+    var spaceBefore = Int();
+    
     var type = String();
     var height = String();
     var lastType = String();
@@ -32,7 +34,7 @@ class PathEngine {
         
         createRunway(gameScene: gameScene);
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createMainPath), userInfo: gameScene, repeats: true);
+        Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: gameScene, repeats: true);
     }
 
     func createRunway(gameScene: GameScene) {
@@ -42,14 +44,14 @@ class PathEngine {
             pathItem = PathItem(imageNamed: "middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(gameScene: gameScene);
+            pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0));
             
         };
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(gameScene: gameScene);
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0));
         
         lastType = "end";
         lastHeight = "Low";
@@ -97,7 +99,7 @@ class PathEngine {
                 };
                 
             }
-            
+            spaceBefore = Int.random(min: 70, max: 130);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
@@ -124,15 +126,15 @@ class PathEngine {
                     type = "end";
                     
                 };
-                
             }
+            spaceBefore = Int(0);
             
         };
         
         pathItem = PathItem(imageNamed: "\(type)\(height)");
         pathItem.initialize();
         
-        pathItem.addPathItem(gameScene: gameScene);
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: spaceBefore);
         
         lastType = type;
         lastHeight = height;

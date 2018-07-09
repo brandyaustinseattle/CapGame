@@ -30,36 +30,33 @@ class PathItem: SKSpriteNode {
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
     }
     
-    func addPathItem(gameScene: GameScene) {
+    func addPathItem(gameScene: GameScene, spaceBefore: Int) {
         
         if (prevPathItem.name == nil) {
             xValue = -(gameScene.size.width/2) + self.size.width * 0.55/2;
         } else {
-            xValue = prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width * 0.55/2;
+            // must subtract 30 to account for fact that width calculations are impacted with lip edges
+            let space = CGFloat(spaceBefore);
+            xValue = space + prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width * 0.55/2 - 30;
         }
-        
-        print("PLACING PIECE AT");
-        print(xValue);
 
         self.position = CGPoint(x: CGFloat(xValue), y: -(gameScene.frame.size.height/2) + (self.size.height * 0.55/2));
-        
+
         self.setScale(0.55);
         
-//        let endpoint = CGPoint(x: self.position.x, y: self.position.y);
-//        
-//        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: self.position, pointB: endpoint, speed:150.0))
-//
-//        let remove = SKAction.removeFromParent();
-//        let sequence = SKAction.sequence([move, remove]);
-//
-//        self.run(sequence);
-        
+        let endpoint = CGPoint(x: -800, y: self.position.y);
+        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: self.position, pointB: endpoint, speed: 175.0))
+       
+        let remove = SKAction.removeFromParent();
+        let sequence = SKAction.sequence([move, remove]);
+        self.run(sequence);
+
         prevPathItem = self;
         
         gameScene.addChild(self);
     }
     
-    func getDuration(pointA:CGPoint,pointB:CGPoint,speed:CGFloat)->TimeInterval {
+    func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
         let xDist = (pointB.x - pointA.x)
         let yDist = (pointB.y - pointA.y)
         let distance = sqrt((xDist * xDist) + (yDist * yDist));

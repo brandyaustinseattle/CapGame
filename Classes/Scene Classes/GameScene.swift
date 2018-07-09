@@ -115,7 +115,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func playerConstraints() {
-        let yRange = SKRange(lowerLimit: -(size.width/2), upperLimit: size.height/2 - 100);
+//        let xRange = SKRange(lowerLimit: -(size.width/2) + 25, upperLimit: size.width/2);
+        let yRange = SKRange(lowerLimit: -(size.height/2), upperLimit: size.height/2 - 100);
+//        player.constraints = [SKConstraint.positionX(xRange)];
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
