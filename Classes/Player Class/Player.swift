@@ -9,17 +9,19 @@
 import SpriteKit
 
 struct PhysicsCategory {
-    static let Player: UInt32 = 0x1 << 1;
-    static let Ground: UInt32 = 0x1 << 2;
+    static let PlayerBody: UInt32 = 0x1 << 1;
+    static let PlayerHead: UInt32 = 0x1 << 2;
+    static let Ground: UInt32 = 0x1 << 3;
 }
 
 class Player: SKSpriteNode {
     
     let playerHead = SKSpriteNode();
+    let playerBody = SKSpriteNode();
     
     func initialize() {
                 
-        self.name = "Player";
+//        self.name = "Player";
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
@@ -31,22 +33,29 @@ class Player: SKSpriteNode {
     
     // start set physics body
     func setPhysics() {
-//        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size());
 
-        let playerHead = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
-        let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490),
-                                                           height: self.size.height));
+        playerHead.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
+        playerHead.physicsBody?.usesPreciseCollisionDetection = true;
+        playerHead.physicsBody?.categoryBitMask = PhysicsCategory.PlayerHead;
+        playerHead.physicsBody?.affectedByGravity = true;
+        playerHead.physicsBody?.allowsRotation = false;
+        playerHead.physicsBody?.isDynamic = true;
+        playerHead.physicsBody?.pinned = true;
 
-        self.physicsBody = SKPhysicsBody(bodies: [playerHead, playerBody]);    
+
+        playerBody.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490), height: self.size.height));
+        playerBody.physicsBody?.usesPreciseCollisionDetection = true;
+        playerBody.physicsBody?.categoryBitMask = PhysicsCategory.PlayerBody;
+        playerBody.physicsBody?.affectedByGravity = true;
+        playerBody.physicsBody?.allowsRotation = false;
+        
+        playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
+        playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
+        
+        self.physicsBody = playerBody.physicsBody;
+        self.name = "Player"
         self.setScale(0.25);
-        
-        self.physicsBody?.usesPreciseCollisionDetection = true;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Player;
-        self.physicsBody?.affectedByGravity = true;
-        self.physicsBody?.allowsRotation = false;
-        
-        self.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
+        self.addChild(playerHead);
     }
     // end set physics body
     

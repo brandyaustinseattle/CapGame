@@ -53,6 +53,7 @@
 		D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */ = {isa = PBXBuildFile; fileRef = D307391F20E2B79F0054DEE6 /* slideA1.png */; };
 		D307394120E2BB480054DEE6 /* testPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = D307394020E2BB470054DEE6 /* testPlayer.png */; };
 		D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D86B20F3DCE60018ED1F /* PathEngine.swift */; };
+		D330D87420F576B30018ED1F /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D87320F576B30018ED1F /* Drink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		D307391F20E2B79F0054DEE6 /* slideA1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slideA1.png; sourceTree = "<group>"; };
 		D307394020E2BB470054DEE6 /* testPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPlayer.png; sourceTree = "<group>"; };
 		D330D86B20F3DCE60018ED1F /* PathEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEngine.swift; sourceTree = "<group>"; };
+		D330D87320F576B30018ED1F /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D330D87220F576920018ED1F /* Drink Class */,
 				D30621BE20F02DA800E2127D /* Path Class */,
 				D30738ED20E2B6660054DEE6 /* Player Class */,
 				D30738EE20E2B6710054DEE6 /* Scene Classes */,
@@ -314,6 +317,14 @@
 			path = "sliding A";
 			sourceTree = "<group>";
 		};
+		D330D87220F576920018ED1F /* Drink Class */ = {
+			isa = PBXGroup;
+			children = (
+				D330D87320F576B30018ED1F /* Drink.swift */,
+			);
+			path = "Drink Class";
+			sourceTree = "<group>";
+		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +447,7 @@
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
+				D330D87420F576B30018ED1F /* Drink.swift in Sources */,
 				D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
