@@ -44,14 +44,14 @@ class PathEngine {
             pathItem = PathItem(imageNamed: "middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0));
+            pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0), drinkFlag: false);
             
         };
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0));
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0), drinkFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -70,6 +70,7 @@ class PathEngine {
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
+        let drinkFlag = drinkRequired(pathItem: pathItem);
         
         if lastType == "end" || lastType == "alone" {
             
@@ -134,7 +135,8 @@ class PathEngine {
         pathItem = PathItem(imageNamed: "\(type)\(height)");
         pathItem.initialize();
         
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: spaceBefore);
+        
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: spaceBefore, drinkFlag: drinkFlag);
         
         lastType = type;
         lastHeight = height;
@@ -142,15 +144,14 @@ class PathEngine {
     
     func drinkRequired(pathItem: PathItem) -> Bool {
         
-        if pathItem != startStep {
-        
+        if pathItem.name != "startStep" {
             let drinkFactor = 3;
             let randomDrink = Int.random(min: 1, max: 10);
-        
+
             return randomDrink <= drinkFactor
         } else {
             return false
-        };
+        }
     }
 
 }

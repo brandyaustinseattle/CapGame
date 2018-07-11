@@ -33,7 +33,7 @@ class PathItem: SKSpriteNode {
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
     }
     
-    func addPathItem(gameScene: GameScene, spaceBefore: Int) {
+    func addPathItem(gameScene: GameScene, spaceBefore: Int, drinkFlag: Bool) {
         
         if (prevPathItem.name == nil) {
             xValue = -(gameScene.size.width/2) + self.size.width * 0.55/2;
@@ -49,7 +49,9 @@ class PathItem: SKSpriteNode {
         
         self.move(itemToMove: self);
         
-        self.addDrink(pathItemPosition: self.position, gameScene: gameScene);
+        if drinkFlag {
+            self.addDrink(pathItemPosition: self.position, gameScene: gameScene);
+        }
 
         prevPathItem = self;
         
@@ -58,11 +60,14 @@ class PathItem: SKSpriteNode {
     
     func addDrink(pathItemPosition: CGPoint, gameScene: GameScene) {
         drink = Drink(imageNamed: "drink");
-        drink.initialize(pathItemPosition: pathItemPosition);
         
-        self.move(itemToMove: drink);
+        let offsetYValue = Int.random(min: 200, max: 400);
+        
+        drink.initialize(pathItemPosition: pathItemPosition, offsetYValue: offsetYValue);
         
         gameScene.addChild(drink);
+        
+        self.move(itemToMove: drink);
     }
     
     func move(itemToMove: SKSpriteNode) {

@@ -10,7 +10,9 @@ import SpriteKit
 
 class Drink: SKSpriteNode {
 
-    func initialize(pathItemPosition: CGPoint) {
+    func initialize(pathItemPosition: CGPoint, offsetYValue: Int) {
+        
+        let offsetY = CGFloat(offsetYValue);
         
         self.name = "Drink";
         self.zPosition = 2;
@@ -18,16 +20,14 @@ class Drink: SKSpriteNode {
         
         self.setPhysics();
         
-        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + 300)
+        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetY)
     }
     
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/3, center: CGPoint(x: position.x - 25, y: position.y));
-        self.physicsBody?.usesPreciseCollisionDetection = true;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Drink;
-        self.physicsBody?.allowsRotation = false;
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.isDynamic = false;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Drink;
         
         self.setScale(0.15);
     }

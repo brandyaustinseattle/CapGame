@@ -14,6 +14,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     var pathEngine = PathEngine();
     
+    var drink = Drink();
+    
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
@@ -53,6 +55,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" {
             playerOnPath = true;
             playerRepeatJumps = 0;
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+            secondBody.node?.removeFromParent()
         }
     }
     
@@ -116,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerConstraints() {
 //        let xRange = SKRange(lowerLimit: -(size.width/2) + 25, upperLimit: size.width/2);
-        let yRange = SKRange(lowerLimit: -(size.height/2), upperLimit: size.height/2 - 100);
+        let yRange = SKRange(lowerLimit: -1000, upperLimit: size.height/2 - 100);
 //        player.constraints = [SKConstraint.positionX(xRange)];
         player.constraints = [SKConstraint.positionY(yRange)];
     }

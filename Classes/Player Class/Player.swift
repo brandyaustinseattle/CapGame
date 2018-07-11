@@ -22,7 +22,7 @@ class Player: SKSpriteNode {
     
     func initialize() {
                 
-//        self.name = "Player";
+        self.name = "Player";
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
@@ -35,6 +35,8 @@ class Player: SKSpriteNode {
     // start set physics body
     func setPhysics() {
 
+        // naming head so both head and body can be referenced with Player
+        playerHead.name = "Player";
         playerHead.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
         playerHead.physicsBody?.usesPreciseCollisionDetection = true;
         playerHead.physicsBody?.categoryBitMask = PhysicsCategory.PlayerHead;
@@ -44,7 +46,9 @@ class Player: SKSpriteNode {
         
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
-
+        
+        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Drink;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
 
         playerBody.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490), height: self.size.height));
         playerBody.physicsBody?.usesPreciseCollisionDetection = true;
@@ -56,8 +60,8 @@ class Player: SKSpriteNode {
         playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
         
         self.physicsBody = playerBody.physicsBody;
-        self.name = "Player"
         self.setScale(0.25);
+        
         self.addChild(playerHead);
     }
     // end set physics body
