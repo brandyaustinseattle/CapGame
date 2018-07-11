@@ -12,7 +12,10 @@ import GameplayKit
 var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);
 
+
 class PathItem: SKSpriteNode {
+    
+    var drink = Drink();
     
     func initialize() {
         
@@ -41,19 +44,34 @@ class PathItem: SKSpriteNode {
         }
 
         self.position = CGPoint(x: CGFloat(xValue), y: -(gameScene.frame.size.height/2) + (self.size.height * 0.55/2));
-
+        
         self.setScale(0.55);
         
-        let endpoint = CGPoint(x: -800, y: self.position.y);
-        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: self.position, pointB: endpoint, speed: 175.0))
-       
-        let remove = SKAction.removeFromParent();
-        let sequence = SKAction.sequence([move, remove]);
-        self.run(sequence);
+        self.move(itemToMove: self);
+        
+        self.addDrink(pathItemPosition: self.position, gameScene: gameScene);
 
         prevPathItem = self;
         
         gameScene.addChild(self);
+    }
+    
+    func addDrink(pathItemPosition: CGPoint, gameScene: GameScene) {
+        drink = Drink(imageNamed: "drink");
+        drink.initialize(pathItemPosition: pathItemPosition);
+        
+        self.move(itemToMove: drink);
+        
+        gameScene.addChild(drink);
+    }
+    
+    func move(itemToMove: SKSpriteNode) {
+        let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
+        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
+        
+        let remove = SKAction.removeFromParent();
+        let sequence = SKAction.sequence([move, remove]);
+        itemToMove.run(sequence);
     }
     
     func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
@@ -63,5 +81,5 @@ class PathItem: SKSpriteNode {
         let duration : TimeInterval = TimeInterval(distance/speed)
         return duration
     }
-    
+
 }

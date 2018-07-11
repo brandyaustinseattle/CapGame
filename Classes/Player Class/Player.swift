@@ -12,6 +12,7 @@ struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;
     static let Ground: UInt32 = 0x1 << 3;
+    static let Drink: UInt32 = 0x1 << 4;
 }
 
 class Player: SKSpriteNode {
@@ -40,6 +41,8 @@ class Player: SKSpriteNode {
         playerHead.physicsBody?.affectedByGravity = true;
         playerHead.physicsBody?.allowsRotation = false;
         playerHead.physicsBody?.isDynamic = true;
+        
+        // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
 
 

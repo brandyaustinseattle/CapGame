@@ -139,5 +139,18 @@ class PathEngine {
         lastType = type;
         lastHeight = height;
     }
+    
+    func drinkRequired(pathItem: PathItem) -> Bool {
+        
+        if pathItem != startStep {
+        
+            let drinkFactor = 3;
+            let randomDrink = Int.random(min: 1, max: 10);
+        
+            return randomDrink <= drinkFactor
+        } else {
+            return false
+        };
+    }
 
 }

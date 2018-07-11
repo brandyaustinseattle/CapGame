@@ -119,13 +119,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D30621BE20F02DA800E2127D /* Path Class */ = {
+		D30621BE20F02DA800E2127D /* Path Classes */ = {
 			isa = PBXGroup;
 			children = (
 				D30621BC20F02CA400E2127D /* PathItem.swift */,
 				D330D86B20F3DCE60018ED1F /* PathEngine.swift */,
 			);
-			path = "Path Class";
+			path = "Path Classes";
 			sourceTree = "<group>";
 		};
 		D30738C620E2B5CA0054DEE6 = {
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D330D87220F576920018ED1F /* Drink Class */,
-				D30621BE20F02DA800E2127D /* Path Class */,
+				D30621BE20F02DA800E2127D /* Path Classes */,
 				D30738ED20E2B6660054DEE6 /* Player Class */,
 				D30738EE20E2B6710054DEE6 /* Scene Classes */,
 			);
