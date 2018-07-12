@@ -42,8 +42,8 @@ class Player: SKSpriteNode {
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
         
-        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Drink;
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
+//        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Drink;
+//        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
         playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Stand;
         playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Stand;
     }

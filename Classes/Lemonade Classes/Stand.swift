@@ -12,13 +12,16 @@ class Stand: SKSpriteNode {
     
     var pathItem = PathItem();
     
-    func initialize() {
+    func initialize(midPathItemPosition: CGPoint, offsetYValue: CGFloat) {
         
         self.name = "Stand";
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
+                
+        self.position = CGPoint(x: midPathItemPosition.x, y: midPathItemPosition.y + offsetYValue);
+        
     }
     
     func setPhysics() {

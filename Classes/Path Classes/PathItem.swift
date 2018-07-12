@@ -61,7 +61,7 @@ class PathItem: SKSpriteNode {
     func addDrink(pathItemPosition: CGPoint, gameScene: GameScene) {
         drink = Drink(imageNamed: "drink");
         
-        let offsetYValue = Int.random(min: 200, max: 400);
+        let offsetYValue = CGFloat(Int.random(min: 200, max: 400));
         
         drink.initialize(pathItemPosition: pathItemPosition, offsetYValue: offsetYValue);
         

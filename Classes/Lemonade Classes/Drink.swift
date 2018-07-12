@@ -10,17 +10,15 @@ import SpriteKit
 
 class Drink: SKSpriteNode {
 
-    func initialize(pathItemPosition: CGPoint, offsetYValue: Int) {
-        
-        let offsetY = CGFloat(offsetYValue);
-        
+    func initialize(pathItemPosition: CGPoint, offsetYValue: CGFloat) {
+                
         self.name = "Drink";
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
         
-        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetY);
+        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetYValue);
         
         let pulse = SKEmitterNode(fileNamed: "Drink");
         self.addChild(pulse!);

@@ -156,7 +156,7 @@ class PathEngine {
     func insertStand(gameScene: GameScene) {
     
         
-        pathItem = PathItem(imageNamed: "startLow");
+        pathItem = PathItem(imageNamed: "startStep");
         pathItem.initialize();
         pathItem.addPathItem(gameScene: gameScene, spaceBefore: 100, drinkFlag: false);
        
@@ -168,7 +168,7 @@ class PathEngine {
         pathItem.initialize();
         pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
         
-        let pathItemPosition = pathItem.position;
+        let midPathItemPosition = pathItem.position;
         
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
@@ -182,9 +182,12 @@ class PathEngine {
         lastHeight = "Low";
         
         stand = Stand(imageNamed: "stand");
-        stand.initialize();
-        stand.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + 250);
-        
+        // pathItem height doesn't need to be * 0.55 bc it's already initialized
+        // stand height does need * 0.5 bc it's not initialized yet
+        let offsetYValue = CGFloat(pathItem.size.height / 2 + stand.size.height * 0.5 / 2);
+
+        stand.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue);
+       
         gameScene.addChild(stand);
         self.move(itemToMove: stand);
         

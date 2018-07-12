@@ -61,6 +61,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             incrementPoints();
             secondBody.node?.removeFromParent()
+            print("hit drink");
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
+            print("hit stand");
+            print(secondBody.node);
         }
     }
     
