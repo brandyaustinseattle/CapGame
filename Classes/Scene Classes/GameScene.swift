@@ -14,7 +14,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     var pathEngine = PathEngine();
     
-    var drink = Drink();
     var points = Int(0);
     var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
     

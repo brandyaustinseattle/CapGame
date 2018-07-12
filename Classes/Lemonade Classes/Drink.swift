@@ -22,7 +22,7 @@ class Drink: SKSpriteNode {
         
         self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetY);
         
-        let pulse = SKEmitterNode(fileNamed: "MyParticle");
+        let pulse = SKEmitterNode(fileNamed: "Drink");
         self.addChild(pulse!);
         pulse?.position = CGPoint(x: 0, y: -150);
     }

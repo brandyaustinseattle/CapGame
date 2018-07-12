@@ -9,16 +9,10 @@
 import SpriteKit
 import GameplayKit
 
-extension Int {
-    static func random(min: Int, max: Int) -> Int {
-        precondition(min <= max);
-        let randomizer = GKRandomSource.sharedRandom();
-        return min + randomizer.nextInt(upperBound: max - min + 1);
-    }
-}
-
 
 class PathEngine {
+    
+    var stand = Stand();
 
     let pathImages = ["startLow", "startStep", "middleLow", "endLow", "aloneLow", "startHigh", "middleHigh", "endHigh", "aloneHigh"];
     var pathItem = PathItem();
@@ -61,14 +55,20 @@ class PathEngine {
         
         let gameScene = timer.userInfo as! GameScene;
         
+        let standFactor = 7;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
         let lowHighFactor = 6;
         
-        
+        let standRandom = Int.random(min: 1, max: 10);
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
+        
+        if standRandom <= standFactor {
+            insertStand(gameScene: gameScene);
+            return;
+        }
         
         if lastType == "end" || lastType == "alone" {
             
@@ -144,13 +144,76 @@ class PathEngine {
     func drinkRequired(type: String) -> Bool {
         
         if type.prefix(5) == "alone" || type.prefix(6) == "middle" {
-            let drinkFactor = 9;
+            let drinkFactor = 5;
             let randomDrink = Int.random(min: 1, max: 10);
 
             return randomDrink <= drinkFactor
         } else {
             return false
         }
+    }
+    
+    func insertStand(gameScene: GameScene) {
+    
+        
+        pathItem = PathItem(imageNamed: "startLow");
+        pathItem.initialize();
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 100, drinkFlag: false);
+       
+        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem.initialize();
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        
+        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem.initialize();
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        
+        let pathItemPosition = pathItem.position;
+        
+        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem.initialize();
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        
+        pathItem = PathItem(imageNamed: "endLow");
+        pathItem.initialize();
+        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        
+        lastType = "end";
+        lastHeight = "Low";
+        
+        stand = Stand(imageNamed: "stand");
+        stand.initialize();
+        stand.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + 250);
+        
+        gameScene.addChild(stand);
+        self.move(itemToMove: stand);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func move(itemToMove: SKSpriteNode) {
+        let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
+        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
+        
+        let remove = SKAction.removeFromParent();
+        let sequence = SKAction.sequence([move, remove]);
+        itemToMove.run(sequence);
+    }
+    
+    func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
+        let xDist = (pointB.x - pointA.x)
+        let yDist = (pointB.y - pointA.y)
+        let distance = sqrt((xDist * xDist) + (yDist * yDist));
+        let duration : TimeInterval = TimeInterval(distance/speed)
+        return duration
     }
 
 }

@@ -8,12 +8,6 @@
 
 import SpriteKit
 
-struct PhysicsCategory {
-    static let PlayerBody: UInt32 = 0x1 << 1;
-    static let PlayerHead: UInt32 = 0x1 << 2;
-    static let Ground: UInt32 = 0x1 << 3;
-    static let Drink: UInt32 = 0x1 << 4;
-}
 
 class Player: SKSpriteNode {
     
@@ -26,14 +20,15 @@ class Player: SKSpriteNode {
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
-        self.setPhysics();
+        self.setPhysicsHead();
+        self.setPhysicsBody();
         
         let running = self.runningPrep();
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
-    // start set physics body
-    func setPhysics() {
+    // start set physics
+    func setPhysicsHead() {
 
         // naming head so both head and body can be referenced with Player
         playerHead.name = "Player";
@@ -49,7 +44,12 @@ class Player: SKSpriteNode {
         
         playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Drink;
         playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
-
+        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Stand;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Stand;
+    }
+    
+    func setPhysicsBody() {
+        
         playerBody.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - CGFloat(490), height: self.size.height));
         playerBody.physicsBody?.usesPreciseCollisionDetection = true;
         playerBody.physicsBody?.categoryBitMask = PhysicsCategory.PlayerBody;
@@ -59,13 +59,15 @@ class Player: SKSpriteNode {
         
         playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
         playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
+        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Stand;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Stand;
         
         self.physicsBody = playerBody.physicsBody;
         self.setScale(0.25);
         
         self.addChild(playerHead);
     }
-    // end set physics body
+    // end set physics
     
     
     func jump() {

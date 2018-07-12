@@ -54,7 +54,9 @@
 		D307394120E2BB480054DEE6 /* testPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = D307394020E2BB470054DEE6 /* testPlayer.png */; };
 		D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D86B20F3DCE60018ED1F /* PathEngine.swift */; };
 		D330D87420F576B30018ED1F /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D87320F576B30018ED1F /* Drink.swift */; };
-		D330D87C20F6DC240018ED1F /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D87B20F6DC240018ED1F /* MyParticle.sks */; };
+		D330D88420F7C0C80018ED1F /* Drink.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88320F7C0C80018ED1F /* Drink.sks */; };
+		D330D88720F7C68E0018ED1F /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88620F7C68E0018ED1F /* Stand.swift */; };
+		D330D88920F7D6710018ED1F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88820F7D6710018ED1F /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +109,9 @@
 		D307394020E2BB470054DEE6 /* testPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPlayer.png; sourceTree = "<group>"; };
 		D330D86B20F3DCE60018ED1F /* PathEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEngine.swift; sourceTree = "<group>"; };
 		D330D87320F576B30018ED1F /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
-		D330D87B20F6DC240018ED1F /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		D330D88320F7C0C80018ED1F /* Drink.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Drink.sks; sourceTree = "<group>"; };
+		D330D88620F7C68E0018ED1F /* Stand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
+		D330D88820F7D6710018ED1F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +163,7 @@
 				D30738DF20E2B5CB0054DEE6 /* Assets.xcassets */,
 				D30738E120E2B5CB0054DEE6 /* LaunchScreen.storyboard */,
 				D30738E420E2B5CB0054DEE6 /* Info.plist */,
-				D330D87B20F6DC240018ED1F /* MyParticle.sks */,
+				D330D88320F7C0C80018ED1F /* Drink.sks */,
 			);
 			path = CapGame;
 			sourceTree = "<group>";
@@ -167,7 +171,8 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D330D87220F576920018ED1F /* Drink Class */,
+				D330D88B20F7D8A30018ED1F /* Lemonade Classes */,
+				D330D88A20F7D69B0018ED1F /* Other */,
 				D30621BE20F02DA800E2127D /* Path Classes */,
 				D30738ED20E2B6660054DEE6 /* Player Class */,
 				D30738EE20E2B6710054DEE6 /* Scene Classes */,
@@ -320,12 +325,21 @@
 			path = "sliding A";
 			sourceTree = "<group>";
 		};
-		D330D87220F576920018ED1F /* Drink Class */ = {
+		D330D88A20F7D69B0018ED1F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D330D88820F7D6710018ED1F /* Global.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		D330D88B20F7D8A30018ED1F /* Lemonade Classes */ = {
 			isa = PBXGroup;
 			children = (
 				D330D87320F576B30018ED1F /* Drink.swift */,
+				D330D88620F7C68E0018ED1F /* Stand.swift */,
 			);
-			path = "Drink Class";
+			path = "Lemonade Classes";
 			sourceTree = "<group>";
 		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
@@ -411,7 +425,6 @@
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
 				D307394120E2BB480054DEE6 /* testPlayer.png in Resources */,
-				D330D87C20F6DC240018ED1F /* MyParticle.sks in Resources */,
 				D307392F20E2B79F0054DEE6 /* flying1.png in Resources */,
 				D307392920E2B79F0054DEE6 /* gameover6.png in Resources */,
 				D307393820E2B79F0054DEE6 /* standing5.png in Resources */,
@@ -422,6 +435,7 @@
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
+				D330D88420F7C0C80018ED1F /* Drink.sks in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
@@ -446,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D330D88720F7C68E0018ED1F /* Stand.swift in Sources */,
 				D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */,
 				D30621B720EE7AC500E2127D /* GameScene.swift in Sources */,
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
@@ -453,6 +468,7 @@
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D330D87420F576B30018ED1F /* Drink.swift in Sources */,
 				D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */,
+				D330D88920F7D6710018ED1F /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
