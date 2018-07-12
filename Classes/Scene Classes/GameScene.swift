@@ -64,10 +64,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
-            let reveal = SKTransition.doorway(withDuration: 3);
-            let newScene = BonusScene(size: CGSize(width: 1334, height: 750));
+            let newScene = BonusScene(fileNamed: "BonusScene")!;
+            let doorway = SKTransition.doorway(withDuration: 1.5);
             
-            view?.presentScene(newScene, transition: reveal)
+            self.view?.presentScene(newScene, transition: doorway)
         }
     }
     
