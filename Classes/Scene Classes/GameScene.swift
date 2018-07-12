@@ -21,12 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
-    override func update(_ currentTime: TimeInterval) {
-        moveMountains();
-    }
-    
     override func didMove(to view: SKView) {
         initialize();
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        moveMountains();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,12 +61,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             incrementPoints();
             secondBody.node?.removeFromParent()
-            print("hit drink");
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
-            print("hit stand");
-            print(secondBody.node);
+            let reveal = SKTransition.doorway(withDuration: 3);
+            let newScene = BonusScene(size: CGSize(width: 1334, height: 750));
+            
+            view?.presentScene(newScene, transition: reveal)
         }
     }
     
@@ -153,5 +154,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         points += 1;
         pointsLabel.text = "\(points) points";
     }
+    
+//    func checkPlayerBounds() {
+//        if player.position.x < -(self.frame.size.width/2 ) || player.position.y < -(self.frame.size.height/2) {
+//            playerDied();
+//        }
+//    }
+//
+//    func playerDied() {
+//
+//    }
     
 }

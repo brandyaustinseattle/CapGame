@@ -42,10 +42,9 @@ class Player: SKSpriteNode {
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
         
-//        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Drink;
-//        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
-        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Stand;
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Stand;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Drink;
+        
+        self.addChild(playerHead);
     }
     
     func setPhysicsBody() {
@@ -58,14 +57,10 @@ class Player: SKSpriteNode {
         playerBody.physicsBody?.isDynamic = true;
         
         playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
-        playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground;
-        playerHead.physicsBody?.collisionBitMask = PhysicsCategory.Stand;
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Stand;
+        playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Stand;
         
         self.physicsBody = playerBody.physicsBody;
         self.setScale(0.25);
-        
-        self.addChild(playerHead);
     }
     // end set physics
     

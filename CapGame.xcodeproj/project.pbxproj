@@ -57,6 +57,8 @@
 		D330D88420F7C0C80018ED1F /* Drink.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88320F7C0C80018ED1F /* Drink.sks */; };
 		D330D88720F7C68E0018ED1F /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88620F7C68E0018ED1F /* Stand.swift */; };
 		D330D88920F7D6710018ED1F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88820F7D6710018ED1F /* Global.swift */; };
+		D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88C20F806BD0018ED1F /* BonusScene.swift */; };
+		D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88E20F80D160018ED1F /* BonusScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		D330D88320F7C0C80018ED1F /* Drink.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Drink.sks; sourceTree = "<group>"; };
 		D330D88620F7C68E0018ED1F /* Stand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
 		D330D88820F7D6710018ED1F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		D330D88C20F806BD0018ED1F /* BonusScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusScene.swift; sourceTree = "<group>"; };
+		D330D88E20F80D160018ED1F /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D30621B820EE7BEB00E2127D /* GameScene.sks */,
+				D330D88E20F80D160018ED1F /* BonusScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				D30621B620EE7AC500E2127D /* GameScene.swift */,
+				D330D88C20F806BD0018ED1F /* BonusScene.swift */,
 			);
 			path = "Scene Classes";
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */,
 				D307392520E2B79F0054DEE6 /* dizzy2.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
+				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
@@ -462,6 +469,7 @@
 			files = (
 				D330D88720F7C68E0018ED1F /* Stand.swift in Sources */,
 				D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */,
+				D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */,
 				D30621B720EE7AC500E2127D /* GameScene.swift in Sources */,
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
