@@ -15,6 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pathEngine = PathEngine();
     
     var drink = Drink();
+    var points = Int(0);
+    var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
     
     var player = Player();
     var playerOnPath = false;
@@ -58,6 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+            incrementPoints();
             secondBody.node?.removeFromParent()
         }
     }
@@ -73,6 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createTrees();
         
         startPathEngine();
+        getLabel();
     }
     
     func createMountains() {
@@ -129,6 +133,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func startPathEngine() {
         pathEngine.initialize(gameScene: self);
+    }
+    
+    func getLabel() {
+        pointsLabel.text = "0 points";
+        pointsLabel.fontSize = 60;
+        pointsLabel.fontColor = UIColor.white;
+        pointsLabel.zPosition = 4;
+        pointsLabel.position = CGPoint(x: 530, y: 300);
+        self.addChild(pointsLabel);
+    }
+    
+    func incrementPoints() {
+        points += 1;
+        pointsLabel.text = "\(points) points";
     }
     
 }

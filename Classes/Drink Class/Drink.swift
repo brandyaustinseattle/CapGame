@@ -20,14 +20,19 @@ class Drink: SKSpriteNode {
         
         self.setPhysics();
         
-        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetY)
+        self.position = CGPoint(x: pathItemPosition.x, y: pathItemPosition.y + offsetY);
+        
+        let pulse = SKEmitterNode(fileNamed: "MyParticle");
+        self.addChild(pulse!);
+        pulse?.position = CGPoint(x: 0, y: -150);
     }
     
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/3, center: CGPoint(x: position.x - 25, y: position.y));
+        self.physicsBody?.usesPreciseCollisionDetection = true;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Drink;
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.isDynamic = false;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Drink;
         
         self.setScale(0.15);
     }

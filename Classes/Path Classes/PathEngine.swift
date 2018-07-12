@@ -70,8 +70,6 @@ class PathEngine {
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
-        let drinkFlag = drinkRequired(pathItem: pathItem);
-        
         if lastType == "end" || lastType == "alone" {
             
             if (randomOne <= startAloneFactor) {
@@ -132,6 +130,7 @@ class PathEngine {
             
         };
         
+        let drinkFlag = drinkRequired(type: type);
         pathItem = PathItem(imageNamed: "\(type)\(height)");
         pathItem.initialize();
         
@@ -142,10 +141,10 @@ class PathEngine {
         lastHeight = height;
     }
     
-    func drinkRequired(pathItem: PathItem) -> Bool {
+    func drinkRequired(type: String) -> Bool {
         
-        if pathItem.name != "startStep" {
-            let drinkFactor = 3;
+        if type.prefix(5) == "alone" || type.prefix(6) == "middle" {
+            let drinkFactor = 9;
             let randomDrink = Int.random(min: 1, max: 10);
 
             return randomDrink <= drinkFactor
