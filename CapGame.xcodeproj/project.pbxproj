@@ -54,12 +54,12 @@
 		D307394120E2BB480054DEE6 /* testPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = D307394020E2BB470054DEE6 /* testPlayer.png */; };
 		D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D86B20F3DCE60018ED1F /* PathEngine.swift */; };
 		D330D87420F576B30018ED1F /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D87320F576B30018ED1F /* Drink.swift */; };
-		D330D88420F7C0C80018ED1F /* Drink.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88320F7C0C80018ED1F /* Drink.sks */; };
 		D330D88720F7C68E0018ED1F /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88620F7C68E0018ED1F /* Stand.swift */; };
 		D330D88920F7D6710018ED1F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88820F7D6710018ED1F /* Global.swift */; };
 		D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88C20F806BD0018ED1F /* BonusScene.swift */; };
 		D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88E20F80D160018ED1F /* BonusScene.sks */; };
 		D330D89320F9327B0018ED1F /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D89220F9327B0018ED1F /* Points.swift */; };
+		D330D89720F95B810018ED1F /* Drink.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D89620F95B810018ED1F /* Drink.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,12 +112,12 @@
 		D307394020E2BB470054DEE6 /* testPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPlayer.png; sourceTree = "<group>"; };
 		D330D86B20F3DCE60018ED1F /* PathEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEngine.swift; sourceTree = "<group>"; };
 		D330D87320F576B30018ED1F /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
-		D330D88320F7C0C80018ED1F /* Drink.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Drink.sks; sourceTree = "<group>"; };
 		D330D88620F7C68E0018ED1F /* Stand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
 		D330D88820F7D6710018ED1F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		D330D88C20F806BD0018ED1F /* BonusScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusScene.swift; sourceTree = "<group>"; };
 		D330D88E20F80D160018ED1F /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
 		D330D89220F9327B0018ED1F /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
+		D330D89620F95B810018ED1F /* Drink.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Drink.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +169,7 @@
 				D30738DF20E2B5CB0054DEE6 /* Assets.xcassets */,
 				D30738E120E2B5CB0054DEE6 /* LaunchScreen.storyboard */,
 				D30738E420E2B5CB0054DEE6 /* Info.plist */,
-				D330D88320F7C0C80018ED1F /* Drink.sks */,
+				D330D89620F95B810018ED1F /* Drink.sks */,
 			);
 			path = CapGame;
 			sourceTree = "<group>";
@@ -432,6 +432,7 @@
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
+				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
 				D307394120E2BB480054DEE6 /* testPlayer.png in Resources */,
@@ -445,7 +446,6 @@
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
-				D330D88420F7C0C80018ED1F /* Drink.sks in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,

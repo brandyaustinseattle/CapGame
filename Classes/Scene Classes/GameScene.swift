@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        Points.instance.updateLabel(pointsLabel: pointsLabel);
+        Points.instance.updateLabel(pointsLabel: pointsLabel)
         self.addChild(pointsLabel);
     }
     
@@ -63,12 +63,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             Points.instance.increment();
             Points.instance.updateLabel(pointsLabel: pointsLabel);
+            
+            let pulse = SKEmitterNode(fileNamed: "Drink");
+            pulse?.position = (secondBody.node?.position)!;
+            self.addChild(pulse!);
+            
             secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
             let newScene = BonusScene(fileNamed: "BonusScene")!;
-            
+            // needed to make images appropriate sizes
+            newScene.scaleMode = .aspectFill
+
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
             self.view?.presentScene(newScene, transition: doorway)
@@ -131,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
-        player.run();
+        player.runFast();
     }
     
     func playerConstraints() {

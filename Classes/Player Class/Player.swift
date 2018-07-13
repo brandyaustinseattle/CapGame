@@ -64,26 +64,27 @@ class Player: SKSpriteNode {
     
     func jump() {
         let jumping = jumpPrep();
-        self.run(jumping);
 
         self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
         self.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 8500));
+        
+        self.run(jumping);
     }
     
     func fly() {
         let flying = flyingPrep();
-        self.run(flying);
         
         playerBody.physicsBody?.affectedByGravity = false;
         playerHead.physicsBody?.affectedByGravity = false;
-        
+
+        self.run(flying);
         self.run(SKAction.repeatForever(flying), withKey: "flyKey");
     }
     
-    func run() {
+    func runFast() {
         let running = runningPrep();
+
         self.run(running);
-        
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     

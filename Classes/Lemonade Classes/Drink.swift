@@ -17,12 +17,8 @@ class Drink: SKSpriteNode {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
-        
+                
         self.position = CGPoint(x: referencePosition.x, y: referencePosition.y + offsetYValue);
-        
-        let pulse = SKEmitterNode(fileNamed: "Drink");
-        self.addChild(pulse!);
-        pulse?.position = CGPoint(x: 0, y: -150);
     }
     
     func setPhysics() {
@@ -33,6 +29,12 @@ class Drink: SKSpriteNode {
         self.physicsBody?.isDynamic = false;
         
         self.setScale(0.15);
+    }
+    
+    func drinkPulse() {
+        let pulse = SKEmitterNode(fileNamed: "Drink");
+        self.addChild(pulse!);
+        pulse?.position = CGPoint(x: 0, y: 0);
     }
     
 }

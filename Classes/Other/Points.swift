@@ -22,12 +22,17 @@ class Points {
     }
     
     func updateLabel(pointsLabel: SKLabelNode) {
-        pointsLabel.text = "\(value) points";
+        if value == 1 {
+            pointsLabel.text = "\(value) point";
+        } else {
+            pointsLabel.text = "\(value) points";
+        };
+        
         pointsLabel.fontColor = UIColor.white;
         pointsLabel.fontSize = 60;
         pointsLabel.zPosition = 4;
         
-        //    pointsLabel.position = CGPoint(x: 530, y: 300);
-        pointsLabel.position = CGPoint(x: 0, y: 0);
+        pointsLabel.position = CGPoint(x: 530, y: 300);
+        
     }
 }

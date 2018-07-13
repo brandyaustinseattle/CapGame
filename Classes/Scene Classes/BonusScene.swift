@@ -79,8 +79,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.initialize();
         player.position = CGPoint(x: 0, y: 0);
         
-        // player needs to be smaller than default
-        player.setScale(0.15);
         self.addChild(player);
         player.fly();
     }
@@ -96,9 +94,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let offsetYValue = CGFloat(0);
             
         drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
-        
-        // drink needs to be smaller than default
-        drink.setScale(0.10);
             
         self.addChild(drink);
     }
