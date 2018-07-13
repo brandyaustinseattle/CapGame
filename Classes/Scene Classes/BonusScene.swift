@@ -11,12 +11,17 @@ import GameplayKit
 
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
+    
+    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
         
     var player = Player();
     var drink = Drink();
     
     override func didMove(to view: SKView) {
         initialize();
+        
+        Points.instance.updateLabel(pointsLabel: pointsLabel);
+        self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -70,7 +75,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createPlayer() {
-        player = Player(imageNamed: "testPlayer");
+        player = Player(imageNamed: "flying1");
         player.initialize();
         player.position = CGPoint(x: 0, y: 0);
         

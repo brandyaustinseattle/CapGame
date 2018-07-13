@@ -11,7 +11,9 @@ import GameplayKit
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-        
+    
+    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+
     var pathEngine = PathEngine();
         
     var player = Player();
@@ -20,6 +22,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         initialize();
+        
+        Points.instance.updateLabel(pointsLabel: pointsLabel);
+        self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -56,7 +61,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
-            incrementPoints();
+            Points.instance.increment();
+            Points.instance.updateLabel(pointsLabel: pointsLabel);
             secondBody.node?.removeFromParent()
         }
         
