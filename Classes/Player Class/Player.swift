@@ -22,9 +22,6 @@ class Player: SKSpriteNode {
         
         self.setPhysicsHead();
         self.setPhysicsBody();
-        
-        let running = self.runningPrep();
-        self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
     // start set physics
@@ -66,7 +63,6 @@ class Player: SKSpriteNode {
     
     
     func jump() {
-
         let jumping = jumpPrep();
         self.run(jumping);
 
@@ -74,6 +70,22 @@ class Player: SKSpriteNode {
         self.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 8500));
     }
     
+    func fly() {
+        let flying = flyingPrep();
+        self.run(flying);
+        
+        playerBody.physicsBody?.affectedByGravity = false;
+        playerHead.physicsBody?.affectedByGravity = false;
+        
+        self.run(SKAction.repeatForever(flying), withKey: "flyKey");
+    }
+    
+    func run() {
+        let running = runningPrep();
+        self.run(running);
+        
+        self.run(SKAction.repeatForever(running), withKey: "runKey");
+    }
     
     // start animations prep
     func standingPrep() -> SKAction {
@@ -118,6 +130,19 @@ class Player: SKSpriteNode {
         let jump = SKAction.animate(with: jumpSequence, timePerFrame: TimeInterval(0.18), resize: true, restore: true);
         
         return jump;
+    }
+    
+    func flyingPrep() -> SKAction {
+        var flyingSequence = [SKTexture]();
+        
+        for i in 1...6 {
+            let imageName = "flying\(i)";
+            flyingSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let flying = SKAction.animate(with: flyingSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
+        
+        return flying;
     }
     // end animations prep
     

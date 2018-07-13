@@ -12,8 +12,15 @@ import GameplayKit
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
     
+    var player = Player();
+    var drink = Drink();
+    
     override func didMove(to view: SKView) {
         initialize();
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        moveClouds();
     }
     
     func initialize() {
@@ -22,7 +29,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createMountains();
         createClouds();
         
-        addDrinks();
+        createPlayer();
+        addDrinkMatrix();
     }
     
     func createMountains() {
@@ -45,14 +53,49 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func addDrinks() {
-        func createPlayer() {
-            player = Player(imageNamed: "testPlayer");
-            player.initialize();
-            player.position = CGPoint(x: -500, y: 200);
+    func moveClouds() {
+        
+        enumerateChildNodes(withName: "cloud") {
+            node, _ in
             
-            self.addChild(player);
-        }
+            let cloudsNode = node as! SKSpriteNode;
+            
+            cloudsNode.position.x -= 0.5;
+            
+            // less than because mountains are scrolling left
+            if cloudsNode.position.x < -(self.frame.size.width) {
+                cloudsNode.position.x += self.frame.size.width * 2;
+            }
+        };
+    }
+    
+    func createPlayer() {
+        player = Player(imageNamed: "testPlayer");
+        player.initialize();
+        player.position = CGPoint(x: 0, y: 0);
+        
+        // player needs to be smaller than it is in gameScene
+        player.setScale(0.15);
+        self.addChild(player);
+        player.fly();
+    }
+    
+    func addDrinkMatrix() {
+        
+        let x = CGFloat(-100);
+        let y = CGFloat(100);
+        
+        drink = Drink(imageNamed: "drink");
+        
+        let referencePosition = CGPoint(x: x, y: y);
+        let offsetYValue = CGFloat(0);
+            
+        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
+        
+        // drink needs to be smaller than it is in gameScene
+        drink.setScale(0.08);
+            
+        self.addChild(drink);
     }
     
 }

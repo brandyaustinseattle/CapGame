@@ -50,7 +50,7 @@ class PathItem: SKSpriteNode {
         self.move(itemToMove: self);
         
         if drinkFlag {
-            self.addDrink(pathItemPosition: self.position, gameScene: gameScene);
+            self.addDrink(referencePosition: self.position, gameScene: gameScene);
         }
 
         prevPathItem = self;
@@ -58,12 +58,12 @@ class PathItem: SKSpriteNode {
         gameScene.addChild(self);
     }
     
-    func addDrink(pathItemPosition: CGPoint, gameScene: GameScene) {
+    func addDrink(referencePosition: CGPoint, gameScene: GameScene) {
         drink = Drink(imageNamed: "drink");
         
         let offsetYValue = CGFloat(Int.random(min: 200, max: 400));
         
-        drink.initialize(pathItemPosition: pathItemPosition, offsetYValue: offsetYValue);
+        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
         
         gameScene.addChild(drink);
         

@@ -128,6 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
+        player.run();
     }
     
     func playerConstraints() {
