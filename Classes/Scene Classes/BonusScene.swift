@@ -11,7 +11,7 @@ import GameplayKit
 
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
-    
+        
     var player = Player();
     var drink = Drink();
     
@@ -31,8 +31,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         createPlayer();
         addDrinkMatrix();
-        
-        self.addChild(pointsLabel.copy() as! SKLabelNode);
     }
     
     func createMountains() {

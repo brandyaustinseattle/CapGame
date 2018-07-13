@@ -9,10 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-
-var points = Int(0);
-var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
-
 struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;
@@ -29,18 +25,21 @@ extension Int {
     }
 }
 
-
+var points = Int(0);
+    
 func getLabel() -> SKLabelNode {
+    var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    
     pointsLabel.text = "\(points) points";
     pointsLabel.fontSize = 60;
     pointsLabel.fontColor = UIColor.white;
     pointsLabel.zPosition = 4;
     pointsLabel.position = CGPoint(x: 530, y: 300);
-    
+        
     return pointsLabel;
 }
-
+    
 func incrementPoints() {
     points += 1;
-    pointsLabel.text = "\(points) points";
 }
+

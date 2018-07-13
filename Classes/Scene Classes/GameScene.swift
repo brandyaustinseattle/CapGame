@@ -62,6 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
             let newScene = BonusScene(fileNamed: "BonusScene")!;
+            
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
             self.view?.presentScene(newScene, transition: doorway)
@@ -79,9 +80,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createTrees();
         
         startPathEngine();
-        
-        pointsLabel = getLabel();
-        self.addChild(pointsLabel);
     }
     
     func createMountains() {

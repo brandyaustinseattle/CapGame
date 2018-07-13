@@ -55,7 +55,7 @@ class PathEngine {
         
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 7;
+        let standFactor = 2;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
