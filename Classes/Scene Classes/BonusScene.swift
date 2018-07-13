@@ -31,6 +31,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         createPlayer();
         addDrinkMatrix();
+        
+        self.addChild(pointsLabel.copy() as! SKLabelNode);
     }
     
     func createMountains() {
@@ -74,7 +76,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.initialize();
         player.position = CGPoint(x: 0, y: 0);
         
-        // player needs to be smaller than it is in gameScene
+        // player needs to be smaller than default
         player.setScale(0.15);
         self.addChild(player);
         player.fly();
@@ -92,8 +94,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             
         drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
         
-        // drink needs to be smaller than it is in gameScene
-        drink.setScale(0.08);
+        // drink needs to be smaller than default
+        drink.setScale(0.10);
             
         self.addChild(drink);
     }

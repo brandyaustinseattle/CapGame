@@ -13,10 +13,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
         
     var pathEngine = PathEngine();
-    
-    var points = Int(0);
-    var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
-    
+        
     var player = Player();
     var playerOnPath = false;
     var playerRepeatJumps = 0;
@@ -82,7 +79,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createTrees();
         
         startPathEngine();
-        getLabel();
+        
+        pointsLabel = getLabel();
+        self.addChild(pointsLabel);
     }
     
     func createMountains() {
@@ -142,28 +141,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pathEngine.initialize(gameScene: self);
     }
     
-    func getLabel() {
-        pointsLabel.text = "0 points";
-        pointsLabel.fontSize = 60;
-        pointsLabel.fontColor = UIColor.white;
-        pointsLabel.zPosition = 4;
-        pointsLabel.position = CGPoint(x: 530, y: 300);
-        self.addChild(pointsLabel);
-    }
     
-    func incrementPoints() {
-        points += 1;
-        pointsLabel.text = "\(points) points";
-    }
     
-//    func checkPlayerBounds() {
-//        if player.position.x < -(self.frame.size.width/2 ) || player.position.y < -(self.frame.size.height/2) {
-//            playerDied();
-//        }
-//    }
-//
-//    func playerDied() {
-//
-//    }
+    // functions below are a work in progress
+    func checkPlayerBounds() {
+        if player.position.x < -(self.frame.size.width/2 ) || player.position.y < -(self.frame.size.height/2) {
+            playerDied();
+        }
+    }
+
+    func playerDied() {
+
+    }
     
 }
