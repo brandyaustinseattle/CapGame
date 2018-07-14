@@ -81,7 +81,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         let y = CGFloat(self.frame.size.height/2 - 3 * (self.frame.size.height/4));
         
-//        player.position = CGPoint(x: -480, y: -230);
         player.position = CGPoint(x: x, y: y);
         
         self.addChild(player);
