@@ -24,6 +24,16 @@ class Player: SKSpriteNode {
         self.setPhysicsBody();
     }
     
+    
+    
+
+//    self.physicsBody?.restitution = 0;
+//    self.physicsBody?.collisionBitMask = ColliderType.CLOUD;
+//    self.physicsBody?.contactTestBitMask = ColliderType.DARK_CLOUD_AND_COLLECTABLES;
+    
+    
+    
+    
     // start set physics
     func setPhysicsHead() {
 

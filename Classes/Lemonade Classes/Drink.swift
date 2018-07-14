@@ -23,18 +23,16 @@ class Drink: SKSpriteNode {
     
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/3, center: CGPoint(x: position.x - 25, y: position.y));
+        
+        // delete following?
         self.physicsBody?.usesPreciseCollisionDetection = true;
         self.physicsBody?.categoryBitMask = PhysicsCategory.Drink;
         self.physicsBody?.affectedByGravity = false;
+        self.physicsBody?.allowsRotation = false;
+        // delete following?
         self.physicsBody?.isDynamic = false;
         
         self.setScale(0.15);
-    }
-    
-    func drinkPulse() {
-        let pulse = SKEmitterNode(fileNamed: "Drink");
-        self.addChild(pulse!);
-        pulse?.position = CGPoint(x: 0, y: 0);
     }
     
 }

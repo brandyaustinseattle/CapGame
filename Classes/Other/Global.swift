@@ -24,3 +24,9 @@ extension Int {
         return min + randomizer.nextInt(upperBound: max - min + 1);
     }
 }
+    
+func drinkPulse(position: CGPoint) -> SKEmitterNode {
+    let pulse = SKEmitterNode(fileNamed: "Drink");
+    pulse?.position = position;
+    return pulse!;
+}
