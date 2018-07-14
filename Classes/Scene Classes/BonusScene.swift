@@ -53,7 +53,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             cloud.anchorPoint = CGPoint(x: 0.5, y: 0.5);
             cloud.position = CGPoint(x: cloud.size.width * CGFloat(i) / 3 - 100, y: cloud.size.height * CGFloat(i) / 2 - 150);
             cloud.zPosition = 1;
-            cloud.setScale(0.5);
+            cloud.setScale(0.75);
             self.addChild(cloud);
         }
     }
@@ -85,17 +85,30 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     func addDrinkMatrix() {
         
-        let x = CGFloat(-100);
-        let y = CGFloat(100);
+        var x = CGFloat(-480);
+        var y = CGFloat(180);
+        var count = 0;
         
-        drink = Drink(imageNamed: "drink");
+        // 3 rows
+        for _ in 1...3 {
+            // 5 columns
+            for _ in 1...5 {
         
-        let referencePosition = CGPoint(x: x, y: y);
-        let offsetYValue = CGFloat(0);
+                drink = Drink(imageNamed: "drink");
+        
+                let referencePosition = CGPoint(x: x, y: y);
+                let offsetYValue = CGFloat(0);
             
-        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
+                drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
             
-        self.addChild(drink);
+                self.addChild(drink);
+        
+                x += 2.5 * drink.size.width;
+            }
+        
+            y -= 2.5 * drink.size.height;
+            x = -480
+        }
     }
     
 }
