@@ -27,6 +27,8 @@ class Stand: SKSpriteNode {
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width, height: self.size.height));
         
+        self.physicsBody?.collisionBitMask = 0; 
+        
         self.physicsBody?.usesPreciseCollisionDetection = true;
         self.physicsBody?.categoryBitMask = PhysicsCategory.Stand;
         self.physicsBody?.allowsRotation = false;

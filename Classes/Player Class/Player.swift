@@ -40,6 +40,10 @@ class Player: SKSpriteNode {
         // naming head so both head and body can be referenced with Player
         playerHead.name = "Player";
         playerHead.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
+        
+        // this is where the magic happens
+        playerHead.physicsBody?.collisionBitMask = 0;
+        
         playerHead.physicsBody?.usesPreciseCollisionDetection = true;
         playerHead.physicsBody?.categoryBitMask = PhysicsCategory.PlayerHead;
         playerHead.physicsBody?.affectedByGravity = true;

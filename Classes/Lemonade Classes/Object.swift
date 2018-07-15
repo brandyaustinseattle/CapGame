@@ -35,6 +35,8 @@ class Object: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/3, center: CGPoint(x: position.x - 25, y: position.y));
         
         // delete following?
+        self.physicsBody?.collisionBitMask = 0;
+        
         self.physicsBody?.usesPreciseCollisionDetection = true;
         self.physicsBody?.categoryBitMask = PhysicsCategory.Object;
         self.physicsBody?.affectedByGravity = false;
