@@ -30,3 +30,9 @@ func drinkPulse(position: CGPoint) -> SKEmitterNode {
     pulse?.position = position;
     return pulse!;
 }
+
+func lemonPulse(position: CGPoint) -> SKEmitterNode {
+    let pulse = SKEmitterNode(fileNamed: "Lemon");
+    pulse?.position = position;
+    return pulse!;
+}

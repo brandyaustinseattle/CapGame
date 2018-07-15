@@ -19,6 +19,13 @@ class Drink: SKSpriteNode {
         self.setPhysics();
                 
         self.position = CGPoint(x: referencePosition.x, y: referencePosition.y + offsetYValue);
+        
+        let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / 12), duration: 1);
+        let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / 12), duration: 1);
+        let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
+        
+        self.run(SKAction.repeatForever(rotateSequence), withKey: "rotateKey");
+
     }
     
     func setPhysics() {
@@ -31,7 +38,7 @@ class Drink: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         // delete following?
         self.physicsBody?.isDynamic = false;
-        
+                
         self.setScale(0.15);
     }
     

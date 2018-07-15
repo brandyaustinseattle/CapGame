@@ -18,6 +18,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
     var player = Player();
     var drink = Drink();
+    var lemon = Drink();
     
     override func didMove(to view: SKView) {
         initialize();
@@ -31,32 +32,42 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            touchLocation = touch.location(in: self)
-            
-            player.position.x = (touchLocation.x)
-            player.position.y = (touchLocation.y)
-        }
+        guard let touch = touches.first else { return }
+        let destination = touch.location(in: self)
+        let move = SKAction.move(to: destination, duration: 4)
+        player.removeAction(forKey: "move")
+        player.run(move, withKey: "move")
     }
     
-
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            touchLocation = touch.location(in: self)
+        player.removeAction(forKey: "move");
+    }
+    
+    // same as drink portion of didBegin in GameScene
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody = SKPhysicsBody();
+        var secondBody = SKPhysicsBody();
+        
+        if contact.bodyA.node?.name == "Player" {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+            Points.instance.increment();
+            Points.instance.updateLabel(pointsLabel: pointsLabel);
             
-            player.position.x = (touchLocation.x)
-            player.position.y = (touchLocation.y)
+            let position = secondBody.node?.position;
+            let dPulse = drinkPulse(position: position!);
+            self.addChild(dPulse);
+            
+            secondBody.node?.removeFromParent()
         }
     }
 
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            touchLocation = touch.location(in: self)
-            
-            player.position.x = (touchLocation.x)
-            player.position.y = (touchLocation.y)
-        }
-    }
     
     func initialize() {
         physicsWorld.contactDelegate = self;
@@ -152,12 +163,25 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                 } else {
         
                     drink = Drink(imageNamed: "drink");
+                    lemon = Drink(imageNamed: "lemon");
         
                     let referencePosition = CGPoint(x: x, y: y);
                     let offsetYValue = CGFloat(0);
             
                     drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
-                    self.addChild(drink);
+                    lemon.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
+      
+
+                    
+                    if i == 1 {
+                        self.addChild(drink);
+                    } else {
+                        let position = lemon.position;
+                        let lPulse = lemonPulse(position: position);
+                        self.addChild(lPulse);
+
+                        self.addChild(lemon);
+                    };
                 }
                 
                 x += self.frame.size.width/6;

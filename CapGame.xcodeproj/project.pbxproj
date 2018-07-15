@@ -60,6 +60,9 @@
 		D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88E20F80D160018ED1F /* BonusScene.sks */; };
 		D330D89320F9327B0018ED1F /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D89220F9327B0018ED1F /* Points.swift */; };
 		D330D89720F95B810018ED1F /* Drink.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D89620F95B810018ED1F /* Drink.sks */; };
+		D330D8B520FB08240018ED1F /* slice.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D8B120FB08240018ED1F /* slice.png */; };
+		D330D8C320FB13960018ED1F /* lemon.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D8C220FB13960018ED1F /* lemon.png */; };
+		D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D8C620FB146D0018ED1F /* Lemon.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +121,9 @@
 		D330D88E20F80D160018ED1F /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
 		D330D89220F9327B0018ED1F /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		D330D89620F95B810018ED1F /* Drink.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Drink.sks; sourceTree = "<group>"; };
+		D330D8B120FB08240018ED1F /* slice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slice.png; sourceTree = "<group>"; };
+		D330D8C220FB13960018ED1F /* lemon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lemon.png; sourceTree = "<group>"; };
+		D330D8C620FB146D0018ED1F /* Lemon.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Lemon.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 				D30738E120E2B5CB0054DEE6 /* LaunchScreen.storyboard */,
 				D30738E420E2B5CB0054DEE6 /* Info.plist */,
 				D330D89620F95B810018ED1F /* Drink.sks */,
+				D330D8C620FB146D0018ED1F /* Lemon.sks */,
 			);
 			path = CapGame;
 			sourceTree = "<group>";
@@ -354,6 +361,8 @@
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
+				D330D8C220FB13960018ED1F /* lemon.png */,
+				D330D8B120FB08240018ED1F /* slice.png */,
 				D30621B220ED45D300E2127D /* drink.png */,
 				D30621B420ED468B00E2127D /* stand.png */,
 			);
@@ -419,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D307393420E2B79F0054DEE6 /* slideB1.png in Resources */,
+				D330D8B520FB08240018ED1F /* slice.png in Resources */,
 				D307392320E2B79F0054DEE6 /* running3.png in Resources */,
 				D307392B20E2B79F0054DEE6 /* gameover5.png in Resources */,
 				D307392420E2B79F0054DEE6 /* dizzy1.png in Resources */,
@@ -435,6 +445,7 @@
 				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
+				D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */,
 				D307394120E2BB480054DEE6 /* testPlayer.png in Resources */,
 				D307392F20E2B79F0054DEE6 /* flying1.png in Resources */,
 				D307392920E2B79F0054DEE6 /* gameover6.png in Resources */,
@@ -460,6 +471,7 @@
 				D307392620E2B79F0054DEE6 /* gameover1.png in Resources */,
 				D307393E20E2B79F0054DEE6 /* slideA2.png in Resources */,
 				D307392720E2B79F0054DEE6 /* gameover2.png in Resources */,
+				D330D8C320FB13960018ED1F /* lemon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +576,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -619,7 +630,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
