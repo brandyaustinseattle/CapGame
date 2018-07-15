@@ -13,7 +13,9 @@ import GameplayKit
 class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
-        
+    
+    var touchLocation = CGPoint();
+
     var player = Player();
     var drink = Drink();
     
@@ -26,6 +28,34 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         moveClouds();
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            touchLocation = touch.location(in: self)
+            
+            player.position.x = (touchLocation.x)
+            player.position.y = (touchLocation.y)
+        }
+    }
+    
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            touchLocation = touch.location(in: self)
+            
+            player.position.x = (touchLocation.x)
+            player.position.y = (touchLocation.y)
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            touchLocation = touch.location(in: self)
+            
+            player.position.x = (touchLocation.x)
+            player.position.y = (touchLocation.y)
+        }
     }
     
     func initialize() {
@@ -66,7 +96,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             cloud.zPosition = 1;
             
             // used to randomly determine size of clouds
-            let cloudSizeRandom = Int.random(min: 0, max: 3);
+            let cloudSizeRandom = Int.random(min: 0, max: 2);
             let cloudSize = cloudSizeArray[cloudSizeRandom];
             cloud.setScale(cloudSize);
             
