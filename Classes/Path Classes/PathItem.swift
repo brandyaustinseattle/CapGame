@@ -16,7 +16,7 @@ var xValue = CGFloat(0);
 class PathItem: SKSpriteNode {
     
     let offSetYArray = [CGFloat(315), CGFloat(450)];
-    var drink = Drink();
+    var drink = Object();
     
     func initialize() {
         
@@ -60,12 +60,12 @@ class PathItem: SKSpriteNode {
     }
     
     func addDrink(referencePosition: CGPoint, gameScene: GameScene) {
-        drink = Drink(imageNamed: "drink");
+        drink = Object(imageNamed: "drink");
         
         let index = Int(CGFloat(Int.random(min: 0, max: 1)));
         let offsetYValue = offSetYArray[index];
         
-        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
+        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Drink");
         
         gameScene.addChild(drink);
         

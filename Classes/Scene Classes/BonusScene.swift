@@ -15,10 +15,10 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
     
     var touchLocation = CGPoint();
-
+    
     var player = Player();
-    var drink = Drink();
-    var lemon = Drink();
+    var drink = Object();
+    var lemon = Object();
     
     override func didMove(to view: SKView) {
         initialize();
@@ -34,7 +34,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let destination = touch.location(in: self)
-        let move = SKAction.move(to: destination, duration: 4)
+        let move = SKAction.move(to: destination, duration: 2)
         player.removeAction(forKey: "move")
         player.run(move, withKey: "move")
     }
@@ -56,13 +56,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
             Points.instance.increment();
             Points.instance.updateLabel(pointsLabel: pointsLabel);
             
             let position = secondBody.node?.position;
-            let dPulse = drinkPulse(position: position!);
-            self.addChild(dPulse);
+            let cPulse = contactPulse(position: position!);
+            self.addChild(cPulse);
             
             secondBody.node?.removeFromParent()
         }
@@ -76,7 +76,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createClouds();
         
         createPlayer();
-        addDrinkMatrix();
+        addObjectsMatrix();
     }
     
     func createMountains() {
@@ -149,12 +149,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
-    func addDrinkMatrix() {
+    func addObjectsMatrix() {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - self.frame.size.height/4);
         
-        // 3 rows and 5 columns of drinks
+        // 3 rows and 5 columns of drinks/lemons
         for i in 1...3 {
             for j in 1...5 {
                 
@@ -162,24 +162,17 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     // do nothing bc player will be in this area
                 } else {
         
-                    drink = Drink(imageNamed: "drink");
-                    lemon = Drink(imageNamed: "lemon");
+                    drink = Object(imageNamed: "drink");
+                    lemon = Object(imageNamed: "lemon");
         
                     let referencePosition = CGPoint(x: x, y: y);
-                    let offsetYValue = CGFloat(0);
             
-                    drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
-                    lemon.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
-      
-
+                    drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
+                    lemon.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Lemon");
                     
                     if i == 1 {
                         self.addChild(drink);
                     } else {
-                        let position = lemon.position;
-                        let lPulse = lemonPulse(position: position);
-                        self.addChild(lPulse);
-
                         self.addChild(lemon);
                     };
                 }

@@ -65,8 +65,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             Points.instance.updateLabel(pointsLabel: pointsLabel);
             
             let position = secondBody.node?.position;
-            let dPulse = drinkPulse(position: position!);
-            self.addChild(dPulse);
+            let cPulse = contactPulse(position: position!);
+            self.addChild(cPulse);
             
             secondBody.node?.removeFromParent()
         }

@@ -13,7 +13,7 @@ struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;
     static let Ground: UInt32 = 0x1 << 3;
-    static let Drink: UInt32 = 0x1 << 4;
+    static let Object: UInt32 = 0x1 << 4;
     static let Stand: UInt32 = 0x1 << 5;
 }
 
@@ -25,7 +25,7 @@ extension Int {
     }
 }
     
-func drinkPulse(position: CGPoint) -> SKEmitterNode {
+func contactPulse(position: CGPoint) -> SKEmitterNode {
     let pulse = SKEmitterNode(fileNamed: "Drink");
     pulse?.position = position;
     return pulse!;
@@ -36,3 +36,4 @@ func lemonPulse(position: CGPoint) -> SKEmitterNode {
     pulse?.position = position;
     return pulse!;
 }
+

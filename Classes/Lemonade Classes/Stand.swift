@@ -34,5 +34,4 @@ class Stand: SKSpriteNode {
                 
         self.setScale(0.5);
     }
-    
 }
