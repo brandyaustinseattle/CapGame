@@ -63,6 +63,8 @@
 		D330D8B520FB08240018ED1F /* slice.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D8B120FB08240018ED1F /* slice.png */; };
 		D330D8C320FB13960018ED1F /* lemon.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D8C220FB13960018ED1F /* lemon.png */; };
 		D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D8C620FB146D0018ED1F /* Lemon.sks */; };
+		D330D8C920FD26D60018ED1F /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D8C820FD26D60018ED1F /* GameOverScene.swift */; };
+		D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D8CA20FD26F50018ED1F /* GameOverScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,8 @@
 		D330D8B120FB08240018ED1F /* slice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slice.png; sourceTree = "<group>"; };
 		D330D8C220FB13960018ED1F /* lemon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lemon.png; sourceTree = "<group>"; };
 		D330D8C620FB146D0018ED1F /* Lemon.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Lemon.sks; sourceTree = "<group>"; };
+		D330D8C820FD26D60018ED1F /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		D330D8CA20FD26F50018ED1F /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D30621B820EE7BEB00E2127D /* GameScene.sks */,
+				D330D8CA20FD26F50018ED1F /* GameOverScene.sks */,
 				D330D88E20F80D160018ED1F /* BonusScene.sks */,
 			);
 			path = Scenes;
@@ -214,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D30621B620EE7AC500E2127D /* GameScene.swift */,
+				D330D8C820FD26D60018ED1F /* GameOverScene.swift */,
 				D330D88C20F806BD0018ED1F /* BonusScene.swift */,
 			);
 			path = "Scene Classes";
@@ -271,9 +277,9 @@
 				D307390020E2B79F0054DEE6 /* gameover1.png */,
 				D307390120E2B79F0054DEE6 /* gameover2.png */,
 				D307390220E2B79F0054DEE6 /* gameover3.png */,
-				D307390320E2B79F0054DEE6 /* gameover6.png */,
 				D307390420E2B79F0054DEE6 /* gameover4.png */,
 				D307390520E2B79F0054DEE6 /* gameover5.png */,
+				D307390320E2B79F0054DEE6 /* gameover6.png */,
 			);
 			path = "game over";
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				D307392520E2B79F0054DEE6 /* dizzy2.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
+				D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
 				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
@@ -492,6 +499,7 @@
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D330D87420F576B30018ED1F /* Object.swift in Sources */,
 				D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */,
+				D330D8C920FD26D60018ED1F /* GameOverScene.swift in Sources */,
 				D330D88920F7D6710018ED1F /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

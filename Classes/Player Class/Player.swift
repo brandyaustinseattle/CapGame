@@ -24,16 +24,6 @@ class Player: SKSpriteNode {
         self.setPhysicsBody();
     }
     
-    
-    
-
-//    self.physicsBody?.restitution = 0;
-//    self.physicsBody?.collisionBitMask = ColliderType.CLOUD;
-//    self.physicsBody?.contactTestBitMask = ColliderType.DARK_CLOUD_AND_COLLECTABLES;
-    
-    
-    
-    
     // start set physics
     func setPhysicsHead() {
 
@@ -102,6 +92,13 @@ class Player: SKSpriteNode {
         self.run(SKAction.repeatForever(running), withKey: "runKey");
     }
     
+    func gameOver() {
+        let gameOver = gameOverPrep();
+        
+        self.run(gameOver);
+        self.run(SKAction.repeatForever(gameOver), withKey: "overKey");
+    }
+    
     // start animations prep
     func standingPrep() -> SKAction {
         var standSequence = [SKTexture]();
@@ -158,6 +155,19 @@ class Player: SKSpriteNode {
         let flying = SKAction.animate(with: flyingSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
         
         return flying;
+    }
+    
+    func gameOverPrep() -> SKAction {
+        var gameOverSequence = [SKTexture]();
+        
+        for i in 1...6 {
+            let imageName = "gameover\(i)";
+            gameOverSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let gameOver = SKAction.animate(with: gameOverSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
+        
+        return gameOver;
     }
     // end animations prep
     

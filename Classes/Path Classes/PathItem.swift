@@ -32,9 +32,10 @@ class PathItem: SKSpriteNode {
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.isDynamic = false;
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ground;
+        self.setScale(0.55);
     }
     
-    func addPathItem(gameScene: GameScene, spaceBefore: Int, drinkFlag: Bool) {
+    func addPathItem(gameScene: SKScene, spaceBefore: Int, drinkFlag: Bool) {
         
         if (prevPathItem.name == nil) {
             xValue = -(gameScene.size.width/2) + self.size.width * 0.55/2;
@@ -43,12 +44,12 @@ class PathItem: SKSpriteNode {
             let space = CGFloat(spaceBefore);
             xValue = space + prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width * 0.55/2 - 30;
         }
-
-        self.position = CGPoint(x: CGFloat(xValue), y: -(gameScene.frame.size.height/2) + (self.size.height * 0.55/2));
         
-        self.setScale(0.55);
+        
+        self.position = CGPoint(x: CGFloat(xValue), y: -(gameScene.frame.size.height/2) + (self.size.height/2));
         
         self.move(itemToMove: self);
+        
         
         if drinkFlag {
             self.addDrink(referencePosition: self.position, gameScene: gameScene);
@@ -59,7 +60,7 @@ class PathItem: SKSpriteNode {
         gameScene.addChild(self);
     }
     
-    func addDrink(referencePosition: CGPoint, gameScene: GameScene) {
+    func addDrink(referencePosition: CGPoint, gameScene: SKScene) {
         drink = Object(imageNamed: "drink");
         
         let index = Int(CGFloat(Int.random(min: 0, max: 1)));

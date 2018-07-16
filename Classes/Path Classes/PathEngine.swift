@@ -24,14 +24,16 @@ class PathEngine {
     var lastType = String();
     var lastHeight = String();
     
-    func initialize(gameScene: GameScene) {
+    var isOn = Bool();
+    
+    func initialize(gameScene: SKScene) {
         
         createRunway(gameScene: gameScene);
         
         Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: gameScene, repeats: true);
     }
 
-    func createRunway(gameScene: GameScene) {
+    func createRunway(gameScene: SKScene) {
         
         for _ in 0...2 {
             
@@ -52,6 +54,10 @@ class PathEngine {
     }
     
     @objc func createMainPath(timer: Timer) {
+        
+        if !isOn {
+            return
+        }
         
         let gameScene = timer.userInfo as! GameScene;
         
@@ -154,7 +160,7 @@ class PathEngine {
     }
     
     // refactor function to use a loop and randomization
-    func insertStand(gameScene: GameScene) {
+    func insertStand(gameScene: SKScene) {
     
         pathItem = PathItem(imageNamed: "startStep");
         pathItem.initialize();
@@ -196,11 +202,15 @@ class PathEngine {
     
     
     
-    
+
     
     
     // also in PathItem.swift
     func move(itemToMove: SKSpriteNode) {
+//        if !isOn {
+//            itemToMove.removeAllActions();
+//        }
+        
         let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
         let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
         

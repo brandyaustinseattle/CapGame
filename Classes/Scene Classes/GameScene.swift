@@ -15,20 +15,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
 
     var pathEngine = PathEngine();
-        
+    
     var player = Player();
+    var isAlive = true;
+    
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
     override func didMove(to view: SKView) {
         initialize();
+        pathEngine.isOn = Bool(true);
+
         
         Points.instance.updateLabel(pointsLabel: pointsLabel)
         self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
-        moveMountains();
+        
+        checkPlayerBounds();
+        
+        if !isAlive {
+            pathEngine.isOn = Bool(false);
+            self.removeAllActions();
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -76,7 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
             let newScene = BonusScene(fileNamed: "BonusScene")!;
             // needed to make images appropriate sizes
-            newScene.scaleMode = .aspectFill
+            newScene.scaleMode = .aspectFill;
 
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
@@ -164,7 +174,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func playerDied() {
-
+        isAlive = false;
+        
+        let gameOverScene = GameOverScene(fileNamed: "GameOverScene")!;
+        gameOverScene.scaleMode = .aspectFill;
+        
+        let crossFade = SKTransition.crossFade(withDuration: 2);
+        
+        self.view?.presentScene(gameOverScene, transition: crossFade);
     }
     
 }
