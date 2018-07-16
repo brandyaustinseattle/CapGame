@@ -61,7 +61,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
-            Points.instance.increment();
+            
+            let objectName = secondBody.node?.name;
+            Points.instance.increment(objectName: objectName!);
             Points.instance.updateLabel(pointsLabel: pointsLabel);
             
             let position = secondBody.node?.position;

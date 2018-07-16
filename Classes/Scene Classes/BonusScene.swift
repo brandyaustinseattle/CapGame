@@ -57,7 +57,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         }
 
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
-            Points.instance.increment();
+            
+            let objectName = secondBody.node?.name;
+            Points.instance.increment(objectName: objectName!);
             Points.instance.updateLabel(pointsLabel: pointsLabel);
             
             let position = secondBody.node?.position;
@@ -154,6 +156,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - self.frame.size.height/4);
         
+        let lemonFactor = 3;
+        
         // 3 rows and 5 columns of drinks/lemons
         for i in 1...3 {
             for j in 1...5 {
@@ -170,10 +174,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
                     lemon.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Lemon");
                     
-                    if i == 1 {
-                        self.addChild(drink);
-                    } else {
+                    let lemonRandom = Int.random(min: 1, max: 10);
+                    
+                    if lemonRandom <= lemonFactor {
                         self.addChild(lemon);
+                    } else {
+                        self.addChild(drink);
                     };
                 }
                 

@@ -55,7 +55,7 @@ class PathEngine {
         
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 0;
+        let standFactor = 1;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -153,9 +153,9 @@ class PathEngine {
         }
     }
     
+    // refactor function to use a loop and randomization
     func insertStand(gameScene: GameScene) {
     
-        
         pathItem = PathItem(imageNamed: "startStep");
         pathItem.initialize();
         pathItem.addPathItem(gameScene: gameScene, spaceBefore: 100, drinkFlag: false);
@@ -199,7 +199,7 @@ class PathEngine {
     
     
     
-    
+    // also in PathItem.swift
     func move(itemToMove: SKSpriteNode) {
         let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
         let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))

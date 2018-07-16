@@ -17,17 +17,17 @@ class Points {
     
     var value = Int(0);
     
-    func increment() {
-        value += 1;
+    func increment(objectName: String) {
+        if objectName == "Drink" {
+            value += 5; }
+        else if objectName == "Lemon" {
+            value += 10;
+        };
     }
     
     func updateLabel(pointsLabel: SKLabelNode) {
-        if value == 1 {
-            pointsLabel.text = "\(value) point";
-        } else {
-            pointsLabel.text = "\(value) points";
-        };
         
+        pointsLabel.text = "\(value) points";
         pointsLabel.fontColor = UIColor.white;
         pointsLabel.fontSize = 60;
         pointsLabel.zPosition = 4;

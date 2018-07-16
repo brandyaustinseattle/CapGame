@@ -78,7 +78,7 @@ class PathItem: SKSpriteNode {
     
     
     
-    
+    // also in PathEngine.swift
     func move(itemToMove: SKSpriteNode) {
         let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
         let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
