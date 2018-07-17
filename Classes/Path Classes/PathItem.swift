@@ -38,11 +38,11 @@ class PathItem: SKSpriteNode {
     func addPathItem(gameScene: SKScene, spaceBefore: Int, drinkFlag: Bool) {
         
         if (prevPathItem.name == nil) {
-            xValue = -(gameScene.size.width/2) + self.size.width * 0.55/2;
+            xValue = -(gameScene.size.width/2) + self.size.width/2;
         } else {
             // must subtract 30 to account for fact that width calculations are impacted with lip edges
             let space = CGFloat(spaceBefore);
-            xValue = space + prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width * 0.55/2 - 30;
+            xValue = space + prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width/2 - 30;
         }
         
         

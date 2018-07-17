@@ -65,6 +65,9 @@
 		D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D8C620FB146D0018ED1F /* Lemon.sks */; };
 		D330D8C920FD26D60018ED1F /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D8C820FD26D60018ED1F /* GameOverScene.swift */; };
 		D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D8CA20FD26F50018ED1F /* GameOverScene.sks */; };
+		D330D90A20FD6ABF0018ED1F /* thought.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90720FD6ABF0018ED1F /* thought.png */; };
+		D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90820FD6ABF0018ED1F /* clouds.png */; };
+		D330D90C20FD6ABF0018ED1F /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90920FD6ABF0018ED1F /* speech.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +131,9 @@
 		D330D8C620FB146D0018ED1F /* Lemon.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Lemon.sks; sourceTree = "<group>"; };
 		D330D8C820FD26D60018ED1F /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		D330D8CA20FD26F50018ED1F /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		D330D90720FD6ABF0018ED1F /* thought.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thought.png; sourceTree = "<group>"; };
+		D330D90820FD6ABF0018ED1F /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
+		D330D90920FD6ABF0018ED1F /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				D30621BC20F02CA400E2127D /* PathItem.swift */,
-				D330D86B20F3DCE60018ED1F /* PathEngine.swift */,
 			);
 			path = "Path Classes";
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 		D30738ED20E2B6660054DEE6 /* Player Class */ = {
 			isa = PBXGroup;
 			children = (
+				D330D86B20F3DCE60018ED1F /* PathEngine.swift */,
 				D30738EF20E2B68A0054DEE6 /* Player.swift */,
 			);
 			path = "Player Class";
@@ -228,6 +234,7 @@
 		D30738F520E2B7040054DEE6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D330D90620FD6AB50018ED1F /* Clouds */,
 				D38C399320ED3A3500E60032 /* Lemonade */,
 				D30738F620E2B7720054DEE6 /* Player */,
 			);
@@ -364,6 +371,16 @@
 			path = "Lemonade Classes";
 			sourceTree = "<group>";
 		};
+		D330D90620FD6AB50018ED1F /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				D330D90820FD6ABF0018ED1F /* clouds.png */,
+				D330D90920FD6ABF0018ED1F /* speech.png */,
+				D330D90720FD6ABF0018ED1F /* thought.png */,
+			);
+			path = Clouds;
+			sourceTree = "<group>";
+		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +457,7 @@
 				D307392420E2B79F0054DEE6 /* dizzy1.png in Resources */,
 				D307393120E2B79F0054DEE6 /* flying3.png in Resources */,
 				D307393B20E2B79F0054DEE6 /* standing3.png in Resources */,
+				D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */,
 				D30738DE20E2B5CA0054DEE6 /* Main.storyboard in Resources */,
 				D307393720E2B79F0054DEE6 /* standing4.png in Resources */,
 				D307393020E2B79F0054DEE6 /* flying2.png in Resources */,
@@ -462,6 +480,7 @@
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
 				D307393320E2B79F0054DEE6 /* jumpup2.png in Resources */,
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
+				D330D90A20FD6ABF0018ED1F /* thought.png in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
@@ -472,6 +491,7 @@
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
 				D307392120E2B79F0054DEE6 /* running1.png in Resources */,
+				D330D90C20FD6ABF0018ED1F /* speech.png in Resources */,
 				D307392C20E2B79F0054DEE6 /* flying6.png in Resources */,
 				D307392020E2B79F0054DEE6 /* running4.png in Resources */,
 				D30738D720E2B5CA0054DEE6 /* Actions.sks in Resources */,
