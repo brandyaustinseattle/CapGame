@@ -17,7 +17,7 @@ class Player: SKSpriteNode {
     func initialize() {
         
         self.name = "Player";
-        self.zPosition = 3;
+        self.zPosition = 5;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysicsHead();
@@ -43,7 +43,7 @@ class Player: SKSpriteNode {
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
         
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Object;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Object | PhysicsCategory.Bee;
         
         self.addChild(playerHead);
     }
@@ -98,7 +98,7 @@ class Player: SKSpriteNode {
         self.run(standing);
     }
     
-    func dizzy() {
+    func getDizzy() {
         let dizzy = dizzyPrep();
         
         self.run(dizzy);

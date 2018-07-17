@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
 
     var pathEngine = PathEngine();
+    var beeEngine = BeeEngine();
     
     var player = Player();
     var isAlive = true;
@@ -34,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
-        checkPlayerBounds();
+//        checkPlayerBounds();
         
     }
     
@@ -67,12 +68,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerRepeatJumps = 0;
         }
         
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Bee" {
+            
+            Points.instance.value = 0;
+            Points.instance.updateLabel(pointsLabel: pointsLabel);
+            
+            player.getDizzy();
+            
+            secondBody.node?.removeFromParent()
+        }
+        
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             
             let objectName = secondBody.node?.name;
             Points.instance.increment(objectName: objectName!);
             Points.instance.updateLabel(pointsLabel: pointsLabel);
-            
+       
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
             self.addChild(cPulse);
@@ -146,6 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.runFast();
 
         pathEngine.initialize(gameScene: self);
+        beeEngine.initialize(scene: self);
     }
 
     

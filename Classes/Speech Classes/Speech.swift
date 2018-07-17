@@ -14,7 +14,7 @@ class Speech: SKSpriteNode {
 
             self.name = type;
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-            self.zPosition = 2;
+            self.zPosition = 3;
             
             self.setScale(0.5);
     }

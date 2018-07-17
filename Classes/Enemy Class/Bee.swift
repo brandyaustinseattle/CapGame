@@ -10,15 +10,15 @@ import SpriteKit
 
 class Bee: SKSpriteNode {
 
-    func initialize(referencePosition: CGPoint, offsetYValue: CGFloat) {
+    func initialize(position: CGPoint) {
         
         self.name = "Bee";
-        self.zPosition = 2;
+        self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
         
-        self.position = CGPoint(x: referencePosition.x, y: referencePosition.y + offsetYValue);
+        self.position = CGPoint(x: position.x, y: position.y);
     }
     
     func setPhysics() {
@@ -32,23 +32,24 @@ class Bee: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.25);
+        self.setScale(0.15);
     }
     
     func fly() {
-        let fadeIn = SKAction.fadeIn(withDuration: 1);
-        let fadeOut = SKAction.fadeOut(withDuration: 1);
+        let fadeIn = SKAction.fadeIn(withDuration: 0.5);
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5);
         
         let leftImage = SKTexture(imageNamed: "leftBee");
         let leftBee = SKAction.setTexture(leftImage, resize: false);
         let flyLeft = SKAction.moveBy(x: -150, y: 0, duration: 2);
         
-        let rightImage = SKTexture(imageNamed: "rightBeeBig");
+        let rightImage = SKTexture(imageNamed: "rightBee");
         let rightBee = SKAction.setTexture(rightImage, resize: false);
         let flyRight = SKAction.moveBy(x: 150, y: 0, duration: 2);
         
         let flySequence = SKAction.sequence([leftBee, fadeIn, flyLeft, fadeOut, rightBee, fadeIn, flyRight, fadeOut]);
         
-        self.run(SKAction.repeat(flySequence, count: 2), withKey: "flyKey");
+        self.run(flySequence);
     }
+    
 }

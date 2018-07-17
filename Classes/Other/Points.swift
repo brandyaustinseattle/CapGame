@@ -33,7 +33,6 @@ class Points {
     }
     
     func countDown(pointsLabel: SKLabelNode) {
-        
         for _ in 1...value {
             self.decrement(pointsLabel: pointsLabel);
         }
