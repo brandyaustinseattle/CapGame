@@ -68,6 +68,7 @@
 		D330D90A20FD6ABF0018ED1F /* thought.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90720FD6ABF0018ED1F /* thought.png */; };
 		D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90820FD6ABF0018ED1F /* clouds.png */; };
 		D330D90C20FD6ABF0018ED1F /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90920FD6ABF0018ED1F /* speech.png */; };
+		D330D91120FDA2460018ED1F /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D91020FDA2460018ED1F /* Speech.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		D330D90720FD6ABF0018ED1F /* thought.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thought.png; sourceTree = "<group>"; };
 		D330D90820FD6ABF0018ED1F /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
 		D330D90920FD6ABF0018ED1F /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
+		D330D91020FDA2460018ED1F /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D330D90F20FDA2220018ED1F /* Speech Classes */,
 				D330D88B20F7D8A30018ED1F /* Lemonade Classes */,
 				D330D88A20F7D69B0018ED1F /* Other */,
 				D30621BE20F02DA800E2127D /* Path Classes */,
@@ -381,6 +384,14 @@
 			path = Clouds;
 			sourceTree = "<group>";
 		};
+		D330D90F20FDA2220018ED1F /* Speech Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D330D91020FDA2460018ED1F /* Speech.swift */,
+			);
+			path = "Speech Classes";
+			sourceTree = "<group>";
+		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +528,7 @@
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
+				D330D91120FDA2460018ED1F /* Speech.swift in Sources */,
 				D330D87420F576B30018ED1F /* Object.swift in Sources */,
 				D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */,
 				D330D8C920FD26D60018ED1F /* GameOverScene.swift in Sources */,

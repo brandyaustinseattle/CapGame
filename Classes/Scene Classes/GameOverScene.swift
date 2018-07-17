@@ -15,19 +15,22 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
     
+    var thought = Speech();
+    
     override func didMove(to view: SKView) {
         initialize();
     }
     
     func initialize() {
-        addPlatform();
-        createPlayer();
-        
         createStaticMountain();
         createTrees();
         
-        createThought();
+        addPlatform();
+        createPlayer();
+        
+        delayGameOver();
     }
+    
     
     func createStaticMountain() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
@@ -48,15 +51,6 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(trees);
     }
     
-    func createPlayer() {
-        player = Player(imageNamed: "gameover1");
-        player.initialize();
-        player.position = CGPoint(x: 445, y: 200);
-        
-        self.addChild(player);
-        player.gameOver();
-    }
-    
     func addPlatform() {
         platform.initialize();
         
@@ -67,49 +61,30 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(platform);
     }
     
-    func createThought() {
-        let thought
-            = SKSpriteNode(imageNamed: "thought");
-        thought.name = "scroll";
-        thought.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        thought.zPosition = 2;
+    func createPlayer() {
+        player = Player(imageNamed: "gameover1");
+        player.initialize();
+        player.position = CGPoint(x: 445, y: 200);
         
-        thought.setScale(0.5);
-
-        let x = platform.position.x - 200;
-        let y = platform.position.y + 300;
-        
-        thought.position = CGPoint(x: x, y: y);
-        
-        self.addLabel(thought: thought);
-        self.addChild(thought);
-        
-        self.flashThought(thought: thought);
+        self.addChild(player);
+        player.gameOver();
     }
     
-    func addLabel(thought: SKSpriteNode) {
-
-        let x = thought.position.x;
-        let y = thought.position.y;
+    func delayGameOver() {
+        let wait = SKAction.wait(forDuration: 1);
+        let addGO = SKAction.run(addGameOver);
+        let sequence = SKAction.sequence([wait, addGO]);
         
-        let gameOverLabel = SKLabelNode(fontNamed: "Marker Felt");
-        gameOverLabel.text = "game over";
-        gameOverLabel.fontColor = UIColor.black;
-        gameOverLabel.fontSize = 85;
-        gameOverLabel.zPosition = 4;
-        
-        gameOverLabel.position = CGPoint(x: x - 325, y: y + 50);
-        thought.addChild(gameOverLabel);
+        self.run(sequence);
     }
     
-    func flashThought(thought: SKSpriteNode) {
+    func addGameOver() {
+        thought = Speech(imageNamed: "thought");
+        thought.initialize(type: "Thought")
         
-        let fadeIn = SKAction.fadeIn(withDuration: 1);
-        let wait = SKAction.wait(forDuration: 1)
-        let fadeOut = SKAction.fadeOut(withDuration: 1);
-        let sequence = SKAction.sequence([fadeIn, wait, fadeOut]);
+        let position = platform.position;
         
-        thought.run(SKAction.repeatForever(sequence), withKey: "flash");
+        thought.addThought(scene: self, text: "game over", position: position)
+        thought.flashThought();
     }
-    
 }
