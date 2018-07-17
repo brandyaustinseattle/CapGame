@@ -23,9 +23,7 @@ class PathEngine {
     var height = String();
     var lastType = String();
     var lastHeight = String();
-    
-    var isOn = Bool();
-    
+        
     func initialize(gameScene: SKScene) {
         
         createRunway(gameScene: gameScene);
@@ -54,11 +52,7 @@ class PathEngine {
     }
     
     @objc func createMainPath(timer: Timer) {
-        
-        if !isOn {
-            return
-        }
-        
+
         let gameScene = timer.userInfo as! GameScene;
         
         let standFactor = 2;
@@ -207,10 +201,7 @@ class PathEngine {
     
     // also in PathItem.swift
     func move(itemToMove: SKSpriteNode) {
-//        if !isOn {
-//            itemToMove.removeAllActions();
-//        }
-        
+
         let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
         let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
         

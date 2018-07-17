@@ -24,8 +24,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         initialize();
-        pathEngine.isOn = Bool(true);
-
+        
+        let pointsBG = Points.instance.getBackground();
+        self.addChild(pointsBG);
         
         Points.instance.updateLabel(pointsLabel: pointsLabel)
         self.addChild(pointsLabel);
@@ -35,10 +36,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         checkPlayerBounds();
         
-        if !isAlive {
-            pathEngine.isOn = Bool(false);
-            self.removeAllActions();
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

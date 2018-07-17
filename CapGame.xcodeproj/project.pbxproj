@@ -69,6 +69,7 @@
 		D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90820FD6ABF0018ED1F /* clouds.png */; };
 		D330D90C20FD6ABF0018ED1F /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90920FD6ABF0018ED1F /* speech.png */; };
 		D330D91120FDA2460018ED1F /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D91020FDA2460018ED1F /* Speech.swift */; };
+		D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D91220FDB05E0018ED1F /* roundcloud.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		D330D90820FD6ABF0018ED1F /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
 		D330D90920FD6ABF0018ED1F /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
 		D330D91020FDA2460018ED1F /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
+		D330D91220FDB05E0018ED1F /* roundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundcloud.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 		D30738F520E2B7040054DEE6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D330D91420FDB0620018ED1F /* Speech */,
 				D330D90620FD6AB50018ED1F /* Clouds */,
 				D38C399320ED3A3500E60032 /* Lemonade */,
 				D30738F620E2B7720054DEE6 /* Player */,
@@ -377,9 +380,8 @@
 		D330D90620FD6AB50018ED1F /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
+				D330D91220FDB05E0018ED1F /* roundcloud.png */,
 				D330D90820FD6ABF0018ED1F /* clouds.png */,
-				D330D90920FD6ABF0018ED1F /* speech.png */,
-				D330D90720FD6ABF0018ED1F /* thought.png */,
 			);
 			path = Clouds;
 			sourceTree = "<group>";
@@ -390,6 +392,15 @@
 				D330D91020FDA2460018ED1F /* Speech.swift */,
 			);
 			path = "Speech Classes";
+			sourceTree = "<group>";
+		};
+		D330D91420FDB0620018ED1F /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				D330D90920FD6ABF0018ED1F /* speech.png */,
+				D330D90720FD6ABF0018ED1F /* thought.png */,
+			);
+			path = Speech;
 			sourceTree = "<group>";
 		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
@@ -493,6 +504,7 @@
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
 				D330D90A20FD6ABF0018ED1F /* thought.png in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
+				D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,

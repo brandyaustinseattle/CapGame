@@ -23,7 +23,10 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        Points.instance.updateLabel(pointsLabel: pointsLabel);
+        let pointsBG = Points.instance.getBackground();
+        self.addChild(pointsBG);
+        
+        Points.instance.updateLabel(pointsLabel: pointsLabel)
         self.addChild(pointsLabel);
     }
     

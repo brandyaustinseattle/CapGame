@@ -19,20 +19,31 @@ class Points {
     
     func increment(objectName: String) {
         if objectName == "Drink" {
-            value += 5; }
+            value += 1; }
         else if objectName == "Lemon" {
-            value += 10;
+            value += 5;
         };
+    }
+    
+    func getBackground() -> SKSpriteNode {
+        let round = SKSpriteNode(imageNamed: "roundcloud");
+        round.name = "Round";
+        round.zPosition = 3;
+        round.setScale(0.75);
+        
+        round.position = CGPoint(x: 590, y: 320);
+        
+        return round;
     }
     
     func updateLabel(pointsLabel: SKLabelNode) {
         
-        pointsLabel.text = "\(value) points";
-        pointsLabel.fontColor = UIColor.white;
+        pointsLabel.text = "\(value)";
+        pointsLabel.fontColor = UIColor.black;
         pointsLabel.fontSize = 60;
         pointsLabel.zPosition = 4;
         
-        pointsLabel.position = CGPoint(x: 530, y: 300);
+        pointsLabel.position = CGPoint(x: 585, y: 300);
         
     }
 }

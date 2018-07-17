@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameOverScene: SKScene, SKPhysicsContactDelegate {
 
+    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
     
@@ -19,6 +21,12 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         initialize();
+        
+        let pointsBG = Points.instance.getBackground();
+        self.addChild(pointsBG);
+        
+        Points.instance.updateLabel(pointsLabel: pointsLabel)
+        self.addChild(pointsLabel);
     }
     
     func initialize() {
