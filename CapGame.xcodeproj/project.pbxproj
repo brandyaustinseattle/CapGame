@@ -70,6 +70,7 @@
 		D330D90C20FD6ABF0018ED1F /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90920FD6ABF0018ED1F /* speech.png */; };
 		D330D91120FDA2460018ED1F /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D91020FDA2460018ED1F /* Speech.swift */; };
 		D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D91220FDB05E0018ED1F /* roundcloud.png */; };
+		D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D91520FDB8750018ED1F /* bigroundcloud.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		D330D90920FD6ABF0018ED1F /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
 		D330D91020FDA2460018ED1F /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		D330D91220FDB05E0018ED1F /* roundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundcloud.png; sourceTree = "<group>"; };
+		D330D91520FDB8750018ED1F /* bigroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigroundcloud.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +384,7 @@
 			children = (
 				D330D91220FDB05E0018ED1F /* roundcloud.png */,
 				D330D90820FD6ABF0018ED1F /* clouds.png */,
+				D330D91520FDB8750018ED1F /* bigroundcloud.png */,
 			);
 			path = Clouds;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
 				D307392120E2B79F0054DEE6 /* running1.png in Resources */,
+				D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */,
 				D330D90C20FD6ABF0018ED1F /* speech.png in Resources */,
 				D307392C20E2B79F0054DEE6 /* flying6.png in Resources */,
 				D307392020E2B79F0054DEE6 /* running4.png in Resources */,
