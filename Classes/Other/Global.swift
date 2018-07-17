@@ -7,14 +7,15 @@
 //
 
 import SpriteKit
-import GameplayKit
+import GameKit
 
 struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;
     static let Ground: UInt32 = 0x1 << 3;
     static let Object: UInt32 = 0x1 << 4;
-    static let Stand: UInt32 = 0x1 << 5;
+    static let Bee: UInt32 = 0x1 << 5;
+    static let Stand: UInt32 = 0x1 << 6;
 }
 
 extension Int {

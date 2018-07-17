@@ -13,6 +13,7 @@ import GameplayKit
 class GameOverScene: SKScene, SKPhysicsContactDelegate {
 
     let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var timer = Timer();
     
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
@@ -37,8 +38,18 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         
         delayGameOver();
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
     }
     
+    @objc func countDown() {
+        if Points.instance.value == 0 {
+            timer.invalidate();
+        }
+        
+        Points.instance.decrement(pointsLabel: pointsLabel);
+        Points.instance.updateLabel(pointsLabel: pointsLabel);
+    }
     
     func createStaticMountain() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
@@ -95,4 +106,5 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         thought.addThought(scene: self, text: "game over", position: position)
         thought.flashThought();
     }
+
 }

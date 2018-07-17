@@ -34,14 +34,12 @@ class Object: SKSpriteNode {
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/3, center: CGPoint(x: position.x - 25, y: position.y));
         
-        // delete following?
         self.physicsBody?.collisionBitMask = 0;
-        
         self.physicsBody?.usesPreciseCollisionDetection = true;
+        
         self.physicsBody?.categoryBitMask = PhysicsCategory.Object;
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.allowsRotation = false;
-        // delete following?
         self.physicsBody?.isDynamic = false;
                 
         self.setScale(0.15);

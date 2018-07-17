@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);

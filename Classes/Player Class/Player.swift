@@ -173,7 +173,7 @@ class Player: SKSpriteNode {
         var dizzySequence = [SKTexture]();
         
         for i in 1...2 {
-            let imageName = "dizzy(i)";
+            let imageName = "dizzy\(i)";
             dizzySequence.append(SKTexture(imageNamed: imageName));
         }
         

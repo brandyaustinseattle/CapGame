@@ -7,10 +7,9 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class Points {
-    
+
     static let instance = Points();
     // can't create instance of Points outside of class
     private init() {}
@@ -19,10 +18,25 @@ class Points {
     
     func increment(objectName: String) {
         if objectName == "Drink" {
-            value += 1; }
+            value += 10; }
         else if objectName == "Lemon" {
             value += 5;
         };
+    }
+    
+    func decrement(pointsLabel: SKLabelNode) {
+        if value == 0 {
+            return
+        }
+        
+        value -= 1;
+    }
+    
+    func countDown(pointsLabel: SKLabelNode) {
+        
+        for _ in 1...value {
+            self.decrement(pointsLabel: pointsLabel);
+        }
     }
     
     func getBackground() -> SKSpriteNode {
