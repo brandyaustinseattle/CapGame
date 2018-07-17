@@ -45,9 +45,9 @@ class Speech: SKSpriteNode {
     }
 
     func flashThought() {
-        let fadeIn = SKAction.fadeIn(withDuration: 1);
-        let wait = SKAction.wait(forDuration: 1)
-        let fadeOut = SKAction.fadeOut(withDuration: 1);
+        let fadeIn = SKAction.fadeIn(withDuration: 0.75);
+        let wait = SKAction.wait(forDuration: 0.75)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.75);
         let sequence = SKAction.sequence([fadeIn, wait, fadeOut]);
     
         self.run(SKAction.repeatForever(sequence), withKey: "flash");

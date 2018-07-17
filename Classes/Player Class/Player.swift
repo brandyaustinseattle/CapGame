@@ -15,7 +15,7 @@ class Player: SKSpriteNode {
     let playerBody = SKSpriteNode();
     
     func initialize() {
-                
+        
         self.name = "Player";
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
@@ -90,6 +90,12 @@ class Player: SKSpriteNode {
 
         self.run(running);
         self.run(SKAction.repeatForever(running), withKey: "runKey");
+    }
+    
+    func stand() {
+        let standing = standingPrep();
+        
+        self.run(standing);
     }
     
     func gameOver() {

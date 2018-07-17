@@ -97,12 +97,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func initialize() {
         physicsWorld.contactDelegate = self;
-        
-        createPlayer();
-        playerConstraints();
 
         createMountains();
         createTrees();
+        
+        createPlayer();
+        playerConstraints();
         
         startPathEngine();
     }
@@ -144,13 +144,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(trees);
     }
     
+    func startPathEngine() {
+        // player must be running when engine is started
+        player.runFast();
+
+        pathEngine.initialize(gameScene: self);
+    }
+
+    
     func createPlayer() {
-        player = Player(imageNamed: "testPlayer");
+        player = Player(imageNamed: "standing1");
         player.initialize();
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
-        player.runFast();
     }
     
     func playerConstraints() {
@@ -160,13 +167,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
-    func startPathEngine() {
-        pathEngine.initialize(gameScene: self);
-    }
-    
-    
-    
-    // functions below are a work in progress
     func checkPlayerBounds() {
         if player.position.x < -(self.frame.size.width/2 ) || player.position.y < -(self.frame.size.height/2) {
             playerDied();
@@ -174,12 +174,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func playerDied() {
-        isAlive = false;
         
         let gameOverScene = GameOverScene(fileNamed: "GameOverScene")!;
         gameOverScene.scaleMode = .aspectFill;
         
-        let crossFade = SKTransition.crossFade(withDuration: 2);
+        let crossFade = SKTransition.crossFade(withDuration: 0.85);
         
         self.view?.presentScene(gameOverScene, transition: crossFade);
     }
