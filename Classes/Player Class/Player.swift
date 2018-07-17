@@ -98,6 +98,12 @@ class Player: SKSpriteNode {
         self.run(standing);
     }
     
+    func dizzy() {
+        let dizzy = dizzyPrep();
+        
+        self.run(dizzy);
+    }
+    
     func gameOver() {
         let gameOver = gameOverPrep();
         
@@ -161,6 +167,19 @@ class Player: SKSpriteNode {
         let flying = SKAction.animate(with: flyingSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
         
         return flying;
+    }
+    
+    func dizzyPrep() -> SKAction {
+        var dizzySequence = [SKTexture]();
+        
+        for i in 1...2 {
+            let imageName = "dizzy(i)";
+            dizzySequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let dizzy = SKAction.animate(with: dizzySequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
+        
+        return dizzy;
     }
     
     func gameOverPrep() -> SKAction {
