@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        checkPlayerBounds();
+//        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -63,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" || secondBody.node?.name == "Rock" {
             playerOnPath = true;
             playerRepeatJumps = 0;
         }

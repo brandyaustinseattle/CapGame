@@ -84,6 +84,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         createPlayer();
         addObjectsMatrix();
+        
+        addTimerBackground();
     }
     
     func createMountains() {
@@ -156,10 +158,23 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
+    
+    func addTimerBackground() {
+        let timerCloud = SKSpriteNode(imageNamed: "longcloud");
+        
+        timerCloud.name = "timerCloud";
+        timerCloud.zPosition = 3;
+        timerCloud.setScale(0.85);
+        timerCloud.position = CGPoint(x: 0, y: 255);
+        
+        self.addChild(timerCloud);
+    }
+    
+    
     func addObjectsMatrix() {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
-        var y = CGFloat(self.frame.size.height/2 - self.frame.size.height/4);
+        var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
         
         let lemonFactor = 3;
         

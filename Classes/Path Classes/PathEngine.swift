@@ -37,14 +37,14 @@ class PathEngine {
             pathItem = PathItem(imageNamed: "middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0), drinkFlag: false);
+            pathItem.addPathItem(scene: gameScene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
             
         };
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: Int(0), drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -54,7 +54,7 @@ class PathEngine {
 
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 0;
+        let standFactor = 3;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -130,23 +130,34 @@ class PathEngine {
         };
         
         let drinkFlag = drinkRequired(type: type);
+        let rockFlag = rockRequired(type: type);
+
         pathItem = PathItem(imageNamed: "\(type)\(height)");
         pathItem.initialize();
         
-        
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: spaceBefore, drinkFlag: drinkFlag);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
         
         lastType = type;
         lastHeight = height;
     }
     
+    func rockRequired(type: String) -> Bool {
+        if !type.hasSuffix("step") {
+            let rockFactor = 2;
+            let rockRandom = Int.random(min: 1, max: 10);
+            
+            return rockRandom <= rockFactor
+        } else {
+            return false
+        }
+    }
+    
     func drinkRequired(type: String) -> Bool {
-        
-        if type.prefix(5) == "alone" || type.prefix(6) == "middle" {
-            let drinkFactor = 6;
-            let randomDrink = Int.random(min: 1, max: 10);
+        if type.hasPrefix("alone") || type.hasPrefix("middle") {
+            let drinkFactor = 3;
+            let drinkRandom = Int.random(min: 1, max: 10);
 
-            return randomDrink <= drinkFactor
+            return drinkRandom <= drinkFactor
         } else {
             return false
         }
@@ -157,25 +168,25 @@ class PathEngine {
     
         pathItem = PathItem(imageNamed: "startStep");
         pathItem.initialize();
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 100, drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
        
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         let midPathItemPosition = pathItem.position;
         
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
-        pathItem.addPathItem(gameScene: gameScene, spaceBefore: 0, drinkFlag: false);
+        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";

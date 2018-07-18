@@ -35,10 +35,10 @@ class PathItem: SKSpriteNode {
         self.setScale(0.55);
     }
     
-    func addPathItem(gameScene: SKScene, spaceBefore: Int, drinkFlag: Bool) {
+    func addPathItem(scene: SKScene, spaceBefore: Int, drinkFlag: Bool, rockFlag: Bool) {
         
         if (prevPathItem.name == nil) {
-            xValue = -(gameScene.size.width/2) + self.size.width/2;
+            xValue = -(scene.size.width/2) + self.size.width/2;
         } else {
             // must subtract 30 to account for fact that width calculations are impacted with lip edges
             let space = CGFloat(spaceBefore);
@@ -46,49 +46,25 @@ class PathItem: SKSpriteNode {
         }
         
         
-        self.position = CGPoint(x: CGFloat(xValue), y: -(gameScene.frame.size.height/2) + (self.size.height/2));
+        self.position = CGPoint(x: CGFloat(xValue), y: -(scene.frame.size.height/2) + (self.size.height/2));
         
         self.move(itemToMove: self);
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if drinkFlag {
-            self.addDrink(referencePosition: self.position, gameScene: gameScene);
-            
-            
-            
-            
-            self.addRock(position: CGPoint(x: -300, y: 150), gameScene: gameScene);
-
-            
-            
-            
-            
+            self.addDrink(referencePosition: self.position, scene: scene);
+         
+        }
+        
+        if rockFlag {
+            self.addRock(referencePosition: self.position, scene: scene);
         }
 
         prevPathItem = self;
         
-        gameScene.addChild(self);
+        scene.addChild(self);
     }
     
-    func addDrink(referencePosition: CGPoint, gameScene: SKScene) {
+    func addDrink(referencePosition: CGPoint, scene: SKScene) {
         drink = Object(imageNamed: "drink");
         
         let index = Int(CGFloat(Int.random(min: 0, max: 1)));
@@ -96,25 +72,21 @@ class PathItem: SKSpriteNode {
         
         drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Drink");
         
-        gameScene.addChild(drink);
+        scene.addChild(drink);
         
         self.move(itemToMove: drink);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    func addRock(position: CGPoint, gameScene: SKScene) {
-        rock = Rock(imageNamed: "rock");
+    func addRock(referencePosition: CGPoint, scene: SKScene) {
+        let rockRandom = Int.random(min: 1, max: 5);
+
+        rock = Rock(imageNamed: "rock\(rockRandom)");
         
-        rock.initialize(position: position);
+        let offsetYValue = (rock.size.height * 0.15) / 2 + self.size.height/2 - 5;
         
-        gameScene.addChild(rock);
+        rock.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
+        
+        scene.addChild(rock);
         
         self.move(itemToMove: rock);
     }

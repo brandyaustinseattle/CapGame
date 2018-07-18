@@ -9,8 +9,8 @@
 import SpriteKit
 
 class Rock: SKSpriteNode {
-    
-    func initialize(position: CGPoint) {
+        
+    func initialize(referencePosition: CGPoint, offsetYValue: CGFloat) {
         
         self.name = "Rock";
         self.zPosition = 3;
@@ -18,7 +18,7 @@ class Rock: SKSpriteNode {
         
         self.setPhysics();
         
-        self.position = CGPoint(x: position.x, y: position.y);
+        self.position = CGPoint(x: referencePosition.x, y: referencePosition.y + offsetYValue);
     }
     
     func setPhysics() {
@@ -30,7 +30,7 @@ class Rock: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.5);
+        self.setScale(0.15);
     }
     
 }

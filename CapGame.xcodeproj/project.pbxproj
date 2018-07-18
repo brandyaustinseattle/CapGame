@@ -79,7 +79,13 @@
 		D330D92F20FE69C70018ED1F /* rightBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92E20FE69C70018ED1F /* rightBee.png */; };
 		D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */; };
 		D330D93E20FEC32C0018ED1F /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D93D20FEC32C0018ED1F /* Rock.swift */; };
-		D330D94120FEC6750018ED1F /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D94020FEC6750018ED1F /* rock.png */; };
+		D330D95620FFAE8A0018ED1F /* rock5.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95020FFAE890018ED1F /* rock5.png */; };
+		D330D95720FFAE8A0018ED1F /* rocks.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95120FFAE8A0018ED1F /* rocks.png */; };
+		D330D95820FFAE8A0018ED1F /* rock2.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95220FFAE8A0018ED1F /* rock2.png */; };
+		D330D95920FFAE8A0018ED1F /* rock1.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95320FFAE8A0018ED1F /* rock1.png */; };
+		D330D95A20FFAE8A0018ED1F /* rock4.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95420FFAE8A0018ED1F /* rock4.png */; };
+		D330D95B20FFAE8A0018ED1F /* rock3.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95520FFAE8A0018ED1F /* rock3.png */; };
+		D330D95D20FFD2280018ED1F /* longcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95C20FFD2280018ED1F /* longcloud.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +163,13 @@
 		D330D92E20FE69C70018ED1F /* rightBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightBee.png; sourceTree = "<group>"; };
 		D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkroundcloud.png; sourceTree = "<group>"; };
 		D330D93D20FEC32C0018ED1F /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
-		D330D94020FEC6750018ED1F /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
+		D330D95020FFAE890018ED1F /* rock5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock5.png; sourceTree = "<group>"; };
+		D330D95120FFAE8A0018ED1F /* rocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocks.png; sourceTree = "<group>"; };
+		D330D95220FFAE8A0018ED1F /* rock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock2.png; sourceTree = "<group>"; };
+		D330D95320FFAE8A0018ED1F /* rock1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock1.png; sourceTree = "<group>"; };
+		D330D95420FFAE8A0018ED1F /* rock4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock4.png; sourceTree = "<group>"; };
+		D330D95520FFAE8A0018ED1F /* rock3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock3.png; sourceTree = "<group>"; };
+		D330D95C20FFD2280018ED1F /* longcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longcloud.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */,
+				D330D95C20FFD2280018ED1F /* longcloud.png */,
 				D330D91220FDB05E0018ED1F /* roundcloud.png */,
 				D330D90820FD6ABF0018ED1F /* clouds.png */,
 				D330D91520FDB8750018ED1F /* bigroundcloud.png */,
@@ -452,7 +465,12 @@
 		D330D93F20FEC3E90018ED1F /* Rocks */ = {
 			isa = PBXGroup;
 			children = (
-				D330D94020FEC6750018ED1F /* rock.png */,
+				D330D95320FFAE8A0018ED1F /* rock1.png */,
+				D330D95220FFAE8A0018ED1F /* rock2.png */,
+				D330D95520FFAE8A0018ED1F /* rock3.png */,
+				D330D95420FFAE8A0018ED1F /* rock4.png */,
+				D330D95020FFAE890018ED1F /* rock5.png */,
+				D330D95120FFAE8A0018ED1F /* rocks.png */,
 			);
 			path = Rocks;
 			sourceTree = "<group>";
@@ -534,7 +552,9 @@
 				D307393120E2B79F0054DEE6 /* flying3.png in Resources */,
 				D307393B20E2B79F0054DEE6 /* standing3.png in Resources */,
 				D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */,
+				D330D95720FFAE8A0018ED1F /* rocks.png in Resources */,
 				D30738DE20E2B5CA0054DEE6 /* Main.storyboard in Resources */,
+				D330D95620FFAE8A0018ED1F /* rock5.png in Resources */,
 				D307393720E2B79F0054DEE6 /* standing4.png in Resources */,
 				D307393020E2B79F0054DEE6 /* flying2.png in Resources */,
 				D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */,
@@ -544,10 +564,13 @@
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
+				D330D95A20FFAE8A0018ED1F /* rock4.png in Resources */,
 				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
+				D330D95B20FFAE8A0018ED1F /* rock3.png in Resources */,
 				D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */,
+				D330D95920FFAE8A0018ED1F /* rock1.png in Resources */,
 				D307394120E2BB480054DEE6 /* testPlayer.png in Resources */,
 				D307392F20E2B79F0054DEE6 /* flying1.png in Resources */,
 				D307392920E2B79F0054DEE6 /* gameover6.png in Resources */,
@@ -563,6 +586,7 @@
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
 				D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
+				D330D95D20FFD2280018ED1F /* longcloud.png in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,
@@ -572,11 +596,11 @@
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
 				D330D92F20FE69C70018ED1F /* rightBee.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
+				D330D95820FFAE8A0018ED1F /* rock2.png in Resources */,
 				D307392120E2B79F0054DEE6 /* running1.png in Resources */,
 				D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */,
 				D330D90C20FD6ABF0018ED1F /* speech.png in Resources */,
 				D307392C20E2B79F0054DEE6 /* flying6.png in Resources */,
-				D330D94120FEC6750018ED1F /* rock.png in Resources */,
 				D307392020E2B79F0054DEE6 /* running4.png in Resources */,
 				D30738D720E2B5CA0054DEE6 /* Actions.sks in Resources */,
 				D307392620E2B79F0054DEE6 /* gameover1.png in Resources */,
