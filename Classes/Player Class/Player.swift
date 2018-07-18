@@ -57,7 +57,7 @@ class Player: SKSpriteNode {
         playerBody.physicsBody?.allowsRotation = false;
         playerBody.physicsBody?.isDynamic = true;
         
-        playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground;
+        playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground | PhysicsCategory.Rock;
         playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Stand;
         
         self.physicsBody = playerBody.physicsBody;

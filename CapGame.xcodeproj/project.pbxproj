@@ -78,6 +78,8 @@
 		D330D92D20FE68940018ED1F /* BeeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D92C20FE68940018ED1F /* BeeEngine.swift */; };
 		D330D92F20FE69C70018ED1F /* rightBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92E20FE69C70018ED1F /* rightBee.png */; };
 		D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */; };
+		D330D93E20FEC32C0018ED1F /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D93D20FEC32C0018ED1F /* Rock.swift */; };
+		D330D94120FEC6750018ED1F /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D94020FEC6750018ED1F /* rock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +156,8 @@
 		D330D92C20FE68940018ED1F /* BeeEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeEngine.swift; sourceTree = "<group>"; };
 		D330D92E20FE69C70018ED1F /* rightBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightBee.png; sourceTree = "<group>"; };
 		D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkroundcloud.png; sourceTree = "<group>"; };
+		D330D93D20FEC32C0018ED1F /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		D330D94020FEC6750018ED1F /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,9 +218,9 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D330D91820FE56AA0018ED1F /* Enemy Class */,
+				D330D93C20FEC2FF0018ED1F /* Enemy Classes */,
+				D330D93920FEC2510018ED1F /* Lemonade Classes */,
 				D330D90F20FDA2220018ED1F /* Speech Classes */,
-				D330D88B20F7D8A30018ED1F /* Lemonade Classes */,
 				D330D88A20F7D69B0018ED1F /* Other */,
 				D30621BE20F02DA800E2127D /* Path Classes */,
 				D30738ED20E2B6660054DEE6 /* Player Class */,
@@ -256,6 +260,7 @@
 		D30738F520E2B7040054DEE6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D330D93F20FEC3E90018ED1F /* Rocks */,
 				D330D91B20FE58190018ED1F /* Bee */,
 				D330D91420FDB0620018ED1F /* Speech */,
 				D330D90620FD6AB50018ED1F /* Clouds */,
@@ -380,19 +385,10 @@
 		D330D88A20F7D69B0018ED1F /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				D330D88820F7D6710018ED1F /* Global.swift */,
 				D330D89220F9327B0018ED1F /* Points.swift */,
+				D330D88820F7D6710018ED1F /* Global.swift */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		D330D88B20F7D8A30018ED1F /* Lemonade Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D330D87320F576B30018ED1F /* Object.swift */,
-				D330D88620F7C68E0018ED1F /* Stand.swift */,
-			);
-			path = "Lemonade Classes";
 			sourceTree = "<group>";
 		};
 		D330D90620FD6AB50018ED1F /* Clouds */ = {
@@ -423,15 +419,6 @@
 			path = Speech;
 			sourceTree = "<group>";
 		};
-		D330D91820FE56AA0018ED1F /* Enemy Class */ = {
-			isa = PBXGroup;
-			children = (
-				D330D91920FE56C40018ED1F /* Bee.swift */,
-				D330D92C20FE68940018ED1F /* BeeEngine.swift */,
-			);
-			path = "Enemy Class";
-			sourceTree = "<group>";
-		};
 		D330D91B20FE58190018ED1F /* Bee */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +428,33 @@
 				D330D92320FE5A3A0018ED1F /* upBee.png */,
 			);
 			path = Bee;
+			sourceTree = "<group>";
+		};
+		D330D93920FEC2510018ED1F /* Lemonade Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D330D87320F576B30018ED1F /* Object.swift */,
+				D330D88620F7C68E0018ED1F /* Stand.swift */,
+			);
+			path = "Lemonade Classes";
+			sourceTree = "<group>";
+		};
+		D330D93C20FEC2FF0018ED1F /* Enemy Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D330D92C20FE68940018ED1F /* BeeEngine.swift */,
+				D330D91920FE56C40018ED1F /* Bee.swift */,
+				D330D93D20FEC32C0018ED1F /* Rock.swift */,
+			);
+			path = "Enemy Classes";
+			sourceTree = "<group>";
+		};
+		D330D93F20FEC3E90018ED1F /* Rocks */ = {
+			isa = PBXGroup;
+			children = (
+				D330D94020FEC6750018ED1F /* rock.png */,
+			);
+			path = Rocks;
 			sourceTree = "<group>";
 		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
@@ -562,6 +576,7 @@
 				D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */,
 				D330D90C20FD6ABF0018ED1F /* speech.png in Resources */,
 				D307392C20E2B79F0054DEE6 /* flying6.png in Resources */,
+				D330D94120FEC6750018ED1F /* rock.png in Resources */,
 				D307392020E2B79F0054DEE6 /* running4.png in Resources */,
 				D30738D720E2B5CA0054DEE6 /* Actions.sks in Resources */,
 				D307392620E2B79F0054DEE6 /* gameover1.png in Resources */,
@@ -582,6 +597,7 @@
 				D330D89320F9327B0018ED1F /* Points.swift in Sources */,
 				D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */,
 				D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */,
+				D330D93E20FEC32C0018ED1F /* Rock.swift in Sources */,
 				D30621B720EE7AC500E2127D /* GameScene.swift in Sources */,
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,

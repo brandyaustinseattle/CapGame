@@ -15,7 +15,8 @@ struct PhysicsCategory {
     static let Ground: UInt32 = 0x1 << 3;
     static let Object: UInt32 = 0x1 << 4;
     static let Bee: UInt32 = 0x1 << 5;
-    static let Stand: UInt32 = 0x1 << 6;
+    static let Rock: UInt32 = 0x1 << 6;
+    static let Stand: UInt32 = 0x1 << 7;
 }
 
 extension Int {

@@ -143,7 +143,7 @@ class PathEngine {
     func drinkRequired(type: String) -> Bool {
         
         if type.prefix(5) == "alone" || type.prefix(6) == "middle" {
-            let drinkFactor = 10;
+            let drinkFactor = 6;
             let randomDrink = Int.random(min: 1, max: 10);
 
             return randomDrink <= drinkFactor

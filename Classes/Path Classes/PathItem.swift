@@ -16,6 +16,7 @@ class PathItem: SKSpriteNode {
     
     let offSetYArray = [CGFloat(315), CGFloat(450)];
     var drink = Object();
+    var rock = Rock();
     
     func initialize() {
         
@@ -50,8 +51,36 @@ class PathItem: SKSpriteNode {
         self.move(itemToMove: self);
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if drinkFlag {
             self.addDrink(referencePosition: self.position, gameScene: gameScene);
+            
+            
+            
+            
+            self.addRock(position: CGPoint(x: -300, y: 150), gameScene: gameScene);
+
+            
+            
+            
+            
         }
 
         prevPathItem = self;
@@ -72,6 +101,23 @@ class PathItem: SKSpriteNode {
         self.move(itemToMove: drink);
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    func addRock(position: CGPoint, gameScene: SKScene) {
+        rock = Rock(imageNamed: "rock");
+        
+        rock.initialize(position: position);
+        
+        gameScene.addChild(rock);
+        
+        self.move(itemToMove: rock);
+    }
     
     
     

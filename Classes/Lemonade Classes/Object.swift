@@ -18,7 +18,7 @@ class Object: SKSpriteNode {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         if type == "Drink" {
-            self.rotateObject();
+            self.rotateDrink();
         }
         
         if type == "Lemon" {
@@ -45,7 +45,7 @@ class Object: SKSpriteNode {
         self.setScale(0.15);
     }
         
-    func rotateObject() {        
+    func rotateDrink() {
         let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / 12), duration: 1);
         let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / 12), duration: 1);
         let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
