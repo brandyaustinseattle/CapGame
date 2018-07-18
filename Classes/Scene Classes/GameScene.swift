@@ -12,7 +12,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var pointsLabel = SKLabelNode();
     var pointsBG = SKSpriteNode();
 
     var pathEngine = PathEngine();

@@ -1,5 +1,5 @@
 //
-//  PointsSingleton.swift
+//  Points.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/13/18.
@@ -14,11 +14,11 @@ class Points {
     // can't create instance of Points outside of class
     private init() {}
     
-    var value = Int(0);
+    var value = Int();
     
     func increment(objectName: String) {
         if objectName == "Drink" {
-            value += 10; }
+            value += 1; }
         else if objectName == "Lemon" {
             value += 5;
         };
@@ -40,20 +40,21 @@ class Points {
     
     func getBackground() -> SKSpriteNode {
         
-        let pointCloud = SKSpriteNode(imageNamed: "roundcloud");
-                
-        pointCloud.name = "Round";
-        pointCloud.zPosition = 3;
-        pointCloud.setScale(0.75);
-        pointCloud.position = CGPoint(x: 590, y: 320);
+        let pointsCloud = SKSpriteNode(imageNamed: "roundcloud");
         
-        return pointCloud;
+        pointsCloud.name = "pointsCloud";
+        pointsCloud.zPosition = 3;
+        pointsCloud.setScale(0.75);
+        pointsCloud.position = CGPoint(x: 590, y: 320);
+        
+        return pointsCloud;
     }
     
     func getLabel() -> SKLabelNode {
         
         let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
         
+        pointsLabel.name = "pointsLabel";
         pointsLabel.text = "\(value)";
         pointsLabel.fontColor = UIColor.black;
         pointsLabel.fontSize = 60;
@@ -65,7 +66,7 @@ class Points {
     };
     
     func updatePointsDisplay(background: SKSpriteNode, pointsLabel: SKLabelNode) {
-        
+
         if value == 0 {
             self.flashBackground(background: background);
         }

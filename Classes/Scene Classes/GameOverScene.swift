@@ -12,7 +12,8 @@ import GameplayKit
 
 class GameOverScene: SKScene, SKPhysicsContactDelegate {
 
-    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var pointsLabel = SKLabelNode();
+    var pointsBG = SKSpriteNode();
     var timer = Timer();
     
     var player = Player();
@@ -23,11 +24,12 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-//        let pointsBG = Points.instance.getBackground();
-//        self.addChild(pointsBG);
-//
-//        Points.instance.updateLabel(pointsLabel: pointsLabel)
-//        self.addChild(pointsLabel);
+        pointsBG = Points.instance.getBackground();
+        pointsLabel = Points.instance.getLabel();
+        
+        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+        self.addChild(pointsBG);
+        self.addChild(pointsLabel);
     }
     
     func initialize() {
@@ -39,7 +41,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         delayGameOver();
         
-        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
     }
     
     @objc func countDown() {
@@ -48,7 +50,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         }
         
         Points.instance.decrement(pointsLabel: pointsLabel);
-//        Points.instance.updateLabel(pointsLabel: pointsLabel);
+        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
     }
     
     func createStaticMountain() {

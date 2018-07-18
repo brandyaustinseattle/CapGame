@@ -12,7 +12,8 @@ import GameplayKit
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
     
-    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var pointsLabel = SKLabelNode();
+    var pointsBG = SKSpriteNode();
     
     var touchLocation = CGPoint();
     
@@ -23,11 +24,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        let pointsBG = Points.instance.getBackground();
-        self.addChild(pointsBG);
+        pointsBG = Points.instance.getBackground();
+        pointsLabel = Points.instance.getLabel();
         
-//        Points.instance.updateLabel(pointsLabel: pointsLabel)
-//        self.addChild(pointsLabel);
+        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+        self.addChild(pointsBG);
+        self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
