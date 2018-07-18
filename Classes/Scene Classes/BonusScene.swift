@@ -26,8 +26,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let pointsBG = Points.instance.getBackground();
         self.addChild(pointsBG);
         
-        Points.instance.updateLabel(pointsLabel: pointsLabel)
-        self.addChild(pointsLabel);
+//        Points.instance.updateLabel(pointsLabel: pointsLabel)
+//        self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -63,7 +63,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             
             let objectName = secondBody.node?.name;
             Points.instance.increment(objectName: objectName!);
-            Points.instance.updateLabel(pointsLabel: pointsLabel);
+//            Points.instance.updateLabel(pointsLabel: pointsLabel);
             
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);

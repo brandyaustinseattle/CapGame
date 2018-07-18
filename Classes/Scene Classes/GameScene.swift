@@ -12,7 +12,8 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
+    var pointsBG = SKSpriteNode();
 
     var pathEngine = PathEngine();
     var beeEngine = BeeEngine();
@@ -26,17 +27,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        let pointsBG = Points.instance.getBackground();
-        self.addChild(pointsBG);
+        pointsBG = Points.instance.getBackground();
+        pointsLabel = Points.instance.getLabel();
         
-        Points.instance.updateLabel(pointsLabel: pointsLabel)
+        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+        self.addChild(pointsBG);
         self.addChild(pointsLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
-//        checkPlayerBounds();
-        
+        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,7 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Bee" {
             
             Points.instance.value = 0;
-            Points.instance.updateLabel(pointsLabel: pointsLabel);
+            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
             
             player.getDizzy();
             
@@ -82,8 +82,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let objectName = secondBody.node?.name;
             Points.instance.increment(objectName: objectName!);
-            Points.instance.updateLabel(pointsLabel: pointsLabel);
-       
+            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
             self.addChild(cPulse);

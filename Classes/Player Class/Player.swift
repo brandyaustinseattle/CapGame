@@ -101,7 +101,7 @@ class Player: SKSpriteNode {
     func getDizzy() {
         let dizzy = dizzyPrep();
         
-        self.run(dizzy);
+        self.run(SKAction.repeat(dizzy, count: 2));
     }
     
     func gameOver() {

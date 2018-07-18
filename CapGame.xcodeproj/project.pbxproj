@@ -77,6 +77,7 @@
 		D330D92820FE5A3A0018ED1F /* hive.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92420FE5A3A0018ED1F /* hive.png */; };
 		D330D92D20FE68940018ED1F /* BeeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D92C20FE68940018ED1F /* BeeEngine.swift */; };
 		D330D92F20FE69C70018ED1F /* rightBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92E20FE69C70018ED1F /* rightBee.png */; };
+		D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		D330D92420FE5A3A0018ED1F /* hive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hive.png; sourceTree = "<group>"; };
 		D330D92C20FE68940018ED1F /* BeeEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeEngine.swift; sourceTree = "<group>"; };
 		D330D92E20FE69C70018ED1F /* rightBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightBee.png; sourceTree = "<group>"; };
+		D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkroundcloud.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +398,7 @@
 		D330D90620FD6AB50018ED1F /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
+				D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */,
 				D330D91220FDB05E0018ED1F /* roundcloud.png */,
 				D330D90820FD6ABF0018ED1F /* clouds.png */,
 				D330D91520FDB8750018ED1F /* bigroundcloud.png */,
@@ -547,6 +550,7 @@
 				D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
+				D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,

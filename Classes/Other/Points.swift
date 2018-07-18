@@ -39,17 +39,20 @@ class Points {
     }
     
     func getBackground() -> SKSpriteNode {
-        let round = SKSpriteNode(imageNamed: "roundcloud");
-        round.name = "Round";
-        round.zPosition = 3;
-        round.setScale(0.75);
         
-        round.position = CGPoint(x: 590, y: 320);
+        let pointCloud = SKSpriteNode(imageNamed: "roundcloud");
+                
+        pointCloud.name = "Round";
+        pointCloud.zPosition = 3;
+        pointCloud.setScale(0.75);
+        pointCloud.position = CGPoint(x: 590, y: 320);
         
-        return round;
+        return pointCloud;
     }
     
-    func updateLabel(pointsLabel: SKLabelNode) {
+    func getLabel() -> SKLabelNode {
+        
+        let pointsLabel = SKLabelNode(fontNamed: "Marker Felt");
         
         pointsLabel.text = "\(value)";
         pointsLabel.fontColor = UIColor.black;
@@ -58,5 +61,31 @@ class Points {
         
         pointsLabel.position = CGPoint(x: 585, y: 300);
         
+        return pointsLabel;
+    };
+    
+    func updatePointsDisplay(background: SKSpriteNode, pointsLabel: SKLabelNode) {
+        
+        if value == 0 {
+            self.flashBackground(background: background);
+        }
+            
+        pointsLabel.text = "\(value)";
     }
+    
+    func flashBackground(background: SKSpriteNode) {
+        let pinkImage = SKTexture(imageNamed: "pinkroundcloud");
+        let makePink = SKAction.setTexture(pinkImage , resize: false);
+        
+        let whiteImage = SKTexture(imageNamed: "roundcloud");
+        let makeWhite = SKAction.setTexture(whiteImage , resize: false);
+        
+        let wait = SKAction.wait(forDuration: 0.15);
+        
+        let flash = SKAction.sequence([makePink, wait, makeWhite]);
+
+        background.run(SKAction.repeat(flash, count: 2));
+
+    }
+    
 }
