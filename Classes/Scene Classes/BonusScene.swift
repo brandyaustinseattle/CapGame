@@ -21,6 +21,20 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var drink = Object();
     var lemon = Object();
     
+    
+    
+    
+    
+    var countDown = CountDown();
+    var cdLabel = SKLabelNode();
+    var bgCloud = SKSpriteNode();
+    var timer = Timer();
+    
+    
+    
+    
+    
+    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -30,10 +44,24 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
         self.addChild(pointsBG);
         self.addChild(pointsLabel);
+        
+        
+        
+        
+        bgCloud = countDown.getBackground();
+        cdLabel = countDown.getLabel();
+        
+        
+        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel)
+        self.addChild(bgCloud);
+        self.addChild(cdLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
         moveClouds();
+        
+        countDown.decrement(label: cdLabel);
+        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel);
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -64,8 +92,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
             
             let objectName = secondBody.node?.name;
+            
             Points.instance.increment(objectName: objectName!);
-//            Points.instance.updateLabel(pointsLabel: pointsLabel);
+            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
             
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
@@ -85,8 +114,26 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         addObjectsMatrix();
         
-        addTimerBackground();
+        
+        
+        
+//        addCountDownBackground();
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
+
+        
     }
+    
+    
+    @objc func countDownH() {
+        if cdLabel.text == "0" {
+            timer.invalidate();
+        }
+        
+        countDown.decrement(label: cdLabel);
+        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel)
+    }
+    
+    
     
     func createMountains() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
@@ -123,8 +170,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(cloud);
             
             // used to randomly determine y position of clouds
-            let offsetYValue = Int.random(min: 10, max: 80);
-            y -= self.frame.size.height/4 + CGFloat(offsetYValue);
+            let offsetYValue = Int.random(min: 30, max: 80);
+            y -= CGFloat(offsetYValue);
         }
     }
     
@@ -150,7 +197,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.initialize();
         
         let x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
-        let y = CGFloat(self.frame.size.height/2 - 3 * (self.frame.size.height/4));
+        let y = CGFloat(self.frame.size.height/2 - 3.25 * (self.frame.size.height/4));
         
         player.position = CGPoint(x: x, y: y);
         
@@ -159,16 +206,21 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func addTimerBackground() {
-        let timerCloud = SKSpriteNode(imageNamed: "longcloud");
-        
-        timerCloud.name = "timerCloud";
-        timerCloud.zPosition = 3;
-        timerCloud.setScale(0.85);
-        timerCloud.position = CGPoint(x: 0, y: 255);
-        
-        self.addChild(timerCloud);
-    }
+    
+    
+    
+//    func addCountDownBackground() {
+//        let cdCloud = SKSpriteNode(imageNamed: "longcloud");
+//
+//        cdCloud.name = "timerCloud";
+//        cdCloud.zPosition = 3;
+//        cdCloud.setScale(0.85);
+//        cdCloud.position = CGPoint(x: 0, y: 265);
+//
+//        self.addChild(cdCloud);
+//    }
+//
+    
     
     
     func addObjectsMatrix() {

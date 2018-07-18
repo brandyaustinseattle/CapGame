@@ -54,7 +54,7 @@ class PathEngine {
 
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 3;
+        let standFactor = 2;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -82,7 +82,6 @@ class PathEngine {
                     
                 } else {
                     height = "Step";
-                    
                 };
                 
             } else {
@@ -93,7 +92,6 @@ class PathEngine {
                     
                 } else {
                     height = "High";
-                    
                 };
                 
             }
@@ -142,8 +140,9 @@ class PathEngine {
     }
     
     func rockRequired(type: String) -> Bool {
-        if !type.hasSuffix("step") {
-            let rockFactor = 2;
+        if (type != "alone" && height != "High") && height != "Step" {
+            
+            let rockFactor = 4;
             let rockRandom = Int.random(min: 1, max: 10);
             
             return rockRandom <= rockFactor
@@ -153,7 +152,7 @@ class PathEngine {
     }
     
     func drinkRequired(type: String) -> Bool {
-        if type.hasPrefix("alone") || type.hasPrefix("middle") {
+        if type == "alone" || type == "middle" {
             let drinkFactor = 3;
             let drinkRandom = Int.random(min: 1, max: 10);
 
