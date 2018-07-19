@@ -64,7 +64,7 @@ class PathEngine {
 
         let scene = timer.userInfo as! SKScene;
         
-        let standFactor = 2;
+        let standFactor = 10;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -152,7 +152,7 @@ class PathEngine {
     func rockRequired(type: String) -> Bool {
         if (type != "alone" && height != "High") && height != "Step" {
             
-            let rockFactor = 4;
+            let rockFactor = 6;
             let rockRandom = Int.random(min: 1, max: 10);
             
             return rockRandom <= rockFactor

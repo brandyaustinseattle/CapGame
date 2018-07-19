@@ -21,16 +21,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var drink = Object();
     var lemon = Object();
     
-    
-    
-    
     var countDown = CountDown();
     var cdLabel = SKLabelNode();
     var bgCloud = SKSpriteNode();
     var timer1 = Timer();
     
     
-    var bubble = Speech();
+    var bubble = Bubble();
     
     
     override func didMove(to view: SKView) {
@@ -48,7 +45,10 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         bgCloud = countDown.getBackground();
         cdLabel = countDown.getLabel();
-
+        
+        let cd = self.countDownWords();
+        self.addChild(cd);
+        
         countDown.updateCountDownDisplay(label: cdLabel)
         self.addChild(bgCloud);
         self.addChild(cdLabel);
@@ -133,30 +133,25 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     
     @objc func countDownH() {
-//        if cdLabel.text == "0" {
-//            timer1.invalidate();
-//            self.exitScene();
-//        }
-        
         countDown.decrement(label: cdLabel);
         countDown.updateCountDownDisplay(label: cdLabel)
         countDown.flashCDBackground(background: bgCloud);
     }
     
-//    func countDownWords() -> SKLabelNode {
-//
-//        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
-//
-//        cdWords.name = "count down";
-//        cdWords.text = "seconds";
-//        cdWords.fontColor = UIColor.black;
-//        cdWords.fontSize = 30;
-//        cdWords.zPosition = 4;
-//
-//        cdWords.position = CGPoint(x: 0, y: 235);
-//
-//        return cdWords;
-//    }
+    func countDownWords() -> SKLabelNode {
+
+        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
+
+        cdWords.name = "count down";
+        cdWords.text = "seconds";
+        cdWords.fontColor = UIColor.black;
+        cdWords.fontSize = 30;
+        cdWords.zPosition = 4;
+
+        cdWords.position = CGPoint(x: 0, y: 235);
+
+        return cdWords;
+    }
 //
     func createMountains() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
@@ -268,18 +263,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         };
     }
     
-    
-    
-    
-
-    
     func addSeconds() {
-        bubble = Speech(imageNamed: "roundspeech");
+        bubble = Bubble(imageNamed: "roundspeech");
         bubble.initialize(type: "Thought")
 
         let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
         
-        bubble.addThought(scene: self, text: "10 secs", position: position)
+        bubble.addThought(scene: self, text: "tap & hold", position: position)
     }
     
 }

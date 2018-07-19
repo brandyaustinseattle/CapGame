@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
-    var fivePoints = Speech();
+    var fivePoints = Bubble();
     
     
     override func didMove(to view: SKView) {
@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        checkPlayerBounds();
+//        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -205,7 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addFivePoints() {
-        fivePoints = Speech(imageNamed: "boltspeech");
+        fivePoints = Bubble(imageNamed: "boltspeech");
         fivePoints.initialize(type: "Thought")
         
         let position = CGPoint(x: player.position.x + 380, y: player.position.y - 300);

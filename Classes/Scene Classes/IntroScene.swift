@@ -1,8 +1,8 @@
 //
-//  GameOverScene.swift
+//  IntroScene.swift
 //  CapGame
 //
-//  Created by Brandy Austin on 7/16/18.
+//  Created by Brandy Austin on 7/19/18.
 //  Copyright © 2018 Brandy Austin. All rights reserved.
 //
 
@@ -10,49 +10,28 @@ import SpriteKit
 import GameplayKit
 
 
-class GameOverScene: SKScene, SKPhysicsContactDelegate {
+class IntroScene: SKScene {
 
-    var pointsLabel = SKLabelNode();
-    var pointsBG = SKSpriteNode();
-    var timer = Timer();
-    
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
-    
-    var thought = Bubble();
+
+    var introBubble = Bubble();
     
     override func didMove(to view: SKView) {
         initialize();
-        
-        pointsBG = Points.instance.getBackground();
-        pointsLabel = Points.instance.getLabel();
-        
-        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
-        self.addChild(pointsBG);
-        self.addChild(pointsLabel);
     }
-    
+
     func initialize() {
         createStaticMountain();
         createTrees();
-        
+    
         addPlatform();
         createPlayer();
-        
-        delayGameOver();
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
-    }
     
-    @objc func countDown() {
-        if Points.instance.value == 0 {
-            timer.invalidate();
-        }
-        
-        Points.instance.decrement(pointsLabel: pointsLabel);
-        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+        addActionBubbles();
+        delayIntroBubble();
     }
-    
+
     func createStaticMountain() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
         mountains.name = "mountains";
@@ -61,7 +40,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         mountains.zPosition = 0;
         self.addChild(mountains);
     }
-    
+
     func createTrees() {
         let trees = SKSpriteNode(imageNamed: "trees");
         trees.name = "trees";
@@ -71,42 +50,62 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         trees.setScale(0.70);
         self.addChild(trees);
     }
-    
+
     func addPlatform() {
         platform.initialize();
-        
+    
         let x = (self.size.width/2) - (platform.size.width/2);
         let y = -(self.frame.size.height/2) + (platform.size.height/2);
         platform.position = CGPoint(x: x, y: y);
-        
+    
         self.addChild(platform);
     }
-    
+
     func createPlayer() {
-        player = Player(imageNamed: "gameover1");
+        player = Player(imageNamed: "standing1");
         player.initialize();
         player.position = CGPoint(x: 445, y: 200);
         
         self.addChild(player);
-        player.gameOver();
-    }
-    
-    func delayGameOver() {
-        let wait = SKAction.wait(forDuration: 1);
-        let addGO = SKAction.run(addGameOver);
-        let sequence = SKAction.sequence([wait, addGO]);
-        
-        self.run(sequence);
-    }
-    
-    func addGameOver() {
-        thought = Bubble(imageNamed: "thought");
-        thought.initialize(type: "Thought")
-        
-        let position = platform.position;
-        
-        thought.addThought(scene: self, text: "game over", position: position)
-        thought.flashThought();
+        player.stand();
     }
 
+    func delayIntroBubble() {
+        let wait = SKAction.wait(forDuration: 1);
+        let addIB = SKAction.run(addIntroBubble);
+        let sequence = SKAction.sequence([wait, addIB]);
+    
+        self.run(sequence);
+    }
+
+    func addIntroBubble() {
+        introBubble = Bubble(imageNamed: "squarespeech");
+        introBubble.initialize(type: "Thought")
+    
+        let position = CGPoint(x: player.position.x + 200, y: player.position.y - 100);
+    
+        introBubble.addThought(scene: self, text: "let's go", position: position);
+        introBubble.flashThought();
+    }
+    
+    
+    
+    
+    func addActionBubbles() {
+        let difficulty = ["easy", "medium", "hard"];
+        
+        var y = self.frame.size.height/2 - self.frame.size.height/6;
+        
+        for item in difficulty {
+            let actionBubble = Bubble(imageNamed: "longcloud");
+            actionBubble.initialize(type: "Thought")
+            
+            let position = CGPoint(x: 0, y: y);
+            
+            actionBubble.addThought(scene: self, text: "\(item)", position: position);
+            
+            y -= self.frame.size.height/6;
+        }
+    }
+    
 }

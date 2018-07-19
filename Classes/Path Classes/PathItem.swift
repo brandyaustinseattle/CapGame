@@ -72,7 +72,7 @@ class PathItem: SKSpriteNode {
     }
     
     func addRock(referencePosition: CGPoint, scene: SKScene) {
-        let rockRandom = Int.random(min: 1, max: 5);
+        let rockRandom = Int.random(min: 1, max: 2);
 
         rock = Rock(imageNamed: "rock\(rockRandom)");
         
