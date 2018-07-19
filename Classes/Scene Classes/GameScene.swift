@@ -39,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        checkPlayerBounds();
+        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             
             if Points.instance.value == 0 {
-                self.addFivePoints();
+                self.addPlusBubble();
             }
             
             let objectName = secondBody.node?.name;
@@ -201,16 +201,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.presentScene(gameOverScene, transition: crossFade);
     }
     
-    func addFivePoints() {
+    func addPlusBubble() {
 
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
 
         let label = LabelMaker(message: "+5", messageSize: 175)
 
-        let plusFivePoints = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
+        let plus = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        self.addChild(plusFivePoints);
-        plusFivePoints.removeAfter(seconds: 1.5);
+        self.addChild(plus);
+        plus.removeAfter(seconds: 1.5);
     }
     
 }

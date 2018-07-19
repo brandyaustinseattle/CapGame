@@ -26,10 +26,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var bgCloud = SKSpriteNode();
     var timer1 = Timer();
     
-    
-//    var bubble = Bubble();
-    
-    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -128,7 +124,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         addObjectsMatrix();
         
-//        addSeconds();
+        addQuickBubble();
     }
     
     
@@ -263,13 +259,16 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         };
     }
     
-//    func addSeconds() {
-//        bubble = Bubble(imageNamed: "roundspeech");
-//        bubble.initialize(type: "Thought")
-//
-//        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
-//
-//        bubble.addThought(scene: self, text: "tap & hold", position: position)
-//    }
+    func addQuickBubble() {
+        
+        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
+        
+        let label = LabelMaker(message: "quick", messageSize: 75)
+        
+        let quick = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
+        
+        self.addChild(quick);
+        quick.flashForever();
+    }
     
 }

@@ -43,6 +43,12 @@ class Bubble: SKSpriteNode {
         
         self.run(SKAction.repeatForever(sequence), withKey: "remove");
     }
+
+    func delayFor(seconds: Double) {
+        let wait = SKAction.wait(forDuration: seconds)
+        
+        self.run(wait, withKey: "wait");
+    }
     
     func flashForever() {
         let fadeIn = SKAction.fadeIn(withDuration: 0.75);

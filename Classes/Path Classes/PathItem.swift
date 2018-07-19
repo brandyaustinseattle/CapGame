@@ -72,11 +72,11 @@ class PathItem: SKSpriteNode {
     }
     
     func addRock(referencePosition: CGPoint, scene: SKScene) {
-        let rockRandom = Int.random(min: 1, max: 2);
+        let rockRandom = Int.random(min: 1, max: 3);
 
         rock = Rock(imageNamed: "rock\(rockRandom)");
         
-        let offsetYValue = (rock.size.height * 0.15) / 2 + self.size.height/2 - 5;
+        let offsetYValue = (rock.size.height * 0.15) / 2 + self.size.height/2 - 10;
         
         rock.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue);
         

@@ -19,8 +19,6 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
     
-//    var thought = Bubble();
-    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -39,7 +37,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         addPlatform();
         createPlayer();
         
-//        delayGameOver();
+        addGameOverBubble();
         
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
     }
@@ -85,28 +83,22 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     func createPlayer() {
         player = Player(imageNamed: "gameover1");
         player.initialize();
-        player.position = CGPoint(x: 445, y: 200);
+        player.position = CGPoint(x: 445, y: -175);
         
         self.addChild(player);
         player.gameOver();
     }
     
-//    func delayGameOver() {
-//        let wait = SKAction.wait(forDuration: 1);
-//        let addGO = SKAction.run(addGameOver);
-//        let sequence = SKAction.sequence([wait, addGO]);
-//        
-//        self.run(sequence);
-//    }
-    
-//    func addGameOver() {
-//        thought = Bubble(imageNamed: "thought");
-//        thought.initialize(type: "Thought")
-//        
-//        let position = platform.position;
-//        
-//        thought.addThought(scene: self, text: "game over", position: position)
-//        thought.flashThought();
-//    }
+    func addGameOverBubble() {
+        
+        let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 325);
+        
+        let label = LabelMaker(message: "game over", messageSize: 75)
+        
+        let gameOver = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
+        
+        self.addChild(gameOver);
+        gameOver.flashForever();
+    }
 
 }

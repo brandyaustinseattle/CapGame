@@ -14,8 +14,6 @@ class IntroScene: SKScene {
 
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
-
-//    var introBubble = Bubble();
     
     override func didMove(to view: SKView) {
         initialize();
@@ -27,9 +25,8 @@ class IntroScene: SKScene {
     
         addPlatform();
         createPlayer();
-    
-//        addActionBubbles();
-//        delayIntroBubble();
+
+        addIntroBubble();
     }
 
     func createStaticMountain() {
@@ -64,48 +61,22 @@ class IntroScene: SKScene {
     func createPlayer() {
         player = Player(imageNamed: "standing1");
         player.initialize();
-        player.position = CGPoint(x: 445, y: 200);
-        
+        player.position = CGPoint(x: 445, y: -175);
+
         self.addChild(player);
         player.stand();
     }
-
-//    func delayIntroBubble() {
-//        let wait = SKAction.wait(forDuration: 1);
-//        let addIB = SKAction.run(addIntroBubble);
-//        let sequence = SKAction.sequence([wait, addIB]);
-//    
-//        self.run(sequence);
-//    }
-
-//    func addIntroBubble() {
-//        introBubble = Bubble(imageNamed: "squarespeech");
-//        introBubble.initialize(type: "Thought")
-//    
-//        let position = CGPoint(x: player.position.x + 200, y: player.position.y - 100);
-//    
-//        introBubble.addThought(scene: self, text: "let's go", position: position);
-//        introBubble.flashThought();
-//    }
     
-    
-    
-    
-//    func addActionBubbles() {
-//        let difficulty = ["easy", "medium", "hard"];
-//
-//        var y = self.frame.size.height/2 - self.frame.size.height/6;
-//
-//        for item in difficulty {
-//            let actionBubble = Bubble(imageNamed: "longcloud");
-//            actionBubble.initialize(type: "Thought")
-//
-//            let position = CGPoint(x: 0, y: y);
-//
-//            actionBubble.addThought(scene: self, text: "\(item)", position: position);
-//
-//            y -= self.frame.size.height/6;
-//        }
-//    }
+    func addIntroBubble() {
+        
+        let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 275);
+        
+        let label = LabelMaker(message: "let's go", messageSize: 115)
+        
+        let intro = Bubble(scene: self, type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
+        
+        self.addChild(intro);
+        intro.flashForever();
+    }
     
 }
