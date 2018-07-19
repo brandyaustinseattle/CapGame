@@ -23,6 +23,8 @@ class Player: SKSpriteNode {
         
         self.setPhysicsHead();
         self.setPhysicsBody();
+        
+        print("player initialize")
     }
     
     // start set physics

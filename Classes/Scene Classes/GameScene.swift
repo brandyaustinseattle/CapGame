@@ -9,7 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pointsLabel = SKLabelNode();
@@ -26,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var fivePoints = Speech();
     
+    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -35,10 +35,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
         self.addChild(pointsBG);
         self.addChild(pointsLabel);
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
-        checkPlayerBounds();
+//        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,6 +101,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
+            
+//            self.scene?.isPaused = true;
+            
             let newScene = BonusScene(fileNamed: "BonusScene")!;
             // needed to make images appropriate sizes
             newScene.scaleMode = .aspectFill;
@@ -116,10 +120,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         createMountains();
         createTrees();
-        
+
         createPlayer();
         playerConstraints();
-        
+
         startPathEngine();
     }
     
@@ -175,6 +179,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
+        
+        print(player.position)
+
     }
     
     func playerConstraints() {

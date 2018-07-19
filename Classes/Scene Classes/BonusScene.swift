@@ -45,7 +45,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        var cdWords = self.countDownWords();
+        let cdWords = self.countDownWords();
         self.addChild(cdWords);
         
         
@@ -71,6 +71,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.run(move, withKey: "move")
         
         bubble.removeFromParent();
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -91,6 +92,23 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         }
 
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
+            
+            
+            
+            
+            
+            
+            let newScene = GameScene(fileNamed: "GameScene")!;
+            // needed to make images appropriate sizes
+            newScene.scaleMode = .aspectFill;
+            
+            let doorway = SKTransition.doorway(withDuration: 1.5);
+            
+            self.view?.presentScene(newScene, transition: doorway)
+            
+            
+            
+            
             
             let objectName = secondBody.node?.name;
             
@@ -136,7 +154,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         cdWords.name = "count down";
         cdWords.text = "seconds";
         cdWords.fontColor = UIColor.black;
-        cdWords.fontSize = 35;
+        cdWords.fontSize = 30;
         cdWords.zPosition = 4;
         
         cdWords.position = CGPoint(x: 0, y: 235);

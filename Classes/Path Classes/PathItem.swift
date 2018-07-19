@@ -8,10 +8,6 @@
 
 import SpriteKit
 
-var prevPathItem = SKSpriteNode();
-var xValue = CGFloat(0);
-
-
 class PathItem: SKSpriteNode {
     
     let offSetYArray = [CGFloat(315), CGFloat(450)];
@@ -37,14 +33,22 @@ class PathItem: SKSpriteNode {
     
     func addPathItem(scene: SKScene, spaceBefore: Int, drinkFlag: Bool, rockFlag: Bool) {
         
+        print("add path item")
+        
         if (prevPathItem.name == nil) {
             xValue = -(scene.size.width/2) + self.size.width/2;
+            
+            print("PREV PATH ITEM NIL")
         } else {
             // must subtract 30 to account for fact that width calculations are impacted with lip edges
-            let space = CGFloat(spaceBefore);
+            let space = CGFloat(0);
             xValue = space + prevPathItem.position.x + prevPathItem.size.width/2 + self.size.width/2 - 30;
         }
         
+        print("HERE")
+        print(xValue - prevPathItem.position.x)
+        print("")
+
         
         self.position = CGPoint(x: CGFloat(xValue), y: -(scene.frame.size.height/2) + (self.size.height/2));
         
@@ -60,6 +64,8 @@ class PathItem: SKSpriteNode {
         }
 
         prevPathItem = self;
+        
+        print(self)
         
         scene.addChild(self);
     }

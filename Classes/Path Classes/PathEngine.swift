@@ -9,6 +9,12 @@
 import SpriteKit
 
 
+
+var prevPathItem = SKSpriteNode();
+var xValue = CGFloat(0);
+
+// make runway span entire screen then generate subsequent pathItem objects at a slower rate instead of using 0.35 for the timer
+
 class PathEngine {
     
     var stand = Stand();
@@ -25,12 +31,19 @@ class PathEngine {
         
     func initialize(gameScene: SKScene) {
         
+        print("pathEngine initialize")
+        
+        prevPathItem = SKSpriteNode();
+        xValue = CGFloat(0);
+        
         createRunway(gameScene: gameScene);
         
         Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: gameScene, repeats: true);
     }
 
     func createRunway(gameScene: SKScene) {
+        
+        print("in createRunway")
         
         for _ in 0...2 {
             
@@ -54,7 +67,7 @@ class PathEngine {
 
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 5;
+        let standFactor = 2;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -64,12 +77,12 @@ class PathEngine {
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
-        if standRandom <= standFactor {
-            insertStand(gameScene: gameScene);
-            return;
-        }
-        
         if lastType == "end" || lastType == "alone" {
+            
+            if standRandom <= standFactor {
+                insertStand(gameScene: gameScene);
+                return;
+            }
             
             if (randomOne <= startAloneFactor) {
                 type = "start";
@@ -95,8 +108,9 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 70, max: 130);
-            
+//            spaceBefore = Int.random(min: 70, max: 130);
+            spaceBefore = Int(0);
+
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
             if lastHeight == "Low" || lastHeight == "Step" {
@@ -137,6 +151,12 @@ class PathEngine {
         
         lastType = type;
         lastHeight = height;
+        
+        print("")
+        print(lastType)
+        print(lastHeight)
+        print("")
+
     }
     
     func rockRequired(type: String) -> Bool {
