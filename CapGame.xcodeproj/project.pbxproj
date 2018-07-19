@@ -91,7 +91,7 @@
 		D36D9DF221011B5000F86C90 /* rock6.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9DF121011B5000F86C90 /* rock6.png */; };
 		D36D9DF421011B7600F86C90 /* rock5.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9DF321011B7600F86C90 /* rock5.png */; };
 		D36D9DF621011BD300F86C90 /* rock3.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9DF521011BD200F86C90 /* rock3.png */; };
-		D36D9DFA210137F500F86C90 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9DF9210137F500F86C90 /* LabelFactory.swift */; };
+		D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9DFB21013D6000F86C90 /* LabelMaker.swift */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -184,7 +184,7 @@
 		D36D9DF121011B5000F86C90 /* rock6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock6.png; sourceTree = "<group>"; };
 		D36D9DF321011B7600F86C90 /* rock5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock5.png; sourceTree = "<group>"; };
 		D36D9DF521011BD200F86C90 /* rock3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock3.png; sourceTree = "<group>"; };
-		D36D9DF9210137F500F86C90 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		D36D9DFB21013D6000F86C90 /* LabelMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMaker.swift; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 				D330D89220F9327B0018ED1F /* Points.swift */,
 				D330D88820F7D6710018ED1F /* Global.swift */,
 				D330D95F20FFF4610018ED1F /* CountDown.swift */,
-				D36D9DF9210137F500F86C90 /* LabelFactory.swift */,
+				D36D9DFB21013D6000F86C90 /* LabelMaker.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -661,8 +661,8 @@
 				D36D9DDE210112B800F86C90 /* Bubble.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
+				D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */,
 				D330D92D20FE68940018ED1F /* BeeEngine.swift in Sources */,
-				D36D9DFA210137F500F86C90 /* LabelFactory.swift in Sources */,
 				D330D91A20FE56C40018ED1F /* Bee.swift in Sources */,
 				D330D96020FFF4610018ED1F /* CountDown.swift in Sources */,
 				D330D87420F576B30018ED1F /* Object.swift in Sources */,

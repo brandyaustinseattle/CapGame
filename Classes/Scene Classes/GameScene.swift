@@ -205,7 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
 
-        let label = LabelFactory(message: "+5", messageSize: 175)
+        let label = LabelMaker(message: "+5", messageSize: 175)
 
         let plusFivePoints = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         

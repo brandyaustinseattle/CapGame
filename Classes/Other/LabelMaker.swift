@@ -1,5 +1,5 @@
 //
-//  LabelFactory.swift
+//  LabelMaker.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/19/18.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class LabelFactory: SKLabelNode {
+class LabelMaker: SKLabelNode {
     
     init(message: String, messageSize: CGFloat) {
         
@@ -28,4 +28,5 @@ class LabelFactory: SKLabelNode {
     }
     
 }
+
 
