@@ -18,7 +18,19 @@ class IntroScene: SKScene {
     override func didMove(to view: SKView) {
         initialize();
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch:UITouch = touches.first!
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+       print(touchedNode.name)
+        
+    }
+    
+    
+    
+    
     func initialize() {
         createStaticMountain();
         createTrees();
@@ -27,6 +39,7 @@ class IntroScene: SKScene {
         createPlayer();
 
         addIntroBubble();
+        addLevelsBubbles();
     }
 
     func createStaticMountain() {
@@ -71,12 +84,33 @@ class IntroScene: SKScene {
         
         let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 275);
         
-        let label = LabelMaker(message: "let's go", messageSize: 115)
+        let label = LabelMaker(message: "let's go", messageSize: 100)
         
         let intro = Bubble(scene: self, type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(intro);
         intro.flashForever();
+    }
+    
+    func addLevelsBubbles() {
+
+        var y = self.size.height/2 - self.size.height/4;
+        
+        let difficulty = ["easy", "medium", "hard"];
+        
+        for level in difficulty {
+        
+            let position = CGPoint(x: -175, y: y);
+        
+            let label = LabelMaker(message: "\(level)", messageSize: 75)
+        
+            let level = Bubble(scene: self, type: "longcloud", scale: 0.85, bubblePosition: position, label: label)
+        
+            self.addChild(level);
+            
+            y -= self.size.height/4;
+        }
+    
     }
     
 }
