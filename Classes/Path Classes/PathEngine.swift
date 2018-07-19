@@ -54,7 +54,7 @@ class PathEngine {
 
         let gameScene = timer.userInfo as! GameScene;
         
-        let standFactor = 2;
+        let standFactor = 8;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
@@ -153,7 +153,7 @@ class PathEngine {
     
     func drinkRequired(type: String) -> Bool {
         if type == "alone" || type == "middle" {
-            let drinkFactor = 3;
+            let drinkFactor = 8;
             let drinkRandom = Int.random(min: 1, max: 10);
 
             return drinkRandom <= drinkFactor

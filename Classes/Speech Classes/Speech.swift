@@ -15,8 +15,9 @@ class Speech: SKSpriteNode {
             self.name = type;
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
             self.zPosition = 3;
-            
-            self.setScale(0.5);
+
+        self.setScale(0.4);
+//            self.setScale(0.5);
     }
     
     func addThought(scene: SKScene, text: String, position: CGPoint) {
@@ -31,16 +32,22 @@ class Speech: SKSpriteNode {
     }
 
     func addLabel(text: String) {
-        let x = self.position.x;
-        let y = self.position.y;
     
         let gameOverLabel = SKLabelNode(fontNamed: "Marker Felt");
+        gameOverLabel.name = text;
+        
+        gameOverLabel.lineBreakMode = .byWordWrapping;
+        gameOverLabel.numberOfLines = 0;
+        
         gameOverLabel.text = text;
+        
         gameOverLabel.fontColor = UIColor.black;
-        gameOverLabel.fontSize = 85;
-        gameOverLabel.zPosition = 4;
+        gameOverLabel.fontSize = 75;
+        gameOverLabel.zPosition = 6;
     
-        gameOverLabel.position = CGPoint(x: x - 325, y: y + 50);
+//        gameOverLabel.position = CGPoint(x: x - 325, y: y + 50);
+        gameOverLabel.position = CGPoint(x: 0, y: 0);
+        
         self.addChild(gameOverLabel);
     }
 

@@ -15,12 +15,15 @@ class Points {
     private init() {}
     
     var value = Int();
+    var amtAdded = String();
     
     func increment(objectName: String) {
         if objectName == "Drink" {
-            value += 1; }
-        else if objectName == "Lemon" {
+            value += 1;
+            amtAdded = "+1";
+        } else if objectName == "Lemon" {
             value += 5;
+            amtAdded = "+5";
         };
     }
     
@@ -66,10 +69,29 @@ class Points {
     
     func updatePointsDisplay(background: SKSpriteNode, pointsLabel: SKLabelNode) {
 
+//        if value == 0 {
+//            self.flashBackground(background: background);
+//            return
+//        }
+//        
+//        let showAdded = SKAction.run {
+//            pointsLabel.text = "\(self.amtAdded)";
+//        }
+//        
+//        let showValue = SKAction.run {
+//            pointsLabel.text = "\(self.value)";
+//        }
+//        
+//        let wait = SKAction.wait(forDuration: 0.5);
+//        
+//        let flash = SKAction.sequence([showAdded, wait, showValue]);
+//        
+//        pointsLabel.run(flash);
+        
         if value == 0 {
             self.flashBackground(background: background);
         }
-            
+        
         pointsLabel.text = "\(value)";
     }
     
@@ -84,7 +106,7 @@ class Points {
         
         let flash = SKAction.sequence([makePink, wait, makeWhite]);
 
-        background.run(SKAction.repeat(flash, count: 2));
+        background.run(SKAction.repeat(flash, count: 1));
 
     }
     

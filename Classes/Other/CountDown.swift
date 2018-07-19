@@ -10,7 +10,7 @@ import SpriteKit
 
 class CountDown {
     
-    var cdValue = Int(10);
+    var cdValue = Int(20);
     
     func decrement(label: SKLabelNode) {
         if cdValue == 0 {
@@ -47,13 +47,28 @@ class CountDown {
         cdLabel.fontSize = 60;
         cdLabel.zPosition = 4;
         
-        cdLabel.position = CGPoint(x: 585, y: 300);
+        cdLabel.position = CGPoint(x: 0, y: 265);
         
         return cdLabel;
     }
-    
-    func updateCountDownDisplay(background: SKSpriteNode, label: SKLabelNode) {
+
+    func updateCountDownDisplay(label: SKLabelNode) {
         label.text = "\(cdValue)";
+    }
+    
+    func flashCDBackground(background: SKSpriteNode) {
+        let grayImage = SKTexture(imageNamed: "graylongcloud");
+        let makeGray = SKAction.setTexture(grayImage , resize: false);
+        
+        let whiteImage = SKTexture(imageNamed: "longcloud");
+        let makeWhite = SKAction.setTexture(whiteImage , resize: false);
+        
+        let wait = SKAction.wait(forDuration: 0.5);
+        
+        let flash = SKAction.sequence([makeGray, wait, makeWhite]);
+        
+        background.run(flash);
+        
     }
     
 }

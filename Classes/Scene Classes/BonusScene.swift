@@ -28,11 +28,10 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var countDown = CountDown();
     var cdLabel = SKLabelNode();
     var bgCloud = SKSpriteNode();
-    var timer = Timer();
+    var timer1 = Timer();
     
     
-    
-    
+    var tenSeconds = Speech();
     
     
     override func didMove(to view: SKView) {
@@ -50,18 +49,14 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         bgCloud = countDown.getBackground();
         cdLabel = countDown.getLabel();
-        
-        
-        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel)
+
+        countDown.updateCountDownDisplay(label: cdLabel)
         self.addChild(bgCloud);
         self.addChild(cdLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
         moveClouds();
-        
-        countDown.decrement(label: cdLabel);
-        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel);
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,6 +65,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let move = SKAction.move(to: destination, duration: 2)
         player.removeAction(forKey: "move")
         player.run(move, withKey: "move")
+        
+        tenSeconds.removeFromParent();
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -114,11 +111,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         addObjectsMatrix();
         
+        addTenSeconds();
         
-        
-        
-//        addCountDownBackground();
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
+        timer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
 
         
     }
@@ -126,11 +121,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func countDownH() {
         if cdLabel.text == "0" {
-            timer.invalidate();
+            timer1.invalidate();
         }
         
         countDown.decrement(label: cdLabel);
-        countDown.updateCountDownDisplay(background: bgCloud, label: cdLabel)
+        countDown.updateCountDownDisplay(label: cdLabel)
+        countDown.flashCDBackground(background: bgCloud);
     }
     
     
@@ -205,24 +201,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
-    
-    
-    
-    
-//    func addCountDownBackground() {
-//        let cdCloud = SKSpriteNode(imageNamed: "longcloud");
-//
-//        cdCloud.name = "timerCloud";
-//        cdCloud.zPosition = 3;
-//        cdCloud.setScale(0.85);
-//        cdCloud.position = CGPoint(x: 0, y: 265);
-//
-//        self.addChild(cdCloud);
-//    }
-//
-    
-    
-    
     func addObjectsMatrix() {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
@@ -261,6 +239,20 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             y -= (self.frame.size.height/2 - self.frame.size.height/4);
             x = (-(self.frame.size.width/2) + self.frame.size.width/6);
         };
+    }
+    
+    
+    
+    
+
+    
+    func addTenSeconds() {
+        tenSeconds = Speech(imageNamed: "roundspeech");
+        tenSeconds.initialize(type: "Thought")
+
+        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
+        
+        tenSeconds.addThought(scene: self, text: "QUICK", position: position)
     }
     
 }
