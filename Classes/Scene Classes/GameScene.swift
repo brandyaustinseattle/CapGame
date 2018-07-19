@@ -14,8 +14,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pointsLabel = SKLabelNode();
     var pointsBG = SKSpriteNode();
 
-    var pathEngine = PathEngine();
+
     var beeEngine = BeeEngine();
+    var pathEngine = PathEngine();
     
     var player = Player();
     var isAlive = true;
@@ -39,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        checkPlayerBounds();
+        checkPlayerBounds();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,8 +103,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
             
-//            self.scene?.isPaused = true;
-            
+            pathEngine.timer.invalidate();
+        
             let newScene = BonusScene(fileNamed: "BonusScene")!;
             // needed to make images appropriate sizes
             newScene.scaleMode = .aspectFill;
@@ -125,6 +126,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerConstraints();
 
         startPathEngine();
+    }
+    
+    func startPathEngine() {
+        // player must be running when engine is started
+        player.runFast();
+        
+        pathEngine.initialize(scene: self);
+        beeEngine.initialize(scene: self);
     }
     
     func createMountains() {
@@ -164,24 +173,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(trees);
     }
     
-    func startPathEngine() {
-        // player must be running when engine is started
-        player.runFast();
-
-        pathEngine.initialize(gameScene: self);
-        beeEngine.initialize(scene: self);
-    }
-
-    
     func createPlayer() {
         player = Player(imageNamed: "standing1");
         player.initialize();
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
-        
-        print(player.position)
-
     }
     
     func playerConstraints() {
@@ -206,13 +203,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.view?.presentScene(gameOverScene, transition: crossFade);
     }
-    
-    
-    
-    
-    
-    
-    
     
     func addFivePoints() {
         fivePoints = Speech(imageNamed: "boltspeech");

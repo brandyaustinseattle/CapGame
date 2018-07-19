@@ -41,7 +41,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         delayGameOver();
         
-        timer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
     }
     
     @objc func countDown() {

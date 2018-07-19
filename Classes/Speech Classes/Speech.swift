@@ -45,7 +45,7 @@ class Speech: SKSpriteNode {
         // for bonus scene
 //        gameOverLabel.fontSize = 75;
         // for game scene
-        gameOverLabel.fontSize = 75;
+        gameOverLabel.fontSize = 95;
 
         gameOverLabel.zPosition = 6;
     

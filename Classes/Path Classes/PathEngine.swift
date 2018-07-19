@@ -8,8 +8,6 @@
 
 import SpriteKit
 
-
-
 var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);
 
@@ -28,36 +26,35 @@ class PathEngine {
     var height = String();
     var lastType = String();
     var lastHeight = String();
+    
+    var timer = Timer();
+    var interval = 0.35;
         
-    func initialize(gameScene: SKScene) {
-        
-        print("pathEngine initialize")
+    func initialize(scene: SKScene) {
         
         prevPathItem = SKSpriteNode();
         xValue = CGFloat(0);
         
-        createRunway(gameScene: gameScene);
+        createRunway(scene: scene);
         
-        Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: gameScene, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(createMainPath), userInfo: scene, repeats: true);
     }
 
-    func createRunway(gameScene: SKScene) {
-        
-        print("in createRunway")
+    func createRunway(scene: SKScene) {
         
         for _ in 0...2 {
             
             pathItem = PathItem(imageNamed: "middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(scene: gameScene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
+            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
             
         };
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: gameScene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -65,7 +62,7 @@ class PathEngine {
     
     @objc func createMainPath(timer: Timer) {
 
-        let gameScene = timer.userInfo as! GameScene;
+        let scene = timer.userInfo as! SKScene;
         
         let standFactor = 2;
         let startAloneFactor = 4;
@@ -73,14 +70,14 @@ class PathEngine {
         let highMiddleEndFactor = 5;
         let lowHighFactor = 6;
         
-        let standRandom = Int.random(min: 1, max: 10);
+        let standRandom = Int.random(min: 1, max: 30);
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
         if lastType == "end" || lastType == "alone" {
             
             if standRandom <= standFactor {
-                insertStand(gameScene: gameScene);
+                insertStand(scene: scene);
                 return;
             }
             
@@ -108,9 +105,8 @@ class PathEngine {
                 };
                 
             }
-//            spaceBefore = Int.random(min: 70, max: 130);
-            spaceBefore = Int(0);
-
+            spaceBefore = Int.random(min: 70, max: 130);
+            
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
             if lastHeight == "Low" || lastHeight == "Step" {
@@ -147,16 +143,10 @@ class PathEngine {
         pathItem = PathItem(imageNamed: "\(type)\(height)");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: gameScene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
+        pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
         
         lastType = type;
         lastHeight = height;
-        
-        print("")
-        print(lastType)
-        print(lastHeight)
-        print("")
-
     }
     
     func rockRequired(type: String) -> Bool {
@@ -183,29 +173,29 @@ class PathEngine {
     }
     
     // refactor function to use a loop and randomization
-    func insertStand(gameScene: SKScene) {
+    func insertStand(scene: SKScene) {
     
         pathItem = PathItem(imageNamed: "startStep");
         pathItem.initialize();
-        pathItem.addPathItem(scene: gameScene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
        
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         let midPathItemPosition = pathItem.position;
         
         pathItem = PathItem(imageNamed: "middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "endLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: gameScene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -217,7 +207,7 @@ class PathEngine {
 
         stand.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue);
        
-        gameScene.addChild(stand);
+        scene.addChild(stand);
         self.move(itemToMove: stand);
         
     }

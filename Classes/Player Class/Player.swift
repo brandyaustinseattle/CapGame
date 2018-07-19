@@ -23,8 +23,6 @@ class Player: SKSpriteNode {
         
         self.setPhysicsHead();
         self.setPhysicsBody();
-        
-        print("player initialize")
     }
     
     // start set physics
@@ -46,7 +44,7 @@ class Player: SKSpriteNode {
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
         
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Object | PhysicsCategory.Bee;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Object | PhysicsCategory.Bee | PhysicsCategory.Rock;
         
         self.addChild(playerHead);
     }

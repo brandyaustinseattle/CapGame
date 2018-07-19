@@ -43,11 +43,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(pointsBG);
         self.addChild(pointsLabel);
         
-        
-        
-        let cdWords = self.countDownWords();
-        self.addChild(cdWords);
-        
+//        let cdWords = self.countDownWords();
+//        self.addChild(cdWords);
         
         bgCloud = countDown.getBackground();
         cdLabel = countDown.getLabel();
@@ -59,10 +56,15 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         moveClouds();
+        
+        if cdLabel.text == "0" {
+            timer1.invalidate();
+            self.exitScene();
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        timer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
+        timer1 = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
         
         guard let touch = touches.first else { return }
         let destination = touch.location(in: self)
@@ -93,23 +95,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
             
-            
-            
-            
-            
-            
-            let newScene = GameScene(fileNamed: "GameScene")!;
-            // needed to make images appropriate sizes
-            newScene.scaleMode = .aspectFill;
-            
-            let doorway = SKTransition.doorway(withDuration: 1.5);
-            
-            self.view?.presentScene(newScene, transition: doorway)
-            
-            
-            
-            
-            
             let objectName = secondBody.node?.name;
             
             Points.instance.increment(objectName: objectName!);
@@ -119,8 +104,18 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             let cPulse = contactPulse(position: position!);
             self.addChild(cPulse);
             
-            secondBody.node?.removeFromParent()
+            secondBody.node?.removeFromParent();
         }
+    }
+    
+    func exitScene() {
+        let newScene = GameScene(fileNamed: "GameScene")!;
+        // needed to make images appropriate sizes
+        newScene.scaleMode = .aspectFill;
+        
+        let doorway = SKTransition.doorway(withDuration: 1.5);
+        
+        self.view?.presentScene(newScene, transition: doorway);
     }
 
     
@@ -138,41 +133,31 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     
     @objc func countDownH() {
-        if cdLabel.text == "0" {
-            timer1.invalidate();
-        }
+//        if cdLabel.text == "0" {
+//            timer1.invalidate();
+//            self.exitScene();
+//        }
         
         countDown.decrement(label: cdLabel);
         countDown.updateCountDownDisplay(label: cdLabel)
         countDown.flashCDBackground(background: bgCloud);
     }
     
-    func countDownWords() -> SKLabelNode {
-        
-        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
-        
-        cdWords.name = "count down";
-        cdWords.text = "seconds";
-        cdWords.fontColor = UIColor.black;
-        cdWords.fontSize = 30;
-        cdWords.zPosition = 4;
-        
-        cdWords.position = CGPoint(x: 0, y: 235);
-        
-        return cdWords;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+//    func countDownWords() -> SKLabelNode {
+//
+//        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
+//
+//        cdWords.name = "count down";
+//        cdWords.text = "seconds";
+//        cdWords.fontColor = UIColor.black;
+//        cdWords.fontSize = 30;
+//        cdWords.zPosition = 4;
+//
+//        cdWords.position = CGPoint(x: 0, y: 235);
+//
+//        return cdWords;
+//    }
+//
     func createMountains() {
         let mountains = SKSpriteNode(imageNamed: "mountains");
         mountains.name = "mountains";
@@ -294,7 +279,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
         let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
         
-        bubble.addThought(scene: self, text: "quick", position: position)
+        bubble.addThought(scene: self, text: "10 secs", position: position)
     }
     
 }
