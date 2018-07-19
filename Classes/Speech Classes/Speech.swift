@@ -42,7 +42,11 @@ class Speech: SKSpriteNode {
         gameOverLabel.text = text;
         
         gameOverLabel.fontColor = UIColor.black;
-        gameOverLabel.fontSize = 75;
+        // for bonus scene
+//        gameOverLabel.fontSize = 75;
+        // for game scene
+        gameOverLabel.fontSize = 95;
+
         gameOverLabel.zPosition = 6;
     
 //        gameOverLabel.position = CGPoint(x: x - 325, y: y + 50);

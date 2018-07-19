@@ -31,7 +31,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var timer1 = Timer();
     
     
-    var tenSeconds = Speech();
+    var bubble = Speech();
     
     
     override func didMove(to view: SKView) {
@@ -66,7 +66,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.removeAction(forKey: "move")
         player.run(move, withKey: "move")
         
-        tenSeconds.removeFromParent();
+        bubble.removeFromParent();
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,7 +111,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         addObjectsMatrix();
         
-        addTenSeconds();
+        addSeconds();
         
         timer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
 
@@ -246,13 +246,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
 
     
-    func addTenSeconds() {
-        tenSeconds = Speech(imageNamed: "roundspeech");
-        tenSeconds.initialize(type: "Thought")
+    func addSeconds() {
+        bubble = Speech(imageNamed: "roundspeech");
+        bubble.initialize(type: "Thought")
 
         let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
         
-        tenSeconds.addThought(scene: self, text: "QUICK", position: position)
+        bubble.addThought(scene: self, text: "QUICK", position: position)
     }
     
 }

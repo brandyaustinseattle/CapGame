@@ -24,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
+    var fivePoints = Speech();
+    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -66,6 +68,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" || secondBody.node?.name == "Rock" {
             playerOnPath = true;
             playerRepeatJumps = 0;
+            
+            fivePoints.removeFromParent();
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Bee" {
@@ -80,6 +84,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             
+            if Points.instance.value == 0 {
+                self.addFivePoints();
+            }
+            
             let objectName = secondBody.node?.name;
             Points.instance.increment(objectName: objectName!);
             Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
@@ -87,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
             self.addChild(cPulse);
-            
+
             secondBody.node?.removeFromParent()
         }
         
@@ -190,6 +198,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let crossFade = SKTransition.crossFade(withDuration: 0.85);
         
         self.view?.presentScene(gameOverScene, transition: crossFade);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    func addFivePoints() {
+        fivePoints = Speech(imageNamed: "boltspeech");
+        fivePoints.initialize(type: "Thought")
+        
+        let position = CGPoint(x: player.position.x + 380, y: player.position.y - 300);
+        
+        fivePoints.addThought(scene: self, text: "+ 5", position: position)
     }
     
 }

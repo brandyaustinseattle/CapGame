@@ -89,6 +89,7 @@
 		D330D96020FFF4610018ED1F /* CountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D95F20FFF4610018ED1F /* CountDown.swift */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
+		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		D330D95F20FFF4610018ED1F /* CountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDown.swift; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
+		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 			children = (
 				D3B6663121000E7E00E88D21 /* roundspeech.png */,
 				D330D90920FD6ABF0018ED1F /* speech.png */,
+				D3B6663321001DD700E88D21 /* boltspeech.png */,
 				D330D90720FD6ABF0018ED1F /* thought.png */,
 			);
 			path = Speech;
@@ -577,6 +580,7 @@
 				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
+				D3B6663421001DD700E88D21 /* boltspeech.png in Resources */,
 				D330D95B20FFAE8A0018ED1F /* rock3.png in Resources */,
 				D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */,
 				D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */,
