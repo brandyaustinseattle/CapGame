@@ -19,7 +19,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
     
-    var thought = Bubble();
+//    var thought = Bubble();
     
     override func didMove(to view: SKView) {
         initialize();
@@ -39,7 +39,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         addPlatform();
         createPlayer();
         
-        delayGameOver();
+//        delayGameOver();
         
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
     }
@@ -91,22 +91,22 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         player.gameOver();
     }
     
-    func delayGameOver() {
-        let wait = SKAction.wait(forDuration: 1);
-        let addGO = SKAction.run(addGameOver);
-        let sequence = SKAction.sequence([wait, addGO]);
-        
-        self.run(sequence);
-    }
+//    func delayGameOver() {
+//        let wait = SKAction.wait(forDuration: 1);
+//        let addGO = SKAction.run(addGameOver);
+//        let sequence = SKAction.sequence([wait, addGO]);
+//        
+//        self.run(sequence);
+//    }
     
-    func addGameOver() {
-        thought = Bubble(imageNamed: "thought");
-        thought.initialize(type: "Thought")
-        
-        let position = platform.position;
-        
-        thought.addThought(scene: self, text: "game over", position: position)
-        thought.flashThought();
-    }
+//    func addGameOver() {
+//        thought = Bubble(imageNamed: "thought");
+//        thought.initialize(type: "Thought")
+//        
+//        let position = platform.position;
+//        
+//        thought.addThought(scene: self, text: "game over", position: position)
+//        thought.flashThought();
+//    }
 
 }

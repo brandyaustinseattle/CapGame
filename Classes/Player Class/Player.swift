@@ -18,7 +18,7 @@ class Player: SKSpriteNode {
     func initialize() {
         
         self.name = "Player";
-        self.zPosition = 5;
+        self.zPosition = 8;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysicsHead();

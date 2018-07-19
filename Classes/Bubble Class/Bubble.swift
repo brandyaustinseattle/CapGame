@@ -16,7 +16,7 @@ class Bubble: SKSpriteNode {
     init(scene: SKScene,
          type: String,
          scale: CGFloat,
-         position: CGPoint,
+         bubblePosition: CGPoint,
          label: SKLabelNode) {
         
         let image = SKTexture(imageNamed: type);
@@ -25,17 +25,26 @@ class Bubble: SKSpriteNode {
         
         name = type;
         anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        zPosition = 3;
+        zPosition = 4;
         setScale(scale);
         
+        position = bubblePosition;
         addChild(label);
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func removeAfter(seconds: Double) {
+        let wait = SKAction.wait(forDuration: seconds)
+        let remove = SKAction.removeFromParent();
+        let sequence = SKAction.sequence([wait, remove]);
+        
+        self.run(SKAction.repeatForever(sequence), withKey: "remove");
+    }
     
-    func flashBubble() {
+    func flashForever() {
         let fadeIn = SKAction.fadeIn(withDuration: 0.75);
         let wait = SKAction.wait(forDuration: 0.75)
         let fadeOut = SKAction.fadeOut(withDuration: 0.75);

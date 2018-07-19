@@ -64,7 +64,7 @@ class PathEngine {
 
         let scene = timer.userInfo as! SKScene;
         
-        let standFactor = 10;
+        let standFactor = 1;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;

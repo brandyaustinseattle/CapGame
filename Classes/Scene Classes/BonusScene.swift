@@ -27,7 +27,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var timer1 = Timer();
     
     
-    var bubble = Bubble();
+//    var bubble = Bubble();
     
     
     override func didMove(to view: SKView) {
@@ -72,7 +72,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.removeAction(forKey: "move")
         player.run(move, withKey: "move")
         
-        bubble.removeFromParent();
+//        bubble.removeFromParent();
         
     }
     
@@ -128,7 +128,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         addObjectsMatrix();
         
-        addSeconds();
+//        addSeconds();
     }
     
     
@@ -263,13 +263,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         };
     }
     
-    func addSeconds() {
-        bubble = Bubble(imageNamed: "roundspeech");
-        bubble.initialize(type: "Thought")
-
-        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
-        
-        bubble.addThought(scene: self, text: "tap & hold", position: position)
-    }
+//    func addSeconds() {
+//        bubble = Bubble(imageNamed: "roundspeech");
+//        bubble.initialize(type: "Thought")
+//
+//        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
+//
+//        bubble.addThought(scene: self, text: "tap & hold", position: position)
+//    }
     
 }

@@ -15,7 +15,7 @@ class IntroScene: SKScene {
     var player = Player();
     let platform = PathItem(imageNamed: "startStep");
 
-    var introBubble = Bubble();
+//    var introBubble = Bubble();
     
     override func didMove(to view: SKView) {
         initialize();
@@ -28,8 +28,8 @@ class IntroScene: SKScene {
         addPlatform();
         createPlayer();
     
-        addActionBubbles();
-        delayIntroBubble();
+//        addActionBubbles();
+//        delayIntroBubble();
     }
 
     func createStaticMountain() {
@@ -70,42 +70,42 @@ class IntroScene: SKScene {
         player.stand();
     }
 
-    func delayIntroBubble() {
-        let wait = SKAction.wait(forDuration: 1);
-        let addIB = SKAction.run(addIntroBubble);
-        let sequence = SKAction.sequence([wait, addIB]);
-    
-        self.run(sequence);
-    }
+//    func delayIntroBubble() {
+//        let wait = SKAction.wait(forDuration: 1);
+//        let addIB = SKAction.run(addIntroBubble);
+//        let sequence = SKAction.sequence([wait, addIB]);
+//    
+//        self.run(sequence);
+//    }
 
-    func addIntroBubble() {
-        introBubble = Bubble(imageNamed: "squarespeech");
-        introBubble.initialize(type: "Thought")
-    
-        let position = CGPoint(x: player.position.x + 200, y: player.position.y - 100);
-    
-        introBubble.addThought(scene: self, text: "let's go", position: position);
-        introBubble.flashThought();
-    }
-    
-    
+//    func addIntroBubble() {
+//        introBubble = Bubble(imageNamed: "squarespeech");
+//        introBubble.initialize(type: "Thought")
+//    
+//        let position = CGPoint(x: player.position.x + 200, y: player.position.y - 100);
+//    
+//        introBubble.addThought(scene: self, text: "let's go", position: position);
+//        introBubble.flashThought();
+//    }
     
     
-    func addActionBubbles() {
-        let difficulty = ["easy", "medium", "hard"];
-        
-        var y = self.frame.size.height/2 - self.frame.size.height/6;
-        
-        for item in difficulty {
-            let actionBubble = Bubble(imageNamed: "longcloud");
-            actionBubble.initialize(type: "Thought")
-            
-            let position = CGPoint(x: 0, y: y);
-            
-            actionBubble.addThought(scene: self, text: "\(item)", position: position);
-            
-            y -= self.frame.size.height/6;
-        }
-    }
+    
+    
+//    func addActionBubbles() {
+//        let difficulty = ["easy", "medium", "hard"];
+//
+//        var y = self.frame.size.height/2 - self.frame.size.height/6;
+//
+//        for item in difficulty {
+//            let actionBubble = Bubble(imageNamed: "longcloud");
+//            actionBubble.initialize(type: "Thought")
+//
+//            let position = CGPoint(x: 0, y: y);
+//
+//            actionBubble.addThought(scene: self, text: "\(item)", position: position);
+//
+//            y -= self.frame.size.height/6;
+//        }
+//    }
     
 }

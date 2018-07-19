@@ -24,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
-    var fivePoints = Bubble();
     
     
     override func didMove(to view: SKView) {
@@ -70,8 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" || secondBody.node?.name == "Rock" {
             playerOnPath = true;
             playerRepeatJumps = 0;
-            
-            fivePoints.removeFromParent();
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Bee" {
@@ -205,12 +202,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addFivePoints() {
-        fivePoints = Bubble(imageNamed: "boltspeech");
-        fivePoints.initialize(type: "Thought")
+
+        let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
+
+        let label = LabelFactory(message: "+5", messageSize: 175)
+
+        let plusFivePoints = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        let position = CGPoint(x: player.position.x + 380, y: player.position.y - 300);
-        
-        fivePoints.addThought(scene: self, text: "+ 1", position: position)
+        self.addChild(plusFivePoints);
+        plusFivePoints.removeAfter(seconds: 1.5);
     }
     
 }
