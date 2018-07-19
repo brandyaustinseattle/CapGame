@@ -213,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let position = CGPoint(x: player.position.x + 380, y: player.position.y - 300);
         
-        fivePoints.addThought(scene: self, text: "+ 5", position: position)
+        fivePoints.addThought(scene: self, text: "+ 1", position: position)
     }
     
 }

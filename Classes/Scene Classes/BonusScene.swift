@@ -24,7 +24,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    
     var countDown = CountDown();
     var cdLabel = SKLabelNode();
     var bgCloud = SKSpriteNode();
@@ -46,6 +45,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         
         
+        var cdWords = self.countDownWords();
+        self.addChild(cdWords);
+        
         
         bgCloud = countDown.getBackground();
         cdLabel = countDown.getLabel();
@@ -60,6 +62,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        timer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
+        
         guard let touch = touches.first else { return }
         let destination = touch.location(in: self)
         let move = SKAction.move(to: destination, duration: 2)
@@ -112,10 +116,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         addObjectsMatrix();
         
         addSeconds();
-        
-        timer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
-
-        
     }
     
     
@@ -128,6 +128,30 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         countDown.updateCountDownDisplay(label: cdLabel)
         countDown.flashCDBackground(background: bgCloud);
     }
+    
+    func countDownWords() -> SKLabelNode {
+        
+        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
+        
+        cdWords.name = "count down";
+        cdWords.text = "seconds";
+        cdWords.fontColor = UIColor.black;
+        cdWords.fontSize = 35;
+        cdWords.zPosition = 4;
+        
+        cdWords.position = CGPoint(x: 0, y: 235);
+        
+        return cdWords;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -252,7 +276,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
         let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
         
-        bubble.addThought(scene: self, text: "QUICK", position: position)
+        bubble.addThought(scene: self, text: "quick", position: position)
     }
     
 }

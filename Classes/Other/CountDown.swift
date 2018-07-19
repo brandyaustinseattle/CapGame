@@ -10,7 +10,8 @@ import SpriteKit
 
 class CountDown {
     
-    var cdValue = Int(20);
+    let text = "count down"
+    var cdValue = Int(10);
     
     func decrement(label: SKLabelNode) {
         if cdValue == 0 {
