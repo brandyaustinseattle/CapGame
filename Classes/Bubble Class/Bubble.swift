@@ -17,7 +17,7 @@ class Bubble: SKSpriteNode {
          type: String,
          scale: CGFloat,
          bubblePosition: CGPoint,
-         label: SKLabelNode) {
+         label: SKLabelNode?) {
         
         let image = SKTexture(imageNamed: type);
         
@@ -29,7 +29,10 @@ class Bubble: SKSpriteNode {
         setScale(scale);
         
         position = bubblePosition;
-        addChild(label);
+        
+        if label != nil {
+            addChild(label!);
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

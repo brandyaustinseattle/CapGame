@@ -96,17 +96,15 @@ class IntroScene: SKScene {
 
         var y = self.size.height/2 - self.size.height/4;
         
-        let difficulty = ["easy", "medium", "hard"];
+        let difficultyTypes = ["easybutton", "mediumbutton", "hardbutton"];
         
-        for level in difficulty {
+        for type in difficultyTypes {
         
             let position = CGPoint(x: -175, y: y);
+            
+            let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
         
-            let label = LabelMaker(message: "\(level)", messageSize: 75)
-        
-            let level = Bubble(scene: self, type: "longcloud", scale: 0.85, bubblePosition: position, label: label)
-        
-            self.addChild(level);
+            self.addChild(button);
             
             y -= self.size.height/4;
         }
