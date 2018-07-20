@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var loadingScene = Loading();
+    
     var pointsLabel = SKLabelNode();
     var pointsBG = SKSpriteNode();
 
@@ -102,27 +104,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             pathEngine.timer.invalidate();
         
             let newScene = BonusScene(fileNamed: "BonusScene")!;
-            // needed to make images appropriate sizes
             newScene.scaleMode = .aspectFill;
 
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
-            self.view?.presentScene(newScene, transition: doorway)
+            self.view?.presentScene(newScene, transition: doorway);
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Portalplane" {
             
-            setScene();
-
             pathEngine.timer.invalidate();
             
+            loadingScene.setSceneOption();
+            
             let newScene = GameScene(fileNamed: "GameScene")!;
-            // needed to make images appropriate sizes
             newScene.scaleMode = .aspectFill;
             
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
-            self.view?.presentScene(newScene, transition: doorway)
+            self.view?.presentScene(newScene, transition: doorway);
         }
     }
     

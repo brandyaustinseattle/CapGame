@@ -9,16 +9,6 @@
 import SpriteKit
 import GameKit
 
-var option = String();
-
-func setSceneOption() -> String {
-    let sceneOptions = ["A", "B", "C"];
-    let sceneIndex = Int(CGFloat(Int.random(min: 0, max: 1)));
-    option = sceneOptions[sceneIndex];
-    
-    return option;
-}
-
 struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;

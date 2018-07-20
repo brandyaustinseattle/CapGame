@@ -41,6 +41,7 @@ class IntroScene: SKScene {
     }
     
     func initialize() {
+        
         createStaticBG();
     
         addPlatform();

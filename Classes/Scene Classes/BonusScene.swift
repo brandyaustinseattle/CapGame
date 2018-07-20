@@ -103,7 +103,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     func exitScene() {
         let newScene = GameScene(fileNamed: "GameScene")!;
-        // needed to make images appropriate sizes
         newScene.scaleMode = .aspectFill;
         
         let doorway = SKTransition.doorway(withDuration: 1.5);
