@@ -133,6 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createBG();
         moveBG();
         createBGAddOn();
+        addInstructions();
 
         createPlayer();
         playerConstraints();
@@ -226,6 +227,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);
+    }
+    
+    
+    
+    
+    
+    
+    func addInstructions() {
+        let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
+        let label2 = LabelMaker(message: "tap while in air to double jump", messageSize: 125);
+        let label3 = LabelMaker(message: "hit the drinks to get points", messageSize: 125);
+        let label4 = LabelMaker(message: "...but avoid the bubble bees", messageSize: 125);
+        let label5 = LabelMaker(message: "hit the stand to go to a bonus level", messageSize: 125);
+        let label6 = LabelMaker(message: "hit the plane to check out another place", messageSize: 125);
+        
+        label1.position = CGPoint(x: 0, y: frame.size.height/2 - 50);
+        self.addChild(label1);
     }
     
 }

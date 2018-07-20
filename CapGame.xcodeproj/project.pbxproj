@@ -100,6 +100,7 @@
 		D36D9E332102832200F86C90 /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E322102832200F86C90 /* plane.png */; };
 		D36D9E352102910C00F86C90 /* Loading.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E342102910C00F86C90 /* Loading.sks */; };
 		D36D9E372102915700F86C90 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9E362102915700F86C90 /* Loading.swift */; };
+		D36D9E392102A4BA00F86C90 /* scrollcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E382102A4BA00F86C90 /* scrollcloud.png */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -201,6 +202,7 @@
 		D36D9E322102832200F86C90 /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		D36D9E342102910C00F86C90 /* Loading.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Loading.sks; sourceTree = "<group>"; };
 		D36D9E362102915700F86C90 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		D36D9E382102A4BA00F86C90 /* scrollcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollcloud.png; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 		D330D90620FD6AB50018ED1F /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
+				D36D9E382102A4BA00F86C90 /* scrollcloud.png */,
 				D330D93220FEAD3B0018ED1F /* pinkroundcloud.png */,
 				D3B6662D210000C400E88D21 /* graylongcloud.png */,
 				D330D95C20FFD2280018ED1F /* longcloud.png */,
@@ -669,6 +672,7 @@
 				D330D92820FE5A3A0018ED1F /* hive.png in Resources */,
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
 				D36D9E27210277A100F86C90 /* Bdrink.png in Resources */,
+				D36D9E392102A4BA00F86C90 /* scrollcloud.png in Resources */,
 				D36D9E182102707300F86C90 /* Cbonus.png in Resources */,
 				D307393320E2B79F0054DEE6 /* jumpup2.png in Resources */,
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
