@@ -59,7 +59,7 @@ class Player: SKSpriteNode {
         playerBody.physicsBody?.isDynamic = true;
         
         playerBody.physicsBody?.collisionBitMask = PhysicsCategory.Ground | PhysicsCategory.Rock;
-        playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Stand;
+        playerBody.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Portal;
         
         self.physicsBody = playerBody.physicsBody;
         self.setScale(0.25);

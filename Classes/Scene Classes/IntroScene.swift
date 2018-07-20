@@ -13,8 +13,7 @@ import GameplayKit
 class IntroScene: SKScene {
 
     var player = Player();
-    let platform = PathItem(imageNamed: "\(option)startStep");
-    
+    let platform = PathItem(imageNamed: "\(option)startStep");    
     override func didMove(to view: SKView) {
         initialize();
     }

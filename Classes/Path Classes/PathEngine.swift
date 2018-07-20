@@ -12,15 +12,11 @@ var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);
 
 
-let sceneOptions = ["A", "B", "C"];
-var option = sceneOptions[1];
-
-
 // make runway span entire screen then generate subsequent pathItem objects at a slower rate instead of using 0.35 for the timer
 
 class PathEngine {
     
-    var stand = Stand();
+    var portal = Portal();
 
     let pathImages = ["startLow", "startStep", "middleLow", "endLow", "aloneLow", "startHigh", "middleHigh", "endHigh", "aloneHigh"];
     var pathItem = PathItem();
@@ -69,20 +65,20 @@ class PathEngine {
 
         let scene = timer.userInfo as! SKScene;
         
-        let standFactor = 5;
+        let portalFactor = 8;
         let startAloneFactor = 4;
         let lowMiddleEndFactor = 6;
         let highMiddleEndFactor = 5;
         let lowHighFactor = 6;
         
-        let standRandom = Int.random(min: 1, max: 30);
+        let portalRandom = Int.random(min: 1, max: 30);
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
         if lastType == "end" || lastType == "alone" {
             
-            if standRandom <= standFactor {
-                insertStand(scene: scene);
+            if portalRandom <= portalFactor {
+                insertPortal(scene: scene);
                 return;
             }
             
@@ -177,8 +173,21 @@ class PathEngine {
         }
     }
     
+    func selectPortalType() -> String {
+        let standPlaneFactor = 3;
+        let standPlaneRandom = Int.random(min: 1, max: 10);
+
+        if standPlaneRandom <= standPlaneFactor {
+            return "stand";
+        } else {
+            return "plane";
+        }
+    }
+    
     // refactor function to use a loop and randomization
-    func insertStand(scene: SKScene) {
+    func insertPortal(scene: SKScene) {
+        
+        let portalType = selectPortalType();
     
         pathItem = PathItem(imageNamed: "\(option)startStep");
         pathItem.initialize();
@@ -205,15 +214,26 @@ class PathEngine {
         lastType = "end";
         lastHeight = "Low";
         
-        stand = Stand(imageNamed: "\(option)stand");
+        if portalType == "plane" {
+            portal = Portal(imageNamed: "\(portalType)");
+        } else {
+            portal = Portal(imageNamed: "\(option)\(portalType)");
+        }
+            
         // pathItem height doesn't need to be * 0.55 bc it's already initialized
         // stand height does need * 0.5 bc it's not initialized yet
-        let offsetYValue = CGFloat(pathItem.size.height / 2 + stand.size.height * 0.5 / 2);
+        var offsetYValue = CGFloat();
+        
+        if portalType == "plane" {
+            offsetYValue = CGFloat(500);
+        } else {
+            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.5 / 2);
+        }
 
-        stand.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue);
+        portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
        
-        scene.addChild(stand);
-        self.move(itemToMove: stand);
+        scene.addChild(portal);
+        self.move(itemToMove: portal);
         
     }
     

@@ -97,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Stand" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Portalstand" {
             
             pathEngine.timer.invalidate();
         
@@ -105,6 +105,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // needed to make images appropriate sizes
             newScene.scaleMode = .aspectFill;
 
+            let doorway = SKTransition.doorway(withDuration: 1.5);
+            
+            self.view?.presentScene(newScene, transition: doorway)
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Portalplane" {
+            
+            setScene();
+
+            pathEngine.timer.invalidate();
+            
+            let newScene = GameScene(fileNamed: "GameScene")!;
+            // needed to make images appropriate sizes
+            newScene.scaleMode = .aspectFill;
+            
             let doorway = SKTransition.doorway(withDuration: 1.5);
             
             self.view?.presentScene(newScene, transition: doorway)

@@ -52,7 +52,6 @@
 		D307394120E2BB480054DEE6 /* testPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = D307394020E2BB470054DEE6 /* testPlayer.png */; };
 		D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D86B20F3DCE60018ED1F /* PathEngine.swift */; };
 		D330D87420F576B30018ED1F /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D87320F576B30018ED1F /* Object.swift */; };
-		D330D88720F7C68E0018ED1F /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88620F7C68E0018ED1F /* Stand.swift */; };
 		D330D88920F7D6710018ED1F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88820F7D6710018ED1F /* Global.swift */; };
 		D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D88C20F806BD0018ED1F /* BonusScene.swift */; };
 		D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D330D88E20F80D160018ED1F /* BonusScene.sks */; };
@@ -97,6 +96,8 @@
 		D36D9E27210277A100F86C90 /* Bdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E24210277A000F86C90 /* Bdrink.png */; };
 		D36D9E28210277A100F86C90 /* Bstand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E25210277A000F86C90 /* Bstand.png */; };
 		D36D9E29210277A100F86C90 /* Bbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E26210277A000F86C90 /* Bbonus.png */; };
+		D36D9E2E210282DD00F86C90 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9E2D210282DD00F86C90 /* Portal.swift */; };
+		D36D9E332102832200F86C90 /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E322102832200F86C90 /* plane.png */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -150,7 +151,6 @@
 		D307394020E2BB470054DEE6 /* testPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testPlayer.png; sourceTree = "<group>"; };
 		D330D86B20F3DCE60018ED1F /* PathEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEngine.swift; sourceTree = "<group>"; };
 		D330D87320F576B30018ED1F /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		D330D88620F7C68E0018ED1F /* Stand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
 		D330D88820F7D6710018ED1F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		D330D88C20F806BD0018ED1F /* BonusScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusScene.swift; sourceTree = "<group>"; };
 		D330D88E20F80D160018ED1F /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
@@ -195,6 +195,8 @@
 		D36D9E24210277A000F86C90 /* Bdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bdrink.png; sourceTree = "<group>"; };
 		D36D9E25210277A000F86C90 /* Bstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bstand.png; sourceTree = "<group>"; };
 		D36D9E26210277A000F86C90 /* Bbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bbonus.png; sourceTree = "<group>"; };
+		D36D9E2D210282DD00F86C90 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
+		D36D9E322102832200F86C90 /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -258,6 +260,8 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D36D9E2C210282AE00F86C90 /* Portal Class */,
+				D36D9E2B210282A800F86C90 /* New Group */,
 				D36D9DDC210112A600F86C90 /* Bubble Class */,
 				D330D93C20FEC2FF0018ED1F /* Enemy Classes */,
 				D330D93920FEC2510018ED1F /* Lemonade Classes */,
@@ -302,6 +306,7 @@
 		D30738F520E2B7040054DEE6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D36D9E2F2102830500F86C90 /* Plane */,
 				D36D9DFD21014DCA00F86C90 /* Buttons */,
 				D330D93F20FEC3E90018ED1F /* Rocks */,
 				D330D91B20FE58190018ED1F /* Bee */,
@@ -476,7 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				D330D87320F576B30018ED1F /* Object.swift */,
-				D330D88620F7C68E0018ED1F /* Stand.swift */,
 			);
 			path = "Lemonade Classes";
 			sourceTree = "<group>";
@@ -518,6 +522,29 @@
 				D36D9E06210157E500F86C90 /* mediumbutton.png */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		D36D9E2B210282A800F86C90 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		D36D9E2C210282AE00F86C90 /* Portal Class */ = {
+			isa = PBXGroup;
+			children = (
+				D36D9E2D210282DD00F86C90 /* Portal.swift */,
+			);
+			path = "Portal Class";
+			sourceTree = "<group>";
+		};
+		D36D9E2F2102830500F86C90 /* Plane */ = {
+			isa = PBXGroup;
+			children = (
+				D36D9E322102832200F86C90 /* plane.png */,
+			);
+			path = Plane;
 			sourceTree = "<group>";
 		};
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
@@ -641,6 +668,7 @@
 				D30738E020E2B5CB0054DEE6 /* Assets.xcassets in Resources */,
 				D330D90A20FD6ABF0018ED1F /* thought.png in Resources */,
 				D307393C20E2B79F0054DEE6 /* jumpfall1.png in Resources */,
+				D36D9E332102832200F86C90 /* plane.png in Resources */,
 				D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D330D95D20FFD2280018ED1F /* longcloud.png in Resources */,
@@ -678,7 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D330D88720F7C68E0018ED1F /* Stand.swift in Sources */,
+				D36D9E2E210282DD00F86C90 /* Portal.swift in Sources */,
 				D330D89320F9327B0018ED1F /* Points.swift in Sources */,
 				D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */,
 				D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */,

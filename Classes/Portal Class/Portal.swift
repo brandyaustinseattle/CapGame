@@ -1,5 +1,5 @@
 //
-//  Stand.swift
+//  Portal.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/12/18.
@@ -8,18 +8,18 @@
 
 import SpriteKit
 
-class Stand: SKSpriteNode {
+class Portal: SKSpriteNode {
     
     var pathItem = PathItem();
     
-    func initialize(midPathItemPosition: CGPoint, offsetYValue: CGFloat) {
-        
-        self.name = "Stand";
+    func initialize(midPathItemPosition: CGPoint, offsetYValue: CGFloat, type: String) {
+                
+        self.name = "Portal\(type)";
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
-                
+        
         self.position = CGPoint(x: midPathItemPosition.x, y: midPathItemPosition.y + offsetYValue);
         
     }
@@ -27,13 +27,14 @@ class Stand: SKSpriteNode {
     func setPhysics() {
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width, height: self.size.height));
         
-        self.physicsBody?.collisionBitMask = 0; 
+        self.physicsBody?.collisionBitMask = 0;
         
         self.physicsBody?.usesPreciseCollisionDetection = true;
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Stand;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Portal;
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
-                
+        
         self.setScale(0.5);
     }
 }
+
