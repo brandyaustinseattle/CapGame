@@ -115,7 +115,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         physicsWorld.contactDelegate = self;
 
-        createMountains();
+        createBG();
         createClouds();
         
         createPlayer();
@@ -146,12 +146,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         return cdWords;
     }
 
-    func createMountains() {
-        let mountains = SKSpriteNode(imageNamed: "mountains");
-        mountains.name = "mountains";
-        mountains.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        mountains.zPosition = 0;
-        self.addChild(mountains);
+    func createBG() {
+        let background = SKSpriteNode(imageNamed: "\(option)background");
+        background.name = "background";
+        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        background.zPosition = 0;
+        self.addChild(background);
     }
     
     func createClouds() {
@@ -186,7 +186,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // same as move mountains function in GameScene
+    // same as move background function in GameScene
     func moveClouds() {
         
         enumerateChildNodes(withName: "cloud") {

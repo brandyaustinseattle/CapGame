@@ -135,8 +135,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createBG() {
         for i in 0...1 {
-            let background = SKSpriteNode(imageNamed: "mountains");
-            background.name = "mountains";
+            let background = SKSpriteNode(imageNamed: "\(option)background");
+            background.name = "background";
             background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
             background.position = CGPoint(x: CGFloat(i) * background.size.width, y:0);
             background.zPosition = 0;
@@ -146,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveBG() {
         
-        enumerateChildNodes(withName: "mountains") {
+        enumerateChildNodes(withName: "background") {
             node, _ in
             
             let backgroundsNode = node as! SKSpriteNode;
@@ -161,13 +161,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createBGAddOn() {
-        let trees = SKSpriteNode(imageNamed: "trees");
-        trees.name = "trees";
-        trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        trees.position = CGPoint(x: 0, y:0);
-        trees.zPosition = 1;
-        trees.setScale(0.70);
-        self.addChild(trees);
+        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
+        addOn.name = "addOn";
+        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        addOn.position = CGPoint(x: 0, y:0);
+        addOn.zPosition = 1;
+        addOn.setScale(0.70);
+        self.addChild(addOn);
     }
     
     func createPlayer() {

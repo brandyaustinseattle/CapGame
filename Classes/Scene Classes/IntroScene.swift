@@ -42,8 +42,7 @@ class IntroScene: SKScene {
     }
     
     func initialize() {
-        createStaticMountain();
-        createTrees();
+        createStaticBG();
     
         addPlatform();
         createPlayer();
@@ -52,25 +51,15 @@ class IntroScene: SKScene {
         addLevelsBubbles();
     }
 
-    func createStaticMountain() {
-        let mountains = SKSpriteNode(imageNamed: "mountains");
-        mountains.name = "mountains";
-        mountains.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        mountains.position = CGPoint(x: 0, y: 0);
-        mountains.zPosition = 0;
-        self.addChild(mountains);
+    func createStaticBG() {
+        let background = SKSpriteNode(imageNamed: "\(option)background");
+        background.name = "background";
+        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        background.position = CGPoint(x: 0, y: 0);
+        background.zPosition = 0;
+        self.addChild(background);
     }
-
-    func createTrees() {
-        let trees = SKSpriteNode(imageNamed: "trees");
-        trees.name = "trees";
-        trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        trees.position = CGPoint(x: 0, y:0);
-        trees.zPosition = 1;
-        trees.setScale(0.70);
-        self.addChild(trees);
-    }
-
+    
     func addPlatform() {
         platform.initialize();
     
