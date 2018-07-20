@@ -59,7 +59,7 @@ class PathItem: SKSpriteNode {
     }
     
     func addDrink(referencePosition: CGPoint, scene: SKScene) {
-        drink = Object(imageNamed: "drink");
+        drink = Object(imageNamed: "\(option)drink");
         
         let index = Int(CGFloat(Int.random(min: 0, max: 1)));
         let offsetYValue = offSetYArray[index];

@@ -17,7 +17,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     var timer = Timer();
     
     var player = Player();
-    let platform = PathItem(imageNamed: "startStep");
+    let platform = PathItem(imageNamed: "\(option)startStep");
     
     override func didMove(to view: SKView) {
         initialize();

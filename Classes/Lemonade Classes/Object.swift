@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-// drink and lemon objects that player makes contact with to get points
+// drink and bonus objects that player makes contact with to get points
 class Object: SKSpriteNode {
 
     func initialize(referencePosition: CGPoint, offsetYValue: CGFloat, type: String) {
@@ -21,7 +21,7 @@ class Object: SKSpriteNode {
             self.rotateDrink();
         }
         
-        if type == "Lemon" {
+        if type == "Bonus" {
             let lPulse = self.lemonPulse(position: position);
             self.addChild(lPulse);
         }

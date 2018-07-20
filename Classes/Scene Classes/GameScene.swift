@@ -43,7 +43,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if playerRepeatJumps >= 2 {
             return
         } else {
@@ -116,8 +115,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         physicsWorld.contactDelegate = self;
 
-        createMountains();
-        createTrees();
+        createBG();
+        moveBG();
+        createBGAddOn();
 
         createPlayer();
         playerConstraints();
@@ -133,34 +133,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         beeEngine.initialize(scene: self);
     }
     
-    func createMountains() {
+    func createBG() {
         for i in 0...1 {
-            let mountains = SKSpriteNode(imageNamed: "mountains");
-            mountains.name = "mountains";
-            mountains.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-            mountains.position = CGPoint(x: CGFloat(i) * mountains.size.width, y:0);
-            mountains.zPosition = 0;
-            self.addChild(mountains);
+            let background = SKSpriteNode(imageNamed: "mountains");
+            background.name = "mountains";
+            background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            background.position = CGPoint(x: CGFloat(i) * background.size.width, y:0);
+            background.zPosition = 0;
+            self.addChild(background);
         }
     }
     
-    func moveMountains() {
+    func moveBG() {
         
         enumerateChildNodes(withName: "mountains") {
             node, _ in
             
-            let mountainsNode = node as! SKSpriteNode;
+            let backgroundsNode = node as! SKSpriteNode;
             
-            mountainsNode.position.x -= 8;
+            backgroundsNode.position.x -= 8;
             
-            // less than because mountains are scrolling left
-            if mountainsNode.position.x < -(mountainsNode.size.width) {
-                mountainsNode.position.x += mountainsNode.size.width * 2;
+            // less than because backgrounds are scrolling left
+            if backgroundsNode.position.x < -(backgroundsNode.size.width) {
+                backgroundsNode.position.x += backgroundsNode.size.width * 2;
             }
         };
     }
     
-    func createTrees() {
+    func createBGAddOn() {
         let trees = SKSpriteNode(imageNamed: "trees");
         trees.name = "trees";
         trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);

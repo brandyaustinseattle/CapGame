@@ -11,6 +11,11 @@ import SpriteKit
 var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);
 
+
+let sceneOptions = ["A", "B", "C"];
+var option = sceneOptions[1];
+
+
 // make runway span entire screen then generate subsequent pathItem objects at a slower rate instead of using 0.35 for the timer
 
 class PathEngine {
@@ -44,14 +49,14 @@ class PathEngine {
         
         for _ in 0...2 {
             
-            pathItem = PathItem(imageNamed: "middleLow");
+            pathItem = PathItem(imageNamed: "\(option)middleLow");
             pathItem.initialize();
             
             pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
             
         };
         
-        pathItem = PathItem(imageNamed: "endLow");
+        pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
         
         pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
@@ -139,8 +144,8 @@ class PathEngine {
         
         let drinkFlag = drinkRequired(type: type);
         let rockFlag = rockRequired(type: type);
-
-        pathItem = PathItem(imageNamed: "\(type)\(height)");
+        
+        pathItem = PathItem(imageNamed: "\(option)\(type)\(height)");
         pathItem.initialize();
         
         pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
@@ -152,7 +157,7 @@ class PathEngine {
     func rockRequired(type: String) -> Bool {
         if (type != "alone" && height != "High") && height != "Step" {
             
-            let rockFactor = 6;
+            let rockFactor = 1;
             let rockRandom = Int.random(min: 1, max: 10);
             
             return rockRandom <= rockFactor
@@ -175,32 +180,32 @@ class PathEngine {
     // refactor function to use a loop and randomization
     func insertStand(scene: SKScene) {
     
-        pathItem = PathItem(imageNamed: "startStep");
+        pathItem = PathItem(imageNamed: "\(option)startStep");
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
        
-        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
-        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         let midPathItemPosition = pathItem.position;
         
-        pathItem = PathItem(imageNamed: "middleLow");
+        pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
-        pathItem = PathItem(imageNamed: "endLow");
+        pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
         
-        stand = Stand(imageNamed: "stand");
+        stand = Stand(imageNamed: "\(option)stand");
         // pathItem height doesn't need to be * 0.55 bc it's already initialized
         // stand height does need * 0.5 bc it's not initialized yet
         let offsetYValue = CGFloat(pathItem.size.height / 2 + stand.size.height * 0.5 / 2);

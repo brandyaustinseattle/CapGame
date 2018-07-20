@@ -21,7 +21,7 @@ class Points {
         if objectName == "Drink" {
             value += 1;
             amtAdded = "+1";
-        } else if objectName == "Lemon" {
+        } else if objectName == "Bonus" {
             value += 5;
             amtAdded = "+5";
         };

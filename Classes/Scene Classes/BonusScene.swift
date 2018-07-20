@@ -19,7 +19,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player();
     var drink = Object();
-    var lemon = Object();
+    var bonus = Object();
     
     var countDown = CountDown();
     var cdLabel = SKLabelNode();
@@ -86,7 +86,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Lemon" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Bonus" {
             
             let objectName = secondBody.node?.name;
             
@@ -221,9 +221,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
         
-        let lemonFactor = 3;
+        let bonusFactor = 3;
         
-        // 3 rows and 5 columns of drinks/lemons
+        // 3 rows and 5 columns of drinks/bonuses
         for i in 1...3 {
             for j in 1...5 {
                 
@@ -231,18 +231,18 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     // do nothing bc player will be in this area
                 } else {
         
-                    drink = Object(imageNamed: "drink");
-                    lemon = Object(imageNamed: "lemon");
+                    drink = Object(imageNamed: "\(option)drink");
+                    bonus = Object(imageNamed: "\(option)bonus");
         
                     let referencePosition = CGPoint(x: x, y: y);
             
                     drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
-                    lemon.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Lemon");
+                    bonus.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Bonus");
                     
-                    let lemonRandom = Int.random(min: 1, max: 10);
+                    let bonusRandom = Int.random(min: 1, max: 10);
                     
-                    if lemonRandom <= lemonFactor {
-                        self.addChild(lemon);
+                    if bonusRandom <= bonusFactor {
+                        self.addChild(bonus);
                     } else {
                         self.addChild(drink);
                     };
