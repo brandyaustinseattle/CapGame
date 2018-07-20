@@ -93,7 +93,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 325);
         
-        let label = LabelMaker(message: "game over", messageSize: 75)
+        let label = LabelMaker(message: "game over", messageSize: 70)
         
         let gameOver = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         

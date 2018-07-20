@@ -196,9 +196,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let gameOverScene = GameOverScene(fileNamed: "GameOverScene")!;
         gameOverScene.scaleMode = .aspectFill;
         
-        let crossFade = SKTransition.crossFade(withDuration: 0.85);
-        
-        self.view?.presentScene(gameOverScene, transition: crossFade);
+        let doorway = SKTransition.doorway(withDuration: 3);
+
+        self.view?.presentScene(gameOverScene, transition: doorway);
     }
     
     func addPlusBubble() {

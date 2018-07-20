@@ -33,3 +33,10 @@ func contactPulse(position: CGPoint) -> SKEmitterNode {
     return pulse!;
 }
 
+
+func buttonPulse(position: CGPoint) -> SKEmitterNode {
+    let pulse = SKEmitterNode(fileNamed: "Button");
+    pulse?.position = position;
+    return pulse!;
+}
+

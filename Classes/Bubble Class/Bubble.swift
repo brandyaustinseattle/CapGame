@@ -41,8 +41,8 @@ class Bubble: SKSpriteNode {
 
     func removeAfter(seconds: Double) {
         let wait = SKAction.wait(forDuration: seconds)
-        let remove = SKAction.removeFromParent();
-        let sequence = SKAction.sequence([wait, remove]);
+        let hide = SKAction.hide();
+        let sequence = SKAction.sequence([wait, hide]);
         
         self.run(SKAction.repeatForever(sequence), withKey: "remove");
     }
@@ -60,6 +60,27 @@ class Bubble: SKSpriteNode {
         let sequence = SKAction.sequence([fadeIn, wait, fadeOut]);
         
         self.run(SKAction.repeatForever(sequence), withKey: "flash");
+    }
+
+// // makeBigger is not in use
+//    func makeBigger() {
+//        let bigger = SKAction.resize(byWidth: 20, height: 20, duration: 2)
+//        let wait = SKAction.wait(forDuration: 0.75)
+//        let regular = SKAction.resize(byWidth: -25, height: -25, duration: 2)
+//        let sequence = SKAction.sequence([bigger, wait, regular]);
+//
+//        self.run(SKAction.repeatForever(sequence), withKey: "flash");
+//    }
+    
+    
+    // similar to rotate drink
+    // maybe add SK actions to their own class
+    func rotateBubble() {
+        let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / 100), duration: 1);
+        let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / 100), duration: 1);
+        let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
+        
+        self.run(SKAction.repeatForever(rotateSequence), withKey: "rotate");
     }
 }
 

@@ -89,6 +89,9 @@
 		D36D9DDB21010B5D00F86C90 /* squarespeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9DDA21010B5D00F86C90 /* squarespeech.png */; };
 		D36D9DDE210112B800F86C90 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9DDD210112B800F86C90 /* Bubble.swift */; };
 		D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9DFB21013D6000F86C90 /* LabelMaker.swift */; };
+		D36D9E07210157E500F86C90 /* hardbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E04210157E500F86C90 /* hardbutton.png */; };
+		D36D9E08210157E500F86C90 /* easybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E05210157E500F86C90 /* easybutton.png */; };
+		D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E06210157E500F86C90 /* mediumbutton.png */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -179,6 +182,9 @@
 		D36D9DDA21010B5D00F86C90 /* squarespeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squarespeech.png; sourceTree = "<group>"; };
 		D36D9DDD210112B800F86C90 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		D36D9DFB21013D6000F86C90 /* LabelMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMaker.swift; sourceTree = "<group>"; };
+		D36D9E04210157E500F86C90 /* hardbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hardbutton.png; sourceTree = "<group>"; };
+		D36D9E05210157E500F86C90 /* easybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easybutton.png; sourceTree = "<group>"; };
+		D36D9E06210157E500F86C90 /* mediumbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumbutton.png; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -497,6 +503,9 @@
 		D36D9DFD21014DCA00F86C90 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D36D9E05210157E500F86C90 /* easybutton.png */,
+				D36D9E04210157E500F86C90 /* hardbutton.png */,
+				D36D9E06210157E500F86C90 /* mediumbutton.png */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -585,6 +594,7 @@
 				D36D9DD9210108DD00F86C90 /* IntroScene.sks in Resources */,
 				D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */,
 				D307392520E2B79F0054DEE6 /* dizzy2.png in Resources */,
+				D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */,
 				D330D92620FE5A3A0018ED1F /* leftBee.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
@@ -617,6 +627,7 @@
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D330D93320FEAD3B0018ED1F /* pinkroundcloud.png in Resources */,
 				D30621B320ED45D400E2127D /* drink.png in Resources */,
+				D36D9E07210157E500F86C90 /* hardbutton.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,
 				D30621B920EE7BEB00E2127D /* GameScene.sks in Resources */,
@@ -628,6 +639,7 @@
 				D307392120E2B79F0054DEE6 /* running1.png in Resources */,
 				D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */,
 				D330D90C20FD6ABF0018ED1F /* speech.png in Resources */,
+				D36D9E08210157E500F86C90 /* easybutton.png in Resources */,
 				D307392C20E2B79F0054DEE6 /* flying6.png in Resources */,
 				D307392020E2B79F0054DEE6 /* running4.png in Resources */,
 				D30738D720E2B5CA0054DEE6 /* Actions.sks in Resources */,

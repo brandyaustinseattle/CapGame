@@ -67,9 +67,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let move = SKAction.move(to: destination, duration: 2)
         player.removeAction(forKey: "move")
         player.run(move, withKey: "move")
-        
-//        bubble.removeFromParent();
-        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

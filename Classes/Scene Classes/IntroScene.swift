@@ -22,14 +22,24 @@ class IntroScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch:UITouch = touches.first!
         let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
+        let touchedNode = self.atPoint(positionInScene);
         
-       print(touchedNode.name)
+        let newScene = GameScene(fileNamed: "GameScene")!;
+        newScene.scaleMode = .aspectFill;
         
+        let doorway = SKTransition.doorway(withDuration: 3);
+        self.view?.presentScene(newScene, transition: doorway);
+        
+//        if touchedNode.name == "easybutton" {
+//
+//        } else if touchedNode.name == "easybutton" {
+//
+//        } else if touchedNode.name == "hardbutton" {
+//            
+//        } else {
+//            return;
+//        }
     }
-    
-    
-    
     
     func initialize() {
         createStaticMountain();
@@ -105,6 +115,7 @@ class IntroScene: SKScene {
             let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
         
             self.addChild(button);
+            button.rotateBubble();
             
             y -= self.size.height/4;
         }
