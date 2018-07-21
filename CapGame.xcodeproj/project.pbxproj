@@ -86,14 +86,14 @@
 		D36D9E08210157E500F86C90 /* easybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E05210157E500F86C90 /* easybutton.png */; };
 		D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E06210157E500F86C90 /* mediumbutton.png */; };
 		D36D9E182102707300F86C90 /* Cbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E0F2102707200F86C90 /* Cbonus.png */; };
-		D36D9E192102707300F86C90 /* CCdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E102102707200F86C90 /* CCdrink.png */; };
+		D36D9E192102707300F86C90 /* Cdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E102102707200F86C90 /* Cdrink.png */; };
 		D36D9E1A2102707300F86C90 /* Cstand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E112102707200F86C90 /* Cstand.png */; };
 		D36D9E212102720000F86C90 /* Abonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E1E210271FF00F86C90 /* Abonus.png */; };
 		D36D9E222102720000F86C90 /* Astand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E1F210271FF00F86C90 /* Astand.png */; };
 		D36D9E232102720000F86C90 /* Adrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E20210271FF00F86C90 /* Adrink.png */; };
-		D36D9E27210277A100F86C90 /* Bdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E24210277A000F86C90 /* Bdrink.png */; };
-		D36D9E28210277A100F86C90 /* Bstand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E25210277A000F86C90 /* Bstand.png */; };
-		D36D9E29210277A100F86C90 /* Bbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E26210277A000F86C90 /* Bbonus.png */; };
+		D36D9E27210277A100F86C90 /* BBdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E24210277A000F86C90 /* BBdrink.png */; };
+		D36D9E28210277A100F86C90 /* BBstand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E25210277A000F86C90 /* BBstand.png */; };
+		D36D9E29210277A100F86C90 /* BBbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E26210277A000F86C90 /* BBbonus.png */; };
 		D36D9E2E210282DD00F86C90 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9E2D210282DD00F86C90 /* Portal.swift */; };
 		D36D9E332102832200F86C90 /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E322102832200F86C90 /* plane.png */; };
 		D36D9E352102910C00F86C90 /* Loading.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E342102910C00F86C90 /* Loading.sks */; };
@@ -101,7 +101,10 @@
 		D36D9E392102A4BA00F86C90 /* scrollcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E382102A4BA00F86C90 /* scrollcloud.png */; };
 		D36D9E3B2102AAB300F86C90 /* longcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E3A2102AAB300F86C90 /* longcloud.png */; };
 		D36D9E3D2102AB3600F86C90 /* grayroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E3C2102AB3600F86C90 /* grayroundcloud.png */; };
-		D36D9E432102BF4F00F86C90 /* Cdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E422102BF4F00F86C90 /* Cdrink.png */; };
+		D36D9E472102C32D00F86C90 /* DifficultyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D9E462102C32D00F86C90 /* DifficultyManager.swift */; };
+		D36D9E4B2102F92A00F86C90 /* Bdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E482102F92900F86C90 /* Bdrink.png */; };
+		D36D9E4C2102F92A00F86C90 /* Bstand.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E492102F92900F86C90 /* Bstand.png */; };
+		D36D9E4D2102F92A00F86C90 /* Bbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E4A2102F92A00F86C90 /* Bbonus.png */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -189,14 +192,14 @@
 		D36D9E05210157E500F86C90 /* easybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easybutton.png; sourceTree = "<group>"; };
 		D36D9E06210157E500F86C90 /* mediumbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumbutton.png; sourceTree = "<group>"; };
 		D36D9E0F2102707200F86C90 /* Cbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cbonus.png; sourceTree = "<group>"; };
-		D36D9E102102707200F86C90 /* CCdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCdrink.png; sourceTree = "<group>"; };
+		D36D9E102102707200F86C90 /* Cdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cdrink.png; sourceTree = "<group>"; };
 		D36D9E112102707200F86C90 /* Cstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cstand.png; sourceTree = "<group>"; };
 		D36D9E1E210271FF00F86C90 /* Abonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Abonus.png; sourceTree = "<group>"; };
 		D36D9E1F210271FF00F86C90 /* Astand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astand.png; sourceTree = "<group>"; };
 		D36D9E20210271FF00F86C90 /* Adrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Adrink.png; sourceTree = "<group>"; };
-		D36D9E24210277A000F86C90 /* Bdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bdrink.png; sourceTree = "<group>"; };
-		D36D9E25210277A000F86C90 /* Bstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bstand.png; sourceTree = "<group>"; };
-		D36D9E26210277A000F86C90 /* Bbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bbonus.png; sourceTree = "<group>"; };
+		D36D9E24210277A000F86C90 /* BBdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBdrink.png; sourceTree = "<group>"; };
+		D36D9E25210277A000F86C90 /* BBstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBstand.png; sourceTree = "<group>"; };
+		D36D9E26210277A000F86C90 /* BBbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBbonus.png; sourceTree = "<group>"; };
 		D36D9E2D210282DD00F86C90 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
 		D36D9E322102832200F86C90 /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		D36D9E342102910C00F86C90 /* Loading.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Loading.sks; sourceTree = "<group>"; };
@@ -204,7 +207,10 @@
 		D36D9E382102A4BA00F86C90 /* scrollcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollcloud.png; sourceTree = "<group>"; };
 		D36D9E3A2102AAB300F86C90 /* longcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longcloud.png; sourceTree = "<group>"; };
 		D36D9E3C2102AB3600F86C90 /* grayroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayroundcloud.png; sourceTree = "<group>"; };
-		D36D9E422102BF4F00F86C90 /* Cdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cdrink.png; sourceTree = "<group>"; };
+		D36D9E462102C32D00F86C90 /* DifficultyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyManager.swift; sourceTree = "<group>"; };
+		D36D9E482102F92900F86C90 /* Bdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bdrink.png; sourceTree = "<group>"; };
+		D36D9E492102F92900F86C90 /* Bstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bstand.png; sourceTree = "<group>"; };
+		D36D9E4A2102F92A00F86C90 /* Bbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bbonus.png; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -447,6 +453,7 @@
 				D330D88820F7D6710018ED1F /* Global.swift */,
 				D330D95F20FFF4610018ED1F /* CountDown.swift */,
 				D36D9DFB21013D6000F86C90 /* LabelMaker.swift */,
+				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -561,15 +568,17 @@
 		D38C399320ED3A3500E60032 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
-				D36D9E26210277A000F86C90 /* Bbonus.png */,
-				D36D9E24210277A000F86C90 /* Bdrink.png */,
-				D36D9E422102BF4F00F86C90 /* Cdrink.png */,
-				D36D9E25210277A000F86C90 /* Bstand.png */,
+				D36D9E4A2102F92A00F86C90 /* Bbonus.png */,
+				D36D9E482102F92900F86C90 /* Bdrink.png */,
+				D36D9E492102F92900F86C90 /* Bstand.png */,
+				D36D9E26210277A000F86C90 /* BBbonus.png */,
+				D36D9E24210277A000F86C90 /* BBdrink.png */,
+				D36D9E25210277A000F86C90 /* BBstand.png */,
 				D36D9E1E210271FF00F86C90 /* Abonus.png */,
 				D36D9E20210271FF00F86C90 /* Adrink.png */,
 				D36D9E1F210271FF00F86C90 /* Astand.png */,
 				D36D9E0F2102707200F86C90 /* Cbonus.png */,
-				D36D9E102102707200F86C90 /* CCdrink.png */,
+				D36D9E102102707200F86C90 /* Cdrink.png */,
 				D36D9E112102707200F86C90 /* Cstand.png */,
 			);
 			path = Lemonade;
@@ -639,11 +648,12 @@
 				D307392B20E2B79F0054DEE6 /* gameover5.png in Resources */,
 				D307392420E2B79F0054DEE6 /* dizzy1.png in Resources */,
 				D307393120E2B79F0054DEE6 /* flying3.png in Resources */,
+				D36D9E4D2102F92A00F86C90 /* Bbonus.png in Resources */,
 				D307393B20E2B79F0054DEE6 /* standing3.png in Resources */,
 				D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */,
-				D36D9E28210277A100F86C90 /* Bstand.png in Resources */,
+				D36D9E28210277A100F86C90 /* BBstand.png in Resources */,
 				D330D95720FFAE8A0018ED1F /* rocks.png in Resources */,
-				D36D9E29210277A100F86C90 /* Bbonus.png in Resources */,
+				D36D9E29210277A100F86C90 /* BBbonus.png in Resources */,
 				D30738DE20E2B5CA0054DEE6 /* Main.storyboard in Resources */,
 				D307393720E2B79F0054DEE6 /* standing4.png in Resources */,
 				D307393020E2B79F0054DEE6 /* flying2.png in Resources */,
@@ -654,6 +664,7 @@
 				D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */,
 				D330D92620FE5A3A0018ED1F /* leftBee.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
+				D36D9E4B2102F92A00F86C90 /* Bdrink.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
@@ -661,6 +672,7 @@
 				D330D89720F95B810018ED1F /* Drink.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
+				D36D9E4C2102F92A00F86C90 /* Bstand.png in Resources */,
 				D3B6663421001DD700E88D21 /* boltspeech.png in Resources */,
 				D330D8C720FB146D0018ED1F /* Lemon.sks in Resources */,
 				D36D9E1A2102707300F86C90 /* Cstand.png in Resources */,
@@ -675,7 +687,7 @@
 				D330D92720FE5A3A0018ED1F /* upBee.png in Resources */,
 				D330D92820FE5A3A0018ED1F /* hive.png in Resources */,
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
-				D36D9E27210277A100F86C90 /* Bdrink.png in Resources */,
+				D36D9E27210277A100F86C90 /* BBdrink.png in Resources */,
 				D36D9E392102A4BA00F86C90 /* scrollcloud.png in Resources */,
 				D36D9E182102707300F86C90 /* Cbonus.png in Resources */,
 				D307393320E2B79F0054DEE6 /* jumpup2.png in Resources */,
@@ -688,7 +700,7 @@
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
 				D36D9E07210157E500F86C90 /* hardbutton.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
-				D36D9E192102707300F86C90 /* CCdrink.png in Resources */,
+				D36D9E192102707300F86C90 /* Cdrink.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,
 				D30621B920EE7BEB00E2127D /* GameScene.sks in Resources */,
 				D36D9DDB21010B5D00F86C90 /* squarespeech.png in Resources */,
@@ -697,7 +709,6 @@
 				D330D92F20FE69C70018ED1F /* rightBee.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
 				D36D9E3B2102AAB300F86C90 /* longcloud.png in Resources */,
-				D36D9E432102BF4F00F86C90 /* Cdrink.png in Resources */,
 				D330D95820FFAE8A0018ED1F /* rock2.png in Resources */,
 				D36D9E352102910C00F86C90 /* Loading.sks in Resources */,
 				D307392120E2B79F0054DEE6 /* running1.png in Resources */,
@@ -731,6 +742,7 @@
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D36D9DD7210108A700F86C90 /* IntroScene.swift in Sources */,
 				D36D9DDE210112B800F86C90 /* Bubble.swift in Sources */,
+				D36D9E472102C32D00F86C90 /* DifficultyManager.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */,

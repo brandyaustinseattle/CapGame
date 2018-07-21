@@ -29,15 +29,18 @@ class IntroScene: SKScene {
         let doorway = SKTransition.doorway(withDuration: 3);
         self.view?.presentScene(newScene, transition: doorway);
         
-//        if touchedNode.name == "easybutton" {
-//
-//        } else if touchedNode.name == "easybutton" {
-//
-//        } else if touchedNode.name == "hardbutton" {
-//            
-//        } else {
-//            return;
-//        }
+        if touchedNode.name == "easybutton" {
+//            type = struct("Easy");
+////            DifficultyManager.instance.type = "Easy";
+//            print(Easy.beeFactor)
+//            print(type.beeFactor)
+            
+        } else if touchedNode.name == "Mediumbutton" {
+//            DifficultyManager.instance.type = "Medium";
+
+        } else if touchedNode.name == "hardbutton" {
+//            DifficultyManager.instance.type = "Hard";
+        }
     }
     
     func initialize() {

@@ -98,6 +98,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(cPulse);
             
             secondBody.node?.removeFromParent();
+
         }
     }
     
@@ -264,7 +265,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let quick = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
-        quick.flashForever();
+        quick.removeAfter(seconds: 2.5);
     }
     
 }
