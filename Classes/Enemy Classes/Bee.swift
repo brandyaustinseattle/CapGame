@@ -32,7 +32,7 @@ class Bee: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.15);
+//        self.setScale(3);
     }
     
     func fly() {
