@@ -14,6 +14,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     var pointsLabel = SKLabelNode();
     var pointsBG = SKSpriteNode();
+    var plusFiveBubble = false;
     
     var touchLocation = CGPoint();
     
@@ -98,8 +99,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(cPulse);
             
             secondBody.node?.removeFromParent();
-
+        
         }
+        
+        if plusFiveBubble != true && firstBody.node?.name == "Player" && secondBody.node?.name == "Bonus" {
+            self.addPlusBubble();
+        }
+
     }
     
     func exitScene() {
@@ -267,5 +273,22 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(quick);
         quick.removeAfter(seconds: 2);
     }
+    
+    
+    // also in game scene
+    func addPlusBubble() {
+        
+        let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
+        
+        let label = LabelMaker(message: "+5", messageSize: 175)
+        
+        let plus = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
+        
+        self.addChild(plus);
+        plus.removeAfter(seconds: 1.5);
+        
+        plusFiveBubble = true;
+    }
+
     
 }

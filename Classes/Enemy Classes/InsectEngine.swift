@@ -1,5 +1,5 @@
 //
-//  BeeEngine.swift
+//  InsectEngine.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/17/18.
@@ -9,13 +9,13 @@
 import SpriteKit
 
 
-class BeeEngine {
+class InsectEngine {
     
     var counter = 1;
     var timer = Timer();
     
-    var bee = Bee();
-    let beeFactor = 9;
+    var insect = Insect();
+    let insectFactor = 9;
     
     let xArray = [CGFloat(-350), CGFloat(50), CGFloat(450)];
     let yArray = [CGFloat(300), CGFloat(200)];
@@ -27,16 +27,18 @@ class BeeEngine {
     @objc func incrementCounter(timer: Timer) {
         counter += 1;
         
-        let beeRandom = Int.random(min: 1, max: 10);
+        let insectRandom = Int.random(min: 1, max: 10);
         
         let scene = timer.userInfo as! SKScene;
         
-        if beeRandom <= beeFactor {
-            addBee(scene: scene);
+        if insectRandom <= insectFactor {
+            addHorizontalInsect(scene: scene);
         }
     }
     
-    func addBee(scene: SKScene) {
+    func addHorizontalInsect(scene: SKScene) {
+        
+        let insectNum = Int.random(min: 1, max: 6)
         
         let xIndex = Int(CGFloat(Int.random(min: 0, max: 1)));
         let yIndex = Int(CGFloat(Int.random(min: 0, max: 1)));
@@ -46,12 +48,11 @@ class BeeEngine {
         
         let position = CGPoint(x: randomX, y: randomY);
         
-        bee = Bee(imageNamed: "");
-        bee.initialize(position: position);
-        bee.setScale(0.35);
+        insect = Insect(imageNamed: "\(insectNum)horizontal");
+        insect.initialize(position: position);
+        insect.setScale(0.65);
         
-        scene.addChild(bee);
-        bee.fly();
+        scene.addChild(insect);
+        insect.fly();
     }
-    
 }

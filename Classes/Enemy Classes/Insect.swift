@@ -1,5 +1,5 @@
 //
-//  Bee.swift
+//  Insect.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/17/18.
@@ -8,11 +8,11 @@
 
 import SpriteKit
 
-class Bee: SKSpriteNode {
+class Insect: SKSpriteNode {
 
     func initialize(position: CGPoint) {
         
-        self.name = "Bee";
+        self.name = "Insect";
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
@@ -27,7 +27,7 @@ class Bee: SKSpriteNode {
         self.physicsBody?.collisionBitMask = 0;
         self.physicsBody?.usesPreciseCollisionDetection = true;
         
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Bee;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Insect;
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
@@ -38,16 +38,11 @@ class Bee: SKSpriteNode {
     func fly() {
         let fadeIn = SKAction.fadeIn(withDuration: 0.5);
         let fadeOut = SKAction.fadeOut(withDuration: 0.5);
-        
-        let leftImage = SKTexture(imageNamed: "leftBee");
-        let leftBee = SKAction.setTexture(leftImage, resize: false);
+     
         let flyLeft = SKAction.moveBy(x: -150, y: 0, duration: 2);
-        
-        let rightImage = SKTexture(imageNamed: "rightBee");
-        let rightBee = SKAction.setTexture(rightImage, resize: false);
         let flyRight = SKAction.moveBy(x: 150, y: 0, duration: 2);
         
-        let flySequence = SKAction.sequence([leftBee, fadeIn, flyLeft, fadeOut, rightBee, fadeIn, flyRight, fadeOut]);
+        let flySequence = SKAction.sequence([fadeIn, flyLeft, fadeOut, fadeIn, flyRight, fadeOut]);
         
         self.run(flySequence);
     }

@@ -64,11 +64,11 @@
 		D330D90C20FD6ABF0018ED1F /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D90920FD6ABF0018ED1F /* speech.png */; };
 		D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D91220FDB05E0018ED1F /* roundcloud.png */; };
 		D330D91620FDB8750018ED1F /* bigroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D91520FDB8750018ED1F /* bigroundcloud.png */; };
-		D330D91A20FE56C40018ED1F /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D91920FE56C40018ED1F /* Bee.swift */; };
+		D330D91A20FE56C40018ED1F /* Insect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D91920FE56C40018ED1F /* Insect.swift */; };
 		D330D92620FE5A3A0018ED1F /* lleftBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92220FE5A390018ED1F /* lleftBee.png */; };
 		D330D92720FE5A3A0018ED1F /* upBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92320FE5A3A0018ED1F /* upBee.png */; };
 		D330D92820FE5A3A0018ED1F /* hive.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92420FE5A3A0018ED1F /* hive.png */; };
-		D330D92D20FE68940018ED1F /* BeeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D92C20FE68940018ED1F /* BeeEngine.swift */; };
+		D330D92D20FE68940018ED1F /* InsectEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D92C20FE68940018ED1F /* InsectEngine.swift */; };
 		D330D92F20FE69C70018ED1F /* rrightBee.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D92E20FE69C70018ED1F /* rrightBee.png */; };
 		D330D93E20FEC32C0018ED1F /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330D93D20FEC32C0018ED1F /* Rock.swift */; };
 		D330D95720FFAE8A0018ED1F /* rocks.png in Resources */ = {isa = PBXBuildFile; fileRef = D330D95120FFAE8A0018ED1F /* rocks.png */; };
@@ -118,8 +118,8 @@
 		D36D9E7821031B3900F86C90 /* 1horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E6F21031B3800F86C90 /* 1horizontal.png */; };
 		D36D9E7921031B3900F86C90 /* 2vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7021031B3800F86C90 /* 2vertical.png */; };
 		D36D9E7A21031B3900F86C90 /* 4horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7121031B3900F86C90 /* 4horizontal.png */; };
-		D36D9E7B21031B3900F86C90 /* 0horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7221031B3900F86C90 /* 0horizontal.png */; };
-		D36D9E7C21031B3900F86C90 /* 0vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7321031B3900F86C90 /* 0vertical.png */; };
+		D36D9E7B21031B3900F86C90 /* 6horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7221031B3900F86C90 /* 6horizontal.png */; };
+		D36D9E7C21031B3900F86C90 /* 3vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7321031B3900F86C90 /* 3vertical.png */; };
 		D36D9E8021031C0E00F86C90 /* grayroundcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D36D9E7F21031C0E00F86C90 /* grayroundcloud.png */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
@@ -186,11 +186,11 @@
 		D330D90920FD6ABF0018ED1F /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
 		D330D91220FDB05E0018ED1F /* roundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundcloud.png; sourceTree = "<group>"; };
 		D330D91520FDB8750018ED1F /* bigroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigroundcloud.png; sourceTree = "<group>"; };
-		D330D91920FE56C40018ED1F /* Bee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
+		D330D91920FE56C40018ED1F /* Insect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insect.swift; sourceTree = "<group>"; };
 		D330D92220FE5A390018ED1F /* lleftBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lleftBee.png; sourceTree = "<group>"; };
 		D330D92320FE5A3A0018ED1F /* upBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upBee.png; sourceTree = "<group>"; };
 		D330D92420FE5A3A0018ED1F /* hive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hive.png; sourceTree = "<group>"; };
-		D330D92C20FE68940018ED1F /* BeeEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeEngine.swift; sourceTree = "<group>"; };
+		D330D92C20FE68940018ED1F /* InsectEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsectEngine.swift; sourceTree = "<group>"; };
 		D330D92E20FE69C70018ED1F /* rrightBee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rrightBee.png; sourceTree = "<group>"; };
 		D330D93D20FEC32C0018ED1F /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
 		D330D95120FFAE8A0018ED1F /* rocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocks.png; sourceTree = "<group>"; };
@@ -240,8 +240,8 @@
 		D36D9E6F21031B3800F86C90 /* 1horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1horizontal.png; sourceTree = "<group>"; };
 		D36D9E7021031B3800F86C90 /* 2vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2vertical.png; sourceTree = "<group>"; };
 		D36D9E7121031B3900F86C90 /* 4horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4horizontal.png; sourceTree = "<group>"; };
-		D36D9E7221031B3900F86C90 /* 0horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0horizontal.png; sourceTree = "<group>"; };
-		D36D9E7321031B3900F86C90 /* 0vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0vertical.png; sourceTree = "<group>"; };
+		D36D9E7221031B3900F86C90 /* 6horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6horizontal.png; sourceTree = "<group>"; };
+		D36D9E7321031B3900F86C90 /* 3vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3vertical.png; sourceTree = "<group>"; };
 		D36D9E7F21031C0E00F86C90 /* grayroundcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayroundcloud.png; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
@@ -545,8 +545,8 @@
 		D330D93C20FEC2FF0018ED1F /* Enemy Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D330D92C20FE68940018ED1F /* BeeEngine.swift */,
-				D330D91920FE56C40018ED1F /* Bee.swift */,
+				D330D92C20FE68940018ED1F /* InsectEngine.swift */,
+				D330D91920FE56C40018ED1F /* Insect.swift */,
 				D330D93D20FEC32C0018ED1F /* Rock.swift */,
 			);
 			path = "Enemy Classes";
@@ -633,7 +633,7 @@
 				D36D9E6E21031B3800F86C90 /* 5horizontal.png */,
 				D36D9E6F21031B3800F86C90 /* 1horizontal.png */,
 				D36D9E6C21031B3800F86C90 /* 2horizontal.png */,
-				D36D9E7221031B3900F86C90 /* 0horizontal.png */,
+				D36D9E7221031B3900F86C90 /* 6horizontal.png */,
 			);
 			path = Horizontal;
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 		D36D9E7E21031B6200F86C90 /* Vertical */ = {
 			isa = PBXGroup;
 			children = (
-				D36D9E7321031B3900F86C90 /* 0vertical.png */,
+				D36D9E7321031B3900F86C90 /* 3vertical.png */,
 				D36D9E6B21031B3800F86C90 /* 1vertical.png */,
 				D36D9E7021031B3800F86C90 /* 2vertical.png */,
 			);
@@ -713,10 +713,10 @@
 				D307392420E2B79F0054DEE6 /* dizzy1.png in Resources */,
 				D36D9E7521031B3900F86C90 /* 2horizontal.png in Resources */,
 				D307393120E2B79F0054DEE6 /* flying3.png in Resources */,
-				D36D9E7B21031B3900F86C90 /* 0horizontal.png in Resources */,
+				D36D9E7B21031B3900F86C90 /* 6horizontal.png in Resources */,
 				D36D9E4D2102F92A00F86C90 /* Bbonus.png in Resources */,
 				D307393B20E2B79F0054DEE6 /* standing3.png in Resources */,
-				D36D9E7C21031B3900F86C90 /* 0vertical.png in Resources */,
+				D36D9E7C21031B3900F86C90 /* 3vertical.png in Resources */,
 				D330D90B20FD6ABF0018ED1F /* clouds.png in Resources */,
 				D36D9E28210277A100F86C90 /* BBstand.png in Resources */,
 				D330D95720FFAE8A0018ED1F /* rocks.png in Resources */,
@@ -826,8 +826,8 @@
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */,
-				D330D92D20FE68940018ED1F /* BeeEngine.swift in Sources */,
-				D330D91A20FE56C40018ED1F /* Bee.swift in Sources */,
+				D330D92D20FE68940018ED1F /* InsectEngine.swift in Sources */,
+				D330D91A20FE56C40018ED1F /* Insect.swift in Sources */,
 				D330D96020FFF4610018ED1F /* CountDown.swift in Sources */,
 				D330D87420F576B30018ED1F /* Consumable.swift in Sources */,
 				D30738D320E2B5CA0054DEE6 /* AppDelegate.swift in Sources */,

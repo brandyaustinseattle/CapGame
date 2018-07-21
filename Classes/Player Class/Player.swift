@@ -44,7 +44,7 @@ class Player: SKSpriteNode {
         // pinned prevents head from rolling off
         playerHead.physicsBody?.pinned = true;
         
-        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Consumable | PhysicsCategory.Bee | PhysicsCategory.Rock;
+        playerHead.physicsBody?.contactTestBitMask = PhysicsCategory.Consumable | PhysicsCategory.Insect | PhysicsCategory.Rock;
         
         self.addChild(playerHead);
     }

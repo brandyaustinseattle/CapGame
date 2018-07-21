@@ -32,8 +32,8 @@ class IntroScene: SKScene {
         if touchedNode.name == "easybutton" {
 //            type = struct("Easy");
 ////            DifficultyManager.instance.type = "Easy";
-//            print(Easy.beeFactor)
-//            print(type.beeFactor)
+//            print(Easy.insectFactor)
+//            print(type.insectFactor)
             
         } else if touchedNode.name == "Mediumbutton" {
 //            DifficultyManager.instance.type = "Medium";

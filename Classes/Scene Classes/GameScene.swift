@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pointsBG = SKSpriteNode();
 
 
-    var beeEngine = BeeEngine();
+    var insectEngine = InsectEngine();
     var pathEngine = PathEngine();
     
     var player = Player();
@@ -72,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerRepeatJumps = 0;
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Bee" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Insect" {
             
             Points.instance.value = 0;
             Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
@@ -146,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.runFast();
         
         pathEngine.initialize(scene: self);
-        beeEngine.initialize(scene: self);
+        insectEngine.initialize(scene: self);
     }
     
     func createBG() {
@@ -222,6 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.presentScene(gameOverScene, transition: doorway);
     }
     
+    // also in bonus scene
     func addPlusBubble() {
 
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
@@ -243,7 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
 //        let label2 = LabelMaker(message: "tap while in air to double jump", messageSize: 125);
 //        let label3 = LabelMaker(message: "hit the drinks to get points", messageSize: 125);
-//        let label4 = LabelMaker(message: "...but avoid the bubble bees", messageSize: 125);
+//        let label4 = LabelMaker(message: "...but avoid the insects", messageSize: 125);
 //        let label5 = LabelMaker(message: "hit the stand to go to a bonus level", messageSize: 125);
 //        let label6 = LabelMaker(message: "hit the plane to check out another place", messageSize: 125);
         

@@ -15,7 +15,7 @@ struct PhysicsCategory {
     static let PlayerHead: UInt32 = 0x1 << 2;
     static let Ground: UInt32 = 0x1 << 3;
     static let Consumable: UInt32 = 0x1 << 4;
-    static let Bee: UInt32 = 0x1 << 5;
+    static let Insect: UInt32 = 0x1 << 5;
     static let Rock: UInt32 = 0x1 << 6;
     static let Portal: UInt32 = 0x1 << 7;
 }

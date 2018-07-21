@@ -11,7 +11,7 @@
 //
 //    
 //    struct Easy {
-//        static let beeFactor: Int = 2;
+//        static let insectFactor: Int = 2;
 //        static let drinkFactor: Int = 4;
 //        static let planeFactor: Int = 3;
 //        
@@ -25,7 +25,7 @@
 //    }
 //    
 //    struct Medium {
-//        static let beeFactor: Int = 4;
+//        static let insectFactor: Int = 4;
 //        static let drinkFactor: Int = 3;
 //        static let planeFactor: Int = 3;
 //        
@@ -39,7 +39,7 @@
 //    }
 //    
 //    struct Hard {
-//        static let beeFactor: Int = 6;
+//        static let insectFactor: Int = 6;
 //        static let drinkFactor: Int = 2;
 //        static let planeFactor: Int = 3;
 //        
