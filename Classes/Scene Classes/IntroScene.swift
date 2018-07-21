@@ -46,6 +46,7 @@ class IntroScene: SKScene {
     func initialize() {
         
         createStaticBG();
+        createBGAddOn();
     
         addPlatform();
         createPlayer();
@@ -61,6 +62,16 @@ class IntroScene: SKScene {
         background.position = CGPoint(x: 0, y: 0);
         background.zPosition = 0;
         self.addChild(background);
+    }
+    
+    func createBGAddOn() {
+        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
+        addOn.name = "addOn";
+        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        addOn.position = CGPoint(x: 0, y:0);
+        addOn.zPosition = 1;
+        addOn.setScale(0.70);
+        self.addChild(addOn);
     }
     
     func addPlatform() {

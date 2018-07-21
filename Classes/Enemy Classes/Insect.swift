@@ -36,8 +36,8 @@ class Insect: SKSpriteNode {
     }
     
     func fly() {
-        let fadeIn = SKAction.fadeIn(withDuration: 0.5);
-        let fadeOut = SKAction.fadeOut(withDuration: 0.5);
+        let fadeIn = SKAction.fadeIn(withDuration: 0.25);
+        let fadeOut = SKAction.fadeOut(withDuration: 0.25);
      
         let flyLeft = SKAction.moveBy(x: -150, y: 0, duration: 2);
         let flyRight = SKAction.moveBy(x: 150, y: 0, duration: 2);
