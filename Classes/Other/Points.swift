@@ -17,11 +17,11 @@ class Points {
     var value = Int();
     var amtAdded = String();
     
-    func increment(objectName: String) {
-        if objectName == "Drink" {
+    func increment(consumableName: String) {
+        if consumableName == "Drink" {
             value += 1;
             amtAdded = "+1";
-        } else if objectName == "Bonus" {
+        } else if consumableName == "Bonus" {
             value += 5;
             amtAdded = "+5";
         };

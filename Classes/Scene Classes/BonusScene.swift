@@ -18,8 +18,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint();
     
     var player = Player();
-    var drink = Object();
-    var bonus = Object();
+    var drink = Consumable();
+    var bonus = Consumable();
     
     var countDown = CountDown();
     var cdLabel = SKLabelNode();
@@ -88,9 +88,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Bonus" {
             
-            let objectName = secondBody.node?.name;
+            let consumableName = secondBody.node?.name;
             
-            Points.instance.increment(objectName: objectName!);
+            Points.instance.increment(consumableName: consumableName!);
             Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
             
             let position = secondBody.node?.position;
@@ -119,7 +119,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         createClouds();
         
         createPlayer();
-        addObjectsMatrix();
+        addConsumablesMatrix();
         
         addQuickBubble();
     }
@@ -216,7 +216,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
-    func addObjectsMatrix() {
+    func addConsumablesMatrix() {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
@@ -231,8 +231,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     // do nothing bc player will be in this area
                 } else {
         
-                    drink = Object(imageNamed: "\(option)drink");
-                    bonus = Object(imageNamed: "\(option)bonus");
+                    drink = Consumable(imageNamed: "\(option)drink");
+                    bonus = Consumable(imageNamed: "\(option)bonus");
         
                     let referencePosition = CGPoint(x: x, y: y);
             

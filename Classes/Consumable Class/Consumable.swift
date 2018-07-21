@@ -1,5 +1,5 @@
 //
-//  Object.swift
+//  Consumable.swift
 //  CapGame
 //
 //  Created by Brandy Austin on 7/10/18.
@@ -9,7 +9,7 @@
 import SpriteKit
 
 // drink and bonus objects that player makes contact with to get points
-class Object: SKSpriteNode {
+class Consumable: SKSpriteNode {
 
     func initialize(referencePosition: CGPoint, offsetYValue: CGFloat, type: String) {
                 
@@ -22,8 +22,8 @@ class Object: SKSpriteNode {
         }
         
         if type == "Bonus" {
-            let lPulse = self.lemonPulse(position: position);
-            self.addChild(lPulse);
+            let bPulse = self.bonusPulse(position: position);
+            self.addChild(bPulse);
         }
         
         self.setPhysics();
@@ -37,7 +37,7 @@ class Object: SKSpriteNode {
         self.physicsBody?.collisionBitMask = 0;
         self.physicsBody?.usesPreciseCollisionDetection = true;
         
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Object;
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Consumable;
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
@@ -53,9 +53,11 @@ class Object: SKSpriteNode {
         self.run(SKAction.repeatForever(rotateSequence), withKey: "rotateKey");
     }
     
-    func lemonPulse(position: CGPoint) -> SKEmitterNode {
-        let pulse = SKEmitterNode(fileNamed: "Lemon");
+    func bonusPulse(position: CGPoint) -> SKEmitterNode {
+     
+        let pulse = SKEmitterNode(fileNamed: "\(option)Pulse");
         pulse?.position = position;
+
         return pulse!;
     }
     

@@ -88,8 +88,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addPlusBubble();
             }
             
-            let objectName = secondBody.node?.name;
-            Points.instance.increment(objectName: objectName!);
+            let consumableName = secondBody.node?.name;
+            Points.instance.increment(consumableName: consumableName!);
             Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
 
             let position = secondBody.node?.position;
@@ -157,6 +157,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.position = CGPoint(x: CGFloat(i) * background.size.width, y:0);
             background.zPosition = 0;
             self.addChild(background);
+            
+            if option == "C" {
+                let snow = snowPulse(position: self.position);
+                self.addChild(snow);
+            }
         }
     }
     
@@ -221,7 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
 
-        let label = LabelMaker(message: "+5", messageSize: 175)
+        let label = LabelMaker(message: "+1", messageSize: 175)
 
         let plus = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         

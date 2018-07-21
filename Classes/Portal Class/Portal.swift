@@ -18,14 +18,14 @@ class Portal: SKSpriteNode {
         self.zPosition = 2;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
-        self.setPhysics();
+        self.setPhysics(type: type);
         
         self.position = CGPoint(x: midPathItemPosition.x, y: midPathItemPosition.y + offsetYValue);
         
     }
     
-    func setPhysics() {
-        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width, height: self.size.height));
+    func setPhysics(type: String) {
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width/3, height: self.size.height/3));
         
         self.physicsBody?.collisionBitMask = 0;
         
