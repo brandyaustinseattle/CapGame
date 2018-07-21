@@ -96,15 +96,15 @@ class Points {
     }
     
     func flashBackground(background: SKSpriteNode) {
-        let pinkImage = SKTexture(imageNamed: "pinkroundcloud");
-        let makePink = SKAction.setTexture(pinkImage , resize: false);
+        let grayImage = SKTexture(imageNamed: "grayroundcloud");
+        let makeGray = SKAction.setTexture(grayImage, resize: false);
         
         let whiteImage = SKTexture(imageNamed: "roundcloud");
         let makeWhite = SKAction.setTexture(whiteImage , resize: false);
         
         let wait = SKAction.wait(forDuration: 0.15);
         
-        let flash = SKAction.sequence([makePink, wait, makeWhite]);
+        let flash = SKAction.sequence([makeGray, wait, makeWhite]);
 
         background.run(SKAction.repeat(flash, count: 1));
 

@@ -257,7 +257,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     func addQuickBubble() {
         
-        let position = CGPoint(x: player.position.x + 65, y: player.position.y - 150);
+        let position = CGPoint(x: player.position.x - 125, y: player.position.y + 185);
         
         let label = LabelMaker(message: "quick", messageSize: 75)
         
