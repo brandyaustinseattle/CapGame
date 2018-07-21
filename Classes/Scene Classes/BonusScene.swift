@@ -265,7 +265,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let quick = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
-        quick.removeAfter(seconds: 2.5);
+        quick.removeAfter(seconds: 2);
     }
     
 }
