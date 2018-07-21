@@ -15,7 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pointsLabel = SKLabelNode();
     var pointsBG = SKSpriteNode();
-
+    var ouchBubble = false;
 
     var insectEngine = InsectEngine();
     var pathEngine = PathEngine();
@@ -80,6 +80,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.getDizzy();
             
             secondBody.node?.removeFromParent()
+            
+            if ouchBubble == false {
+                self.addOuchBubble();
+                ouchBubble = true;
+            }
         }
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
@@ -235,6 +240,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         plus.removeAfter(seconds: 1.5);
     }
     
+    // similar to other add bubble functions
+    func addOuchBubble() {
+        
+        let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
+        
+        let label = LabelMaker(message: "ouch", messageSize: 150)
+        
+        let plus = Bubble(scene: self, type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
+        
+        self.addChild(plus);
+        plus.removeAfter(seconds: 1.5);
+    }
     
     
     

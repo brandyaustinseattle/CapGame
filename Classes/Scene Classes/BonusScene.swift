@@ -102,7 +102,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         }
         
-        if plusFiveBubble != true && firstBody.node?.name == "Player" && secondBody.node?.name == "Bonus" {
+        if plusFiveBubble == false && firstBody.node?.name == "Player" && secondBody.node?.name == "Bonus" {
             self.addPlusBubble();
         }
 
