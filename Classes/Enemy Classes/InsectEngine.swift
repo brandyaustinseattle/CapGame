@@ -18,7 +18,7 @@ class InsectEngine {
     let insectFactor = 9;
     
     let xArray = [CGFloat(-350), CGFloat(50), CGFloat(450)];
-    let yArray = [CGFloat(300), CGFloat(200)];
+    let yArray = [CGFloat(275), CGFloat(175)];
 
     func initialize(scene: SKScene) {
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(incrementCounter), userInfo: scene, repeats: true);
