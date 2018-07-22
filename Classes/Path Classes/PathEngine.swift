@@ -232,6 +232,8 @@ class PathEngine {
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
        
+        portal.makeBigger();
+        
         scene.addChild(portal);
         self.move(itemToMove: portal);
         

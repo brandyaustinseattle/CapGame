@@ -18,7 +18,7 @@ class InsectEngine {
     let insectFactor = 9;
     
     let xArray = [CGFloat(-350), CGFloat(50), CGFloat(450)];
-    let yArray = [CGFloat(275), CGFloat(175)];
+    let yArray = [CGFloat(260), CGFloat(175)];
 
     func initialize(scene: SKScene) {
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(incrementCounter), userInfo: scene, repeats: true);
@@ -50,7 +50,7 @@ class InsectEngine {
         
         insect = Insect(imageNamed: "\(insectNum)horizontal");
         insect.initialize(position: position);
-        insect.setScale(0.65);
+        insect.setScale(0.58);
         
         scene.addChild(insect);
         insect.fly();

@@ -45,7 +45,7 @@ class Points {
         let pointsCloud = SKSpriteNode(imageNamed: "roundcloud");
         
         pointsCloud.name = "pointsCloud";
-        pointsCloud.zPosition = 3;
+        pointsCloud.zPosition = 4;
         pointsCloud.setScale(0.75);
         pointsCloud.position = CGPoint(x: 590, y: 320);
         
@@ -60,7 +60,7 @@ class Points {
         pointsLabel.text = "\(value)";
         pointsLabel.fontColor = UIColor.black;
         pointsLabel.fontSize = 60;
-        pointsLabel.zPosition = 4;
+        pointsLabel.zPosition = 5;
         
         pointsLabel.position = CGPoint(x: 585, y: 300);
         

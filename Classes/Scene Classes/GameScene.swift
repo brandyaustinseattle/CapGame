@@ -138,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createBG();
         moveBG();
         createBGAddOn();
-        addInstructions();
+        addInstructionsBubble();
 
         createPlayer();
         playerConstraints();
@@ -251,6 +251,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);
+    }
+    
+    func addInstructionsBubble() {
+        
+        let position = CGPoint(x: 0, y: frame.size.height/2 - 75);
+        
+        let label = LabelMaker(message: "tap to jump", messageSize: 55)
+        
+        let cloud = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label, zPos: 2)
+        
+        self.addChild(cloud);
     }
     
     

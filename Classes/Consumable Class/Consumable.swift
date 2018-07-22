@@ -14,7 +14,7 @@ class Consumable: SKSpriteNode {
     func initialize(referencePosition: CGPoint, offsetYValue: CGFloat, type: String) {
                 
         self.name = type;
-        self.zPosition = 2;
+        self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         if type == "Drink" {

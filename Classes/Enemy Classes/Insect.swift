@@ -13,7 +13,7 @@ class Insect: SKSpriteNode {
     func initialize(position: CGPoint) {
         
         self.name = "Insect";
-        self.zPosition = 3;
+        self.zPosition = 6;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         self.setPhysics();
@@ -31,18 +31,16 @@ class Insect: SKSpriteNode {
         self.physicsBody?.affectedByGravity = false;
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
-        
-//        self.setScale(3);
     }
     
     func fly() {
-        let fadeIn = SKAction.fadeIn(withDuration: 0.25);
-        let fadeOut = SKAction.fadeOut(withDuration: 0.25);
+//        let fadeIn = SKAction.fadeIn(withDuration: 0.15);
+//        let fadeOut = SKAction.fadeOut(withDuration: 0.15);
      
         let flyLeft = SKAction.moveBy(x: -150, y: 0, duration: 2);
         let flyRight = SKAction.moveBy(x: 150, y: 0, duration: 2);
         
-        let flySequence = SKAction.sequence([fadeIn, flyLeft, fadeOut, fadeIn, flyRight, fadeOut]);
+        let flySequence = SKAction.sequence([flyLeft, flyRight]);
         
         self.run(flySequence);
     }

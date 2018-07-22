@@ -17,7 +17,8 @@ class Bubble: SKSpriteNode {
          type: String,
          scale: CGFloat,
          bubblePosition: CGPoint,
-         label: SKLabelNode?) {
+         label: SKLabelNode?,
+         zPos: CGFloat = 4) {
         
         let image = SKTexture(imageNamed: type);
         
@@ -25,7 +26,7 @@ class Bubble: SKSpriteNode {
         
         name = type;
         anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        zPosition = 4;
+        zPosition = zPos;
         setScale(scale);
         
         position = bubblePosition;
@@ -61,17 +62,6 @@ class Bubble: SKSpriteNode {
         
         self.run(SKAction.repeatForever(sequence), withKey: "flash");
     }
-
-// // makeBigger is not in use
-//    func makeBigger() {
-//        let bigger = SKAction.resize(byWidth: 20, height: 20, duration: 2)
-//        let wait = SKAction.wait(forDuration: 0.75)
-//        let regular = SKAction.resize(byWidth: -25, height: -25, duration: 2)
-//        let sequence = SKAction.sequence([bigger, wait, regular]);
-//
-//        self.run(SKAction.repeatForever(sequence), withKey: "flash");
-//    }
-    
     
     // similar to rotate drink
     // maybe add SK actions to their own class
