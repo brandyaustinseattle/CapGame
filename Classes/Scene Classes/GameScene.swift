@@ -251,6 +251,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);
     }
+    
+    
+    
+    
+    
+    // move instructions to insctructions manager and call functions separately based on what appears on the screen
 
     func addInstructions() {
     
