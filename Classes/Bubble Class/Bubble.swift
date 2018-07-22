@@ -41,17 +41,12 @@ class Bubble: SKSpriteNode {
     }
 
     func removeAfter(seconds: Double) {
+    
         let wait = SKAction.wait(forDuration: seconds)
         let hide = SKAction.hide();
         let sequence = SKAction.sequence([wait, hide]);
         
         self.run(SKAction.repeatForever(sequence), withKey: "remove");
-    }
-
-    func delayFor(seconds: Double) {
-        let wait = SKAction.wait(forDuration: seconds)
-        
-        self.run(wait, withKey: "wait");
     }
     
     func flashForever() {
@@ -60,7 +55,7 @@ class Bubble: SKSpriteNode {
         let fadeOut = SKAction.fadeOut(withDuration: 0.75);
         let sequence = SKAction.sequence([fadeIn, wait, fadeOut]);
         
-        self.run(SKAction.repeatForever(sequence), withKey: "flash");
+        self.run(SKAction.repeatForever(sequence), withKey: "flashForever");
     }
     
     // similar to rotate drink

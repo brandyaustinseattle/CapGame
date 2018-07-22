@@ -87,7 +87,8 @@ class IntroScene: SKScene {
     func createPlayer() {
         player = Player(imageNamed: "standing1");
         player.initialize();
-        player.position = CGPoint(x: 445, y: -175);
+//        player.position = CGPoint(x: 445, y: -175);
+        player.position = CGPoint(x: 445, y: 100);
 
         self.addChild(player);
         player.stand();
@@ -101,8 +102,11 @@ class IntroScene: SKScene {
         
         let intro = Bubble(scene: self, type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
         
-        self.addChild(intro);
-        intro.flashForever();
+        
+        delay(time: 1.25) {
+            self.addChild(intro);
+            intro.flashForever();
+        }
     }
     
     func addLevelsBubbles() {

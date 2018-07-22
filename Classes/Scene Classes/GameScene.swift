@@ -27,7 +27,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerRepeatJumps = 0;
     
     
-    
     override func didMove(to view: SKView) {
         initialize();
         
@@ -138,7 +137,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createBG();
         moveBG();
         createBGAddOn();
-        addInstructionsBubble();
+        addInstructions();
 
         createPlayer();
         playerConstraints();
@@ -253,29 +252,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         plus.removeAfter(seconds: 1.5);
     }
 
-    
-    
     func addInstructions() {
-//        let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
-//        let label2 = LabelMaker(message: "tap while in air to double jump", messageSize: 55);
-//        let label3 = LabelMaker(message: "get the drinks to rack up points", messageSize: 55);
-//        let label4 = LabelMaker(message: "...but avoid the insects who sting", messageSize: 55);
-//        let label5 = LabelMaker(message: "go to the stand to enter bonus level", messageSize: 55);
-//        let label6 = LabelMaker(message: "go to the plane to travel to another place", messageSize: 55);
-        
-//        let label = LabelMaker(message: "tap to jump...tap in air to double jump...get the drinks to rack up points...but avoid the insects who sting", messageSize: 55)
-    }
     
-    func addInstructionsBubble() {
-        
+        let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
+        let label2 = LabelMaker(message: "tap in air to double jump", messageSize: 55);
+        let label3 = LabelMaker(message: "grab drinks to rack up points", messageSize: 55);
+        let label4 = LabelMaker(message: "...but avoid the insects who sting", messageSize: 55);
+        let label5 = LabelMaker(message: "visit the stand to enter bonus level", messageSize: 55);
+        let label6 = LabelMaker(message: "catch the plane to travel to another place", messageSize: 55);
+       
         let position = CGPoint(x: 0, y: frame.size.height/2 - 75);
         
-        let label = LabelMaker(message: "tap to jump...tap in air to double jump...get the drinks to rack up points...", messageSize: 55)
+        let cloud1 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label1, zPos: 2)
+        let cloud2 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label2, zPos: 2)
+        let cloud3 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label3, zPos: 2)
+        let cloud4 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label4, zPos: 2)
+        let cloud5 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label5, zPos: 2)
+        let cloud6 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label6, zPos: 2)
+
+
+        delay(time: 0) {
+            self.addChild(cloud1);
+            cloud1.removeAfter(seconds: 5);
+        }
         
-        label.scrollLabel();
-        
-        let cloud = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label, zPos: 2)
-        
-        self.addChild(cloud);
+        delay(time: 10) {
+            self.addChild(cloud2);
+            cloud2.removeAfter(seconds: 5);
+        }
+
+        delay(time: 16) {
+            self.addChild(cloud3);
+            cloud3.removeAfter(seconds: 5);
+        }
+
+        delay(time: 22) {
+            self.addChild(cloud4);
+            cloud4.removeAfter(seconds: 5);
+        }
+
+        delay(time: 27) {
+            self.addChild(cloud5);
+            cloud5.removeAfter(seconds: 5);
+        }
+
+        delay(time: 32) {
+            self.addChild(cloud6);
+            cloud6.removeAfter(seconds: 5);
+        }
     }
+    
 }

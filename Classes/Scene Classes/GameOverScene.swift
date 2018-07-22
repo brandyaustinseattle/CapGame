@@ -83,7 +83,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     func createPlayer() {
         player = Player(imageNamed: "gameover1");
         player.initialize();
-        player.position = CGPoint(x: 445, y: -175);
+        player.position = CGPoint(x: 445, y: 100);
         
         self.addChild(player);
         player.gameOver();
@@ -97,8 +97,10 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         let gameOver = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        self.addChild(gameOver);
-        gameOver.flashForever();
+        delay(time: 1.25) {
+            self.addChild(gameOver);
+            gameOver.flashForever();
+        }
     }
 
 }

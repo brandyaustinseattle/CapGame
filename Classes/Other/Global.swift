@@ -40,9 +40,11 @@ func snowPulse(position: CGPoint) -> SKEmitterNode {
     return pulse!;
 }
 
-//func buttonPulse(position: CGPoint) -> SKEmitterNode {
-//    let pulse = SKEmitterNode(fileNamed: "Button");
-//    pulse?.position = position;
-//    return pulse!;
-//}
+func delay(time: Double, closure: @escaping ()-> ()) {
+        
+    DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+        closure()
+    }
+}
+    
 
