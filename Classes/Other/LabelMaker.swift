@@ -27,6 +27,11 @@ class LabelMaker: SKLabelNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func scrollLabel() {
+        let scroll = SKAction.moveTo(x: -frame.size.width/2, duration: 10);
+        self.run(scroll);
+    }
+    
 }
 
 

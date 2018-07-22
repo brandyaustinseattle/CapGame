@@ -37,14 +37,12 @@ class Portal: SKSpriteNode {
         self.setScale(0.5);
     }
     
-    // makeBigger is not in use
     func makeBigger() {
-        let bigger = SKAction.resize(byWidth: 20, height: 20, duration: 2)
-        let wait = SKAction.wait(forDuration: 0.75)
-        let regular = SKAction.resize(byWidth: -25, height: -25, duration: 2)
-        let sequence = SKAction.sequence([bigger, wait, regular]);
+        let bigger = SKAction.resize(byWidth: 250, height: 250, duration: 0.5)
+        let regular = SKAction.resize(byWidth: -250, height: -250, duration: 0.5)
+        let sequence = SKAction.sequence([bigger, regular]);
         
-        self.run(SKAction.repeatForever(sequence), withKey: "flash");
+        self.run(SKAction.repeatForever(sequence), withKey: "bigger");
     }
 }
 
