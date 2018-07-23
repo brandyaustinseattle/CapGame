@@ -30,25 +30,21 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        pointsBG = Points.instance.getBackground();
-        pointsLabel = Points.instance.getLabel();
-        
-        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
-        self.addChild(pointsBG);
-        self.addChild(pointsLabel);
+        let pointsBubble = Points.instance.getPointsBubble();
+        self.addChild(pointsBubble);
         
 //        let cdWords = self.countDownWords();
 //        self.addChild(cdWords);
         
-        bgCloud = countDown.getBackground();
-        cdLabel = countDown.getLabel();
-        
-        let cd = self.countDownWords();
-        self.addChild(cd);
-        
-        countDown.updateCountDownDisplay(label: cdLabel)
-        self.addChild(bgCloud);
-        self.addChild(cdLabel);
+//        bgCloud = countDown.getBackground();
+//        cdLabel = countDown.getLabel();
+//        
+//        let cd = self.countDownWords();
+//        self.addChild(cd);
+//        
+//        countDown.updateCountDownDisplay(label: cdLabel)
+//        self.addChild(bgCloud);
+//        self.addChild(cdLabel);
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -91,8 +87,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             
             let consumableName = secondBody.node?.name;
             
+            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+                child.removeFromParent()
+            }
+            
             Points.instance.increment(consumableName: consumableName!);
-            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+            let pointsBubble = Points.instance.getPointsBubble();
+            self.addChild(pointsBubble);
             
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
@@ -267,7 +268,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "quick", messageSize: 75)
         
-        let quick = Bubble(scene: self, type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
+        let quick = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
         quick.removeAfter(seconds: 2);
@@ -281,7 +282,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "+5", messageSize: 175)
         
-        let plus = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
+        let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);

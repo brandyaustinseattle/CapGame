@@ -99,7 +99,7 @@ class IntroScene: SKScene {
         
         let label = LabelMaker(message: "let's go", messageSize: 100)
         
-        let intro = Bubble(scene: self, type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
+        let intro = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
         
         
         delay(time: 1.25) {
@@ -122,7 +122,7 @@ class IntroScene: SKScene {
             
                 let position = CGPoint(x: -175, y: y);
 
-                let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
+                let button = Bubble(type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
 
                 let move = SKAction.moveBy(x: 0, y: self.frame.size.height, duration: 0.75)
 

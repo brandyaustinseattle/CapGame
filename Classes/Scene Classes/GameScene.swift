@@ -13,8 +13,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var loadingScene = Loading();
     
-    var pointsLabel = SKLabelNode();
-    var pointsBG = SKSpriteNode();
     var ouchBubble = false;
 
     var insectEngine = InsectEngine();
@@ -30,13 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         initialize();
         
-        pointsBG = Points.instance.getBackground();
-        pointsLabel = Points.instance.getLabel();
-        
-        Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
-        self.addChild(pointsBG);
-        self.addChild(pointsLabel);
-        
+        let pointsBubble = Points.instance.getPointsBubble();
+        self.addChild(pointsBubble);
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -74,7 +67,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Insect" {
             
             Points.instance.value = 0;
-            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+            
+            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+                child.removeFromParent()
+            }
+            
+            let pointsBubble = Points.instance.getPointsBubble();
+            self.addChild(pointsBubble);
+            
+            let textureOne = SKTexture(imageNamed: "roundcloud");
+            let textureTwo = SKTexture(imageNamed: "grayroundcloud");
+            
+            pointsBubble.flashAlternateTexture(textureOne: textureOne, textureTwo: textureTwo);
+            
             
             player.getDizzy();
             
@@ -94,8 +99,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let consumableName = secondBody.node?.name;
             Points.instance.increment(consumableName: consumableName!);
-            Points.instance.updatePointsDisplay(background: pointsBG, pointsLabel: pointsLabel)
+            
+            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+                child.removeFromParent()
+            }
 
+            let pointsBubble = Points.instance.getPointsBubble();
+            self.addChild(pointsBubble);
+            
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
             self.addChild(cPulse);
@@ -233,7 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let label = LabelMaker(message: "+1", messageSize: 175)
 
-        let plus = Bubble(scene: self, type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
+        let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);
@@ -246,7 +257,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "ouch", messageSize: 150)
         
-        let plus = Bubble(scene: self, type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
+        let plus = Bubble(type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
         plus.removeAfter(seconds: 1.5);
@@ -269,12 +280,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
         let position = CGPoint(x: 0, y: frame.size.height/2 - 75);
         
-        let cloud1 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label1, zPos: 2)
-        let cloud2 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label2, zPos: 2)
-        let cloud3 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label3, zPos: 2)
-        let cloud4 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label4, zPos: 2)
-        let cloud5 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label5, zPos: 2)
-        let cloud6 = Bubble(scene: self, type: "instructionscloud", scale: 1, bubblePosition: position, label: label6, zPos: 2)
+        let cloud1 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label1, zPos: 2)
+        let cloud2 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label2, zPos: 2)
+        let cloud3 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label3, zPos: 2)
+        let cloud4 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label4, zPos: 2)
+        let cloud5 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label5, zPos: 2)
+        let cloud6 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label6, zPos: 2)
 
 
         delay(time: 0) {
