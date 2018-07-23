@@ -14,17 +14,28 @@ class BackGroundManager {
     
     private init() {}
     
-    func createStaticBG(scene: SKScene) {
-        let background = SKSpriteNode(imageNamed: "\(option)background");
-        background.name = "background";
-        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        background.position = CGPoint(x: 0, y: 0);
-        background.zPosition = 0;
-        scene.addChild(background);
-    
-        if option == "C" {
-            let snow = snowPulse(position: scene.position);
-            scene.addChild(snow);
+    func createBG(scene: SKScene, dynamic: Bool) {
+        
+        var num = Int();
+        
+        if dynamic == true {
+            num = 1
+        } else {
+            num = 0
+        }
+        
+        for i in 0...num {
+            let background = SKSpriteNode(imageNamed: "\(option)background");
+            background.name = "background";
+            background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            background.position = CGPoint(x: CGFloat(i) * background.size.width, y:0);
+            background.zPosition = 0;
+            scene.addChild(background);
+            
+            if option == "C" {
+                let snow = snowPulse(position: scene.position);
+                scene.addChild(snow);
+            }
         }
     }
     

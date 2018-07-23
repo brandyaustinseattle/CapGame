@@ -43,79 +43,39 @@ class IntroScene: SKScene {
     
     
     func initialize() {
-        
-//        createStaticBG();
-//        createBGAddOn();
-//
-//        addPlatform();
-        
-        BackGroundManager.instance.createStaticBG(scene: self);
+
+        BackGroundManager.instance.createBG(scene: self, dynamic: false);
         BackGroundManager.instance.createBGAddOn(scene: self);
         BackGroundManager.instance.addPlatform(scene: self);
 
         createPlayer();
 
-        addIntroBubble();
+//        addIntroBubble();
         addLevelsBubbles();
     }
-
-//    func createStaticBG() {
-//        let background = SKSpriteNode(imageNamed: "\(option)background");
-//        background.name = "background";
-//        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-//        background.position = CGPoint(x: 0, y: 0);
-//        background.zPosition = 0;
-//        self.addChild(background);
-//        
-//        if option == "C" {
-//            let snow = snowPulse(position: self.position);
-//            self.addChild(snow);
-//        }
-//    }
-//    
-//    func createBGAddOn() {
-//        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
-//        addOn.name = "addOn";
-//        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-//        addOn.position = CGPoint(x: 0, y:0);
-//        addOn.zPosition = 1;
-//        addOn.setScale(0.70);
-//        self.addChild(addOn);
-//    }
-//    
-//    func addPlatform() {
-//        platform.initialize();
-//    
-//        let x = (self.size.width/2) - (platform.size.width/2);
-//        let y = -(self.frame.size.height/2) + (platform.size.height/2);
-//        platform.position = CGPoint(x: x, y: y);
-//    
-//        self.addChild(platform);
-//    }
 
     func createPlayer() {
         player = Player(imageNamed: "standing1");
         player.initialize();
-//        player.position = CGPoint(x: 445, y: -175);
         player.position = CGPoint(x: 445, y: 100);
 
         self.addChild(player);
         player.stand();
     }
     
-    func addIntroBubble() {
-        
-        let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 275);
-        
-        let label = LabelMaker(message: "let's go", messageSize: 100)
-        
-        let intro = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
-        
-        delay(time: 1.25) {
-            self.addChild(intro);
-            ActionManager.instance.flashForever(node: intro);
-        }
-    }
+//    func addIntroBubble() {
+//
+//        let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 275);
+//
+//        let label = LabelMaker(message: "let's go", messageSize: 100)
+//
+//        let intro = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
+//
+//        delay(time: 1.25) {
+//            self.addChild(intro);
+//            ActionManager.instance.flashForever(node: intro);
+//        }
+//    }
     
     func addLevelsBubbles() {
 
