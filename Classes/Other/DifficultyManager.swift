@@ -8,8 +8,6 @@
 
 import Foundation
 
-//class DifficultyManager: NSObject, NSCoding {
-
 class DifficultyManager {
     
     static let instance = DifficultyManager();

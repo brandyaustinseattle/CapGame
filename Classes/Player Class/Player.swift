@@ -11,7 +11,6 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    
     let playerHead = SKSpriteNode();
     let playerBody = SKSpriteNode();
     

@@ -15,15 +15,12 @@ class Points {
     private init() {}
     
     var value = Int();
-    var amtAdded = String();
     
     func increment(consumableName: String) {
         if consumableName == "Drink" {
             value += 1;
-            amtAdded = "+1";
         } else if consumableName == "Bonus" {
             value += 5;
-            amtAdded = "+5";
         }
     }
     
@@ -32,12 +29,6 @@ class Points {
             return
         }
         value -= 1;
-    }
-    
-    func countDown(pointsLabel: SKLabelNode) {
-        for _ in 1...value {
-            self.decrement();
-        }
     }
     
     func getPointsBubble() -> Bubble {

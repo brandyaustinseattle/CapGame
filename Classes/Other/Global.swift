@@ -26,7 +26,18 @@ extension Int {
         return min + randomizer.nextInt(upperBound: max - min + 1);
     }
 }
-    
+
+func delay(time: Double, closure: @escaping ()-> ()) {
+        
+    DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+        closure()
+    }
+}
+
+
+
+
+
 func contactPulse(position: CGPoint) -> SKEmitterNode {
     let pulse = SKEmitterNode(fileNamed: "\(option)Burst");
     pulse?.position = position;
@@ -38,12 +49,4 @@ func snowPulse(position: CGPoint) -> SKEmitterNode {
     pulse?.position = position;
     return pulse!;
 }
-
-func delay(time: Double, closure: @escaping ()-> ()) {
-        
-    DispatchQueue.main.asyncAfter(deadline: .now() + time) {
-        closure()
-    }
-}
-    
 
