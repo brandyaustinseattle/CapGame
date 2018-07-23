@@ -13,7 +13,8 @@ import GameplayKit
 class IntroScene: SKScene {
 
     var player = Player();
-    let platform = PathItem(imageNamed: "\(option)startStep");    
+    let platform = PathItem(imageNamed: "\(option)startStep");
+    
     override func didMove(to view: SKView) {
         initialize();
     }
@@ -30,18 +31,16 @@ class IntroScene: SKScene {
         self.view?.presentScene(newScene, transition: doorway);
         
         if touchedNode.name == "easybutton" {
-//            type = struct("Easy");
-////            DifficultyManager.instance.type = "Easy";
-//            print(Easy.insectFactor)
-//            print(type.insectFactor)
+            DifficultyManager.instance.setFactors(difficulty: "easy");
             
-        } else if touchedNode.name == "Mediumbutton" {
-//            DifficultyManager.instance.type = "Medium";
+        } else if touchedNode.name == "mediumbutton" {
+            DifficultyManager.instance.setFactors(difficulty: "medium");
 
         } else if touchedNode.name == "hardbutton" {
-//            DifficultyManager.instance.type = "Hard";
+            DifficultyManager.instance.setFactors(difficulty: "hard");
         }
     }
+    
     
     func initialize() {
         

@@ -11,7 +11,7 @@ import SpriteKit
 class Points {
 
     static let instance = Points();
-    // can't create instance of Points outside of class
+
     private init() {}
     
     var value = Int();
@@ -24,7 +24,7 @@ class Points {
         } else if consumableName == "Bonus" {
             value += 5;
             amtAdded = "+5";
-        };
+        }
     }
     
     func decrement(pointsLabel: SKLabelNode) {

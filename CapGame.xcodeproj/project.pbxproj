@@ -475,8 +475,8 @@
 				D330D88820F7D6710018ED1F /* Global.swift */,
 				D330D95F20FFF4610018ED1F /* CountDown.swift */,
 				D36D9DFB21013D6000F86C90 /* LabelMaker.swift */,
-				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
 				D38A22DE21040F62006EB471 /* ActionManager.swift */,
+				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
