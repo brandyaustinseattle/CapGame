@@ -111,22 +111,33 @@ class IntroScene: SKScene {
     
     func addLevelsBubbles() {
 
-        var y = self.size.height/2 - self.size.height/4;
-        
         let difficultyTypes = ["easybutton", "mediumbutton", "hardbutton"];
         
+        var y = self.size.height/2 - self.size.height/4 - frame.size.height;
+
+        var time = Double(0.75);
+        
         for type in difficultyTypes {
-        
-            let position = CGPoint(x: -175, y: y);
+
+            delay(time: time) {
             
-            let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
-        
-            self.addChild(button);
-            button.rotateBubble();
-            
-            y -= self.size.height/4;
+                let position = CGPoint(x: -175, y: y);
+
+                let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
+
+
+                let move = SKAction.moveBy(x: 0, y: self.frame.size.height, duration: 0.75)
+
+                self.addChild(button);
+                button.rotateBubble();
+                button.run(move);
+
+                y -= self.size.height/4;
+            }
+            time += 0.75;
+
         }
-    
+
     }
     
 }
