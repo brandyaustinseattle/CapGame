@@ -230,33 +230,8 @@ class PathEngine {
         }
             
         scene.addChild(portal);
-        self.move(itemToMove: portal);
+        ActionManager.instance.move(node: portal);
         
     }
     
-    
-    
-    
-
-    
-    
-    // also in PathItem.swift
-    func move(itemToMove: SKSpriteNode) {
-
-        let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
-        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
-        
-        let remove = SKAction.removeFromParent();
-        let sequence = SKAction.sequence([move, remove]);
-        itemToMove.run(sequence);
-    }
-    
-    func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
-        let xDist = (pointB.x - pointA.x)
-        let yDist = (pointB.y - pointA.y)
-        let distance = sqrt((xDist * xDist) + (yDist * yDist));
-        let duration : TimeInterval = TimeInterval(distance/speed)
-        return duration
-    }
-
 }

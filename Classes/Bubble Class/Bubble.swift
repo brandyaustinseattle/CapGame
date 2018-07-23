@@ -38,46 +38,5 @@ class Bubble: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func removeAfter(seconds: Double) {
-    
-        let wait = SKAction.wait(forDuration: seconds)
-        let hide = SKAction.hide();
-        let sequence = SKAction.sequence([wait, hide]);
-        
-        self.run(sequence, withKey: "remove");
-    }
-    
-    func flashForever() {
-        let fadeIn = SKAction.fadeIn(withDuration: 0.75);
-        let wait = SKAction.wait(forDuration: 0.75)
-        let fadeOut = SKAction.fadeOut(withDuration: 0.75);
-        let sequence = SKAction.sequence([fadeIn, wait, fadeOut]);
-        
-        self.run(SKAction.repeatForever(sequence), withKey: "flashForever");
-    }
-    
-    func flashAlternateTexture(textureOne: SKTexture, textureTwo: SKTexture) {
-
-        let addTextureOne = SKAction.setTexture(textureOne, resize: false);
-        let addTextureTwo = SKAction.setTexture(textureTwo , resize: false);
-        
-        let wait = SKAction.wait(forDuration: 0.25);
-        
-        let flash = SKAction.sequence([addTextureTwo, wait, addTextureOne]);
-        
-        self.run(flash);
-    }
-    
-    // similar to rotate drink
-    // maybe add SK actions to their own class
-    func rotateBubble() {
-        let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / 100), duration: 1);
-        let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / 100), duration: 1);
-        let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
-        
-        self.run(SKAction.repeatForever(rotateSequence), withKey: "rotate");
-    }
-
 }
 

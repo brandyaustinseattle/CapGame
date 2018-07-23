@@ -18,7 +18,7 @@ class Consumable: SKSpriteNode {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         if type == "Drink" {
-            self.rotateDrink();
+            ActionManager.instance.rotateBackForth(node: self, denominator: 12);
         }
         
         if type == "Bonus" {
@@ -43,14 +43,6 @@ class Consumable: SKSpriteNode {
         self.physicsBody?.isDynamic = false;
                 
         self.setScale(0.15);
-    }
-        
-    func rotateDrink() {
-        let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / 12), duration: 1);
-        let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / 12), duration: 1);
-        let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
-            
-        self.run(SKAction.repeatForever(rotateSequence), withKey: "rotateKey");
     }
     
     func bonusPulse(position: CGPoint) -> SKEmitterNode {

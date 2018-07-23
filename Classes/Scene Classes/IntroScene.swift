@@ -104,7 +104,7 @@ class IntroScene: SKScene {
         
         delay(time: 1.25) {
             self.addChild(intro);
-            intro.flashForever();
+            ActionManager.instance.flashForever(node: intro);
         }
     }
     
@@ -127,7 +127,7 @@ class IntroScene: SKScene {
                 let move = SKAction.moveBy(x: 0, y: self.frame.size.height, duration: 0.75)
 
                 self.addChild(button);
-                button.rotateBubble();
+                ActionManager.instance.rotateBackForth(node: button, denominator: 100);
                 button.run(move);
 
                 y -= self.size.height/4;

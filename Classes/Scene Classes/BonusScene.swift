@@ -271,7 +271,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let quick = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
-        quick.removeAfter(seconds: 2);
+        ActionManager.instance.removeAfter(node: quick, seconds: 2);
     }
     
     
@@ -285,7 +285,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
-        plus.removeAfter(seconds: 1.5);
+        ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
         
         plusFiveBubble = true;
     }

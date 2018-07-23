@@ -78,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let textureOne = SKTexture(imageNamed: "roundcloud");
             let textureTwo = SKTexture(imageNamed: "grayroundcloud");
             
-            pointsBubble.flashAlternateTexture(textureOne: textureOne, textureTwo: textureTwo);
+            ActionManager.instance.flashAltTexture(node: pointsBubble, textureOne: textureOne, textureTwo: textureTwo);
             
             
             player.getDizzy();
@@ -247,7 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
-        plus.removeAfter(seconds: 1.5);
+        ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
     }
     
     // similar to other add bubble functions
@@ -257,10 +257,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "ouch", messageSize: 150)
         
-        let plus = Bubble(type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
+        let ouch = Bubble(type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        self.addChild(plus);
-        plus.removeAfter(seconds: 1.5);
+        self.addChild(ouch);
+        ActionManager.instance.removeAfter(node: ouch, seconds: 1.5);
     }
     
     
@@ -290,32 +290,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         delay(time: 0) {
             self.addChild(cloud1);
-            cloud1.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud1, seconds: 5);
         }
         
         delay(time: 10) {
             self.addChild(cloud2);
-            cloud2.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud2, seconds: 5);
         }
 
         delay(time: 16) {
             self.addChild(cloud3);
-            cloud3.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud3, seconds: 5);
         }
 
         delay(time: 22) {
             self.addChild(cloud4);
-            cloud4.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud4, seconds: 5);
         }
 
         delay(time: 27) {
             self.addChild(cloud5);
-            cloud5.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud5, seconds: 5);
         }
 
         delay(time: 32) {
             self.addChild(cloud6);
-            cloud6.removeAfter(seconds: 5);
+            ActionManager.instance.removeAfter(node: cloud6, seconds: 5);
         }
     }
     

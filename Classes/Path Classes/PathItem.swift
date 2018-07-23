@@ -43,8 +43,8 @@ class PathItem: SKSpriteNode {
 
         self.position = CGPoint(x: xValue, y: -(scene.frame.size.height/2) + (self.size.height/2));
         
-        self.move(itemToMove: self);
-        
+        ActionManager.instance.move(node: self);
+
         if drinkFlag {
             self.addDrink(referencePosition: self.position, scene: scene);
          
@@ -68,7 +68,7 @@ class PathItem: SKSpriteNode {
         
         scene.addChild(drink);
         
-        self.move(itemToMove: drink);
+        ActionManager.instance.move(node:drink);
     }
     
     func addRock(referencePosition: CGPoint, scene: SKScene) {
@@ -82,30 +82,8 @@ class PathItem: SKSpriteNode {
         
         scene.addChild(rock);
         
-        self.move(itemToMove: rock);
-    }
-    
-    
-    
-    
-    
-    
-    // also in PathEngine.swift
-    func move(itemToMove: SKSpriteNode) {
-        let endpoint = CGPoint(x: -800, y: itemToMove.position.y);
-        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: itemToMove.position, pointB: endpoint, speed: 175.0))
-        
-        let remove = SKAction.removeFromParent();
-        let sequence = SKAction.sequence([move, remove]);
-        itemToMove.run(sequence);
-    }
-    
-    func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
-        let xDist = (pointB.x - pointA.x)
-        let yDist = (pointB.y - pointA.y)
-        let distance = sqrt((xDist * xDist) + (yDist * yDist));
-        let duration : TimeInterval = TimeInterval(distance/speed)
-        return duration
+        ActionManager.instance.move(node: rock);
+
     }
 
 }
