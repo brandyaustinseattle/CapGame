@@ -34,15 +34,16 @@ class Insect: SKSpriteNode {
     }
     
     func fly() {
-//        let fadeIn = SKAction.fadeIn(withDuration: 0.15);
-//        let fadeOut = SKAction.fadeOut(withDuration: 0.15);
-     
         let flyLeft = SKAction.moveBy(x: -150, y: 0, duration: 2);
         let flyRight = SKAction.moveBy(x: 150, y: 0, duration: 2);
         
         let flySequence = SKAction.sequence([flyLeft, flyRight]);
         
         self.run(flySequence);
+        
+        delay(time: 4) {
+            self.removeFromParent();
+        }
     }
     
 }

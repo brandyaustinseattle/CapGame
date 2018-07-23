@@ -15,8 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var ouchBubble = false;
 
-    var insectEngine = InsectEngine();
     var pathEngine = PathEngine();
+    var insectEngine = InsectEngine();
     
     var player = Player();
     var isAlive = true;
@@ -153,10 +153,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createPlayer();
         playerConstraints();
 
-        startPathEngine();
+        startTheEngines();
     }
     
-    func startPathEngine() {
+    func startTheEngines() {
         // player must be running when engine is started
         player.runFast();
         

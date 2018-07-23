@@ -99,7 +99,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         let gameOver = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        delay(time: 1.75) {
+        delay(time: 2) {
             self.addChild(gameOver);
             gameOver.flashForever();
         }

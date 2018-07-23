@@ -11,27 +11,25 @@ import SpriteKit
 
 class InsectEngine {
     
-    var counter = 1;
     var timer = Timer();
     
     var insect = Insect();
     
     let xArray = [CGFloat(-350), CGFloat(50), CGFloat(450)];
     let yArray = [CGFloat(260), CGFloat(175)];
-
+    
     func initialize(scene: SKScene) {
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(incrementCounter), userInfo: scene, repeats: true);
     }
-    
+        
     @objc func incrementCounter(timer: Timer) {
-        counter += 1;
         
         let insectRandom = Int.random(min: 1, max: 10);
         
         let scene = timer.userInfo as! SKScene;
         
         if insectRandom <= DifficultyManager.instance.insectFactor {
-            addHorizontalInsect(scene: scene);
+            self.addHorizontalInsect(scene: scene);
         }
     }
     

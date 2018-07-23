@@ -45,7 +45,7 @@ class Bubble: SKSpriteNode {
         let hide = SKAction.hide();
         let sequence = SKAction.sequence([wait, hide]);
         
-        self.run(SKAction.repeatForever(sequence), withKey: "remove");
+        self.run(sequence, withKey: "remove");
     }
     
     func flashForever() {

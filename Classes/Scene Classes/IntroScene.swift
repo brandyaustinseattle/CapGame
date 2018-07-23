@@ -114,7 +114,7 @@ class IntroScene: SKScene {
         
         var y = self.size.height/2 - self.size.height/4 - frame.size.height;
 
-        var time = Double(0.25);
+        var time = Double(0.5);
         
         for type in difficultyTypes {
 

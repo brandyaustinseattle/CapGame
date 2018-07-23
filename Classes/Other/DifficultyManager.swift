@@ -35,7 +35,7 @@ class DifficultyManager {
                 drinkFactor = 4;
                 bonusFactor = 4;
 
-                insectFactor = 2;
+                insectFactor = 9;
                 rockFactor = 2;
                 
                 portalFactor = 4;
