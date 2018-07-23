@@ -115,7 +115,7 @@ class IntroScene: SKScene {
         
         var y = self.size.height/2 - self.size.height/4 - frame.size.height;
 
-        var time = Double(0.75);
+        var time = Double(0.25);
         
         for type in difficultyTypes {
 
@@ -125,7 +125,6 @@ class IntroScene: SKScene {
 
                 let button = Bubble(scene: self, type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
 
-
                 let move = SKAction.moveBy(x: 0, y: self.frame.size.height, duration: 0.75)
 
                 self.addChild(button);
@@ -134,7 +133,7 @@ class IntroScene: SKScene {
 
                 y -= self.size.height/4;
             }
-            time += 0.75;
+            time += 0.5;
 
         }
 
