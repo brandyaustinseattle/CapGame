@@ -38,5 +38,15 @@ class Bubble: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateLabel(newLabel: SKLabelNode) {
+        if let child = self.childNode(withName: "Label") as? SKLabelNode {
+            child.removeFromParent()
+        }
+        
+        addChild(newLabel);
+    }
+
 }
+
 

@@ -57,6 +57,8 @@ class CountDown {
         label.text = "\(cdValue)";
     }
     
+    
+    
     func flashCDBackground(background: SKSpriteNode) {
         let grayImage = SKTexture(imageNamed: "graylongcloud");
         let makeGray = SKAction.setTexture(grayImage , resize: false);

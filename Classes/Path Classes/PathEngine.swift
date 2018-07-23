@@ -70,13 +70,14 @@ class PathEngine {
         let randomTwo = Int.random(min: 1, max: 10);
         
         if lastType == "end" || lastType == "alone" {
-            
+
             if portalRandom <= DifficultyManager.instance.portalFactor {
                 insertPortal(scene: scene);
                 return;
             }
             
             if (randomOne <= DifficultyManager.instance.startAloneFactor) {
+                
                 type = "start";
                 
                 if (randomTwo <= 2) {
@@ -90,6 +91,7 @@ class PathEngine {
                 };
                 
             } else {
+                
                 type = "alone";
                 
                 if (randomTwo <= DifficultyManager.instance.lowHighFactor) {

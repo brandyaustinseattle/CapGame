@@ -12,9 +12,10 @@ import GameplayKit
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
     
-    var pointsLabel = SKLabelNode();
-    var pointsBG = SKSpriteNode();
+    let pointsBubble = Points.instance.getPointsBubble();
     var plusFiveBubble = false;
+    
+    var countDownValue = 10;
     
     var touchLocation = CGPoint();
     
@@ -22,42 +23,28 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var drink = Consumable();
     var bonus = Consumable();
     
-    var countDown = CountDown();
-    var cdLabel = SKLabelNode();
-    var bgCloud = SKSpriteNode();
-    var timer1 = Timer();
+    var timer = Timer();
+    
+    
+    let countDownBubble = Bubble(type: "longcloud", scale: 0.85, bubblePosition: CGPoint(x: 0, y: 235), label: LabelMaker(message: "\(10)", messageSize: 65));
+    
     
     override func didMove(to view: SKView) {
         initialize();
         
-        let pointsBubble = Points.instance.getPointsBubble();
         self.addChild(pointsBubble);
-        
-//        let cdWords = self.countDownWords();
-//        self.addChild(cdWords);
-        
-//        bgCloud = countDown.getBackground();
-//        cdLabel = countDown.getLabel();
-//        
-//        let cd = self.countDownWords();
-//        self.addChild(cd);
-//        
-//        countDown.updateCountDownDisplay(label: cdLabel)
-//        self.addChild(bgCloud);
-//        self.addChild(cdLabel);
+        self.addChild(countDownBubble);
     }
     
     override func update(_ currentTime: TimeInterval) {
-        moveClouds();
-        
-        if cdLabel.text == "0" {
-            timer1.invalidate();
+        if countDownValue == 0 {
+            timer.invalidate();
             self.exitScene();
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        timer1 = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(countDownH), userInfo: nil, repeats: true);
+        timer  = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(countDownSeconds), userInfo: nil, repeats: true);
         
         guard let touch = touches.first else { return }
         let destination = touch.location(in: self)
@@ -87,13 +74,14 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             
             let consumableName = secondBody.node?.name;
             
-            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+            if let child = self.childNode(withName: "roundspeech") as? SKSpriteNode {
                 child.removeFromParent()
             }
             
             Points.instance.increment(consumableName: consumableName!);
-            let pointsBubble = Points.instance.getPointsBubble();
-            self.addChild(pointsBubble);
+      
+            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
@@ -124,6 +112,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
 
         createBG();
         createClouds();
+        moveClouds();
         
         createPlayer();
         addConsumablesMatrix();
@@ -132,25 +121,20 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    @objc func countDownH() {
-        countDown.decrement(label: cdLabel);
-        countDown.updateCountDownDisplay(label: cdLabel)
-        countDown.flashCDBackground(background: bgCloud);
-    }
-    
-    func countDownWords() -> SKLabelNode {
-
-        let cdWords = SKLabelNode(fontNamed: "Marker Felt");
-
-        cdWords.name = "count down";
-        cdWords.text = "seconds";
-        cdWords.fontColor = UIColor.black;
-        cdWords.fontSize = 30;
-        cdWords.zPosition = 4;
-
-        cdWords.position = CGPoint(x: 0, y: 235);
-
-        return cdWords;
+    @objc func countDownSeconds() {
+        if countDownValue == 0 {
+            return
+        }
+        
+        countDownValue -= 1;
+        
+        let textureOne = SKTexture(imageNamed: "longcloud");
+        let textureTwo = SKTexture(imageNamed: "graylongcloud");
+        
+        ActionManager.instance.flashAltTexture(node: countDownBubble, textureOne: textureOne, textureTwo: textureTwo);
+        
+        let label = LabelMaker(message: "\(countDownValue)", messageSize: 65);
+        countDownBubble.updateLabel(newLabel: label);
     }
 
     func createBG() {
@@ -271,7 +255,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let quick = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
-        ActionManager.instance.removeAfter(node: quick, seconds: 2);
     }
     
     
@@ -285,7 +268,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
-        ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
+        
+        ActionManager.instance.removeAfter(node: plus, seconds: 1)
         
         plusFiveBubble = true;
     }

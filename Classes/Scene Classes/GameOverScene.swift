@@ -18,11 +18,12 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player();
     let platform = PathItem(imageNamed: "\(option)startStep");
+    let pointsBubble = Points.instance.getPointsBubble();
+
     
     override func didMove(to view: SKView) {
         initialize();
         
-        let pointsBubble = Points.instance.getPointsBubble();
         self.addChild(pointsBubble);
     }
     
@@ -35,22 +36,22 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         addGameOverBubble();
         
-        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(countDown), userInfo: nil, repeats: true);
+        delay(time: 3) {
+            self.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.countDownPoints), userInfo: nil, repeats: true);
+        }
     }
     
-    @objc func countDown() {
+    @objc func countDownPoints() {
+        
         if Points.instance.value == 0 {
             timer.invalidate();
+            return
         }
         
         Points.instance.decrement();
         
-        if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
-            child.removeFromParent()
-        }
-        
-        let pointsBubble = Points.instance.getPointsBubble();
-        self.addChild(pointsBubble);
+        let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+        pointsBubble.updateLabel(newLabel: label)
     }
     
     func createStaticBG() {
@@ -99,7 +100,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         let gameOver = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
-        delay(time: 3.5) {
+        delay(time: 3) {
             self.addChild(gameOver);
             ActionManager.instance.flashForever(node: gameOver);
         }

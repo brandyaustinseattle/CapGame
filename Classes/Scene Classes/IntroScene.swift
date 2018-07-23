@@ -38,6 +38,7 @@ class IntroScene: SKScene {
 
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
+        
         }
     }
     

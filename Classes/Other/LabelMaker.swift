@@ -14,7 +14,7 @@ class LabelMaker: SKLabelNode {
         
         super.init();
         
-        name = text;
+        name = "Label";
         fontName = "Marker Felt";
         text = message;
         fontColor = UIColor.black;

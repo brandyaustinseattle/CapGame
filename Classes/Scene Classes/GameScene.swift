@@ -24,11 +24,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
+    let pointsBubble = Points.instance.getPointsBubble();
+    
     
     override func didMove(to view: SKView) {
         initialize();
         
-        let pointsBubble = Points.instance.getPointsBubble();
         self.addChild(pointsBubble);
     }
     
@@ -68,18 +69,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             Points.instance.value = 0;
             
-            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
-                child.removeFromParent()
-            }
+//            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+//                child.removeFromParent()
+//            }
             
-            let pointsBubble = Points.instance.getPointsBubble();
-            self.addChild(pointsBubble);
+            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            pointsBubble.updateLabel(newLabel: label)
             
             let textureOne = SKTexture(imageNamed: "roundcloud");
             let textureTwo = SKTexture(imageNamed: "grayroundcloud");
             
             ActionManager.instance.flashAltTexture(node: pointsBubble, textureOne: textureOne, textureTwo: textureTwo);
-            
             
             player.getDizzy();
             
@@ -100,12 +100,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let consumableName = secondBody.node?.name;
             Points.instance.increment(consumableName: consumableName!);
             
-            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
-                child.removeFromParent()
-            }
-
-            let pointsBubble = Points.instance.getPointsBubble();
-            self.addChild(pointsBubble);
+//            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
+//                child.removeFromParent()
+//            }
+            
+            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
             let cPulse = contactPulse(position: position!);
@@ -233,6 +233,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverScene.scaleMode = .aspectFill;
         
         let doorway = SKTransition.doorway(withDuration: 3);
+        
+        doorway.pausesIncomingScene = true;
 
         self.view?.presentScene(gameOverScene, transition: doorway);
     }
