@@ -37,7 +37,6 @@ func delay(time: Double, closure: @escaping ()-> ()) {
 
 
 
-
 func contactPulse(position: CGPoint) -> SKEmitterNode {
     let pulse = SKEmitterNode(fileNamed: "\(option)Burst");
     pulse?.position = position;

@@ -28,12 +28,12 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initialize() {
-        createStaticBG();
-        createTrees();
-        
-        addPlatform();
-        createPlayer();
-        
+//        createStaticBG();
+//        createBGAddOn();
+//
+//        addPlatform();
+//        createPlayer();
+//
         addGameOverBubble();
         
         delay(time: 3) {
@@ -54,34 +54,39 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         pointsBubble.updateLabel(newLabel: label)
     }
     
-    func createStaticBG() {
-        let background = SKSpriteNode(imageNamed: "\(option)background");
-        background.name = "background";
-        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        background.position = CGPoint(x: 0, y: 0);
-        background.zPosition = 0;
-        self.addChild(background);
-    }
-    
-    func createTrees() {
-        let trees = SKSpriteNode(imageNamed: "\(option)addon");
-        trees.name = "\(option)AddOn";
-        trees.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        trees.position = CGPoint(x: 0, y:0);
-        trees.zPosition = 1;
-        trees.setScale(0.70);
-        self.addChild(trees);
-    }
-    
-    func addPlatform() {
-        platform.initialize();
-        
-        let x = (self.size.width/2) - (platform.size.width/2);
-        let y = -(self.frame.size.height/2) + (platform.size.height/2);
-        platform.position = CGPoint(x: x, y: y);
-        
-        self.addChild(platform);
-    }
+//    func createStaticBG() {
+//        let background = SKSpriteNode(imageNamed: "\(option)background");
+//        background.name = "background";
+//        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+//        background.position = CGPoint(x: 0, y: 0);
+//        background.zPosition = 0;
+//        self.addChild(background);
+//        
+//        if option == "C" {
+//            let snow = snowPulse(position: self.position);
+//            self.addChild(snow);
+//        }
+//    }
+//    
+//    func createBGAddOn() {
+//        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
+//        addOn.name = "addOn";
+//        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+//        addOn.position = CGPoint(x: 0, y:0);
+//        addOn.zPosition = 1;
+//        addOn.setScale(0.70);
+//        self.addChild(addOn);
+//    }
+//    
+//    func addPlatform() {
+//        platform.initialize();
+//        
+//        let x = (self.size.width/2) - (platform.size.width/2);
+//        let y = -(self.frame.size.height/2) + (platform.size.height/2);
+//        platform.position = CGPoint(x: x, y: y);
+//        
+//        self.addChild(platform);
+//    }
     
     func createPlayer() {
         player = Player(imageNamed: "gameover1");

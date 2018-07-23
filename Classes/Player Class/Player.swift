@@ -31,7 +31,6 @@ class Player: SKSpriteNode {
         playerHead.name = "Player";
         playerHead.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.55, center: CGPoint(x:90, y:150));
         
-        // this is where the magic happens
         playerHead.physicsBody?.collisionBitMask = 0;
         
         playerHead.physicsBody?.usesPreciseCollisionDetection = true;
@@ -110,6 +109,7 @@ class Player: SKSpriteNode {
         self.run(gameOver);
         self.run(SKAction.repeatForever(gameOver), withKey: "overKey");
     }
+    
     
     // start animations prep
     func standingPrep() -> SKAction {

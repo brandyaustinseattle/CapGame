@@ -13,7 +13,6 @@ import GameplayKit
 class IntroScene: SKScene {
 
     var player = Player();
-    let platform = PathItem(imageNamed: "\(option)startStep");
     
     override func didMove(to view: SKView) {
         initialize();
@@ -45,44 +44,54 @@ class IntroScene: SKScene {
     
     func initialize() {
         
-        createStaticBG();
-        createBGAddOn();
-    
-        addPlatform();
+//        createStaticBG();
+//        createBGAddOn();
+//
+//        addPlatform();
+        
+        BackGroundManager.instance.createStaticBG(scene: self);
+        BackGroundManager.instance.createBGAddOn(scene: self);
+        BackGroundManager.instance.addPlatform(scene: self);
+
         createPlayer();
 
         addIntroBubble();
         addLevelsBubbles();
     }
 
-    func createStaticBG() {
-        let background = SKSpriteNode(imageNamed: "\(option)background");
-        background.name = "background";
-        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        background.position = CGPoint(x: 0, y: 0);
-        background.zPosition = 0;
-        self.addChild(background);
-    }
-    
-    func createBGAddOn() {
-        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
-        addOn.name = "addOn";
-        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        addOn.position = CGPoint(x: 0, y:0);
-        addOn.zPosition = 1;
-        addOn.setScale(0.70);
-        self.addChild(addOn);
-    }
-    
-    func addPlatform() {
-        platform.initialize();
-    
-        let x = (self.size.width/2) - (platform.size.width/2);
-        let y = -(self.frame.size.height/2) + (platform.size.height/2);
-        platform.position = CGPoint(x: x, y: y);
-    
-        self.addChild(platform);
-    }
+//    func createStaticBG() {
+//        let background = SKSpriteNode(imageNamed: "\(option)background");
+//        background.name = "background";
+//        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+//        background.position = CGPoint(x: 0, y: 0);
+//        background.zPosition = 0;
+//        self.addChild(background);
+//        
+//        if option == "C" {
+//            let snow = snowPulse(position: self.position);
+//            self.addChild(snow);
+//        }
+//    }
+//    
+//    func createBGAddOn() {
+//        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
+//        addOn.name = "addOn";
+//        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+//        addOn.position = CGPoint(x: 0, y:0);
+//        addOn.zPosition = 1;
+//        addOn.setScale(0.70);
+//        self.addChild(addOn);
+//    }
+//    
+//    func addPlatform() {
+//        platform.initialize();
+//    
+//        let x = (self.size.width/2) - (platform.size.width/2);
+//        let y = -(self.frame.size.height/2) + (platform.size.height/2);
+//        platform.position = CGPoint(x: x, y: y);
+//    
+//        self.addChild(platform);
+//    }
 
     func createPlayer() {
         player = Player(imageNamed: "standing1");
@@ -101,7 +110,6 @@ class IntroScene: SKScene {
         let label = LabelMaker(message: "let's go", messageSize: 100)
         
         let intro = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
-        
         
         delay(time: 1.25) {
             self.addChild(intro);

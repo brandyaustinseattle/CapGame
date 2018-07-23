@@ -54,7 +54,6 @@ class ActionManager {
     }
     
     func move(node: SKSpriteNode) {
-        
         let endpoint = CGPoint(x: -800, y: node.position.y);
         let move = SKAction.move(to: endpoint, duration: getDuration(pointA: node.position, pointB: endpoint, speed: 175.0))
         
