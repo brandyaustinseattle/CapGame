@@ -16,13 +16,15 @@ class DifficultyManager {
     
     private init() {}
     
-    private(set) var insectFactor = Int();
     private(set) var drinkFactor = Int();
-    private(set) var planeFactor = Int();
-    
-    private(set) var portalFactor = Int();
     private(set) var bonusFactor = Int();
-    
+
+    private(set) var insectFactor = Int();
+    private(set) var rockFactor = Int();
+
+    private(set) var portalFactor = Int();
+    private(set) var standPlaneFactor = Int();
+
     private(set) var startAloneFactor = Int();
     private(set) var lowMiddleEndFactor = Int();
     private(set) var highMiddleEndFactor = Int();
@@ -32,45 +34,55 @@ class DifficultyManager {
     func setFactors(difficulty: String) {
         switch difficulty {
             case "easy":
-                insectFactor = 2;
                 drinkFactor = 4;
-                planeFactor = 3;
-        
-                portalFactor = 4;
                 bonusFactor = 4;
+
+                insectFactor = 2;
+                rockFactor = 2;
+                
+                portalFactor = 4;
+                standPlaneFactor = 3;
         
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
                 highMiddleEndFactor = 8;
                 lowHighFactor = 5;
+                
                 return
         
             case "medium":
-                insectFactor = 4;
                 drinkFactor = 3;
-                planeFactor = 3;
-        
-                portalFactor = 4;
                 bonusFactor = 2;
-        
+                
+                insectFactor = 4;
+                rockFactor = 3;
+                
+                portalFactor = 4;
+                standPlaneFactor = 3;
+                
                 startAloneFactor = 6;
                 lowMiddleEndFactor = 6;
                 highMiddleEndFactor = 6;
                 lowHighFactor = 6;
+                
                 return
         
             case "hard":
-                insectFactor = 6;
+                
                 drinkFactor = 2;
-                planeFactor = 3;
-        
-                portalFactor = 4;
                 bonusFactor = 1;
-        
+                
+                insectFactor = 6;
+                rockFactor = 4;
+                
+                portalFactor = 4;
+                standPlaneFactor = 3;
+                
                 startAloneFactor = 5;
                 lowMiddleEndFactor = 5;
                 highMiddleEndFactor = 5;
                 lowHighFactor = 6;
+   
                 return
         
             default:

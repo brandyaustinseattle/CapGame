@@ -15,7 +15,6 @@ class InsectEngine {
     var timer = Timer();
     
     var insect = Insect();
-    let insectFactor = 9;
     
     let xArray = [CGFloat(-350), CGFloat(50), CGFloat(450)];
     let yArray = [CGFloat(260), CGFloat(175)];
@@ -31,7 +30,7 @@ class InsectEngine {
         
         let scene = timer.userInfo as! SKScene;
         
-        if insectRandom <= insectFactor {
+        if insectRandom <= DifficultyManager.instance.insectFactor {
             addHorizontalInsect(scene: scene);
         }
     }

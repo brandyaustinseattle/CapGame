@@ -227,7 +227,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
         
-        let bonusFactor = 3;
         
         // 3 rows and 5 columns of drinks/bonuses
         for i in 1...3 {
@@ -247,7 +246,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     
                     let bonusRandom = Int.random(min: 1, max: 10);
                     
-                    if bonusRandom <= bonusFactor {
+                    if bonusRandom <= DifficultyManager.instance.bonusFactor {
                         self.addChild(bonus);
                     } else {
                         self.addChild(drink);

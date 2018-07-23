@@ -65,24 +65,18 @@ class PathEngine {
 
         let scene = timer.userInfo as! SKScene;
         
-        let portalFactor = 8;
-        let startAloneFactor = 4;
-        let lowMiddleEndFactor = 6;
-        let highMiddleEndFactor = 5;
-        let lowHighFactor = 6;
-        
         let portalRandom = Int.random(min: 1, max: 30);
         let randomOne = Int.random(min: 1, max: 10);
         let randomTwo = Int.random(min: 1, max: 10);
         
         if lastType == "end" || lastType == "alone" {
             
-            if portalRandom <= portalFactor {
+            if portalRandom <= DifficultyManager.instance.portalFactor {
                 insertPortal(scene: scene);
                 return;
             }
             
-            if (randomOne <= startAloneFactor) {
+            if (randomOne <= DifficultyManager.instance.startAloneFactor) {
                 type = "start";
                 
                 if (randomTwo <= 2) {
@@ -98,7 +92,7 @@ class PathEngine {
             } else {
                 type = "alone";
                 
-                if (randomTwo <= lowHighFactor) {
+                if (randomTwo <= DifficultyManager.instance.lowHighFactor) {
                     height = "Low";
                     
                 } else {
@@ -114,7 +108,7 @@ class PathEngine {
                 
                 height = "Low";
                 
-                if (1...lowMiddleEndFactor).contains(randomTwo) {
+                if (1...DifficultyManager.instance.lowMiddleEndFactor).contains(randomTwo) {
                     type = "middle";
                     
                 } else {
@@ -126,7 +120,7 @@ class PathEngine {
                 
                 height = "High";
                 
-                if (1...highMiddleEndFactor).contains(randomTwo) {
+                if (1...DifficultyManager.instance.highMiddleEndFactor).contains(randomTwo) {
                     type = "middle";
                     
                 } else {
@@ -153,10 +147,9 @@ class PathEngine {
     func rockRequired(type: String) -> Bool {
         if (type != "alone" && height != "High") && height != "Step" {
             
-            let rockFactor = 1;
             let rockRandom = Int.random(min: 1, max: 10);
             
-            return rockRandom <= rockFactor
+            return rockRandom <= DifficultyManager.instance.rockFactor
         } else {
             return false
         }
@@ -164,20 +157,19 @@ class PathEngine {
     
     func drinkRequired(type: String) -> Bool {
         if type == "alone" || type == "middle" {
-            let drinkFactor = 8;
+
             let drinkRandom = Int.random(min: 1, max: 10);
 
-            return drinkRandom <= drinkFactor
+            return drinkRandom <= DifficultyManager.instance.drinkFactor
         } else {
             return false
         }
     }
     
     func selectPortalType() -> String {
-        let standPlaneFactor = 3;
         let standPlaneRandom = Int.random(min: 1, max: 10);
 
-        if standPlaneRandom <= standPlaneFactor {
+        if standPlaneRandom <= DifficultyManager.instance.standPlaneFactor {
             return "stand";
         } else {
             return "plane";
