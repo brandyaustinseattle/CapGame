@@ -114,6 +114,7 @@
 		D38A22DD2103FEA1006EB471 /* instructionscloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22DC2103FEA1006EB471 /* instructionscloud.png */; };
 		D38A22DF21040F62006EB471 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22DE21040F62006EB471 /* ActionManager.swift */; };
 		D38A22E1210670F5006EB471 /* BackGroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22E0210670F5006EB471 /* BackGroundManager.swift */; };
+		D38A22E32107029F006EB471 /* StaticSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22E22107029F006EB471 /* StaticSceneManager.swift */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -229,6 +230,7 @@
 		D38A22DC2103FEA1006EB471 /* instructionscloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionscloud.png; sourceTree = "<group>"; };
 		D38A22DE21040F62006EB471 /* ActionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionManager.swift; sourceTree = "<group>"; };
 		D38A22E0210670F5006EB471 /* BackGroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundManager.swift; sourceTree = "<group>"; };
+		D38A22E22107029F006EB471 /* StaticSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSceneManager.swift; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D38A22E4210702AF006EB471 /* Manager Classes */,
 				D36D9E2C210282AE00F86C90 /* Portal Class */,
 				D36D9DDC210112A600F86C90 /* Bubble Class */,
 				D330D93C20FEC2FF0018ED1F /* Enemy Classes */,
@@ -474,9 +477,6 @@
 				D330D89220F9327B0018ED1F /* Points.swift */,
 				D330D88820F7D6710018ED1F /* Global.swift */,
 				D36D9DFB21013D6000F86C90 /* LabelMaker.swift */,
-				D38A22DE21040F62006EB471 /* ActionManager.swift */,
-				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
-				D38A22E0210670F5006EB471 /* BackGroundManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -617,6 +617,17 @@
 				D36D9E7021031B3800F86C90 /* 2vertical.png */,
 			);
 			path = Vertical;
+			sourceTree = "<group>";
+		};
+		D38A22E4210702AF006EB471 /* Manager Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D38A22DE21040F62006EB471 /* ActionManager.swift */,
+				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
+				D38A22E0210670F5006EB471 /* BackGroundManager.swift */,
+				D38A22E22107029F006EB471 /* StaticSceneManager.swift */,
+			);
+			path = "Manager Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -778,6 +789,7 @@
 				D36D9E2E210282DD00F86C90 /* Portal.swift in Sources */,
 				D38A22E1210670F5006EB471 /* BackGroundManager.swift in Sources */,
 				D330D89320F9327B0018ED1F /* Points.swift in Sources */,
+				D38A22E32107029F006EB471 /* StaticSceneManager.swift in Sources */,
 				D36D9E372102915700F86C90 /* Loading.swift in Sources */,
 				D330D86C20F3DCE60018ED1F /* PathEngine.swift in Sources */,
 				D330D88D20F806BD0018ED1F /* BonusScene.swift in Sources */,
