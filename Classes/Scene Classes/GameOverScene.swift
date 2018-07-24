@@ -7,39 +7,30 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 
-class GameOverScene: SKScene, SKPhysicsContactDelegate {
+class GameOverScene: StaticScene {
 
-    var pointsLabel = SKLabelNode();
-    var pointsBG = SKSpriteNode();
-    var timer = Timer();
-    
-    var player = Player();
-    let platform = PathItem(imageNamed: "\(option)startStep");
-    let pointsBubble = Points.instance.getPointsBubble();
-
-    
-    override func didMove(to view: SKView) {
-        initialize();
-        
-        self.addChild(pointsBubble);
+    override var text : String {
+        get { return "game over" }
+        set { }
     }
     
-    func initialize() {
-
-        BackGroundManager.instance.createBG(scene: self, dynamic: false);
-        BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
-        BackGroundManager.instance.addPlatform(scene: self);
+    var timer = Timer();
+    let pointsBubble = Points.instance.getPointsBubble();
+    
+    override func setUp() {
+        self.addChild(pointsBubble);
         
-        createPlayer();
-
-        addGameOverBubble();
+        super.initialize(playerImage: "standing1");
         
         delay(time: 3) {
             self.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.countDownPoints), userInfo: nil, repeats: true);
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.managePlayerJumps();
     }
     
     @objc func countDownPoints() {
@@ -53,29 +44,6 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
         pointsBubble.updateLabel(newLabel: label)
-    }
-    
-    func createPlayer() {
-        player = Player(imageNamed: "gameover1");
-        player.initialize();
-        player.position = CGPoint(x: 445, y: 100);
-        
-        self.addChild(player);
-        player.gameOver();
-    }
-    
-    func addGameOverBubble() {
-        
-        let position = CGPoint(x: platform.position.x - 215, y: platform.position.y + 300);
-        
-        let label = LabelMaker(message: "game over", messageSize: 70)
-        
-        let gameOver = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
-        
-        delay(time: 3) {
-            self.addChild(gameOver);
-            ActionManager.instance.flashForever(node: gameOver);
-        }
     }
 
 }

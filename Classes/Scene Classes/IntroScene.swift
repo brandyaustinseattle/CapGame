@@ -7,48 +7,24 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 
-class IntroScene: SKScene, SKPhysicsContactDelegate {
-
-    var player = Player();
-    var playerOnPath = false;
-    var playerRepeatJumps = 0;
+class IntroScene: StaticScene {
     
-    override func didMove(to view: SKView) {
-        initialize();
+    override var text : String {
+        get { return "let's go" }
+        set { }
     }
     
-    func didBegin(_ contact: SKPhysicsContact) {
-        var firstBody = SKPhysicsBody();
-        var secondBody = SKPhysicsBody();
- 
-        if contact.bodyA.node?.name == "Player" {
-            firstBody = contact.bodyA;
-            secondBody = contact.bodyB;
-        } else {
-            firstBody = contact.bodyB;
-            secondBody = contact.bodyA;
-        }
+    override func setUp() {
+        addLevelsBubbles();
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" {
-            playerOnPath = true;
-            playerRepeatJumps = 0;
-            player.stand();
-        }
+        super.initialize(playerImage: "standing1");
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if playerRepeatJumps >= 2 {
-            return;
-        } else {
-            playerOnPath = false;
-            playerRepeatJumps += 1;
-            player.jumpUp();
-        }
-        player.jumpUp();
+        super.managePlayerJumps();
         
         let touch:UITouch = touches.first!;
         let positionInScene = touch.location(in: self);
@@ -57,55 +33,14 @@ class IntroScene: SKScene, SKPhysicsContactDelegate {
         if touchedNode.name == "easybutton" {
             DifficultyManager.instance.setFactors(difficulty: "easy");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
-            
         } else if touchedNode.name == "mediumbutton" {
             DifficultyManager.instance.setFactors(difficulty: "medium");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
-
-            
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
-
         }
     }
-    
-    
-    func initialize() {
-        physicsWorld.contactDelegate = self;
-
-        BackGroundManager.instance.createBG(scene: self, dynamic: false);
-        BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
-        BackGroundManager.instance.addPlatform(scene: self);
-
-        createPlayer();
-
-//        addIntroBubble();
-        addLevelsBubbles();
-    }
-
-    func createPlayer() {
-        player = Player(imageNamed: "standing1");
-        player.initialize();
-        player.position = CGPoint(x: 445, y: 100);
-
-        self.addChild(player);
-        player.stand();
-    }
-    
-//    func addIntroBubble() {
-//
-//        let position = CGPoint(x: platform.position.x - 150, y: platform.position.y + 275);
-//
-//        let label = LabelMaker(message: "let's go", messageSize: 100)
-//
-//        let intro = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
-//
-//        delay(time: 1.25) {
-//            self.addChild(intro);
-//            ActionManager.instance.flashForever(node: intro);
-//        }
-//    }
     
     func addLevelsBubbles() {
 
@@ -134,7 +69,6 @@ class IntroScene: SKScene, SKPhysicsContactDelegate {
             time += 0.5;
 
         }
-
     }
     
 }

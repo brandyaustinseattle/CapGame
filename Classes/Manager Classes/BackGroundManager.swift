@@ -78,18 +78,5 @@ class BackGroundManager {
             }
         }
     }
-    
-    func addPlatform(scene: SKScene) {
-        
-        let platform = PathItem(imageNamed: "\(option)startStep");
-
-        platform.initialize();
-        
-        let x = (scene.size.width/2) - (platform.size.width/2);
-        let y = -(scene.frame.size.height/2) + (platform.size.height/2);
-        platform.position = CGPoint(x: x, y: y);
-    
-        scene.addChild(platform);
-    }
 
 }

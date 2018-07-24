@@ -8,6 +8,7 @@
 
 import Foundation
 
+//  store as NSObject...data stored on phone
 class DifficultyManager {
     
     static let instance = DifficultyManager();

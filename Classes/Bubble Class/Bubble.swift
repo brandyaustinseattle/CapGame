@@ -8,8 +8,6 @@
 
 import SpriteKit
 
-// for bonus scene 75
-// for game scene 05
 
 class Bubble: SKSpriteNode {
     
