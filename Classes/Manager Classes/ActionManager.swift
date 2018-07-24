@@ -16,7 +16,6 @@ class ActionManager {
     private init() {}
     
     func removeAfter(node: SKSpriteNode, seconds: Double) {
-        
         let wait = SKAction.wait(forDuration: seconds)
         let hide = SKAction.hide();
         let sequence = SKAction.sequence([wait, hide]);
@@ -34,7 +33,6 @@ class ActionManager {
     }
     
     func flashAltTexture(node: SKSpriteNode, textureOne: SKTexture, textureTwo: SKTexture) {
-        
         let addTextureOne = SKAction.setTexture(textureOne, resize: false);
         let addTextureTwo = SKAction.setTexture(textureTwo , resize: false);
         
@@ -68,6 +66,12 @@ class ActionManager {
         let distance = sqrt((xDist * xDist) + (yDist * yDist));
         let duration : TimeInterval = TimeInterval(distance/speed)
         return duration
+    }
+    
+    func contactPulse(position: CGPoint) -> SKEmitterNode {
+        let pulse = SKEmitterNode(fileNamed: "\(option)Burst");
+        pulse?.position = position;
+        return pulse!;
     }
     
 }

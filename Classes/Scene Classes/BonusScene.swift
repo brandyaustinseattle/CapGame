@@ -56,6 +56,22 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         player.removeAction(forKey: "move");
     }
+
+    @objc func countDownSeconds() {
+        if countDownValue == 0 {
+            return
+        }
+        
+        countDownValue -= 1;
+        
+        let textureOne = SKTexture(imageNamed: "longcloud");
+        let textureTwo = SKTexture(imageNamed: "graylongcloud");
+        
+        ActionManager.instance.flashAltTexture(node: countDownBubble, textureOne: textureOne, textureTwo: textureTwo);
+        
+        let label = LabelMaker(message: "\(countDownValue)", messageSize: 65);
+        countDownBubble.updateLabel(newLabel: label);
+    }
     
     // same as drink portion of didBegin in GameScene
     func didBegin(_ contact: SKPhysicsContact) {
@@ -84,7 +100,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
-            let cPulse = contactPulse(position: position!);
+            let cPulse = ActionManager.instance.contactPulse(position: position!);
             self.addChild(cPulse);
             
             secondBody.node?.removeFromParent();
@@ -118,23 +134,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         addConsumablesMatrix();
         
         addQuickBubble();
-    }
-    
-    
-    @objc func countDownSeconds() {
-        if countDownValue == 0 {
-            return
-        }
-        
-        countDownValue -= 1;
-        
-        let textureOne = SKTexture(imageNamed: "longcloud");
-        let textureTwo = SKTexture(imageNamed: "graylongcloud");
-        
-        ActionManager.instance.flashAltTexture(node: countDownBubble, textureOne: textureOne, textureTwo: textureTwo);
-        
-        let label = LabelMaker(message: "\(countDownValue)", messageSize: 65);
-        countDownBubble.updateLabel(newLabel: label);
     }
     
     func createClouds() {
@@ -239,11 +238,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addQuickBubble() {
-        
         let position = CGPoint(x: player.position.x - 125, y: player.position.y + 185);
-        
         let label = LabelMaker(message: "quick", messageSize: 75)
-        
         let quick = Bubble(type: "roundspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(quick);
@@ -252,17 +248,13 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     // also in game scene
     func addPlusBubble() {
-        
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
-        
         let label = LabelMaker(message: "+5", messageSize: 175)
-        
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
         
         ActionManager.instance.removeAfter(node: plus, seconds: 1)
-        
         plusFiveBubble = true;
     }
 

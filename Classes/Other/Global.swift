@@ -34,30 +34,10 @@ func delay(time: Double, closure: @escaping ()-> ()) {
     }
 }
 
-
-
-
-
 func transitionScenes(oldScene: SKScene, newScene: SKScene) {
     newScene.scaleMode = .aspectFill;
     
     let doorway = SKTransition.doorway(withDuration: 3);
     oldScene.view?.presentScene(newScene, transition: doorway);
-}
-
-
-
-
-
-func contactPulse(position: CGPoint) -> SKEmitterNode {
-    let pulse = SKEmitterNode(fileNamed: "\(option)Burst");
-    pulse?.position = position;
-    return pulse!;
-}
-
-func snowPulse(position: CGPoint) -> SKEmitterNode {
-    let pulse = SKEmitterNode(fileNamed: "Snow");
-    pulse?.position = position;
-    return pulse!;
 }
 

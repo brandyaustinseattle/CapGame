@@ -49,6 +49,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.jump();
     }
     
+    func initialize() {
+        physicsWorld.contactDelegate = self;
+        
+        BackGroundManager.instance.createBG(scene: self);
+        BackGroundManager.instance.createBGAddOn(scene: self);
+        
+        addInstructions();
+        
+        createPlayer();
+        playerConstraints();
+        
+        startTheEngines();
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
@@ -101,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
-            let cPulse = contactPulse(position: position!);
+            let cPulse = ActionManager.instance.contactPulse(position: position!);
             self.addChild(cPulse);
 
             secondBody.node?.removeFromParent()
@@ -134,22 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func initialize() {
-        physicsWorld.contactDelegate = self;
-        
-        BackGroundManager.instance.createBG(scene: self);
-        BackGroundManager.instance.createBGAddOn(scene: self);
-        
-        addInstructions();
-
-        createPlayer();
-        playerConstraints();
-
-        startTheEngines();
-    }
-    
     func startTheEngines() {
-    
         pathEngine.initialize(scene: self);
         insectEngine.initialize(scene: self);
     }
@@ -189,11 +188,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // also in bonus scene
     func addPlusBubble() {
-
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
-
         let label = LabelMaker(message: "+1", messageSize: 175)
-
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
@@ -202,11 +198,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // similar to other add bubble functions
     func addOuchBubble() {
-        
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
-        
         let label = LabelMaker(message: "ouch", messageSize: 150)
-        
         let ouch = Bubble(type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(ouch);

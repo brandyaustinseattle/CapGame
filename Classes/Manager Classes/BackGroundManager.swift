@@ -78,5 +78,11 @@ class BackGroundManager {
             }
         }
     }
+    
+    func snowPulse(position: CGPoint) -> SKEmitterNode {
+        let pulse = SKEmitterNode(fileNamed: "Snow");
+        pulse?.position = position;
+        return pulse!;
+    }
 
 }

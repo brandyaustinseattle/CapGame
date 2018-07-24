@@ -11,13 +11,13 @@ import SpriteKit
 
 class GameOverScene: StaticScene {
 
+    var timer = Timer();
+    let pointsBubble = Points.instance.getPointsBubble();
+    
     override var text : String {
         get { return "game over" }
         set { }
     }
-    
-    var timer = Timer();
-    let pointsBubble = Points.instance.getPointsBubble();
     
     override func setUp() {
         self.addChild(pointsBubble);
