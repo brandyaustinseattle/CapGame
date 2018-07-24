@@ -36,7 +36,7 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
         createPlayer(playerImage: playerImage);
     }
     
-    func managePlayerJumps() {
+    func managePlayerJumpsOnTouch() {
         if playerRepeatJumps >= 2 {
             return;
         } else {

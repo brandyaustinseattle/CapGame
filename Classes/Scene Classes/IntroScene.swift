@@ -24,7 +24,7 @@ class IntroScene: StaticScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        super.managePlayerJumps();
+        super.managePlayerJumpsOnTouch();
         
         let touch:UITouch = touches.first!;
         let positionInScene = touch.location(in: self);
