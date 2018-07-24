@@ -30,11 +30,11 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
 
         BackGroundManager.instance.createBG(scene: self, dynamic: false);
-        BackGroundManager.instance.createBGAddOn(scene: self);
+        BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
         BackGroundManager.instance.addPlatform(scene: self);
         
-//        createPlayer();
-//
+        createPlayer();
+
         addGameOverBubble();
         
         delay(time: 3) {

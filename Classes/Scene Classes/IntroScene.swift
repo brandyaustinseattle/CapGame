@@ -10,42 +10,72 @@ import SpriteKit
 import GameplayKit
 
 
-class IntroScene: SKScene {
+class IntroScene: SKScene, SKPhysicsContactDelegate {
 
     var player = Player();
+    var playerOnPath = false;
+    var playerRepeatJumps = 0;
     
     override func didMove(to view: SKView) {
         initialize();
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody = SKPhysicsBody();
+        var secondBody = SKPhysicsBody();
+ 
+        if contact.bodyA.node?.name == "Player" {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" {
+            playerOnPath = true;
+            playerRepeatJumps = 0;
+            player.stand();
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch:UITouch = touches.first!
-        let positionInScene = touch.location(in: self)
+        
+        if playerRepeatJumps >= 2 {
+            return;
+        } else {
+            playerOnPath = false;
+            playerRepeatJumps += 1;
+            player.jumpUp();
+        }
+        player.jumpUp();
+        
+        let touch:UITouch = touches.first!;
+        let positionInScene = touch.location(in: self);
         let touchedNode = self.atPoint(positionInScene);
-        
-        let newScene = GameScene(fileNamed: "GameScene")!;
-        newScene.scaleMode = .aspectFill;
-        
-        let doorway = SKTransition.doorway(withDuration: 3);
-        self.view?.presentScene(newScene, transition: doorway);
         
         if touchedNode.name == "easybutton" {
             DifficultyManager.instance.setFactors(difficulty: "easy");
+            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
             
         } else if touchedNode.name == "mediumbutton" {
             DifficultyManager.instance.setFactors(difficulty: "medium");
+            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
 
+            
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
-        
+            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
+
         }
     }
     
     
     func initialize() {
+        physicsWorld.contactDelegate = self;
 
         BackGroundManager.instance.createBG(scene: self, dynamic: false);
-        BackGroundManager.instance.createBGAddOn(scene: self);
+        BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
         BackGroundManager.instance.addPlatform(scene: self);
 
         createPlayer();

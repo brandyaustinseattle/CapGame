@@ -65,11 +65,21 @@ class Player: SKSpriteNode {
     // end set physics
     
     
+    // refactor so there's one jump junction with x impulse as parameter
     func jump() {
         let jumping = jumpPrep();
 
         self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
         self.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 8500));
+        
+        self.run(jumping);
+    }
+    
+    func jumpUp() {
+        let jumping = jumpPrep();
+        
+        self.physicsBody?.velocity = CGVector(dx: 0, dy: 0);
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 8500));
         
         self.run(jumping);
     }
@@ -94,7 +104,7 @@ class Player: SKSpriteNode {
     func stand() {
         let standing = standingPrep();
         
-        self.run(standing);
+        self.run(SKAction.repeatForever(standing), withKey: "standKey");
     }
     
     func getDizzy() {

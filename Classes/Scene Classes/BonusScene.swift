@@ -110,7 +110,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         physicsWorld.contactDelegate = self;
 
-        createBG();
+        BackGroundManager.instance.createBG(scene: self, dynamic: false);
         createClouds();
         moveClouds();
         
@@ -135,14 +135,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         let label = LabelMaker(message: "\(countDownValue)", messageSize: 65);
         countDownBubble.updateLabel(newLabel: label);
-    }
-
-    func createBG() {
-        let background = SKSpriteNode(imageNamed: "\(option)background");
-        background.name = "background";
-        background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        background.zPosition = 0;
-        self.addChild(background);
     }
     
     func createClouds() {

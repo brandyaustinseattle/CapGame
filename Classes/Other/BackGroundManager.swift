@@ -14,7 +14,7 @@ class BackGroundManager {
     
     private init() {}
     
-    func createBG(scene: SKScene, dynamic: Bool) {
+    func createBG(scene: SKScene, dynamic: Bool? = true) {
         
         var num = Int();
         
@@ -39,14 +39,44 @@ class BackGroundManager {
         }
     }
     
-    func createBGAddOn(scene: SKScene) {
-        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
-        addOn.name = "addOn";
-        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        addOn.position = CGPoint(x: 0, y:0);
-        addOn.zPosition = 1;
-        addOn.setScale(0.70);
-        scene.addChild(addOn);
+    func createBGAddOn(scene: SKScene, dynamic: Bool? = true) {
+        
+        var num = Int();
+        
+        if dynamic == true {
+            num = 1
+        } else {
+            num = 0
+        }
+        
+        for i in 0...num {
+            let addOn = SKSpriteNode(imageNamed: "\(option)addon");
+            addOn.name = "addOn";
+            addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+            addOn.position = CGPoint(x: CGFloat(i) * addOn.size.width, y:0);
+            addOn.zPosition = 1;
+            scene.addChild(addOn);
+        }
+    }
+    
+    func moveBGAndAddOn(scene: SKScene) {
+        
+        let names = ["background", "addOn"];
+        
+        for name in names {
+        
+            scene.enumerateChildNodes(withName: name) {
+                node, _ in
+            
+                let backgroundsNode = node as! SKSpriteNode;
+            
+                backgroundsNode.position.x -= 8;
+            
+                if backgroundsNode.position.x < -(backgroundsNode.size.width) {
+                    backgroundsNode.position.x += backgroundsNode.size.width * 2;
+                }
+            }
+        }
     }
     
     func addPlatform(scene: SKScene) {

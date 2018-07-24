@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         checkPlayerBounds();
+        BackGroundManager.instance.moveBGAndAddOn(scene: self);
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "pathItem" || secondBody.node?.name == "Rock" {
+        if firstBody.node?.name == "Player" && (secondBody.node?.name == "pathItem" || secondBody.node?.name == "Rock") {
             playerOnPath = true;
             playerRepeatJumps = 0;
         }
@@ -68,10 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Insect" {
             
             Points.instance.value = 0;
-            
-//            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
-//                child.removeFromParent()
-//            }
             
             let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
             pointsBubble.updateLabel(newLabel: label)
@@ -99,10 +96,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let consumableName = secondBody.node?.name;
             Points.instance.increment(consumableName: consumableName!);
-            
-//            if let child = self.childNode(withName: "roundcloud") as? SKSpriteNode {
-//                child.removeFromParent()
-//            }
             
             let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
             pointsBubble.updateLabel(newLabel: label)
@@ -141,13 +134,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
     func initialize() {
         physicsWorld.contactDelegate = self;
-
-        createBG();
-        moveBG();
-        createBGAddOn();
+        
+        BackGroundManager.instance.createBG(scene: self);
+        BackGroundManager.instance.createBGAddOn(scene: self);
+        
         addInstructions();
 
         createPlayer();
@@ -157,53 +149,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startTheEngines() {
-        // player must be running when engine is started
-        player.runFast();
-        
+    
         pathEngine.initialize(scene: self);
         insectEngine.initialize(scene: self);
-    }
-    
-    func createBG() {
-        for i in 0...1 {
-            let background = SKSpriteNode(imageNamed: "\(option)background");
-            background.name = "background";
-            background.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-            background.position = CGPoint(x: CGFloat(i) * background.size.width, y:0);
-            background.zPosition = 0;
-            self.addChild(background);
-            
-            if option == "C" {
-                let snow = snowPulse(position: self.position);
-                self.addChild(snow);
-            }
-        }
-    }
-    
-    func moveBG() {
-        
-        enumerateChildNodes(withName: "background") {
-            node, _ in
-            
-            let backgroundsNode = node as! SKSpriteNode;
-            
-            backgroundsNode.position.x -= 8;
-            
-            // less than because backgrounds are scrolling left
-            if backgroundsNode.position.x < -(backgroundsNode.size.width) {
-                backgroundsNode.position.x += backgroundsNode.size.width * 2;
-            }
-        };
-    }
-    
-    func createBGAddOn() {
-        let addOn = SKSpriteNode(imageNamed: "\(option)addon");
-        addOn.name = "addOn";
-        addOn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        addOn.position = CGPoint(x: 0, y:0);
-        addOn.zPosition = 1;
-        addOn.setScale(0.70);
-        self.addChild(addOn);
     }
     
     func createPlayer() {
@@ -212,12 +160,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: -500, y: 200);
         
         self.addChild(player);
+        
+        player.runFast();
     }
     
     func playerConstraints() {
-//        let xRange = SKRange(lowerLimit: -(size.width/2) + 25, upperLimit: size.width/2);
         let yRange = SKRange(lowerLimit: -1000, upperLimit: size.height/2 - 100);
-//        player.constraints = [SKConstraint.positionX(xRange)];
         player.constraints = [SKConstraint.positionY(yRange)];
     }
     
@@ -269,8 +217,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    // move instructions to insctructions manager and call functions separately based on what appears on the screen
-
+    // move instructions to instructions manager and call functions separately based on what appears on the screen
     func addInstructions() {
     
         let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
