@@ -14,6 +14,9 @@ class Player: SKSpriteNode {
     let playerHead = SKSpriteNode();
     let playerBody = SKSpriteNode();
     
+    private var hasJumped = false;
+
+    
     func initialize() {
         
         self.name = "Player";

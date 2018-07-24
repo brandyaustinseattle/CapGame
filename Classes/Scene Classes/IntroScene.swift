@@ -24,8 +24,6 @@ class IntroScene: StaticScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        super.managePlayerJumpsOnTouch();
-        
         let touch:UITouch = touches.first!;
         let positionInScene = touch.location(in: self);
         let touchedNode = self.atPoint(positionInScene);
@@ -39,6 +37,8 @@ class IntroScene: StaticScene {
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
+        } else {
+            super.managePlayerJumpsOnTouch();
         }
     }
     

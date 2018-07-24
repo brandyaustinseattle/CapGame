@@ -13,13 +13,14 @@ class GameOverScene: StaticScene {
 
     var timer = Timer();
     let pointsBubble = Points.instance.getPointsBubble();
-    
+        
     override var text : String {
         get { return "game over" }
         set { }
     }
     
     override func setUp() {
+
         self.addChild(pointsBubble);
         
         super.initialize(playerImage: "standing1");

@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    
     var loadingScene = Loading();
     
     var ouchBubble = false;
@@ -25,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerRepeatJumps = 0;
     
     let pointsBubble = Points.instance.getPointsBubble();
-    
+
     
     override func didMove(to view: SKView) {
         initialize();
@@ -47,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.jump();
         }
         player.jump();
+        
     }
     
     func initialize() {
@@ -54,8 +56,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         BackGroundManager.instance.createBG(scene: self);
         BackGroundManager.instance.createBGAddOn(scene: self);
-        
-        addInstructions();
         
         createPlayer();
         playerConstraints();
@@ -205,60 +205,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ouch);
         ActionManager.instance.removeAfter(node: ouch, seconds: 1.5);
     }
-    
-    
-    
-    
-    
-    // move instructions to instructions manager and call functions separately based on what appears on the screen
-    func addInstructions() {
-    
-        let label1 = LabelMaker(message: "tap to jump", messageSize: 55)
-        let label2 = LabelMaker(message: "tap in air to double jump", messageSize: 55);
-        let label3 = LabelMaker(message: "grab drinks to rack up points", messageSize: 55);
-        let label4 = LabelMaker(message: "...but avoid the insects who sting", messageSize: 55);
-        let label5 = LabelMaker(message: "visit the stand to enter bonus level", messageSize: 55);
-        let label6 = LabelMaker(message: "catch the plane to travel to another place", messageSize: 55);
-       
-        let position = CGPoint(x: 0, y: frame.size.height/2 - 75);
-        
-        let cloud1 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label1, zPos: 2)
-        let cloud2 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label2, zPos: 2)
-        let cloud3 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label3, zPos: 2)
-        let cloud4 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label4, zPos: 2)
-        let cloud5 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label5, zPos: 2)
-        let cloud6 = Bubble(type: "instructionscloud", scale: 1, bubblePosition: position, label: label6, zPos: 2)
 
-
-        delay(time: 0) {
-            self.addChild(cloud1);
-            ActionManager.instance.removeAfter(node: cloud1, seconds: 5);
-        }
-        
-        delay(time: 10) {
-            self.addChild(cloud2);
-            ActionManager.instance.removeAfter(node: cloud2, seconds: 5);
-        }
-
-        delay(time: 16) {
-            self.addChild(cloud3);
-            ActionManager.instance.removeAfter(node: cloud3, seconds: 5);
-        }
-
-        delay(time: 22) {
-            self.addChild(cloud4);
-            ActionManager.instance.removeAfter(node: cloud4, seconds: 5);
-        }
-
-        delay(time: 27) {
-            self.addChild(cloud5);
-            ActionManager.instance.removeAfter(node: cloud5, seconds: 5);
-        }
-
-        delay(time: 32) {
-            self.addChild(cloud6);
-            ActionManager.instance.removeAfter(node: cloud6, seconds: 5);
-        }
-    }
-    
 }

@@ -111,10 +111,13 @@
 		D38A22D12103ABB6006EB471 /* speech.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22D02103ABB6006EB471 /* speech.png */; };
 		D38A22D32103ABC5006EB471 /* curvyspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22D22103ABC5006EB471 /* curvyspeech.png */; };
 		D38A22D52103DD97006EB471 /* Cbonus.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22D42103DD97006EB471 /* Cbonus.png */; };
-		D38A22DD2103FEA1006EB471 /* instructionscloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22DC2103FEA1006EB471 /* instructionscloud.png */; };
 		D38A22DF21040F62006EB471 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22DE21040F62006EB471 /* ActionManager.swift */; };
 		D38A22E1210670F5006EB471 /* BackGroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22E0210670F5006EB471 /* BackGroundManager.swift */; };
 		D38A22E32107029F006EB471 /* StaticScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22E22107029F006EB471 /* StaticScene.swift */; };
+		D38A22E82107C2F2006EB471 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22E72107C2F2006EB471 /* Instruction.swift */; };
+		D38A22EA2107D3B1006EB471 /* instructionscloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A22E92107D3B1006EB471 /* instructionscloud.png */; };
+		D38A22ED2107D71B006EB471 /* DemoEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A22EC2107D71B006EB471 /* DemoEngine.swift */; };
+		D38A22EF2107D855006EB471 /* DemoScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D38A22EE2107D855006EB471 /* DemoScene.sks */; };
 		D3B6662E210000C400E88D21 /* graylongcloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6662D210000C400E88D21 /* graylongcloud.png */; };
 		D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663121000E7E00E88D21 /* roundspeech.png */; };
 		D3B6663421001DD700E88D21 /* boltspeech.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B6663321001DD700E88D21 /* boltspeech.png */; };
@@ -227,10 +230,13 @@
 		D38A22D02103ABB6006EB471 /* speech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech.png; sourceTree = "<group>"; };
 		D38A22D22103ABC5006EB471 /* curvyspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curvyspeech.png; sourceTree = "<group>"; };
 		D38A22D42103DD97006EB471 /* Cbonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cbonus.png; sourceTree = "<group>"; };
-		D38A22DC2103FEA1006EB471 /* instructionscloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionscloud.png; sourceTree = "<group>"; };
 		D38A22DE21040F62006EB471 /* ActionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionManager.swift; sourceTree = "<group>"; };
 		D38A22E0210670F5006EB471 /* BackGroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundManager.swift; sourceTree = "<group>"; };
 		D38A22E22107029F006EB471 /* StaticScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticScene.swift; sourceTree = "<group>"; };
+		D38A22E72107C2F2006EB471 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		D38A22E92107D3B1006EB471 /* instructionscloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionscloud.png; sourceTree = "<group>"; };
+		D38A22EC2107D71B006EB471 /* DemoEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoEngine.swift; sourceTree = "<group>"; };
+		D38A22EE2107D855006EB471 /* DemoScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DemoScene.sks; sourceTree = "<group>"; };
 		D3B6662D210000C400E88D21 /* graylongcloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graylongcloud.png; sourceTree = "<group>"; };
 		D3B6663121000E7E00E88D21 /* roundspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundspeech.png; sourceTree = "<group>"; };
 		D3B6663321001DD700E88D21 /* boltspeech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boltspeech.png; sourceTree = "<group>"; };
@@ -299,6 +305,8 @@
 		D30738EA20E2B63A0054DEE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D38A22EB2107D6FE006EB471 /* Demo */,
+				D38A22E62107C2BE006EB471 /* Helper Scene Classes */,
 				D38A22E4210702AF006EB471 /* Manager Classes */,
 				D36D9E2C210282AE00F86C90 /* Portal Class */,
 				D36D9DDC210112A600F86C90 /* Bubble Class */,
@@ -320,6 +328,7 @@
 				D330D88E20F80D160018ED1F /* BonusScene.sks */,
 				D36D9DD8210108DD00F86C90 /* IntroScene.sks */,
 				D36D9E342102910C00F86C90 /* Loading.sks */,
+				D38A22EE2107D855006EB471 /* DemoScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -339,7 +348,6 @@
 				D330D8C820FD26D60018ED1F /* GameOverScene.swift */,
 				D330D88C20F806BD0018ED1F /* BonusScene.swift */,
 				D36D9DD6210108A700F86C90 /* IntroScene.swift */,
-				D36D9E362102915700F86C90 /* Loading.swift */,
 			);
 			path = "Scene Classes";
 			sourceTree = "<group>";
@@ -484,9 +492,9 @@
 		D330D90620FD6AB50018ED1F /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
+				D38A22E92107D3B1006EB471 /* instructionscloud.png */,
 				D36D9E7F21031C0E00F86C90 /* grayroundcloud.png */,
 				D36D9E3A2102AAB300F86C90 /* longcloud.png */,
-				D38A22DC2103FEA1006EB471 /* instructionscloud.png */,
 				D3B6662D210000C400E88D21 /* graylongcloud.png */,
 				D330D91220FDB05E0018ED1F /* roundcloud.png */,
 				D330D90820FD6ABF0018ED1F /* clouds.png */,
@@ -625,9 +633,26 @@
 				D38A22DE21040F62006EB471 /* ActionManager.swift */,
 				D36D9E462102C32D00F86C90 /* DifficultyManager.swift */,
 				D38A22E0210670F5006EB471 /* BackGroundManager.swift */,
-				D38A22E22107029F006EB471 /* StaticScene.swift */,
 			);
 			path = "Manager Classes";
+			sourceTree = "<group>";
+		};
+		D38A22E62107C2BE006EB471 /* Helper Scene Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D36D9E362102915700F86C90 /* Loading.swift */,
+				D38A22E22107029F006EB471 /* StaticScene.swift */,
+			);
+			path = "Helper Scene Classes";
+			sourceTree = "<group>";
+		};
+		D38A22EB2107D6FE006EB471 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D38A22E72107C2F2006EB471 /* Instruction.swift */,
+				D38A22EC2107D71B006EB471 /* DemoEngine.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -740,6 +765,7 @@
 				D307392820E2B79F0054DEE6 /* gameover3.png in Resources */,
 				D36D9E57210300D500F86C90 /* CPulse.sks in Resources */,
 				D36D9E7A21031B3900F86C90 /* 4horizontal.png in Resources */,
+				D38A22EA2107D3B1006EB471 /* instructionscloud.png in Resources */,
 				D307392220E2B79F0054DEE6 /* running2.png in Resources */,
 				D307393320E2B79F0054DEE6 /* jumpup2.png in Resources */,
 				D330D90A20FD6ABF0018ED1F /* thought.png in Resources */,
@@ -748,13 +774,13 @@
 				D330D91320FDB05E0018ED1F /* roundcloud.png in Resources */,
 				D30738E320E2B5CB0054DEE6 /* LaunchScreen.storyboard in Resources */,
 				D307393D20E2B79F0054DEE6 /* jumpfall2.png in Resources */,
-				D38A22DD2103FEA1006EB471 /* instructionscloud.png in Resources */,
 				D36D9E07210157E500F86C90 /* hardbutton.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
 				D36D9E192102707300F86C90 /* Cdrink.png in Resources */,
 				D36D9E7821031B3900F86C90 /* 1horizontal.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,
 				D30621B920EE7BEB00E2127D /* GameScene.sks in Resources */,
+				D38A22EF2107D855006EB471 /* DemoScene.sks in Resources */,
 				D36D9E7721031B3900F86C90 /* 5horizontal.png in Resources */,
 				D36D9E5C2103083A00F86C90 /* CBurst.sks in Resources */,
 				D36D9DDB21010B5D00F86C90 /* squarespeech.png in Resources */,
@@ -798,9 +824,11 @@
 				D30621B720EE7AC500E2127D /* GameScene.swift in Sources */,
 				D30738DB20E2B5CA0054DEE6 /* GameViewController.swift in Sources */,
 				D36D9DD7210108A700F86C90 /* IntroScene.swift in Sources */,
+				D38A22E82107C2F2006EB471 /* Instruction.swift in Sources */,
 				D36D9DDE210112B800F86C90 /* Bubble.swift in Sources */,
 				D36D9E472102C32D00F86C90 /* DifficultyManager.swift in Sources */,
 				D30738F020E2B68A0054DEE6 /* Player.swift in Sources */,
+				D38A22ED2107D71B006EB471 /* DemoEngine.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */,
 				D330D92D20FE68940018ED1F /* InsectEngine.swift in Sources */,
