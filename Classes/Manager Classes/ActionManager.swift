@@ -15,7 +15,7 @@ class ActionManager {
     
     private init() {}
     
-    func removeAfter(node: SKSpriteNode, seconds: Double) {
+    func removeAfter(node: SKNode, seconds: Double) {
         let wait = SKAction.wait(forDuration: seconds)
         let hide = SKAction.hide();
         let sequence = SKAction.sequence([wait, hide]);
@@ -23,7 +23,7 @@ class ActionManager {
         node.run(sequence, withKey: "remove");
     }
     
-    func flashForever(node: SKSpriteNode) {
+    func flashForever(node: SKNode) {
         let fadeIn = SKAction.fadeIn(withDuration: 0.75);
         let wait = SKAction.wait(forDuration: 0.75)
         let fadeOut = SKAction.fadeOut(withDuration: 0.75);
@@ -32,7 +32,7 @@ class ActionManager {
         node.run(SKAction.repeatForever(sequence), withKey: "flashForever");
     }
     
-    func flashAltTexture(node: SKSpriteNode, textureOne: SKTexture, textureTwo: SKTexture) {
+    func flashAltTexture(node: SKNode, textureOne: SKTexture, textureTwo: SKTexture) {
         let addTextureOne = SKAction.setTexture(textureOne, resize: false);
         let addTextureTwo = SKAction.setTexture(textureTwo , resize: false);
         
@@ -43,7 +43,7 @@ class ActionManager {
         node.run(flash);
     }
     
-    func rotateBackForth(node: SKSpriteNode, denominator: Double) {
+    func rotateBackForth(node: SKNode, denominator: Double) {
         let rotateBack = SKAction.rotate(toAngle: CGFloat(Double.pi / denominator), duration: 1);
         let rotateFront = SKAction.rotate(toAngle: CGFloat(-Double.pi / denominator), duration: 1);
         let rotateSequence = SKAction.sequence([rotateBack, rotateFront]);
@@ -51,7 +51,7 @@ class ActionManager {
         node.run(SKAction.repeatForever(rotateSequence), withKey: "rotate");
     }
     
-    func move(node: SKSpriteNode) {
+    func move(node: SKNode) {
         let selectedSpeed = DifficultyManager.instance.speed;
         let endpoint = CGPoint(x: -800, y: node.position.y);
         let duration = getDuration(pointA: node.position, pointB: endpoint, speed: selectedSpeed);

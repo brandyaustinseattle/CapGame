@@ -15,20 +15,19 @@ class Loading: SKScene {
     
     override func didMove(to view: SKView) {
         initialize();
-        
-        self.introScene();
     }
     
     func initialize() {
         setSceneOption();
         
-        self.introScene();
+        addLoadingIcon();
+        preludeScene();
     }
     
     public func setSceneOption() {
         
         lastOption = option;
-        let sceneOptions = ["B", "B", "B"];
+        let sceneOptions = ["A", "B", "C"];
         let maxIndex = sceneOptions.count - 1;
 
         while option == lastOption {
@@ -37,12 +36,34 @@ class Loading: SKScene {
         }
     }
     
-    func introScene() {
-        let newScene = IntroScene(fileNamed: "IntroScene")!;
-        newScene.scaleMode = .aspectFill;
+    func preludeScene() {
+        delay(time: 3) {
+            let newScene = Prelude(fileNamed: "Prelude")!;
+            newScene.scaleMode = .aspectFill;
 
-        let crossFade = SKTransition.crossFade(withDuration: 0.015);
+            let crossFade = SKTransition.crossFade(withDuration: 0.0015);
     
-        self.view?.presentScene(newScene, transition: crossFade);
+            self.view?.presentScene(newScene, transition: crossFade);
+        }
     }
+    
+    func addLoadingIcon() {
+        let loading = loadingPrep();
+        
+        self.run(SKAction.repeatForever(loading), withKey: "loadingKey");
+    }
+    
+    func loadingPrep() -> SKAction {
+        var loadingSequence = [SKTexture]();
+        
+        for i in 1...6 {
+            let imageName = "Loading\(i)";
+            loadingSequence.append(SKTexture(imageNamed: imageName));
+        }
+        
+        let loading = SKAction.animate(with: loadingSequence, timePerFrame: TimeInterval(0.28), resize: true, restore: true);
+        
+        return loading;
+    }
+    
 }
