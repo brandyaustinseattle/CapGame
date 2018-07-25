@@ -90,11 +90,6 @@ class IntroScene: StaticScene {
         GameManager.instance.saveData();
     }
     
-    
-    
-    
-    
-    
     func addLevelsBubbles() {
 
         let difficultyTypes = ["easybutton", "mediumbutton", "hardbutton", "demobutton"];

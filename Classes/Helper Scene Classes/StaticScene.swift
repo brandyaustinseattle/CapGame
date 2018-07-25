@@ -31,10 +31,22 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self;
         BackGroundManager.instance.createBG(scene: self, dynamic: false);
         BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
+        addNameLogo();
         addPlatform(scene: self);
         
         createPlayer(playerImage: playerImage);
     }
+    
+    func addNameLogo() {
+        let logo = SKSpriteNode(imageNamed: "logoWhite");
+        logo.setScale(0.5);
+        
+        logo.position = CGPoint(x: -(frame.size.width/2) + logo.size.width/2 + 30, y: frame.size.height/2 - logo.size.height/2 - 30)
+        logo.zPosition = 8;
+        
+        self.addChild(logo);
+    }
+    
     
     func managePlayerJumpsOnTouch() {
         if playerRepeatJumps >= 2 {
