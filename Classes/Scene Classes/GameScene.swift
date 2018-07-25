@@ -176,12 +176,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func playerDied() {
         
-        
-        
-        
-        
-        
-        
+        pathEngine.timer.invalidate();
         
         if GameManager.instance.getEasyDifficulty() {
             let highscore = GameManager.instance.getEasyDifficultyScore();
@@ -209,18 +204,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         GameManager.instance.saveData();
         
         let gameOverScene = GameOverScene(fileNamed: "GameOverScene")!;
-        gameOverScene.scaleMode = .aspectFill;
-        
-        let doorway = SKTransition.doorway(withDuration: 3);
-        
-        doorway.pausesIncomingScene = true;
-        
-        self.view?.presentScene(gameOverScene, transition: doorway);
+        transitionScenes(oldScene: self, newScene: gameOverScene)
     }
         
-
-    
-    // also in bonus scene
     func addPlusBubble() {
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
         let label = LabelMaker(message: "+1", messageSize: 175)
@@ -230,7 +216,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
     }
     
-    // similar to other add bubble functions
     func addOuchBubble() {
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
         let label = LabelMaker(message: "ouch", messageSize: 150)

@@ -29,7 +29,6 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     let countDownBubble = Bubble(type: "longcloud", scale: 0.85, bubblePosition: CGPoint(x: 0, y: 235), label: LabelMaker(message: "\(10)", messageSize: 65));
     
-    
     override func didMove(to view: SKView) {
         initialize();
         

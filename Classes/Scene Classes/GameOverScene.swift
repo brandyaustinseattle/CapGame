@@ -71,9 +71,9 @@ class GameOverScene: StaticScene {
     
     func addFunctionalityBubbles() {
         
-        let functionalityTypes = ["home", "replay"];
+        let functionalityTypes = ["replay", "home"];
         
-        var x = -(frame.size.width)/2 + frame.size.width/5 + 200;
+        var x = -(frame.size.width)/2 + frame.size.width/5 + 250;
         
         for type in functionalityTypes {
             let position = CGPoint(x: x, y: -(self.frame.size.height)/2 + 150);
