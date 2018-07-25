@@ -20,9 +20,9 @@ class GameData: NSObject, NSCoding {
         static let HardDifficulty = "HardDifficulty";
     }
     
-    fileprivate var easyDifficultyScore = Int32();
-    fileprivate var mediumDifficultyScore = Int32();
-    fileprivate var hardDifficultyScore = Int32();
+    fileprivate var easyDifficultyScore = Int32(0);
+    fileprivate var mediumDifficultyScore = Int32(0);
+    fileprivate var hardDifficultyScore = Int32(0);
     
     fileprivate var easyDifficulty = false;
     fileprivate var mediumDifficulty = false;

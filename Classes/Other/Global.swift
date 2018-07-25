@@ -42,4 +42,3 @@ func transitionScenes(oldScene: SKScene, newScene: SKScene) {
     let doorway = SKTransition.doorway(withDuration: 2.15);
     oldScene.view?.presentScene(newScene, transition: doorway);
 }
-

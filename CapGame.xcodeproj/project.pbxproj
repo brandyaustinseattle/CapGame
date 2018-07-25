@@ -136,8 +136,13 @@
 		D3D5EECB2108E7B9003495B2 /* Loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC52108E7B9003495B2 /* Loading3.png */; };
 		D3D5EECC2108E7B9003495B2 /* Loading5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC62108E7B9003495B2 /* Loading5.png */; };
 		D3D5EECD2108E7B9003495B2 /* Loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC72108E7B9003495B2 /* Loading1.png */; };
-		D3D5EED22108F75D003495B2 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EECF2108F75D003495B2 /* home.png */; };
-		D3D5EED32108F75D003495B2 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EED02108F75D003495B2 /* replay.png */; };
+		D3DA58B221091CE400395438 /* mediumHighScore.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58AE21091CE300395438 /* mediumHighScore.png */; };
+		D3DA58B321091CE400395438 /* hardHighScore.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58AF21091CE400395438 /* hardHighScore.png */; };
+		D3DA58B521091CE400395438 /* easyHighScore.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58B121091CE400395438 /* easyHighScore.png */; };
+		D3DA58BB210929BE00395438 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58BA210929BE00395438 /* play.png */; };
+		D3DA58BD21092EF200395438 /* totalScore.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58BC21092EF200395438 /* totalScore.png */; };
+		D3DA58BF2109308B00395438 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D3DA58BE2109308B00395438 /* home.png */; };
+		D3DA58C12109370900395438 /* DemoGameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA58C02109370900395438 /* DemoGameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -272,8 +277,13 @@
 		D3D5EEC52108E7B9003495B2 /* Loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading3.png; sourceTree = "<group>"; };
 		D3D5EEC62108E7B9003495B2 /* Loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading5.png; sourceTree = "<group>"; };
 		D3D5EEC72108E7B9003495B2 /* Loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading1.png; sourceTree = "<group>"; };
-		D3D5EECF2108F75D003495B2 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
-		D3D5EED02108F75D003495B2 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
+		D3DA58AE21091CE300395438 /* mediumHighScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediumHighScore.png; sourceTree = "<group>"; };
+		D3DA58AF21091CE400395438 /* hardHighScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hardHighScore.png; sourceTree = "<group>"; };
+		D3DA58B121091CE400395438 /* easyHighScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = easyHighScore.png; sourceTree = "<group>"; };
+		D3DA58BA210929BE00395438 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		D3DA58BC21092EF200395438 /* totalScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = totalScore.png; sourceTree = "<group>"; };
+		D3DA58BE2109308B00395438 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		D3DA58C02109370900395438 /* DemoGameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,9 +605,13 @@
 		D36D9DFD21014DCA00F86C90 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D3DA58B121091CE400395438 /* easyHighScore.png */,
+				D3DA58AF21091CE400395438 /* hardHighScore.png */,
+				D3DA58BC21092EF200395438 /* totalScore.png */,
+				D3DA58AE21091CE300395438 /* mediumHighScore.png */,
+				D3DA58BA210929BE00395438 /* play.png */,
 				D38A22F62107DE0D006EB471 /* demobutton.png */,
-				D3D5EECF2108F75D003495B2 /* home.png */,
-				D3D5EED02108F75D003495B2 /* replay.png */,
+				D3DA58BE2109308B00395438 /* home.png */,
 				D36D9E05210157E500F86C90 /* easybutton.png */,
 				D36D9E04210157E500F86C90 /* hardbutton.png */,
 				D36D9E06210157E500F86C90 /* mediumbutton.png */,
@@ -695,6 +709,7 @@
 				D38A22EC2107D71B006EB471 /* DemoPathEngine.swift */,
 				D38A22F22107DA75006EB471 /* DemoBonusScene.swift */,
 				D38A22F42107DA85006EB471 /* DemoGameScene.swift */,
+				D3DA58C02109370900395438 /* DemoGameOverScene.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -788,6 +803,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DA58BD21092EF200395438 /* totalScore.png in Resources */,
 				D3D5EEBC2108E07A003495B2 /* Loading.sks in Resources */,
 				D307393420E2B79F0054DEE6 /* slideB1.png in Resources */,
 				D307392320E2B79F0054DEE6 /* running3.png in Resources */,
@@ -807,6 +823,7 @@
 				D38A22F92107E0D7006EB471 /* longcloud.png in Resources */,
 				D3D5EECA2108E7B9003495B2 /* Loading4.png in Resources */,
 				D307393720E2B79F0054DEE6 /* standing4.png in Resources */,
+				D3DA58BF2109308B00395438 /* home.png in Resources */,
 				D307393020E2B79F0054DEE6 /* flying2.png in Resources */,
 				D38A22F72107DE0D006EB471 /* demobutton.png in Resources */,
 				D36D9DD9210108DD00F86C90 /* IntroScene.sks in Resources */,
@@ -817,16 +834,17 @@
 				D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */,
 				D36D9E8021031C0E00F86C90 /* grayroundcloud.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
+				D3DA58B221091CE400395438 /* mediumHighScore.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D38A233E21085338006EB471 /* Bbonus.png in Resources */,
 				D330D8CB20FD26F50018ED1F /* GameOverScene.sks in Resources */,
 				D307392D20E2B79F0054DEE6 /* flying4.png in Resources */,
 				D38A22D52103DD97006EB471 /* Cbonus.png in Resources */,
-				D3D5EED32108F75D003495B2 /* replay.png in Resources */,
 				D36D9E512102FB4B00F86C90 /* BBurst.sks in Resources */,
 				D330D95A20FFAE8A0018ED1F /* rock3.png in Resources */,
 				D330D89720F95B810018ED1F /* ABurst.sks in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
+				D3DA58B521091CE400395438 /* easyHighScore.png in Resources */,
 				D38A234D2108C797006EB471 /* logoWhite.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
 				D3B6663421001DD700E88D21 /* boltspeech.png in Resources */,
@@ -835,7 +853,7 @@
 				D36D9E1A2102707300F86C90 /* Cstand.png in Resources */,
 				D38A22D12103ABB6006EB471 /* speech.png in Resources */,
 				D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */,
-				D3D5EED22108F75D003495B2 /* home.png in Resources */,
+				D3DA58BB210929BE00395438 /* play.png in Resources */,
 				D36D9E212102720000F86C90 /* Abonus.png in Resources */,
 				D3D5EECD2108E7B9003495B2 /* Loading1.png in Resources */,
 				D330D95920FFAE8A0018ED1F /* rock1.png in Resources */,
@@ -871,6 +889,7 @@
 				D36D9E5C2103083A00F86C90 /* CBurst.sks in Resources */,
 				D36D9DDB21010B5D00F86C90 /* squarespeech.png in Resources */,
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
+				D3DA58B321091CE400395438 /* hardHighScore.png in Resources */,
 				D36D9E222102720000F86C90 /* Astand.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
 				D330D95820FFAE8A0018ED1F /* rock2.png in Resources */,
@@ -920,6 +939,7 @@
 				D38A22FE2107F813006EB471 /* GameManager.swift in Sources */,
 				D30621BD20F02CA400E2127D /* PathItem.swift in Sources */,
 				D36D9DFC21013D6000F86C90 /* LabelMaker.swift in Sources */,
+				D3DA58C12109370900395438 /* DemoGameOverScene.swift in Sources */,
 				D330D92D20FE68940018ED1F /* InsectEngine.swift in Sources */,
 				D330D91A20FE56C40018ED1F /* Insect.swift in Sources */,
 				D38A22F32107DA75006EB471 /* DemoBonusScene.swift in Sources */,

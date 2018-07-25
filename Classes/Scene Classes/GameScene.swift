@@ -220,13 +220,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(plus);
         ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
         
-        delay(time: 2.5) {
+        delay(time: 2) {
             self.playerSpeaking = false;
         }
     }
     
     func addOuchBubble() {
-        if playerSpeaking {return};
+        if playerSpeaking {
+            ouchBubble = false;
+            return;
+        }
+        
 
         playerSpeaking = true;
         
@@ -237,7 +241,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ouch);
         ActionManager.instance.removeAfter(node: ouch, seconds: 1.5);
         
-        delay(time: 2.5) {
+        delay(time: 2) {
             self.playerSpeaking = false;
         }
     }

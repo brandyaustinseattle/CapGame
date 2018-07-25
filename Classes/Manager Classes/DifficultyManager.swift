@@ -37,14 +37,14 @@ class DifficultyManager {
     func setFactors(difficulty: String) {
         switch difficulty {
             case "easy":
-                drinkFactor = 4;
-                bonusFactor = 4;
+                drinkFactor = 5;
+                bonusFactor = 5;
 
                 insectFactor = 9;
                 rockFactor = 2;
 
-                portalFactor = 10;
-                standPlaneFactor = 10;
+                portalFactor = 5;
+                standPlaneFactor = 4;
 
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
@@ -55,8 +55,8 @@ class DifficultyManager {
                 return
         
             case "medium":
-                drinkFactor = 3;
-                bonusFactor = 2;
+                drinkFactor = 4;
+                bonusFactor = 3;
                 
                 insectFactor = 4;
                 rockFactor = 3;
@@ -74,8 +74,8 @@ class DifficultyManager {
         
             case "hard":
                 
-                drinkFactor = 2;
-                bonusFactor = 1;
+                drinkFactor = 3;
+                bonusFactor = 2;
                 
                 insectFactor = 6;
                 rockFactor = 4;
@@ -93,8 +93,8 @@ class DifficultyManager {
             
             case "demo":
             
-                drinkFactor = 1;
-                bonusFactor = 1;
+                drinkFactor = 2;
+                bonusFactor = 4;
             
                 insectFactor = 1;
                 rockFactor = 1;
@@ -105,7 +105,7 @@ class DifficultyManager {
                 startAloneFactor = 9;
                 lowMiddleEndFactor = 8;
                 highMiddleEndFactor = 8;
-                lowHighFactor = 5;
+                lowHighFactor = 6;
                 speed = CGFloat(80);
             
             return
