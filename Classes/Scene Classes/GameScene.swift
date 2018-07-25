@@ -11,8 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    
     var loadingScene = Loading();
+    
+    var playerSpeaking = false;
     
     var ouchBubble = false;
 
@@ -156,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createPlayer() {
         player = Player(imageNamed: "standing1");
         player.initialize();
-        player.position = CGPoint(x: -500, y: 200);
+        player.position = CGPoint(x: -500, y: 0);
         
         self.addChild(player);
         
@@ -208,21 +209,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
         
     func addPlusBubble() {
+        if playerSpeaking {return};
+        
+        playerSpeaking = true;
+
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
         let label = LabelMaker(message: "+1", messageSize: 175)
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
         ActionManager.instance.removeAfter(node: plus, seconds: 1.5);
+        
+        delay(time: 2.5) {
+            self.playerSpeaking = false;
+        }
     }
     
     func addOuchBubble() {
+        if playerSpeaking {return};
+
+        playerSpeaking = true;
+        
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
         let label = LabelMaker(message: "ouch", messageSize: 150)
         let ouch = Bubble(type: "curvyspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(ouch);
         ActionManager.instance.removeAfter(node: ouch, seconds: 1.5);
+        
+        delay(time: 2.5) {
+            self.playerSpeaking = false;
+        }
     }
 
 }

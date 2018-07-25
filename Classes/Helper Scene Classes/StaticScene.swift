@@ -13,6 +13,7 @@ import GameKit
 class StaticScene: SKScene, SKPhysicsContactDelegate {
     
     var text: String = "";
+    var speechBubble = SKSpriteNode();
     
     var player = Player();
     var playerOnPath = false;
@@ -31,9 +32,10 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self;
         BackGroundManager.instance.createBG(scene: self, dynamic: false);
         BackGroundManager.instance.createBGAddOn(scene: self, dynamic: false);
-        addNameLogo();
-        addPlatform(scene: self);
         
+        addNameLogo();
+        
+        addPlatform(scene: self);
         createPlayer(playerImage: playerImage);
     }
     
@@ -49,6 +51,8 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
     
     
     func managePlayerJumpsOnTouch() {
+        speechBubble.isHidden = true;
+        
         if playerRepeatJumps >= 2 {
             return;
         } else {
@@ -56,7 +60,6 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
             playerRepeatJumps += 1;
             player.jumpUp();
         }
-        player.jumpUp();
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -76,11 +79,22 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
             playerOnPath = true;
             playerRepeatJumps = 0;
             player.stand();
-    
-            // WHY DOESN"T THIS WORK
-            if text != "" {
-                addSpeechBubble(message: text);
+            
+            if speechBubble.texture == nil {
+                if text != "" {
+                    addSpeechBubble(message: text);
+                }
+            } else {
+                speechBubble.isHidden = false;
             }
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+            let position = secondBody.node?.position;
+            let cPulse = ActionManager.instance.contactPulse(position: position!);
+            self.addChild(cPulse);
+            
+            secondBody.node?.removeFromParent();
         }
     }
     
@@ -100,20 +114,35 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
     func createPlayer(playerImage: String) {
         player = Player(imageNamed: playerImage);
         player.initialize();
-        player.position = CGPoint(x: 445, y: 100);
+        player.position = CGPoint(x: 445, y: -100);
         
         self.addChild(player);
         player.stand();
+        
+        addDrink();
     }
     
+    func addDrink() {
+        delay(time: 2) {
+            let drink = Consumable(imageNamed: "\(option)drink");
+            let referencePosition = CGPoint(x: self.player.position.x, y: self.player.position.y);
+
+            let offsetYValue = CGFloat(250);
+            
+            drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Drink");
+            
+            self.addChild(drink);
+        }
+    }
+
     func addSpeechBubble(message: String) {
         
-        let position = CGPoint(x: player.position.x + 400, y: player.position.y);
+        let position = CGPoint(x: player.position.x + 100, y: player.position.y + 150);
         let label = LabelMaker(message: message, messageSize: 100)
-        let bubble = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
+        speechBubble = Bubble(type: "squarespeech", scale: 0.45, bubblePosition: position, label: label)
         
-        self.addChild(bubble);
-        ActionManager.instance.flashForever(node: bubble);
+        self.addChild(speechBubble);
+        ActionManager.instance.flashForever(node: speechBubble);
     }
 
 }
