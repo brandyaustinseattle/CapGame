@@ -12,7 +12,7 @@ import SpriteKit
 class GameOverScene: StaticScene {
 
     var timer = Timer();
-    let pointsBubble = Points.instance.getPointsBubble();
+    let pointsBubble = PointsController.instance.getPointsBubble();
         
     override var text : String {
         get { return "game over" }
@@ -20,6 +20,9 @@ class GameOverScene: StaticScene {
     }
     
     override func setUp() {
+        
+        getReference();
+        setPoints();
 
         self.addChild(pointsBubble);
         
@@ -36,15 +39,38 @@ class GameOverScene: StaticScene {
     
     @objc func countDownPoints() {
         
-        if Points.instance.value == 0 {
+        if PointsController.instance.points == 0 {
             timer.invalidate();
             return
         }
         
-        Points.instance.decrement();
+        PointsController.instance.decrement();
         
-        let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+        let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60)
         pointsBubble.updateLabel(newLabel: label)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    private var pointsLabel: SKLabelNode?;
+    
+    private func getReference() {
+        pointsLabel = (self.childNode(withName: "Points Label") as? SKLabelNode?)!;
+    }
+    
+    private func setPoints() {
+        if GameManager.instance.getEasyDifficulty() {
+            pointsLabel?.text = String(GameManager.instance.getEasyDifficultyScore());
+        } else if GameManager.instance.getMediumDifficulty() {
+            pointsLabel?.text = String(GameManager.instance.getMediumDifficultyScore());
+        } else if GameManager.instance.getHardDifficulty() {
+            pointsLabel?.text = String(GameManager.instance.getHardDifficultyScore());
+        }
     }
 
 }

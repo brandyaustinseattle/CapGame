@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOnPath = false;
     var playerRepeatJumps = 0;
     
-    let pointsBubble = Points.instance.getPointsBubble();
+    let pointsBubble = PointsController.instance.getPointsBubble();
 
     
     override func didMove(to view: SKView) {
@@ -82,9 +82,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Insect" {
             
-            Points.instance.value = 0;
+            PointsController.instance.points = 0;
             
-            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60)
             pointsBubble.updateLabel(newLabel: label)
             
             let textureOne = SKTexture(imageNamed: "roundcloud");
@@ -104,14 +104,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
             
-            if Points.instance.value == 0 {
+            if PointsController.instance.points == 0 {
                 self.addPlusBubble();
             }
             
             let consumableName = secondBody.node?.name;
-            Points.instance.increment(consumableName: consumableName!);
+            PointsController.instance.increment(consumableName: consumableName!);
             
-            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60)
             pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
@@ -176,15 +176,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func playerDied() {
         
+        
+        
+        
+        
+        
+        
+        
+        if GameManager.instance.getEasyDifficulty() {
+            let highscore = GameManager.instance.getEasyDifficultyScore();
+            
+            if highscore < Int32(PointsController.instance.points) {
+                GameManager.instance.setEasyDifficultyScore(Int32(PointsController.instance.points));
+            }
+            
+        } else if GameManager.instance.getMediumDifficulty() {
+            let highscore = GameManager.instance.getMediumDifficultyScore();
+            
+            if highscore < Int32(PointsController.instance.points) {
+                GameManager.instance.setMediumDifficultyScore(Int32(PointsController.instance.points));
+            }
+            
+        } else if GameManager.instance.getHardDifficulty() {
+            let highscore = GameManager.instance.getHardDifficultyScore();
+            
+            if highscore < Int32(PointsController.instance.points) {
+                GameManager.instance.setHardDifficultyScore(Int32(PointsController.instance.points));
+            }
+            
+        }
+        
+        GameManager.instance.saveData();
+        
         let gameOverScene = GameOverScene(fileNamed: "GameOverScene")!;
         gameOverScene.scaleMode = .aspectFill;
         
         let doorway = SKTransition.doorway(withDuration: 3);
         
         doorway.pausesIncomingScene = true;
-
+        
         self.view?.presentScene(gameOverScene, transition: doorway);
     }
+        
+
     
     // also in bonus scene
     func addPlusBubble() {

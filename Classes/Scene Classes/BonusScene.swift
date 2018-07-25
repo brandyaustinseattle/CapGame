@@ -12,7 +12,7 @@ import GameplayKit
 
 class BonusScene: SKScene, SKPhysicsContactDelegate {
     
-    let pointsBubble = Points.instance.getPointsBubble();
+    let pointsBubble = PointsController.instance.getPointsBubble();
     var plusFiveBubble = false;
     
     var countDownValue = 10;
@@ -24,6 +24,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var bonus = Consumable();
     
     var timer = Timer();
+    var cloudTimer = Timer();
     
     
     let countDownBubble = Bubble(type: "longcloud", scale: 0.85, bubblePosition: CGPoint(x: 0, y: 235), label: LabelMaker(message: "\(10)", messageSize: 65));
@@ -46,11 +47,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         timer  = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(countDownSeconds), userInfo: nil, repeats: true);
         
-        guard let touch = touches.first else { return }
-        let destination = touch.location(in: self)
-        let move = SKAction.move(to: destination, duration: 2)
-        player.removeAction(forKey: "move")
-        player.run(move, withKey: "move")
+        guard let touch = touches.first else { return };
+        let destination = touch.location(in: self);
+        let duration = ActionManager.instance.getDuration(pointA: player.position, pointB: destination, speed: 500);
+        let move = SKAction.move(to: destination, duration: duration);
+        player.removeAction(forKey: "move");
+        player.run(move, withKey: "move");
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,9 +96,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                 child.removeFromParent()
             }
             
-            Points.instance.increment(consumableName: consumableName!);
+            PointsController.instance.increment(consumableName: consumableName!);
       
-            let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60)
+            let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60)
             pointsBubble.updateLabel(newLabel: label)
             
             let position = secondBody.node?.position;
@@ -134,6 +136,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         addConsumablesMatrix();
         
         addQuickBubble();
+        
+        cloudTimer  = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveClouds), userInfo: nil, repeats: true);
     }
     
     func createClouds() {
@@ -141,7 +145,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         let cloudSizeArray = [CGFloat(0.55), CGFloat(0.8), CGFloat(1.05)];
         
         var x = CGFloat(self.frame.size.width/2);
-        var y = CGFloat(self.frame.size.height/2 - (self.frame.size.height/4));
+        var y = CGFloat(self.frame.size.height/2 - (self.frame.size.height/3));
         
         for _ in 1...2 {
             let cloud = SKSpriteNode(imageNamed: "cloud");
@@ -168,15 +172,14 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // same as move background function in GameScene
-    func moveClouds() {
+   @objc func moveClouds() {
         
         enumerateChildNodes(withName: "cloud") {
             node, _ in
             
             let cloudsNode = node as! SKSpriteNode;
             
-            cloudsNode.position.x -= 0.5;
+            cloudsNode.position.x -= 3;
             
             // less than because clouds are scrolling left
             if cloudsNode.position.x < -(self.frame.size.width) {

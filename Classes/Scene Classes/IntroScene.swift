@@ -17,12 +17,18 @@ class IntroScene: StaticScene {
     }
     
     override func setUp() {
+        GameManager.instance.initializeGameData();
+        
         addLevelsBubbles();
         
         super.initialize(playerImage: "standing1");
     }
     
+    
+    // NEED TO UPDATE SET DIFFICULTY FOR DEMO IN CODE BELOW
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        GameManager.instance.gameStartedFromMainMenu = true;
         
         let touch:UITouch = touches.first!;
         let positionInScene = touch.location(in: self);
@@ -30,21 +36,64 @@ class IntroScene: StaticScene {
         
         if touchedNode.name == "easybutton" {
             DifficultyManager.instance.setFactors(difficulty: "easy");
+            setDifficulty("easy");
+            
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
         } else if touchedNode.name == "mediumbutton" {
             DifficultyManager.instance.setFactors(difficulty: "medium");
+            setDifficulty("medium");
+            
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
+            
+            setDifficulty("hard");
         } else if touchedNode.name == "demobutton" {
             DifficultyManager.instance.setFactors(difficulty: "demo");
+            setDifficulty("easy");
+
             transitionScenes(oldScene: self, newScene: DemoGameScene(fileNamed: "DemoGameScene")!);
             speed = CGFloat(15);
         } else {
             super.managePlayerJumpsOnTouch();
         }
     }
+    
+    
+    
+    
+    
+    fileprivate func setDifficulty(_ difficulty: String) {
+        switch(difficulty) {
+        case "easy":
+            GameManager.instance.setEasyDifficulty(true);
+            GameManager.instance.setMediumDifficulty(false);
+            GameManager.instance.setHardDifficulty(false);
+            break;
+            
+        case "medium":
+            GameManager.instance.setEasyDifficulty(false);
+            GameManager.instance.setMediumDifficulty(true);
+            GameManager.instance.setHardDifficulty(false);
+            break;
+            
+        case "hard":
+            GameManager.instance.setEasyDifficulty(false);
+            GameManager.instance.setMediumDifficulty(false);
+            GameManager.instance.setHardDifficulty(true);
+            break;
+            
+        default:
+            break;
+        }
+        GameManager.instance.saveData();
+    }
+    
+    
+    
+    
+    
     
     func addLevelsBubbles() {
 

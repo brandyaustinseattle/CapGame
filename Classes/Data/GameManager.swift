@@ -8,9 +8,9 @@
 
 import Foundation
 
-class DataManager {
+class GameManager {
     
-    static let instance = DataManager();
+    static let instance = GameManager();
     
     fileprivate init() {}
     
@@ -22,7 +22,6 @@ class DataManager {
     func initializeGameData() {
         
         if !FileManager.default.fileExists(atPath: getFilePath() as String) {
-            // setup our game with initial values
             gameData = GameData();
             
             gameData?.setEasyDifficultyScore(0);
@@ -30,7 +29,7 @@ class DataManager {
             gameData?.setHardDifficultyScore(0);
             
             gameData?.setEasyDifficulty(false);
-            gameData?.setMediumDifficulty(true);
+            gameData?.setMediumDifficulty(false);
             gameData?.setHardDifficulty(false);
             
             saveData();
@@ -41,7 +40,7 @@ class DataManager {
     }
     
     func loadData() {
-        gameData = NSKeyedUnarchiver.unarchiveObject(withFile: getFilePath() as String) as? GameData?
+        gameData = (NSKeyedUnarchiver.unarchiveObject(withFile: getFilePath() as String) as? GameData?)!
     }
     
     func saveData() {

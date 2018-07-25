@@ -8,33 +8,49 @@
 
 import SpriteKit
 
-class Points {
+class PointsController {
 
-    static let instance = Points();
+    static let instance = PointsController();
 
     private init() {}
     
-    var value = Int();
+    var points = Int();
+    
+    
+    func initializeVariables() {
+        if GameManager.instance.gameStartedFromMainMenu {
+
+            GameManager.instance.gameStartedFromMainMenu = false;
+
+            points = 0;
+
+        } else if GameManager.instance.gameRestartedPlayerDied {
+
+            GameManager.instance.gameRestartedPlayerDied = false;
+
+        }
+    }
+    
     
     func increment(consumableName: String) {
         if consumableName == "Drink" {
-            value += 1;
+            points += 1;
         } else if consumableName == "Bonus" {
-            value += 5;
+            points += 5;
         }
     }
     
     func decrement() {
-        if value == 0 {
+        if points == 0 {
             return
         }
-        value -= 1;
+        points -= 1;
     }
     
     func getPointsBubble() -> Bubble {
         
         let position = CGPoint(x: 590, y: 320);
-        let label = LabelMaker(message: "\(Points.instance.value)", messageSize: 60);
+        let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60);
     
         let pointsBubble = Bubble(type: "roundcloud", scale: 0.75, bubblePosition: position, label: label);
         
