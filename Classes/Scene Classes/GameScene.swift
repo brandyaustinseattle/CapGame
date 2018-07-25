@@ -231,7 +231,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return;
         }
         
-
         playerSpeaking = true;
         
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);

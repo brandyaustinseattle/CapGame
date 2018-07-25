@@ -13,6 +13,7 @@ class GameOverScene: StaticScene {
 
     var timer = Timer();
     let pointsBubble = PointsController.instance.getPointsBubble();
+    private var highScore: SKLabelNode?;
         
     override var text : String {
         get { return "game over" }
@@ -34,9 +35,6 @@ class GameOverScene: StaticScene {
             self.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.countDownPoints), userInfo: nil, repeats: true);
         }
     }
-    
-    private var highScore: SKLabelNode?;
-    
     
     private func setPoints() {
         if GameManager.instance.getEasyDifficulty() {
