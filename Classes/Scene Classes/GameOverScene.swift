@@ -23,6 +23,8 @@ class GameOverScene: StaticScene {
         
         getReference();
         setPoints();
+        
+        addFunctionalityBubbles();
 
         self.addChild(pointsBubble);
         
@@ -34,7 +36,24 @@ class GameOverScene: StaticScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.managePlayerJumpsOnTouch();
+        
+        GameManager.instance.gameStartedFromMainMenu = false;
+        GameManager.instance.gameRestartedPlayerDied = true;
+        
+        let touch:UITouch = touches.first!;
+        let positionInScene = touch.location(in: self);
+        let touchedNode = self.atPoint(positionInScene);
+        
+        if touchedNode.name == "home" {
+            transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
+            
+        } else if touchedNode.name == "replay" {
+            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
+            PointsController.instance.points = 0;
+            
+        } else {
+            super.managePlayerJumpsOnTouch();
+        }
     }
     
     @objc func countDownPoints() {
@@ -48,6 +67,24 @@ class GameOverScene: StaticScene {
         
         let label = LabelMaker(message: "\(PointsController.instance.points)", messageSize: 60)
         pointsBubble.updateLabel(newLabel: label)
+    }
+    
+    func addFunctionalityBubbles() {
+        
+        let functionalityTypes = ["home", "replay"];
+        
+        var x = -(frame.size.width)/2 + frame.size.width/5 + 200;
+        
+        for type in functionalityTypes {
+            let position = CGPoint(x: x, y: -(self.frame.size.height)/2 + 150);
+            let button = Bubble(type: "\(type)", scale: 0.65, bubblePosition: position, label: nil)
+            
+            self.addChild(button);
+            ActionManager.instance.rotateBackForth(node: button, denominator: 100);
+            
+            x += frame.size.width/5;
+        }
+        
     }
     
     

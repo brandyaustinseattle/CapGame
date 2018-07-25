@@ -39,7 +39,7 @@ func delay(time: Double, closure: @escaping ()-> ()) {
 func transitionScenes(oldScene: SKScene, newScene: SKScene) {
     newScene.scaleMode = .aspectFill;
     
-    let doorway = SKTransition.doorway(withDuration: 3);
+    let doorway = SKTransition.doorway(withDuration: 2.15);
     oldScene.view?.presentScene(newScene, transition: doorway);
 }
 

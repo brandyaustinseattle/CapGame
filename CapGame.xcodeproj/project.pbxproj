@@ -136,7 +136,6 @@
 		D3D5EECB2108E7B9003495B2 /* Loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC52108E7B9003495B2 /* Loading3.png */; };
 		D3D5EECC2108E7B9003495B2 /* Loading5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC62108E7B9003495B2 /* Loading5.png */; };
 		D3D5EECD2108E7B9003495B2 /* Loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EEC72108E7B9003495B2 /* Loading1.png */; };
-		D3D5EED12108F75D003495B2 /* quit.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EECE2108F75D003495B2 /* quit.png */; };
 		D3D5EED22108F75D003495B2 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EECF2108F75D003495B2 /* home.png */; };
 		D3D5EED32108F75D003495B2 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5EED02108F75D003495B2 /* replay.png */; };
 /* End PBXBuildFile section */
@@ -273,7 +272,6 @@
 		D3D5EEC52108E7B9003495B2 /* Loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading3.png; sourceTree = "<group>"; };
 		D3D5EEC62108E7B9003495B2 /* Loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading5.png; sourceTree = "<group>"; };
 		D3D5EEC72108E7B9003495B2 /* Loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading1.png; sourceTree = "<group>"; };
-		D3D5EECE2108F75D003495B2 /* quit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quit.png; sourceTree = "<group>"; };
 		D3D5EECF2108F75D003495B2 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		D3D5EED02108F75D003495B2 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -599,7 +597,6 @@
 			children = (
 				D38A22F62107DE0D006EB471 /* demobutton.png */,
 				D3D5EECF2108F75D003495B2 /* home.png */,
-				D3D5EECE2108F75D003495B2 /* quit.png */,
 				D3D5EED02108F75D003495B2 /* replay.png */,
 				D36D9E05210157E500F86C90 /* easybutton.png */,
 				D36D9E04210157E500F86C90 /* hardbutton.png */,
@@ -839,7 +836,6 @@
 				D38A22D12103ABB6006EB471 /* speech.png in Resources */,
 				D3B6663221000E7E00E88D21 /* roundspeech.png in Resources */,
 				D3D5EED22108F75D003495B2 /* home.png in Resources */,
-				D3D5EED12108F75D003495B2 /* quit.png in Resources */,
 				D36D9E212102720000F86C90 /* Abonus.png in Resources */,
 				D3D5EECD2108E7B9003495B2 /* Loading1.png in Resources */,
 				D330D95920FFAE8A0018ED1F /* rock1.png in Resources */,

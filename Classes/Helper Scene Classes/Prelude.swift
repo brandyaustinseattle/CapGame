@@ -24,7 +24,7 @@ class Prelude: SKScene {
     }
     
     private func introScene() {
-        delay(time: 3) {
+        delay(time: 2.5) {
             let newScene = IntroScene(fileNamed: "IntroScene")!;
             transitionScenes(oldScene: self, newScene: newScene)
         }
