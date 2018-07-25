@@ -37,6 +37,10 @@ class IntroScene: StaticScene {
         } else if touchedNode.name == "hardbutton" {
             DifficultyManager.instance.setFactors(difficulty: "hard");
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
+        } else if touchedNode.name == "demobutton" {
+            DifficultyManager.instance.setFactors(difficulty: "demo");
+            transitionScenes(oldScene: self, newScene: DemoGameScene(fileNamed: "DemoGameScene")!);
+            speed = CGFloat(15);
         } else {
             super.managePlayerJumpsOnTouch();
         }
@@ -44,9 +48,9 @@ class IntroScene: StaticScene {
     
     func addLevelsBubbles() {
 
-        let difficultyTypes = ["easybutton", "mediumbutton", "hardbutton"];
+        let difficultyTypes = ["easybutton", "mediumbutton", "hardbutton", "demobutton"];
         
-        var y = self.size.height/2 - self.size.height/4 - frame.size.height;
+        var y = self.size.height/2 - self.size.height/6 - frame.size.height;
 
         var time = Double(0.5);
         
@@ -54,9 +58,9 @@ class IntroScene: StaticScene {
 
             delay(time: time) {
             
-                let position = CGPoint(x: -175, y: y);
+                let position = CGPoint(x: -100, y: y);
 
-                let button = Bubble(type: "\(type)", scale: 0.85, bubblePosition: position, label: nil)
+                let button = Bubble(type: "\(type)", scale: 0.75, bubblePosition: position, label: nil)
 
                 let move = SKAction.moveBy(x: 0, y: self.frame.size.height, duration: 0.75)
 
@@ -64,7 +68,7 @@ class IntroScene: StaticScene {
                 ActionManager.instance.rotateBackForth(node: button, denominator: 100);
                 button.run(move);
 
-                y -= self.size.height/4;
+                y -= self.size.height/4.5;
             }
             time += 0.5;
 

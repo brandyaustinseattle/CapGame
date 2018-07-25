@@ -51,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func initialize() {
+    func initialize() {        
         physicsWorld.contactDelegate = self;
         
         BackGroundManager.instance.createBG(scene: self);

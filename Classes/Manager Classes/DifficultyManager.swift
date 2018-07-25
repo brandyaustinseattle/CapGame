@@ -8,6 +8,7 @@
 
 
 import Foundation
+import SpriteKit
 
 //  store as NSObject...data stored on phone
 class DifficultyManager {
@@ -29,6 +30,8 @@ class DifficultyManager {
     private(set) var lowMiddleEndFactor = Int();
     private(set) var highMiddleEndFactor = Int();
     private(set) var lowHighFactor = Int();
+    
+    private(set) var speed = CGFloat();
 
     
     func setFactors(difficulty: String) {
@@ -39,15 +42,16 @@ class DifficultyManager {
 
                 insectFactor = 9;
                 rockFactor = 2;
-                
+
                 portalFactor = 8;
                 standPlaneFactor = 3;
-        
+
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
                 highMiddleEndFactor = 8;
                 lowHighFactor = 5;
-                
+                speed = CGFloat(175);
+
                 return
         
             case "medium":
@@ -64,6 +68,7 @@ class DifficultyManager {
                 lowMiddleEndFactor = 6;
                 highMiddleEndFactor = 6;
                 lowHighFactor = 6;
+                speed = CGFloat(175);
                 
                 return
         
@@ -82,8 +87,28 @@ class DifficultyManager {
                 lowMiddleEndFactor = 5;
                 highMiddleEndFactor = 5;
                 lowHighFactor = 6;
+                speed = CGFloat(175);
    
                 return
+            
+            case "demo":
+            
+                drinkFactor = 1;
+                bonusFactor = 1;
+            
+                insectFactor = 1;
+                rockFactor = 1;
+            
+                portalFactor = 2;
+                standPlaneFactor = 3;
+            
+                startAloneFactor = 9;
+                lowMiddleEndFactor = 8;
+                highMiddleEndFactor = 8;
+                lowHighFactor = 5;
+                speed = CGFloat(80);
+            
+            return
         
             default:
                 return

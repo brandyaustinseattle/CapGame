@@ -52,15 +52,18 @@ class ActionManager {
     }
     
     func move(node: SKSpriteNode) {
+        let selectedSpeed = DifficultyManager.instance.speed;
         let endpoint = CGPoint(x: -800, y: node.position.y);
-        let move = SKAction.move(to: endpoint, duration: getDuration(pointA: node.position, pointB: endpoint, speed: 175.0))
+        let duration = getDuration(pointA: node.position, pointB: endpoint, speed: selectedSpeed);
+        
+        let move = SKAction.move(to: endpoint, duration: duration);
         
         let remove = SKAction.removeFromParent();
         let sequence = SKAction.sequence([move, remove]);
         node.run(sequence);
     }
     
-    func getDuration(pointA: CGPoint, pointB: CGPoint, speed:CGFloat)->TimeInterval {
+    func getDuration(pointA: CGPoint, pointB: CGPoint, speed: CGFloat)->TimeInterval {
         let xDist = (pointB.x - pointA.x)
         let yDist = (pointB.y - pointA.y)
         let distance = sqrt((xDist * xDist) + (yDist * yDist));

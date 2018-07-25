@@ -9,6 +9,8 @@
 import SpriteKit
 import GameKit
 
+var demo = false;
+
 struct PhysicsCategory {
     static let PlayerBody: UInt32 = 0x1 << 1;
     static let PlayerHead: UInt32 = 0x1 << 2;
