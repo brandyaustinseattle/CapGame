@@ -29,8 +29,7 @@ class PathEngine {
     var lastHeight = String();
     
     var timer = Timer();
-    var interval = 0.35;
-        
+    
     func initialize(scene: SKScene) {
         
         prevPathItem = SKSpriteNode();
@@ -38,7 +37,7 @@ class PathEngine {
         
         createRunway(scene: scene);
         
-        timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(createMainPath), userInfo: scene, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: scene, repeats: true);
     }
 
     func createRunway(scene: SKScene) {

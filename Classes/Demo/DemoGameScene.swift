@@ -57,7 +57,9 @@ class DemoGameScene: GameScene {
         playerSpeaking = true;
         
         let position = CGPoint(x: player.position.x + 185, y: player.position.y + 50);
-        let label = LabelMaker(message: "see above", messageSize: 100);
+        let label = LabelMaker(message: "see above", messageSize: 95);
+        label.position = CGPoint(x: 0, y: 20);
+        
         let plus = Bubble(type: "boltspeech", scale: 0.45, bubblePosition: position, label: label)
         
         self.addChild(plus);
