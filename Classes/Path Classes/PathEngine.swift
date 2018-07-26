@@ -101,7 +101,7 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 175, max: 225);
+            spaceBefore = Int.random(min: 165, max: 215);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
