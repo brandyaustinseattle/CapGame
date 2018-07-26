@@ -20,7 +20,7 @@ class LabelMaker: SKLabelNode {
         fontColor = UIColor.black;
         fontSize = messageSize;
         
-        zPosition = 4;
+        zPosition = 5;
     }
     
     required init?(coder aDecoder: NSCoder) {

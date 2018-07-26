@@ -10,7 +10,7 @@ import SpriteKit
 
 class DemoGameOverScene: GameOverScene {
     
-    override func addScoreBubbles() { return };
+    override func addScoreBoard() { return };
     
     override func addFunctionalityBubbles() {
         

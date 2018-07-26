@@ -29,13 +29,13 @@ class InsectEngine {
         let scene = timer.userInfo as! SKScene;
         
         if insectRandom <= DifficultyManager.instance.insectFactor {
-            self.addHorizontalInsect(scene: scene);
+            self.addInsect(scene: scene);
         }
     }
     
-    func addHorizontalInsect(scene: SKScene) {
+    func addInsect(scene: SKScene) {
         
-        let insectNum = Int.random(min: 1, max: 6)
+        let insectNum = Int.random(min: 1, max: 8)
         
         let xIndex = Int(CGFloat(Int.random(min: 0, max: 1)));
         let yIndex = Int(CGFloat(Int.random(min: 0, max: 1)));
@@ -45,7 +45,7 @@ class InsectEngine {
         
         let position = CGPoint(x: randomX, y: randomY);
         
-        insect = Insect(imageNamed: "\(insectNum)horizontal");
+        insect = Insect(imageNamed: "\(insectNum)insect");
         insect.initialize(position: position);
         insect.setScale(0.58);
         

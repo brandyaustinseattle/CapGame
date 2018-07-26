@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameOverScene: StaticScene {
 
+    var loadingScene = Loading();
+    
     var timer = Timer();
     let pointsBubble = PointsController.instance.getPointsBubble();
     private var highScore: SKLabelNode?;
@@ -25,7 +27,7 @@ class GameOverScene: StaticScene {
         setPoints();
         
         addFunctionalityBubbles();
-        addScoreBubbles();
+        addScoreBoard();
 
         self.addChild(pointsBubble);
         
@@ -56,6 +58,8 @@ class GameOverScene: StaticScene {
             transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
             
         } else if touchedNode.name == "play" {
+            loadingScene.setSceneOption();
+            
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
             PointsController.instance.points = 0;
             
@@ -99,48 +103,43 @@ class GameOverScene: StaticScene {
         
     }
     
-    func addScoreBubbles() {
-                
-        let pointsLabel = LabelMaker.init(message: "\(PointsController.instance.points)", messageSize: 80);
-        pointsLabel.position = CGPoint(x: 0, y: -50);
-        let pointsPosition = CGPoint(x: 0, y: 275);
-        let totalBubble = Bubble(type: "totalScore", scale: 0.75, bubblePosition: pointsPosition, label: pointsLabel);
-        self.addChild(totalBubble);
-        
+    func addScoreBoard() {
+
         let easy = GameManager.instance.getEasyDifficulty();
         let medium = GameManager.instance.getMediumDifficulty();
         let hard = GameManager.instance.getHardDifficulty();
 
-        if easy {
-            let highPosition = CGPoint(x: 0, y: 50);
-            let highScore = (GameManager.instance.getEasyDifficultyScore());
-            let highLabel = LabelMaker.init(message: "\(highScore)", messageSize: 50);
-            highLabel.position = CGPoint(x: 0, y: -25);
-            
-            let highScoreBubble = Bubble(type: "easyHighScore", scale: 1.25, bubblePosition: highPosition, label: highLabel);
-            self.addChild(highScoreBubble);
-            
-        } else if medium {
-            let highPosition = CGPoint(x: 0, y: 50);
-            let highScore = (GameManager.instance.getMediumDifficultyScore());
-            let highLabel = LabelMaker.init(message: "\(highScore)", messageSize: 50);
-            highLabel.position = CGPoint(x: 0, y: -25);
-            
-            let highScoreBubble = Bubble(type: "mediumHighScore", scale: 1.25, bubblePosition: highPosition, label: highLabel);
-            self.addChild(highScoreBubble);
-            
-        } else if hard {
-            let highPosition = CGPoint(x: 0, y: 50);
-            let highScore = (GameManager.instance.getHardDifficultyScore());
-            let highLabel = LabelMaker.init(message: "\(highScore)", messageSize: 50);
-            highLabel.position = CGPoint(x: 0, y: -25);
-            
-            let highScoreBubble = Bubble(type: "hardHighScore", scale: 1.25, bubblePosition: highPosition, label: highLabel);
-            self.addChild(highScoreBubble);
+        var message = String();
 
+        if easy {
+            let highScore = (GameManager.instance.getEasyDifficultyScore());
+            message = "High Score for Easy: \(highScore)";
+        } else if medium {
+            let highScore = (GameManager.instance.getMediumDifficultyScore());
+            message = "High Score for Medium: \(highScore)";
+        } else if hard {
+            let highScore = (GameManager.instance.getHardDifficultyScore());
+            message = "High Score for Hard: \(highScore)";
         } else {
             return;
         }
-    }
+        
+        let scoreBoard = SKSpriteNode(imageNamed: "scoreBoard");
+        scoreBoard.zPosition = 3;
+        scoreBoard.setScale(0.75);
+        self.addChild(scoreBoard);
+        
+        let pointsLabel = LabelMaker.init(message: "Score: \(PointsController.instance.points)", messageSize: 50);
+        let pointsPosition = CGPoint(x: scoreBoard.position.x, y: scoreBoard.position.y + 50);
+        pointsLabel.position = pointsPosition;
+        
+        self.addChild(pointsLabel);
+        
+        let highLabel = LabelMaker.init(message: message, messageSize: 50);
+        let highPosition = CGPoint(x: scoreBoard.position.x, y: scoreBoard.position.y - 50);
+        highLabel.position = highPosition;
 
+        self.addChild(highLabel);
+    }
+    
 }
