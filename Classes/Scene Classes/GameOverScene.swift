@@ -55,18 +55,18 @@ class GameOverScene: StaticScene {
         let touchedNode = self.atPoint(positionInScene);
         
         if touchedNode.name == "home" {
+            PointsController.instance.points = 0;
+
             loadingScene.setSceneOption();
-            
             transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
             
         } else if touchedNode.name == "play" {
-            loadingScene.setSceneOption();
-            
-            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
-            PointsController.instance.points = 0;
-            
             GameManager.instance.gameStartedFromMainMenu = false;
             GameManager.instance.gameRestartedPlayerDied = true;
+            PointsController.instance.points = 0;
+            
+            loadingScene.setSceneOption();
+            transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
             
         } else {
             super.managePlayerJumpsOnTouch();

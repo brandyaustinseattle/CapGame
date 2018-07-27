@@ -12,7 +12,7 @@ var prevPathItem = SKSpriteNode();
 var xValue = CGFloat(0);
 
 
-// make runway span entire screen then generate subsequent pathItem objects at a slower rate instead of using 0.35 for the timer
+// make runway span entire screen then generate subsequent objects at a slower rate instead of using timer
 
 class PathEngine {
     
@@ -37,12 +37,12 @@ class PathEngine {
         
         createRunway(scene: scene);
         
-        timer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createMainPath), userInfo: scene, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.38, target: self, selector: #selector(createMainPath), userInfo: scene, repeats: true);
     }
 
     func createRunway(scene: SKScene) {
         
-        for _ in 0...2 {
+        for _ in 0...3 {
             
             pathItem = PathItem(imageNamed: "\(option)middleLow");
             pathItem.initialize();
@@ -56,8 +56,38 @@ class PathEngine {
         
         pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
         
+        
+        
+        pathItem = PathItem(imageNamed: "\(option)aloneLow");
+        pathItem.initialize();
+        
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(150), drinkFlag: false, rockFlag: false);
+        
+        
+        
+        pathItem = PathItem(imageNamed: "\(option)startHigh");
+        pathItem.initialize();
+        
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(165), drinkFlag: false, rockFlag: false);
+        
+        
+        for _ in 0...2 {
+            
+            pathItem = PathItem(imageNamed: "\(option)middleHigh");
+            pathItem.initialize();
+            
+            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
+            
+        };
+        
+        pathItem = PathItem(imageNamed: "\(option)endHigh");
+        pathItem.initialize();
+        
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(150), drinkFlag: false, rockFlag: false);
+        
+        
         lastType = "end";
-        lastHeight = "Low";
+        lastHeight = "High";
     }
     
     @objc func createMainPath(timer: Timer) {
@@ -101,7 +131,7 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 165, max: 215);
+            spaceBefore = Int.random(min: 145, max: 175);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
@@ -223,13 +253,13 @@ class PathEngine {
         }
             
         // pathItem height doesn't need to be * 0.55 bc it's already initialized
-        // stand and bakery height does need * 0.5 bc it's not initialized yet
+        // stand and bakery height does need * 0.5 bc they aren't initialized yet
         var offsetYValue = CGFloat();
         
         if portalType == "plane" {
             offsetYValue = CGFloat(500);
         } else {
-            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.5 / 2);
+            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.55 / 2);
         }
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
