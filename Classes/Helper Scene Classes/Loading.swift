@@ -27,7 +27,7 @@ class Loading: SKScene {
     public func setSceneOption() {
         
         lastOption = option;
-        let sceneOptions = ["A", "A", "A"];
+        let sceneOptions = ["C", "C", "C"];
         let maxIndex = sceneOptions.count - 1;
 
         while option == lastOption {

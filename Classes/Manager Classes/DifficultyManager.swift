@@ -43,8 +43,8 @@ class DifficultyManager {
                 insectFactor = 9;
                 rockFactor = 2;
 
-                portalFactor = 9;
-                standPlaneFactor = 9;
+                portalFactor = 10;
+                standPlaneFactor = 10;
 
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
