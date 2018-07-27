@@ -39,14 +39,14 @@ class DifficultyManager {
         switch difficulty {
             case "easy":
                 drinkFactor = 5;
-                bonusFactor = 5;
+                bonusFactor = 4;
 
-                insectFactor = 9;
+                insectFactor = 8;
                 rockFactor = 2;
 
-                portalFactor = 10;
-                bakeryFactor = 2;
-                standPlaneFactor = 5;
+                portalFactor = 7;
+                bakeryFactor = 7;
+                standPlaneFactor = 4;
 
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;

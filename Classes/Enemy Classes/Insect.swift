@@ -41,7 +41,7 @@ class Insect: SKSpriteNode {
         
         self.run(flySequence);
         
-        ActionManager.instance.removeAfter(node: self, seconds: 4);
+        ActionManager.instance.removeAfter(node: self, seconds: 3);
     }
     
 }

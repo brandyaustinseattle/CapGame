@@ -61,7 +61,7 @@ class PathEngine {
         pathItem = PathItem(imageNamed: "\(option)aloneLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: Int(150), drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(135), drinkFlag: false, rockFlag: false);
         
         
         
@@ -83,7 +83,7 @@ class PathEngine {
         pathItem = PathItem(imageNamed: "\(option)endHigh");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: Int(150), drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
         
         
         lastType = "end";
@@ -131,7 +131,7 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 145, max: 175);
+            spaceBefore = Int.random(min: 135, max: 165);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
