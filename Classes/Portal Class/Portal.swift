@@ -25,7 +25,7 @@ class Portal: SKSpriteNode {
     }
     
     func setPhysics(type: String) {
-        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width/2, height: self.size.height/2));
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width/3, height: self.size.height/3));
         
         self.physicsBody?.collisionBitMask = 0;
         
@@ -34,8 +34,15 @@ class Portal: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.75);
+        self.setScale(0.5);
     }
-
+    
+    func makeBigger() {
+        let bigger = SKAction.resize(byWidth: 250, height: 250, duration: 0.5)
+        let regular = SKAction.resize(byWidth: -250, height: -250, duration: 0.5)
+        let sequence = SKAction.sequence([bigger, regular]);
+        
+        self.run(SKAction.repeatForever(sequence), withKey: "bigger");
+    }
 }
 

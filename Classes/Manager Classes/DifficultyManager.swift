@@ -17,7 +17,7 @@ class DifficultyManager {
     
     private init() {}
     
-    private(set) var cakeFactor = Int();
+    private(set) var drinkFactor = Int();
     private(set) var bonusFactor = Int();
 
     private(set) var insectFactor = Int();
@@ -37,14 +37,14 @@ class DifficultyManager {
     func setFactors(difficulty: String) {
         switch difficulty {
             case "easy":
-                cakeFactor = 5;
+                drinkFactor = 5;
                 bonusFactor = 5;
 
                 insectFactor = 9;
                 rockFactor = 2;
 
-                portalFactor = 10;
-                standPlaneFactor = 10;
+                portalFactor = 7;
+                standPlaneFactor = 5;
 
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
@@ -55,7 +55,7 @@ class DifficultyManager {
                 return
         
             case "medium":
-                cakeFactor = 4;
+                drinkFactor = 4;
                 bonusFactor = 3;
                 
                 insectFactor = 4;
@@ -74,7 +74,7 @@ class DifficultyManager {
         
             case "hard":
                 
-                cakeFactor = 3;
+                drinkFactor = 3;
                 bonusFactor = 2;
                 
                 insectFactor = 6;
@@ -93,7 +93,7 @@ class DifficultyManager {
             
             case "demo":
             
-                cakeFactor = 2;
+                drinkFactor = 2;
                 bonusFactor = 4;
             
                 insectFactor = 1;

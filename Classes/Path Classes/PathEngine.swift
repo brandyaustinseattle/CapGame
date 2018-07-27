@@ -47,14 +47,14 @@ class PathEngine {
             pathItem = PathItem(imageNamed: "\(option)middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), cakeFlag: false, rockFlag: false);
+            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
             
         };
         
         pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -101,7 +101,7 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 150, max: 175);
+            spaceBefore = Int.random(min: 165, max: 215);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
@@ -133,13 +133,13 @@ class PathEngine {
             
         };
         
-        let cakeFlag = cakeRequired(type: type);
+        let drinkFlag = drinkRequired(type: type);
         let rockFlag = rockRequired(type: type);
         
         pathItem = PathItem(imageNamed: "\(option)\(type)\(height)");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, cakeFlag: cakeFlag, rockFlag: rockFlag);
+        pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
         
         lastType = type;
         lastHeight = height;
@@ -156,12 +156,12 @@ class PathEngine {
         }
     }
     
-    func cakeRequired(type: String) -> Bool {
+    func drinkRequired(type: String) -> Bool {
         if type == "alone" || type == "middle" {
 
-            let cakeRandom = Int.random(min: 1, max: 10);
+            let drinkRandom = Int.random(min: 1, max: 10);
 
-            return cakeRandom <= DifficultyManager.instance.cakeFactor
+            return drinkRandom <= DifficultyManager.instance.drinkFactor
         } else {
             return false
         }
@@ -177,31 +177,32 @@ class PathEngine {
         }
     }
     
+    // refactor function to use a loop and randomization
     func insertPortal(scene: SKScene) {
         
         let portalType = selectPortalType();
     
         pathItem = PathItem(imageNamed: "\(option)startStep");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 100, cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
        
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         let midPathItemPosition = pathItem.position;
         
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -219,14 +220,14 @@ class PathEngine {
         if portalType == "plane" {
             offsetYValue = CGFloat(500);
         } else {
-            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.75 / 2);
+            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.5 / 2);
         }
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
        
         
         if portalType == "plane" {
-            ActionManager.instance.rotateBackForth(node: portal, denominator: 10);
+            portal.makeBigger()
         }
             
         scene.addChild(portal);

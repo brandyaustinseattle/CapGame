@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-// cake and bonus objects that player makes contact with to get points
+// drink and bonus objects that player makes contact with to get points
 class Consumable: SKSpriteNode {
 
     func initialize(referencePosition: CGPoint, offsetYValue: CGFloat, type: String) {
@@ -17,8 +17,8 @@ class Consumable: SKSpriteNode {
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
-        if type == "Cake" {
-            self.makeBigger();
+        if type == "Drink" {
+            ActionManager.instance.rotateBackForth(node: self, denominator: 12);
         }
         
         if type == "Bonus" {
@@ -42,23 +42,15 @@ class Consumable: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
                 
-        self.setScale(0.13);
+        self.setScale(0.15);
     }
     
     func bonusPulse(position: CGPoint) -> SKEmitterNode {
      
-        let pulse = SKEmitterNode(fileNamed: "CPulse");
+        let pulse = SKEmitterNode(fileNamed: "\(option)Pulse");
         pulse?.position = position;
 
         return pulse!;
-    }
-    
-    func makeBigger() {
-        let bigger = SKAction.resize(byWidth: 75, height: 75, duration: 0.5)
-        let regular = SKAction.resize(byWidth: -75, height: -75, duration: 0.5)
-        let sequence = SKAction.sequence([bigger, regular]);
-        
-        self.run(SKAction.repeatForever(sequence), withKey: "bigger");
     }
     
 }

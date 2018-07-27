@@ -33,7 +33,7 @@ class PointsController {
     
     
     func increment(consumableName: String) {
-        if consumableName == "Cake" {
+        if consumableName == "Drink" {
             points += 1;
         } else if consumableName == "Bonus" {
             points += 5;
