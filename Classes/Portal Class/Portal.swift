@@ -34,7 +34,12 @@ class Portal: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.5);
+        if type == "bakery" {
+            self.setScale(0.75);
+        } else {
+            self.setScale(0.5);
+        }
+    
     }
     
 }

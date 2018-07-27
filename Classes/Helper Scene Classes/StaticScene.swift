@@ -89,7 +89,7 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+        if firstBody.node?.name == "Player" && (secondBody.node?.name == "Drink" || secondBody.node?.name == "Cake") {
             let position = secondBody.node?.position;
             let cPulse = ActionManager.instance.contactPulse(position: position!);
             self.addChild(cPulse);

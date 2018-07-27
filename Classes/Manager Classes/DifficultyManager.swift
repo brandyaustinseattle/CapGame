@@ -45,7 +45,7 @@ class DifficultyManager {
                 rockFactor = 2;
 
                 portalFactor = 10;
-                bakeryFactor = 9;
+                bakeryFactor = 2;
                 standPlaneFactor = 5;
 
                 startAloneFactor = 8;

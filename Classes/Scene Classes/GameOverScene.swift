@@ -57,7 +57,7 @@ class GameOverScene: StaticScene {
         if touchedNode.name == "home" {
             loadingScene.setSceneOption();
             
-//            transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
+            transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
             
         } else if touchedNode.name == "play" {
             loadingScene.setSceneOption();

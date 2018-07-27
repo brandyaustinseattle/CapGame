@@ -20,6 +20,8 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint();
     
     var player = Player();
+    
+    var originBakery = false;
     var cake = Consumable();
     var drink = Consumable();
     var bonus = Consumable();
@@ -29,7 +31,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     
     
     let countDownBubble = Bubble(type: "longcloud", scale: 0.85, bubblePosition: CGPoint(x: 0, y: 235), label: LabelMaker(message: "\(10)", messageSize: 65));
-    
+
     override func didMove(to view: SKView) {
         initialize();
         
@@ -88,7 +90,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Bonus" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Bonus" || secondBody.node?.name == "Cake" {
             
             let consumableName = secondBody.node?.name;
             
@@ -134,8 +136,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         
         createPlayer();
         
-        originatingPortalIsBakery = GameScene.bakery;
-        addConsumablesMatrix(originatingPortalIsBakery: originatingPortalIsBakery);
+        addConsumablesMatrix();
         
         addQuickBubble();
         
@@ -203,7 +204,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
-    func addConsumablesMatrix(originatingPortalIsBakery: Bool) {
+    func addConsumablesMatrix() {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
@@ -219,7 +220,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     
                     let referencePosition = CGPoint(x: x, y: y);
         
-                    if !originatingPortalIsBakery {
+                    if !originBakery {
                     
                         drink = Consumable(imageNamed: "\(option)drink");
                         bonus = Consumable(imageNamed: "\(option)bonus");
@@ -236,11 +237,12 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                         };
                         
                     } else {
-                        
+                    
                         let cakeNum = Int.random(min: 1, max: 9);
                         cake = Consumable(imageNamed: "\(cakeNum)cupcake");
-                        
+
                         cake.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Cake");
+                        self.addChild(cake);
                     };
                 }
                 
