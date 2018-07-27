@@ -10,8 +10,6 @@ import SpriteKit
 
 
 class GameOverScene: StaticScene {
-
-    var loadingScene = Loading();
     
     var timer = Timer();
     let pointsBubble = PointsController.instance.getPointsBubble();
@@ -58,7 +56,6 @@ class GameOverScene: StaticScene {
             transitionScenes(oldScene: self, newScene: IntroScene(fileNamed: "IntroScene")!);
             
         } else if touchedNode.name == "play" {
-            loadingScene.setSceneOption();
             
             transitionScenes(oldScene: self, newScene: GameScene(fileNamed: "GameScene")!);
             PointsController.instance.points = 0;

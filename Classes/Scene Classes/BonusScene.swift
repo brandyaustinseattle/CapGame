@@ -20,7 +20,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint();
     
     var player = Player();
-    var drink = Consumable();
+    var cake = Consumable();
     var bonus = Consumable();
     
     var timer = Timer();
@@ -74,7 +74,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         countDownBubble.updateLabel(newLabel: label);
     }
     
-    // same as drink portion of didBegin in GameScene
+    // same as cake portion of didBegin in GameScene
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
@@ -87,7 +87,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA;
         }
 
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" || secondBody.node?.name == "Bonus" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Cake" || secondBody.node?.name == "Bonus" {
             
             let consumableName = secondBody.node?.name;
             
@@ -206,7 +206,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
         
         
-        // 3 rows and 5 columns of drinks/bonuses
+        // 3 rows and 5 columns of cakes/bonuses
         for i in 1...3 {
             for j in 1...5 {
                 
@@ -214,12 +214,14 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     // do nothing bc player will be in this area
                 } else {
         
-                    drink = Consumable(imageNamed: "\(option)drink");
+                    let cakeNum = Int.random(min: 1, max: 9);
+                    cake = Consumable(imageNamed: "\(cakeNum)cupcake");
+                    
                     bonus = Consumable(imageNamed: "\(option)bonus");
         
                     let referencePosition = CGPoint(x: x, y: y);
             
-                    drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
+                    cake.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Cake");
                     bonus.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Bonus");
                     
                     let bonusRandom = Int.random(min: 1, max: 10);
@@ -227,7 +229,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                     if bonusRandom <= DifficultyManager.instance.bonusFactor {
                         self.addChild(bonus);
                     } else {
-                        self.addChild(drink);
+                        self.addChild(cake);
                     };
                 }
                 

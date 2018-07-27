@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-// drink and bonus objects that player makes contact with to get points
+// cake and bonus objects that player makes contact with to get points
 class Consumable: SKSpriteNode {
 
     func initialize(referencePosition: CGPoint, offsetYValue: CGFloat, type: String) {
@@ -17,7 +17,7 @@ class Consumable: SKSpriteNode {
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
-        if type == "Drink" {
+        if type == "Cake" {
             ActionManager.instance.rotateBackForth(node: self, denominator: 12);
         }
         
@@ -42,12 +42,12 @@ class Consumable: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
                 
-        self.setScale(0.15);
+        self.setScale(0.12);
     }
     
     func bonusPulse(position: CGPoint) -> SKEmitterNode {
      
-        let pulse = SKEmitterNode(fileNamed: "\(option)Pulse");
+        let pulse = SKEmitterNode(fileNamed: "CPulse");
         pulse?.position = position;
 
         return pulse!;

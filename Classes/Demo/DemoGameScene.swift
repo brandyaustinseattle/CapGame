@@ -38,7 +38,7 @@ class DemoGameScene: GameScene {
     
     @objc func addInstructions() {
         
-        let instructions = ["tap to jump", "tap in air to double jump", "collect drinks to rack up points", "...but avoid insects as they steal points", "visit a drink stand to enter a bonus level", "catch a plane to travel to another place"];
+        let instructions = ["tap to jump", "tap in air to double jump", "collect cakes to rack up points", "...but avoid insects as they steal points", "visit a bakery to enter a bonus level", "catch a plane to travel to another place"];
         
         var time = Double(0);
         

@@ -103,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Cake" {
             
             if PointsController.instance.points == 0 {
                 self.addPlusBubble();

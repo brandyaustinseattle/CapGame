@@ -34,7 +34,7 @@ class Portal: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
         
-        self.setScale(0.5);
+        self.setScale(0.75);
     }
     
     func makeBigger() {

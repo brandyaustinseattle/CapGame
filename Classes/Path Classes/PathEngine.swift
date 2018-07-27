@@ -47,14 +47,14 @@ class PathEngine {
             pathItem = PathItem(imageNamed: "\(option)middleLow");
             pathItem.initialize();
             
-            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
+            pathItem.addPathItem(scene: scene, spaceBefore: Int(0), cakeFlag: false, rockFlag: false);
             
         };
         
         pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: Int(0), cakeFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -101,7 +101,7 @@ class PathEngine {
                 };
                 
             }
-            spaceBefore = Int.random(min: 165, max: 215);
+            spaceBefore = Int.random(min: 150, max: 175);
             
         } else if (lastHeight == "Low" || lastHeight == "Step" || lastHeight == "High") {
             
@@ -133,13 +133,13 @@ class PathEngine {
             
         };
         
-        let drinkFlag = drinkRequired(type: type);
+        let cakeFlag = cakeRequired(type: type);
         let rockFlag = rockRequired(type: type);
         
         pathItem = PathItem(imageNamed: "\(option)\(type)\(height)");
         pathItem.initialize();
         
-        pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, drinkFlag: drinkFlag, rockFlag: rockFlag);
+        pathItem.addPathItem(scene: scene, spaceBefore: spaceBefore, cakeFlag: cakeFlag, rockFlag: rockFlag);
         
         lastType = type;
         lastHeight = height;
@@ -156,12 +156,12 @@ class PathEngine {
         }
     }
     
-    func drinkRequired(type: String) -> Bool {
+    func cakeRequired(type: String) -> Bool {
         if type == "alone" || type == "middle" {
 
-            let drinkRandom = Int.random(min: 1, max: 10);
+            let cakeRandom = Int.random(min: 1, max: 10);
 
-            return drinkRandom <= DifficultyManager.instance.drinkFactor
+            return cakeRandom <= DifficultyManager.instance.cakeFactor
         } else {
             return false
         }
@@ -184,25 +184,25 @@ class PathEngine {
     
         pathItem = PathItem(imageNamed: "\(option)startStep");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 100, cakeFlag: false, rockFlag: false);
        
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
         
         let midPathItemPosition = pathItem.position;
         
         pathItem = PathItem(imageNamed: "\(option)middleLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
         
         pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        pathItem.addPathItem(scene: scene, spaceBefore: 0, cakeFlag: false, rockFlag: false);
         
         lastType = "end";
         lastHeight = "Low";
@@ -220,7 +220,7 @@ class PathEngine {
         if portalType == "plane" {
             offsetYValue = CGFloat(500);
         } else {
-            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.5 / 2);
+            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height / 2);
         }
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);

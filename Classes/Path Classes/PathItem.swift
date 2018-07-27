@@ -11,7 +11,7 @@ import SpriteKit
 class PathItem: SKSpriteNode {
     
     let offSetYArray = [CGFloat(315), CGFloat(450)];
-    var drink = Consumable();
+    var cake = Consumable();
     var rock = Rock();
     
     func initialize() {
@@ -31,7 +31,7 @@ class PathItem: SKSpriteNode {
         self.setScale(0.55);
     }
     
-    func addPathItem(scene: SKScene, spaceBefore: Int, drinkFlag: Bool, rockFlag: Bool) {
+    func addPathItem(scene: SKScene, spaceBefore: Int, cakeFlag: Bool, rockFlag: Bool) {
         
         if (prevPathItem.name == nil) {
             xValue = -(scene.size.width/2) + self.size.width/2;
@@ -45,8 +45,8 @@ class PathItem: SKSpriteNode {
         
         ActionManager.instance.move(node: self);
 
-        if drinkFlag {
-            self.addDrink(referencePosition: self.position, scene: scene);
+        if cakeFlag {
+            self.addCake(referencePosition: self.position, scene: scene);
          
         }
         
@@ -58,17 +58,20 @@ class PathItem: SKSpriteNode {
         scene.addChild(self);
     }
     
-    func addDrink(referencePosition: CGPoint, scene: SKScene) {
-        drink = Consumable(imageNamed: "\(option)drink");
+    func addCake(referencePosition: CGPoint, scene: SKScene) {
+
+        let cakeNum = Int.random(min: 1, max: 9);
+        
+        cake = Consumable(imageNamed: "\(cakeNum)cupcake");
         
         let index = Int(CGFloat(Int.random(min: 0, max: 1)));
         let offsetYValue = offSetYArray[index];
         
-        drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Drink");
+        cake.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Cake");
         
-        scene.addChild(drink);
+        scene.addChild(cake);
         
-        ActionManager.instance.move(node:drink);
+        ActionManager.instance.move(node: cake);
     }
     
     func addRock(referencePosition: CGPoint, scene: SKScene) {

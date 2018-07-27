@@ -89,7 +89,7 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Drink" {
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Cake" {
             let position = secondBody.node?.position;
             let cPulse = ActionManager.instance.contactPulse(position: position!);
             self.addChild(cPulse);
@@ -119,19 +119,21 @@ class StaticScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player);
         player.stand();
         
-        addDrink();
+        addCake();
     }
     
-    func addDrink() {
+    func addCake() {
         delay(time: 2) {
-            let drink = Consumable(imageNamed: "\(option)drink");
+            let cakeNum = Int.random(min: 1, max: 9);
+            
+            let cake = Consumable(imageNamed: "\(cakeNum)cupcake");
             let referencePosition = CGPoint(x: self.player.position.x, y: self.player.position.y);
 
             let offsetYValue = CGFloat(250);
             
-            drink.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Drink");
+            cake.initialize(referencePosition: referencePosition, offsetYValue: offsetYValue, type: "Cake");
             
-            self.addChild(drink);
+            self.addChild(cake);
         }
     }
 

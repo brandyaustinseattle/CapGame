@@ -72,7 +72,7 @@ class ActionManager {
     }
     
     func contactPulse(position: CGPoint) -> SKEmitterNode {
-        let pulse = SKEmitterNode(fileNamed: "\(option)Burst");
+        let pulse = SKEmitterNode(fileNamed: "CBurst");
         pulse?.position = position;
         return pulse!;
     }
