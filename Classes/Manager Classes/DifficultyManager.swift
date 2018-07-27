@@ -44,9 +44,9 @@ class DifficultyManager {
                 insectFactor = 8;
                 rockFactor = 2;
 
-                portalFactor = 7;
-                bakeryFactor = 7;
-                standPlaneFactor = 4;
+                portalFactor = 15;
+                bakeryFactor = 4;
+                standPlaneFactor = 5;
 
                 startAloneFactor = 8;
                 lowMiddleEndFactor = 8;
@@ -63,7 +63,7 @@ class DifficultyManager {
                 insectFactor = 4;
                 rockFactor = 3;
                 
-                portalFactor = 5;
+                portalFactor = 10;
                 bakeryFactor = 2;
                 standPlaneFactor = 3;
                 
@@ -83,7 +83,7 @@ class DifficultyManager {
                 insectFactor = 6;
                 rockFactor = 4;
                 
-                portalFactor = 4;
+                portalFactor = 10;
                 bakeryFactor = 2;
                 standPlaneFactor = 2;
                 
