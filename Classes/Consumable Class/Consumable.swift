@@ -18,7 +18,7 @@ class Consumable: SKSpriteNode {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
         if type == "Cake" {
-            ActionManager.instance.rotateBackForth(node: self, denominator: 12);
+            self.makeBigger();
         }
         
         if type == "Bonus" {
@@ -42,7 +42,7 @@ class Consumable: SKSpriteNode {
         self.physicsBody?.allowsRotation = false;
         self.physicsBody?.isDynamic = false;
                 
-        self.setScale(0.12);
+        self.setScale(0.13);
     }
     
     func bonusPulse(position: CGPoint) -> SKEmitterNode {
@@ -51,6 +51,14 @@ class Consumable: SKSpriteNode {
         pulse?.position = position;
 
         return pulse!;
+    }
+    
+    func makeBigger() {
+        let bigger = SKAction.resize(byWidth: 75, height: 75, duration: 0.5)
+        let regular = SKAction.resize(byWidth: -75, height: -75, duration: 0.5)
+        let sequence = SKAction.sequence([bigger, regular]);
+        
+        self.run(SKAction.repeatForever(sequence), withKey: "bigger");
     }
     
 }

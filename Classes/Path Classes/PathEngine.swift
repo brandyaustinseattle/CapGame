@@ -177,7 +177,6 @@ class PathEngine {
         }
     }
     
-    // refactor function to use a loop and randomization
     func insertPortal(scene: SKScene) {
         
         let portalType = selectPortalType();
@@ -220,14 +219,14 @@ class PathEngine {
         if portalType == "plane" {
             offsetYValue = CGFloat(500);
         } else {
-            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height / 2);
+            offsetYValue = CGFloat(pathItem.size.height / 2 + portal.size.height * 0.75 / 2);
         }
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
        
         
         if portalType == "plane" {
-            portal.makeBigger()
+            ActionManager.instance.rotateBackForth(node: portal, denominator: 10);
         }
             
         scene.addChild(portal);
