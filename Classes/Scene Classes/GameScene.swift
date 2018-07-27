@@ -122,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
         }
         
-        if firstBody.node?.name == "Player" && secondBody.node?.name == "Portalstand" {
+        if firstBody.node?.name == "Player" && (secondBody.node?.name == "Portalbakery" || secondBody.node?.name == "Portalstand") {
             
             pathEngine.timer.invalidate();
         

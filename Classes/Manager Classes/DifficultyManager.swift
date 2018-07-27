@@ -24,6 +24,7 @@ class DifficultyManager {
     private(set) var rockFactor = Int();
 
     private(set) var portalFactor = Int();
+    private(set) var bakeryFactor = Int();
     private(set) var standPlaneFactor = Int();
 
     private(set) var startAloneFactor = Int();
@@ -43,7 +44,8 @@ class DifficultyManager {
                 insectFactor = 9;
                 rockFactor = 2;
 
-                portalFactor = 7;
+                portalFactor = 10;
+                bakeryFactor = 9;
                 standPlaneFactor = 5;
 
                 startAloneFactor = 8;
@@ -62,6 +64,7 @@ class DifficultyManager {
                 rockFactor = 3;
                 
                 portalFactor = 5;
+                bakeryFactor = 2;
                 standPlaneFactor = 3;
                 
                 startAloneFactor = 6;
@@ -81,6 +84,7 @@ class DifficultyManager {
                 rockFactor = 4;
                 
                 portalFactor = 4;
+                bakeryFactor = 2;
                 standPlaneFactor = 2;
                 
                 startAloneFactor = 5;

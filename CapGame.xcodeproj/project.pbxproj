@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3010654210AF03C0059CBBC /* 7cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D301064B210AF03B0059CBBC /* 7cupcake.png */; };
+		D3010655210AF03C0059CBBC /* 3cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D301064C210AF03B0059CBBC /* 3cupcake.png */; };
+		D3010656210AF03C0059CBBC /* 9cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D301064D210AF03B0059CBBC /* 9cupcake.png */; };
+		D3010657210AF03C0059CBBC /* 1cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D301064E210AF03B0059CBBC /* 1cupcake.png */; };
+		D3010658210AF03C0059CBBC /* 4cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D301064F210AF03B0059CBBC /* 4cupcake.png */; };
+		D3010659210AF03C0059CBBC /* 8cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010650210AF03B0059CBBC /* 8cupcake.png */; };
+		D301065A210AF03C0059CBBC /* 2cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010651210AF03B0059CBBC /* 2cupcake.png */; };
+		D301065B210AF03C0059CBBC /* 6cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010652210AF03B0059CBBC /* 6cupcake.png */; };
+		D301065C210AF03C0059CBBC /* 5cupcake.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010653210AF03C0059CBBC /* 5cupcake.png */; };
+		D301066B210AF15C0059CBBC /* 3bakery.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010667210AF15C0059CBBC /* 3bakery.png */; };
+		D301066C210AF15C0059CBBC /* 4bakery.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010668210AF15C0059CBBC /* 4bakery.png */; };
+		D301066D210AF15C0059CBBC /* 2bakery.png in Resources */ = {isa = PBXBuildFile; fileRef = D3010669210AF15C0059CBBC /* 2bakery.png */; };
+		D301066E210AF15C0059CBBC /* 1bakery.png in Resources */ = {isa = PBXBuildFile; fileRef = D301066A210AF15C0059CBBC /* 1bakery.png */; };
 		D30621B720EE7AC500E2127D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30621B620EE7AC500E2127D /* GameScene.swift */; };
 		D30621B920EE7BEB00E2127D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30621B820EE7BEB00E2127D /* GameScene.sks */; };
 		D30621BD20F02CA400E2127D /* PathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30621BC20F02CA400E2127D /* PathItem.swift */; };
@@ -141,6 +154,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D301064B210AF03B0059CBBC /* 7cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7cupcake.png; sourceTree = "<group>"; };
+		D301064C210AF03B0059CBBC /* 3cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3cupcake.png; sourceTree = "<group>"; };
+		D301064D210AF03B0059CBBC /* 9cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9cupcake.png; sourceTree = "<group>"; };
+		D301064E210AF03B0059CBBC /* 1cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1cupcake.png; sourceTree = "<group>"; };
+		D301064F210AF03B0059CBBC /* 4cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4cupcake.png; sourceTree = "<group>"; };
+		D3010650210AF03B0059CBBC /* 8cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8cupcake.png; sourceTree = "<group>"; };
+		D3010651210AF03B0059CBBC /* 2cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2cupcake.png; sourceTree = "<group>"; };
+		D3010652210AF03B0059CBBC /* 6cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6cupcake.png; sourceTree = "<group>"; };
+		D3010653210AF03C0059CBBC /* 5cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5cupcake.png; sourceTree = "<group>"; };
+		D3010667210AF15C0059CBBC /* 3bakery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3bakery.png; sourceTree = "<group>"; };
+		D3010668210AF15C0059CBBC /* 4bakery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4bakery.png; sourceTree = "<group>"; };
+		D3010669210AF15C0059CBBC /* 2bakery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2bakery.png; sourceTree = "<group>"; };
+		D301066A210AF15C0059CBBC /* 1bakery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1bakery.png; sourceTree = "<group>"; };
 		D30621B620EE7AC500E2127D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D30621B820EE7BEB00E2127D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		D30621BC20F02CA400E2127D /* PathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathItem.swift; sourceTree = "<group>"; };
@@ -287,6 +313,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3010648210AEFFE0059CBBC /* Drinks */ = {
+			isa = PBXGroup;
+			children = (
+				D38A233321084E23006EB471 /* Bdrink.png */,
+				D36D9E20210271FF00F86C90 /* Adrink.png */,
+				D36D9E102102707200F86C90 /* Cdrink.png */,
+			);
+			path = Drinks;
+			sourceTree = "<group>";
+		};
+		D3010649210AF0060059CBBC /* Bonuses */ = {
+			isa = PBXGroup;
+			children = (
+				D38A233D21085338006EB471 /* Bbonus.png */,
+				D38A22D42103DD97006EB471 /* Cbonus.png */,
+				D36D9E1E210271FF00F86C90 /* Abonus.png */,
+			);
+			path = Bonuses;
+			sourceTree = "<group>";
+		};
+		D301064A210AF00D0059CBBC /* Cakes */ = {
+			isa = PBXGroup;
+			children = (
+				D301064E210AF03B0059CBBC /* 1cupcake.png */,
+				D3010651210AF03B0059CBBC /* 2cupcake.png */,
+				D301064C210AF03B0059CBBC /* 3cupcake.png */,
+				D301064F210AF03B0059CBBC /* 4cupcake.png */,
+				D3010653210AF03C0059CBBC /* 5cupcake.png */,
+				D3010652210AF03B0059CBBC /* 6cupcake.png */,
+				D301064B210AF03B0059CBBC /* 7cupcake.png */,
+				D3010650210AF03B0059CBBC /* 8cupcake.png */,
+				D301064D210AF03B0059CBBC /* 9cupcake.png */,
+			);
+			path = Cakes;
+			sourceTree = "<group>";
+		};
+		D301065D210AF0450059CBBC /* Stands */ = {
+			isa = PBXGroup;
+			children = (
+				D36D9E1F210271FF00F86C90 /* Astand.png */,
+				D36D9E112102707200F86C90 /* Cstand.png */,
+				D38A2341210858DC006EB471 /* Bstand.png */,
+			);
+			path = Stands;
+			sourceTree = "<group>";
+		};
+		D301065E210AF0500059CBBC /* Bakeries */ = {
+			isa = PBXGroup;
+			children = (
+				D301066A210AF15C0059CBBC /* 1bakery.png */,
+				D3010669210AF15C0059CBBC /* 2bakery.png */,
+				D3010667210AF15C0059CBBC /* 3bakery.png */,
+				D3010668210AF15C0059CBBC /* 4bakery.png */,
+			);
+			path = Bakeries;
+			sourceTree = "<group>";
+		};
 		D30621BE20F02DA800E2127D /* Path Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,12 +701,9 @@
 		D36D9E6021030F4200F86C90 /* Consumables */ = {
 			isa = PBXGroup;
 			children = (
-				D38A233D21085338006EB471 /* Bbonus.png */,
-				D38A233321084E23006EB471 /* Bdrink.png */,
-				D38A22D42103DD97006EB471 /* Cbonus.png */,
-				D36D9E1E210271FF00F86C90 /* Abonus.png */,
-				D36D9E20210271FF00F86C90 /* Adrink.png */,
-				D36D9E102102707200F86C90 /* Cdrink.png */,
+				D301064A210AF00D0059CBBC /* Cakes */,
+				D3010649210AF0060059CBBC /* Bonuses */,
+				D3010648210AEFFE0059CBBC /* Drinks */,
 			);
 			path = Consumables;
 			sourceTree = "<group>";
@@ -631,10 +711,9 @@
 		D36D9E6121030F4A00F86C90 /* Portals */ = {
 			isa = PBXGroup;
 			children = (
+				D301065E210AF0500059CBBC /* Bakeries */,
+				D301065D210AF0450059CBBC /* Stands */,
 				D36D9E322102832200F86C90 /* plane.png */,
-				D36D9E1F210271FF00F86C90 /* Astand.png */,
-				D36D9E112102707200F86C90 /* Cstand.png */,
-				D38A2341210858DC006EB471 /* Bstand.png */,
 			);
 			path = Portals;
 			sourceTree = "<group>";
@@ -783,6 +862,8 @@
 				D307393120E2B79F0054DEE6 /* flying3.png in Resources */,
 				D3DA58C321093FAB00395438 /* DemoGameOverScene.sks in Resources */,
 				D38A2342210858DC006EB471 /* Bstand.png in Resources */,
+				D3010659210AF03C0059CBBC /* 8cupcake.png in Resources */,
+				D301066D210AF15C0059CBBC /* 2bakery.png in Resources */,
 				D36D9E7B21031B3900F86C90 /* 6insect.png in Resources */,
 				D307393B20E2B79F0054DEE6 /* standing3.png in Resources */,
 				D36D9E7C21031B3900F86C90 /* 8insect.png in Resources */,
@@ -791,6 +872,7 @@
 				D330D95720FFAE8A0018ED1F /* rocks.png in Resources */,
 				D30738DE20E2B5CA0054DEE6 /* Main.storyboard in Resources */,
 				D38A22F92107E0D7006EB471 /* longcloud.png in Resources */,
+				D3010656210AF03C0059CBBC /* 9cupcake.png in Resources */,
 				D3D5EECA2108E7B9003495B2 /* Loading4.png in Resources */,
 				D307393720E2B79F0054DEE6 /* standing4.png in Resources */,
 				D3DA58BF2109308B00395438 /* home.png in Resources */,
@@ -801,8 +883,10 @@
 				D38A22D32103ABC5006EB471 /* curvyspeech.png in Resources */,
 				D307393F20E2B79F0054DEE6 /* slideA1.png in Resources */,
 				D307392520E2B79F0054DEE6 /* dizzy2.png in Resources */,
+				D3010658210AF03C0059CBBC /* 4cupcake.png in Resources */,
 				D36D9E09210157E500F86C90 /* mediumbutton.png in Resources */,
 				D36D9E8021031C0E00F86C90 /* grayroundcloud.png in Resources */,
+				D301066B210AF15C0059CBBC /* 3bakery.png in Resources */,
 				D307393A20E2B79F0054DEE6 /* standing2.png in Resources */,
 				D330D88F20F80D160018ED1F /* BonusScene.sks in Resources */,
 				D38A233E21085338006EB471 /* Bbonus.png in Resources */,
@@ -812,6 +896,7 @@
 				D36D9E512102FB4B00F86C90 /* BBurst.sks in Resources */,
 				D330D95A20FFAE8A0018ED1F /* rock3.png in Resources */,
 				D330D89720F95B810018ED1F /* ABurst.sks in Resources */,
+				D301065B210AF03C0059CBBC /* 6cupcake.png in Resources */,
 				D307393620E2B79F0054DEE6 /* standing6.png in Resources */,
 				D307393520E2B79F0054DEE6 /* slideB2.png in Resources */,
 				D3B6663421001DD700E88D21 /* boltspeech.png in Resources */,
@@ -825,11 +910,14 @@
 				D3D5EECD2108E7B9003495B2 /* Loading1.png in Resources */,
 				D330D95920FFAE8A0018ED1F /* rock1.png in Resources */,
 				D307394120E2BB480054DEE6 /* testPlayer.png in Resources */,
+				D3010657210AF03C0059CBBC /* 1cupcake.png in Resources */,
 				D307392F20E2B79F0054DEE6 /* flying1.png in Resources */,
 				D307392920E2B79F0054DEE6 /* gameover6.png in Resources */,
 				D307393820E2B79F0054DEE6 /* standing5.png in Resources */,
 				D36D9E59210307C700F86C90 /* Snow.sks in Resources */,
 				D307392820E2B79F0054DEE6 /* gameover3.png in Resources */,
+				D301066E210AF15C0059CBBC /* 1bakery.png in Resources */,
+				D3010654210AF03C0059CBBC /* 7cupcake.png in Resources */,
 				D36D9E57210300D500F86C90 /* CPulse.sks in Resources */,
 				D36D9E7A21031B3900F86C90 /* 4insect.png in Resources */,
 				D38A22EA2107D3B1006EB471 /* instructionscloud.png in Resources */,
@@ -846,18 +934,22 @@
 				D38CFB2B210AE95800E575DB /* 7insect.png in Resources */,
 				D36D9E07210157E500F86C90 /* hardbutton.png in Resources */,
 				D307392E20E2B79F0054DEE6 /* flying5.png in Resources */,
+				D301066C210AF15C0059CBBC /* 4bakery.png in Resources */,
 				D36D9E192102707300F86C90 /* Cdrink.png in Resources */,
 				D36D9E7821031B3900F86C90 /* 1insect.png in Resources */,
 				D307393220E2B79F0054DEE6 /* jumpup1.png in Resources */,
+				D3010655210AF03C0059CBBC /* 3cupcake.png in Resources */,
 				D3D5EEC82108E7B9003495B2 /* Loading6.png in Resources */,
 				D30621B920EE7BEB00E2127D /* GameScene.sks in Resources */,
 				D38A22F12107D990006EB471 /* DemoBonusScene.sks in Resources */,
 				D38A22EF2107D855006EB471 /* DemoGameScene.sks in Resources */,
 				D36D9E7721031B3900F86C90 /* 5insect.png in Resources */,
 				D36D9E5C2103083A00F86C90 /* CBurst.sks in Resources */,
+				D301065C210AF03C0059CBBC /* 5cupcake.png in Resources */,
 				D36D9DDB21010B5D00F86C90 /* squarespeech.png in Resources */,
 				D307393920E2B79F0054DEE6 /* standing1.png in Resources */,
 				D36D9E222102720000F86C90 /* Astand.png in Resources */,
+				D301065A210AF03C0059CBBC /* 2cupcake.png in Resources */,
 				D307392A20E2B79F0054DEE6 /* gameover4.png in Resources */,
 				D330D95820FFAE8A0018ED1F /* rock2.png in Resources */,
 				D36D9E352102910C00F86C90 /* Prelude.sks in Resources */,

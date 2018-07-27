@@ -168,8 +168,14 @@ class PathEngine {
     }
     
     func selectPortalType() -> String {
+        // decision is made between stand or plane only if a bakery isn't selected
+        let bakeryRandom = Int.random(min: 1, max: 10);
         let standPlaneRandom = Int.random(min: 1, max: 10);
 
+        if bakeryRandom <= DifficultyManager.instance.bakeryFactor {
+            return "bakery";
+        }
+        
         if standPlaneRandom <= DifficultyManager.instance.standPlaneFactor {
             return "stand";
         } else {
@@ -186,19 +192,19 @@ class PathEngine {
         pathItem.initialize();
         pathItem.addPathItem(scene: scene, spaceBefore: 100, drinkFlag: false, rockFlag: false);
        
-        pathItem = PathItem(imageNamed: "\(option)middleLow");
-        pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
-        
-        pathItem = PathItem(imageNamed: "\(option)middleLow");
-        pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        for _ in 0...2 {
+            pathItem = PathItem(imageNamed: "\(option)middleLow");
+            pathItem.initialize();
+            pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        }
         
         let midPathItemPosition = pathItem.position;
         
-        pathItem = PathItem(imageNamed: "\(option)middleLow");
-        pathItem.initialize();
-        pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        for _ in 0...1 {
+            pathItem = PathItem(imageNamed: "\(option)middleLow");
+            pathItem.initialize();
+            pathItem.addPathItem(scene: scene, spaceBefore: 0, drinkFlag: false, rockFlag: false);
+        }
         
         pathItem = PathItem(imageNamed: "\(option)endLow");
         pathItem.initialize();
@@ -207,14 +213,17 @@ class PathEngine {
         lastType = "end";
         lastHeight = "Low";
         
-        if portalType == "plane" {
+        if portalType == "bakery" {
+            let bakeryNum = Int.random(min: 1, max: 4);
+            portal = Portal(imageNamed: "\(bakeryNum)bakery");
+        } else if portalType == "plane" {
             portal = Portal(imageNamed: "\(portalType)");
         } else {
             portal = Portal(imageNamed: "\(option)\(portalType)");
         }
             
         // pathItem height doesn't need to be * 0.55 bc it's already initialized
-        // stand height does need * 0.5 bc it's not initialized yet
+        // stand and bakery height does need * 0.5 bc it's not initialized yet
         var offsetYValue = CGFloat();
         
         if portalType == "plane" {
@@ -224,7 +233,6 @@ class PathEngine {
         }
 
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
-       
         
         if portalType == "plane" {
             portal.makeBigger()
@@ -232,7 +240,6 @@ class PathEngine {
             
         scene.addChild(portal);
         ActionManager.instance.move(node: portal);
-        
     }
     
 }
