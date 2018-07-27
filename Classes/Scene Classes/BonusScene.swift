@@ -20,6 +20,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint();
     
     var player = Player();
+    var cake = Consumable();
     var drink = Consumable();
     var bonus = Consumable();
     
@@ -132,7 +133,9 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         moveClouds();
         
         createPlayer();
-        addConsumablesMatrix();
+        
+        originatingPortalIsBakery = GameScene.bakery;
+        addConsumablesMatrix(originatingPortalIsBakery: originatingPortalIsBakery);
         
         addQuickBubble();
         
@@ -200,7 +203,7 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
         player.fly();
     }
     
-    func addConsumablesMatrix() {
+    func addConsumablesMatrix(originatingPortalIsBakery: Bool) {
         
         var x = CGFloat(-(self.frame.size.width/2) + self.frame.size.width/6);
         var y = CGFloat(self.frame.size.height/2 - 2 * self.frame.size.height/6);
@@ -213,21 +216,31 @@ class BonusScene: SKScene, SKPhysicsContactDelegate {
                 if (i == 3 && j == 1) {
                     // do nothing bc player will be in this area
                 } else {
-        
-                    drink = Consumable(imageNamed: "\(option)drink");
-                    bonus = Consumable(imageNamed: "\(option)bonus");
-        
+                    
                     let referencePosition = CGPoint(x: x, y: y);
-            
-                    drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
-                    bonus.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Bonus");
+        
+                    if !originatingPortalIsBakery {
                     
-                    let bonusRandom = Int.random(min: 1, max: 10);
+                        drink = Consumable(imageNamed: "\(option)drink");
+                        bonus = Consumable(imageNamed: "\(option)bonus");
                     
-                    if bonusRandom <= DifficultyManager.instance.bonusFactor {
-                        self.addChild(bonus);
+                        drink.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Drink");
+                        bonus.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Bonus");
+                    
+                        let bonusRandom = Int.random(min: 1, max: 10);
+                    
+                        if bonusRandom <= DifficultyManager.instance.bonusFactor {
+                            self.addChild(bonus);
+                        } else {
+                            self.addChild(drink);
+                        };
+                        
                     } else {
-                        self.addChild(drink);
+                        
+                        let cakeNum = Int.random(min: 1, max: 9);
+                        cake = Consumable(imageNamed: "\(cakeNum)cupcake");
+                        
+                        cake.initialize(referencePosition: referencePosition, offsetYValue: CGFloat(0), type: "Cake");
                     };
                 }
                 

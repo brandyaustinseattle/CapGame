@@ -51,6 +51,14 @@ class ActionManager {
         node.run(SKAction.repeatForever(rotateSequence), withKey: "rotate");
     }
     
+    func makeBigger(node: SKNode, amount: CGFloat) {
+        let bigger = SKAction.resize(byWidth: amount, height: amount, duration: 0.5)
+        let regular = SKAction.resize(byWidth: -(amount), height: -(amount), duration: 0.5)
+        let sequence = SKAction.sequence([bigger, regular]);
+        
+        node.run(SKAction.repeatForever(sequence), withKey: "bigger");
+    }
+    
     func move(node: SKNode) {
         let selectedSpeed = DifficultyManager.instance.speed;
         let endpoint = CGPoint(x: -800, y: node.position.y);

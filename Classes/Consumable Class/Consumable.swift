@@ -17,6 +17,10 @@ class Consumable: SKSpriteNode {
         self.zPosition = 3;
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         
+        if type == "Cake" {
+            ActionManager.instance.makeBigger(node: self, amount: CGFloat(75));
+        }
+        
         if type == "Drink" {
             ActionManager.instance.rotateBackForth(node: self, denominator: 12);
         }

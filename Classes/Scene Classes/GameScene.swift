@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    public var bakery = false;
     var loadingScene = Loading();
     
     var playerSpeaking = false;
@@ -123,6 +124,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.node?.name == "Player" && (secondBody.node?.name == "Portalbakery" || secondBody.node?.name == "Portalstand") {
+            
+            if secondBody.node?.name == "Portalbakery" {
+                bakery = true;
+            }
             
             pathEngine.timer.invalidate();
         

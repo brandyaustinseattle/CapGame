@@ -235,7 +235,7 @@ class PathEngine {
         portal.initialize(midPathItemPosition: midPathItemPosition, offsetYValue: offsetYValue, type: portalType);
         
         if portalType == "plane" {
-            portal.makeBigger()
+            ActionManager.instance.makeBigger(node: portal, amount: CGFloat(250));
         }
             
         scene.addChild(portal);
