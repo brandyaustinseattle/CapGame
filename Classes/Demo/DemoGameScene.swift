@@ -31,6 +31,7 @@ class DemoGameScene: GameScene {
     
     override func playerDied() {
         timer.invalidate();
+        pathEngine.timer.invalidate();
         
         let demoGameOverScene = DemoGameOverScene(fileNamed: "DemoGameOverScene")!;
         transitionScenes(oldScene: self, newScene: demoGameOverScene)

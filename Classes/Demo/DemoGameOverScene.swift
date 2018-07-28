@@ -13,7 +13,7 @@ class DemoGameOverScene: GameOverScene {
     override func addScoreBoard() { return };
     
     override func addFunctionalityBubbles() {
-        
+                
         let position = CGPoint(x: 0, y: 0);
         let button = Bubble(type: "home", scale: 1, bubblePosition: position, label: nil)
             
